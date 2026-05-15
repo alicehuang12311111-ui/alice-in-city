@@ -36,618 +36,185 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ══════════════════════════════
-       NAV
-    ══════════════════════════════ */
+    /* NAV */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 200;
       background: rgba(245,240,232,0.95);
       backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--line);
       display: flex; align-items: center; justify-content: space-between;
-      padding: 0 24px;
-      height: 60px;
+      padding: 0 24px; height: 60px;
     }
-
-    .nav-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.05rem;
-      letter-spacing: .06em;
-      color: var(--brown);
-      text-decoration: none;
-      line-height: 1.2;
-    }
-    .nav-logo small {
-      display: block;
-      font-family: 'Noto Sans TC', sans-serif;
-      font-size: .48rem;
-      letter-spacing: .28em;
-      text-transform: uppercase;
-      color: var(--taupe);
-      font-weight: 300;
-    }
-
-    .nav-links {
-      display: none;
-      gap: 32px; list-style: none;
-    }
-    .nav-links a {
-      font-size: .72rem; letter-spacing: .16em; text-transform: uppercase;
-      color: var(--text-mid); text-decoration: none;
-      transition: color .3s;
-    }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.05rem; letter-spacing: .06em; color: var(--brown); text-decoration: none; line-height: 1.2; }
+    .nav-logo small { display: block; font-family: 'Noto Sans TC', sans-serif; font-size: .48rem; letter-spacing: .28em; text-transform: uppercase; color: var(--taupe); font-weight: 300; }
+    .nav-links { display: none; gap: 32px; list-style: none; }
+    .nav-links a { font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; color: var(--text-mid); text-decoration: none; transition: color .3s; }
     .nav-links a:hover { color: var(--brown); }
-
-    .nav-cta-btn {
-      display: none;
-      font-size: .65rem; letter-spacing: .2em; text-transform: uppercase;
-      color: var(--white); background: var(--brown);
-      padding: 9px 20px; text-decoration: none;
-      transition: background .3s;
-    }
+    .nav-cta-btn { display: none; font-size: .65rem; letter-spacing: .2em; text-transform: uppercase; color: var(--white); background: var(--brown); padding: 9px 20px; text-decoration: none; transition: background .3s; }
     .nav-cta-btn:hover { background: var(--taupe-dark); }
-
-    .hamburger {
-      display: flex; flex-direction: column; gap: 5px;
-      cursor: pointer; padding: 4px; background: none; border: none;
-    }
-    .hamburger span {
-      display: block; width: 22px; height: 1px;
-      background: var(--brown); transition: .3s;
-    }
+    .hamburger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .hamburger span { display: block; width: 22px; height: 1px; background: var(--brown); transition: .3s; }
     .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
     .hamburger.open span:nth-child(2) { opacity: 0; }
     .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(4px, -4px); }
-
-    .mobile-menu {
-      position: fixed; inset: 0; z-index: 190;
-      background: var(--white);
-      display: flex; flex-direction: column;
-      justify-content: center; align-items: center; gap: 32px;
-      opacity: 0; pointer-events: none;
-      transition: opacity .35s ease;
-    }
+    .mobile-menu { position: fixed; inset: 0; z-index: 190; background: var(--white); display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 32px; opacity: 0; pointer-events: none; transition: opacity .35s ease; }
     .mobile-menu.open { opacity: 1; pointer-events: auto; }
-    .mobile-menu a {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.6rem; font-weight: 400;
-      color: var(--brown); text-decoration: none;
-      letter-spacing: .04em;
-      opacity: 0; transform: translateY(14px);
-      transition: color .3s, opacity .4s, transform .4s;
-    }
+    .mobile-menu a { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 400; color: var(--brown); text-decoration: none; letter-spacing: .04em; opacity: 0; transform: translateY(14px); transition: color .3s, opacity .4s, transform .4s; }
     .mobile-menu.open a { opacity: 1; transform: translateY(0); }
-    .mobile-menu.open a:nth-child(1) { transition-delay: .07s; }
-    .mobile-menu.open a:nth-child(2) { transition-delay: .13s; }
-    .mobile-menu.open a:nth-child(3) { transition-delay: .19s; }
-    .mobile-menu.open a:nth-child(4) { transition-delay: .25s; }
-    .mobile-menu.open a:nth-child(5) { transition-delay: .31s; }
-    .mobile-menu.open a:nth-child(6) { transition-delay: .37s; }
+    .mobile-menu.open a:nth-child(1){transition-delay:.07s}.mobile-menu.open a:nth-child(2){transition-delay:.13s}.mobile-menu.open a:nth-child(3){transition-delay:.19s}.mobile-menu.open a:nth-child(4){transition-delay:.25s}
     .mobile-menu a:hover { color: var(--gold); }
     .mobile-menu-divider { width: 36px; height: 1px; background: var(--line-dark); }
-    .mobile-menu-contact {
-      font-size: .72rem; color: var(--text-dim);
-      text-align: center; line-height: 1.8;
-      opacity: 0; transition: opacity .4s .44s;
-    }
+    .mobile-menu-contact { font-size: .72rem; color: var(--text-dim); text-align: center; line-height: 1.8; opacity: 0; transition: opacity .4s .44s; }
     .mobile-menu.open .mobile-menu-contact { opacity: 1; }
 
-    /* ══════════════════════════════
-       HERO
-    ══════════════════════════════ */
-    .hero {
-      padding-top: 60px;
-      min-height: 100svh;
-      display: flex; flex-direction: column;
-      background: var(--cream);
-    }
-
-    .hero-img-wrap {
-      width: 100%; height: 56vw;
-      min-height: 240px; max-height: 520px;
-      overflow: hidden; position: relative; flex-shrink: 0;
-    }
-    .hero-img-wrap img {
-      width: 100%; height: 100%; object-fit: cover;
-      animation: heroZoom 14s ease-out forwards;
-    }
-    @keyframes heroZoom {
-      from { transform: scale(1.07); }
-      to   { transform: scale(1); }
-    }
-    .hero-img-wrap::after {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(to bottom, transparent 55%, var(--cream) 100%);
-    }
-
-    .hero-body {
-      padding: 28px 24px 52px;
-      flex: 1; display: flex; flex-direction: column; justify-content: center;
-    }
-
-    .hero-eyebrow {
-      font-size: .6rem; letter-spacing: .32em; text-transform: uppercase;
-      color: var(--taupe); margin-bottom: 16px;
-      display: flex; align-items: center; gap: 10px;
-      opacity: 0; animation: fadeUp .7s .2s forwards;
-    }
-    .hero-eyebrow::before {
-      content: ''; display: inline-block;
-      width: 20px; height: 1px; background: var(--gold);
-    }
-
-    .hero-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.2rem, 9vw, 4.8rem);
-      font-weight: 400; line-height: 1.1;
-      color: var(--brown); margin-bottom: 18px;
-      opacity: 0; animation: fadeUp .7s .35s forwards;
-    }
+    /* HERO */
+    .hero { padding-top: 60px; min-height: 100svh; display: flex; flex-direction: column; background: var(--cream); }
+    .hero-img-wrap { width: 100%; height: 56vw; min-height: 240px; max-height: 520px; overflow: hidden; position: relative; flex-shrink: 0; }
+    .hero-img-wrap img { width: 100%; height: 100%; object-fit: cover; animation: heroZoom 14s ease-out forwards; }
+    @keyframes heroZoom { from { transform: scale(1.07); } to { transform: scale(1); } }
+    .hero-img-wrap::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 55%, var(--cream) 100%); }
+    .hero-body { padding: 28px 24px 52px; flex: 1; display: flex; flex-direction: column; justify-content: center; }
+    .hero-eyebrow { font-size: .6rem; letter-spacing: .32em; text-transform: uppercase; color: var(--taupe); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; opacity: 0; animation: fadeUp .7s .2s forwards; }
+    .hero-eyebrow::before { content: ''; display: inline-block; width: 20px; height: 1px; background: var(--gold); }
+    .hero-title { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 9vw, 4.8rem); font-weight: 400; line-height: 1.1; color: var(--brown); margin-bottom: 18px; opacity: 0; animation: fadeUp .7s .35s forwards; }
     .hero-title em { font-style: italic; color: var(--gold); }
+    .hero-desc { font-size: .86rem; line-height: 1.9; color: var(--text-mid); margin-bottom: 32px; max-width: 480px; opacity: 0; animation: fadeUp .7s .5s forwards; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; opacity: 0; animation: fadeUp .7s .65s forwards; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
 
-    .hero-desc {
-      font-size: .86rem; line-height: 1.9;
-      color: var(--text-mid); margin-bottom: 32px;
-      max-width: 480px;
-      opacity: 0; animation: fadeUp .7s .5s forwards;
-    }
-
-    .hero-actions {
-      display: flex; gap: 12px; flex-wrap: wrap;
-      opacity: 0; animation: fadeUp .7s .65s forwards;
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(18px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ══════════════════════════════
-       BUTTONS
-    ══════════════════════════════ */
-    .btn-primary {
-      display: inline-block;
-      font-size: .68rem; letter-spacing: .2em; text-transform: uppercase;
-      background: var(--brown); color: var(--white);
-      padding: 13px 26px; text-decoration: none;
-      transition: background .3s;
-    }
+    /* BUTTONS */
+    .btn-primary { display: inline-block; font-size: .68rem; letter-spacing: .2em; text-transform: uppercase; background: var(--brown); color: var(--white); padding: 13px 26px; text-decoration: none; transition: background .3s; }
     .btn-primary:hover { background: var(--taupe-dark); }
-
-    .btn-outline {
-      display: inline-block;
-      font-size: .68rem; letter-spacing: .2em; text-transform: uppercase;
-      border: 1px solid var(--taupe); color: var(--taupe);
-      padding: 12px 22px; text-decoration: none;
-      transition: border-color .3s, color .3s;
-    }
+    .btn-outline { display: inline-block; font-size: .68rem; letter-spacing: .2em; text-transform: uppercase; border: 1px solid var(--taupe); color: var(--taupe); padding: 12px 22px; text-decoration: none; transition: border-color .3s, color .3s; }
     .btn-outline:hover { border-color: var(--brown); color: var(--brown); }
 
-    /* ══════════════════════════════
-       MARQUEE
-    ══════════════════════════════ */
-    .marquee-wrap {
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      background: var(--cream-mid);
-      overflow: hidden; padding: 13px 0;
-    }
-    .marquee-track {
-      display: flex; white-space: nowrap;
-      animation: marquee 22s linear infinite;
-    }
-    @keyframes marquee {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
-    .marquee-track span {
-      font-size: .65rem; letter-spacing: .22em; text-transform: uppercase;
-      color: var(--taupe); padding: 0 26px;
-    }
+    /* MARQUEE */
+    .marquee-wrap { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--cream-mid); overflow: hidden; padding: 13px 0; }
+    .marquee-track { display: flex; white-space: nowrap; animation: marquee 22s linear infinite; }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .marquee-track span { font-size: .65rem; letter-spacing: .22em; text-transform: uppercase; color: var(--taupe); padding: 0 26px; }
     .marquee-track .dot { color: var(--gold); font-size: .45rem; padding: 0; }
 
-    /* ══════════════════════════════
-       SECTION BASE
-    ══════════════════════════════ */
+    /* SECTION BASE */
     .section { padding: 60px 24px; }
-
-    .section-label {
-      font-size: .6rem; letter-spacing: .3em; text-transform: uppercase;
-      color: var(--taupe); margin-bottom: 12px;
-      display: flex; align-items: center; gap: 10px;
-    }
-    .section-label::before {
-      content: ''; display: inline-block;
-      width: 18px; height: 1px; background: var(--gold);
-    }
-
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.7rem, 6vw, 2.8rem);
-      font-weight: 400; line-height: 1.2;
-      color: var(--brown); margin-bottom: 14px;
-    }
+    .section-label { font-size: .6rem; letter-spacing: .3em; text-transform: uppercase; color: var(--taupe); margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+    .section-label::before { content: ''; display: inline-block; width: 18px; height: 1px; background: var(--gold); }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.7rem, 6vw, 2.8rem); font-weight: 400; line-height: 1.2; color: var(--brown); margin-bottom: 14px; }
     .section-title em { font-style: italic; color: var(--gold); }
+    .section-desc { font-size: .84rem; line-height: 1.9; color: var(--text-mid); }
 
-    .section-desc {
-      font-size: .84rem; line-height: 1.9; color: var(--text-mid);
-    }
-
-    /* ══════════════════════════════
-       ABOUT
-    ══════════════════════════════ */
+    /* ABOUT */
     .about { background: var(--white); }
-
-    .about-img {
-      width: 100%; aspect-ratio: 4/3;
-      overflow: hidden; margin-bottom: 30px;
-      position: relative;
-    }
-    .about-img::before {
-      content: ''; position: absolute;
-      top: -8px; left: -8px;
-      width: 48px; height: 48px;
-      border-top: 1.5px solid var(--gold);
-      border-left: 1.5px solid var(--gold);
-      z-index: 1;
-    }
-    .about-img img {
-      width: 100%; height: 100%; object-fit: cover;
-      transition: transform .7s;
-    }
-    .about-img:hover img { transform: scale(1.03); }
-
-    .stats-row {
-      display: grid; grid-template-columns: repeat(3,1fr);
-      gap: 1px; background: var(--line);
-      border: 1px solid var(--line);
-      margin-top: 36px;
-    }
-    .stat-box {
-      background: var(--white); padding: 20px 12px; text-align: center;
-    }
-    .stat-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.9rem; color: var(--brown); line-height: 1;
-    }
+    .stats-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 36px; }
+    .stat-box { background: var(--white); padding: 20px 12px; text-align: center; }
+    .stat-num { font-family: 'Playfair Display', serif; font-size: 1.9rem; color: var(--brown); line-height: 1; }
     .stat-num sup { font-size: .85rem; }
-    .stat-label {
-      font-size: .58rem; letter-spacing: .14em; text-transform: uppercase;
-      color: var(--text-dim); margin-top: 5px;
-    }
+    .stat-label { font-size: .58rem; letter-spacing: .14em; text-transform: uppercase; color: var(--text-dim); margin-top: 5px; }
 
-    /* ══════════════════════════════
-       DESTINATIONS
-    ══════════════════════════════ */
+    /* DESTINATIONS */
     .destinations { background: var(--cream); }
-
-    .dest-cards {
-      display: flex; flex-direction: column; gap: 2px; margin-top: 28px;
-    }
-
-    .dest-card {
-      position: relative; overflow: hidden;
-      text-decoration: none; display: block;
-      aspect-ratio: 16/9;
-    }
-    .dest-card img {
-      width: 100%; height: 100%; object-fit: cover; display: block;
-      transition: transform .6s; filter: brightness(.72);
-    }
+    .dest-cards { display: flex; flex-direction: column; gap: 2px; margin-top: 28px; }
+    .dest-card { position: relative; overflow: hidden; text-decoration: none; display: block; aspect-ratio: 16/9; }
+    .dest-card img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s; filter: brightness(.72); }
     .dest-card:hover img { transform: scale(1.04); filter: brightness(.82); }
-
-    .dest-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(25,16,8,.82) 0%, rgba(25,16,8,.08) 60%);
-    }
-    .dest-info {
-      position: absolute; bottom: 0; left: 0; right: 0; padding: 18px 20px;
-      display: flex; align-items: flex-end; justify-content: space-between;
-    }
-    .dest-country {
-      font-size: .56rem; letter-spacing: .26em; text-transform: uppercase;
-      color: var(--gold-light); margin-bottom: 4px;
-    }
-    .dest-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.35rem; font-weight: 400; color: #fff; line-height: 1.1;
-    }
-    .dest-tag {
-      font-size: .55rem; letter-spacing: .14em; text-transform: uppercase;
-      color: rgba(255,255,255,.5); border: 1px solid rgba(255,255,255,.3);
-      padding: 4px 9px; flex-shrink: 0; margin-left: 10px;
-    }
+    .dest-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(25,16,8,.82) 0%, rgba(25,16,8,.08) 60%); }
+    .dest-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 18px 20px; display: flex; align-items: flex-end; justify-content: space-between; }
+    .dest-country { font-size: .56rem; letter-spacing: .26em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 4px; }
+    .dest-name { font-family: 'Playfair Display', serif; font-size: 1.35rem; font-weight: 400; color: #fff; line-height: 1.1; }
+    .dest-tag { font-size: .55rem; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.5); border: 1px solid rgba(255,255,255,.3); padding: 4px 9px; flex-shrink: 0; margin-left: 10px; }
     .dest-coming { color: var(--gold-light); border-color: rgba(184,154,106,.4); }
 
-    /* ══════════════════════════════
-       LISTINGS
-    ══════════════════════════════ */
+    /* LISTINGS */
     .listings { background: var(--cream-mid); }
-
-    .listings-scroll {
-      display: flex; gap: 12px;
-      overflow-x: auto;
-      margin: 0 -24px; padding: 28px 24px 8px;
-      scrollbar-width: none;
-      -webkit-overflow-scrolling: touch;
-      scroll-snap-type: x mandatory;
-    }
+    .listings-scroll { display: flex; gap: 12px; overflow-x: auto; margin: 0 -24px; padding: 28px 24px 8px; scrollbar-width: none; -webkit-overflow-scrolling: touch; scroll-snap-type: x mandatory; }
     .listings-scroll::-webkit-scrollbar { display: none; }
-
-    .listing-card {
-      flex: 0 0 78vw; max-width: 300px;
-      background: var(--white);
-      text-decoration: none; display: block;
-      scroll-snap-align: start;
-    }
-    .listing-img-wrap {
-      position: relative; aspect-ratio: 4/3; overflow: hidden;
-    }
-    .listing-img-wrap img {
-      width: 100%; height: 100%; object-fit: cover;
-      transition: transform .6s; filter: brightness(.88);
-    }
+    .listing-card { flex: 0 0 78vw; max-width: 300px; background: var(--white); text-decoration: none; display: block; scroll-snap-align: start; }
+    .listing-img-wrap { position: relative; aspect-ratio: 4/3; overflow: hidden; }
+    .listing-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s; filter: brightness(.88); }
     .listing-card:hover .listing-img-wrap img { transform: scale(1.04); }
-
-    .listing-badge {
-      position: absolute; top: 12px; left: 12px;
-      font-size: .52rem; letter-spacing: .2em; text-transform: uppercase;
-      background: var(--brown); color: var(--cream); padding: 3px 9px;
-    }
+    .listing-badge { position: absolute; top: 12px; left: 12px; font-size: .52rem; letter-spacing: .2em; text-transform: uppercase; background: var(--brown); color: var(--cream); padding: 3px 9px; }
     .listing-body { padding: 16px 16px 20px; }
-    .listing-loc {
-      font-size: .58rem; letter-spacing: .18em; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 6px;
-    }
-    .listing-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 1rem; font-weight: 400;
-      color: var(--brown); margin-bottom: 7px; line-height: 1.3;
-    }
-    .listing-desc {
-      font-size: .74rem; color: var(--text-dim); line-height: 1.8; margin-bottom: 14px;
-    }
-    .listing-footer {
-      display: flex; justify-content: space-between; align-items: center;
-      padding-top: 12px; border-top: 1px solid var(--line);
-    }
-    .listing-price {
-      font-family: 'Playfair Display', serif;
-      font-size: .92rem; color: var(--taupe-dark);
-    }
-    .listing-more {
-      font-size: .58rem; letter-spacing: .16em; text-transform: uppercase; color: var(--gold);
-    }
-    .scroll-hint {
-      font-size: .6rem; letter-spacing: .16em; text-transform: uppercase;
-      color: var(--text-dim); text-align: center; margin-top: 12px;
-      display: flex; align-items: center; justify-content: center; gap: 8px;
-    }
-    .scroll-hint::before, .scroll-hint::after {
-      content: ''; display: inline-block; width: 18px; height: 1px; background: var(--line-dark);
-    }
+    .listing-loc { font-size: .58rem; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+    .listing-name { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 400; color: var(--brown); margin-bottom: 7px; line-height: 1.3; }
+    .listing-desc { font-size: .74rem; color: var(--text-dim); line-height: 1.8; margin-bottom: 14px; }
+    .listing-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 12px; border-top: 1px solid var(--line); }
+    .listing-price { font-family: 'Playfair Display', serif; font-size: .92rem; color: var(--taupe-dark); }
+    .listing-more { font-size: .58rem; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); }
+    .scroll-hint { font-size: .6rem; letter-spacing: .16em; text-transform: uppercase; color: var(--text-dim); text-align: center; margin-top: 12px; display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .scroll-hint::before, .scroll-hint::after { content: ''; display: inline-block; width: 18px; height: 1px; background: var(--line-dark); }
 
-    /* ══════════════════════════════
-       KNOWLEDGE
-    ══════════════════════════════ */
+    /* KNOWLEDGE */
     .knowledge { background: var(--white); }
-
-    .article-featured {
-      display: block; text-decoration: none; margin-bottom: 2px;
-    }
-    .article-featured-img {
-      width: 100%; aspect-ratio: 16/9; overflow: hidden;
-    }
-    .article-featured-img img {
-      width: 100%; height: 100%; object-fit: cover;
-      transition: transform .6s;
-    }
+    .article-featured { display: block; text-decoration: none; margin-bottom: 2px; }
+    .article-featured-img { width: 100%; aspect-ratio: 16/9; overflow: hidden; }
+    .article-featured-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s; }
     .article-featured:hover .article-featured-img img { transform: scale(1.03); }
-    .article-featured-body {
-      padding: 18px 0 22px; border-bottom: 1px solid var(--line);
-    }
-    .article-tag {
-      font-size: .56rem; letter-spacing: .22em; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 7px;
-    }
-    .article-featured-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.15rem; font-weight: 400; line-height: 1.4;
-      color: var(--brown); margin-bottom: 9px;
-    }
-    .article-featured-excerpt {
-      font-size: .78rem; color: var(--text-mid); line-height: 1.8;
-    }
-
+    .article-featured-body { padding: 18px 0 22px; border-bottom: 1px solid var(--line); }
+    .article-tag { font-size: .56rem; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); margin-bottom: 7px; }
+    .article-featured-title { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 400; line-height: 1.4; color: var(--brown); margin-bottom: 9px; }
+    .article-featured-excerpt { font-size: .78rem; color: var(--text-mid); line-height: 1.8; }
     .article-list { margin-top: 0; }
-    .article-item {
-      display: flex; gap: 14px; align-items: flex-start;
-      padding: 18px 0; border-bottom: 1px solid var(--line);
-      text-decoration: none; color: inherit;
-    }
-    .article-thumb {
-      flex: 0 0 76px; width: 76px; height: 76px; overflow: hidden;
-    }
-    .article-thumb img {
-      width: 100%; height: 100%; object-fit: cover; transition: transform .5s;
-    }
+    .article-item { display: flex; gap: 14px; align-items: flex-start; padding: 18px 0; border-bottom: 1px solid var(--line); text-decoration: none; color: inherit; }
+    .article-thumb { flex: 0 0 76px; width: 76px; height: 76px; overflow: hidden; }
+    .article-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
     .article-item:hover .article-thumb img { transform: scale(1.06); }
-    .article-title {
-      font-family: 'Noto Serif TC', serif;
-      font-size: .86rem; font-weight: 400; line-height: 1.5;
-      color: var(--brown); margin-bottom: 5px;
-    }
+    .article-title { font-family: 'Noto Serif TC', serif; font-size: .86rem; font-weight: 400; line-height: 1.5; color: var(--brown); margin-bottom: 5px; }
     .article-date { font-size: .6rem; color: var(--text-dim); }
 
-    /* ══════════════════════════════
-       SEMINAR
-    ══════════════════════════════ */
-    .seminar { background: var(--brown); }
-    .seminar .section-label { color: rgba(212,184,138,.8); }
-    .seminar .section-label::before { background: var(--gold-light); }
-    .seminar .section-title { color: var(--cream); }
-    .seminar .section-title em { color: var(--gold-light); }
-    .seminar .section-desc { color: rgba(245,240,232,.55); }
-
-    .seminar-date-card {
-      margin-top: 32px; border: 1px solid rgba(184,154,106,.3);
-      padding: 24px 22px; display: flex; gap: 20px; align-items: center;
-    }
-    .seminar-date-big {
-      font-family: 'Playfair Display', serif;
-      font-size: 3.2rem; color: var(--gold-light); line-height: 1; flex-shrink: 0;
-    }
-    .seminar-month {
-      font-size: .58rem; letter-spacing: .26em; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 4px;
-    }
-    .seminar-where {
-      font-size: .78rem; color: rgba(245,240,232,.65); line-height: 1.7;
-    }
-    .btn-cream {
-      display: inline-block; margin-top: 24px;
-      font-size: .66rem; letter-spacing: .2em; text-transform: uppercase;
-      background: var(--cream); color: var(--brown);
-      padding: 12px 26px; text-decoration: none; transition: background .3s;
-    }
-    .btn-cream:hover { background: var(--cream-dark); }
-
-    /* ══════════════════════════════
-       CONTACT BANNER
-    ══════════════════════════════ */
+    /* CONTACT BANNER */
     .contact-banner { background: var(--gold); padding: 44px 24px; }
-    .contact-banner-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.55rem, 5.5vw, 2.4rem);
-      font-weight: 400; line-height: 1.2;
-      color: var(--brown); margin-bottom: 10px;
-    }
+    .contact-banner-title { font-family: 'Playfair Display', serif; font-size: clamp(1.55rem, 5.5vw, 2.4rem); font-weight: 400; line-height: 1.2; color: var(--brown); margin-bottom: 10px; }
     .contact-banner-title em { font-style: italic; }
-    .contact-banner-sub {
-      font-size: .8rem; color: rgba(61,48,40,.65);
-      line-height: 1.8; margin-bottom: 24px;
-    }
-    .btn-brown {
-      display: inline-block;
-      font-size: .66rem; letter-spacing: .2em; text-transform: uppercase;
-      background: var(--brown); color: var(--cream);
-      padding: 12px 26px; text-decoration: none; transition: background .3s;
-    }
+    .contact-banner-sub { font-size: .8rem; color: rgba(61,48,40,.65); line-height: 1.8; margin-bottom: 24px; }
+    .btn-brown { display: inline-block; font-size: .66rem; letter-spacing: .2em; text-transform: uppercase; background: var(--brown); color: var(--cream); padding: 12px 26px; text-decoration: none; transition: background .3s; }
     .btn-brown:hover { background: var(--taupe-dark); }
 
-    /* ══════════════════════════════
-       FOOTER
-    ══════════════════════════════ */
-    footer {
-      background: var(--brown); padding: 52px 24px 32px;
-      border-top: 2px solid var(--gold);
-    }
-    .footer-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.05rem; color: var(--cream); margin-bottom: 7px;
-    }
-    .footer-tagline {
-      font-size: .73rem; color: rgba(245,240,232,.45);
-      line-height: 1.8; margin-bottom: 36px;
-    }
-    .footer-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 28px 16px; margin-bottom: 36px;
-    }
-    .footer-col-title {
-      font-size: .56rem; letter-spacing: .28em; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 12px;
-    }
+    /* FOOTER */
+    footer { background: var(--brown); padding: 52px 24px 32px; border-top: 2px solid var(--gold); }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--cream); margin-bottom: 7px; }
+    .footer-tagline { font-size: .73rem; color: rgba(245,240,232,.45); line-height: 1.8; margin-bottom: 36px; }
+    .footer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 16px; margin-bottom: 36px; }
+    .footer-col-title { font-size: .56rem; letter-spacing: .28em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
     .footer-col ul { list-style: none; }
     .footer-col ul li { margin-bottom: 8px; }
-    .footer-col ul a {
-      font-size: .76rem; color: rgba(245,240,232,.5);
-      text-decoration: none; transition: color .3s;
-    }
+    .footer-col ul a { font-size: .76rem; color: rgba(245,240,232,.5); text-decoration: none; transition: color .3s; }
     .footer-col ul a:hover { color: var(--cream); }
-    .footer-contact-item {
-      font-size: .76rem; color: rgba(245,240,232,.5); line-height: 1.8; margin-bottom: 7px;
-    }
+    .footer-contact-item { font-size: .76rem; color: rgba(245,240,232,.5); line-height: 1.8; margin-bottom: 7px; }
     .footer-contact-item strong { color: rgba(245,240,232,.72); font-weight: 400; }
-    .footer-bottom {
-      padding-top: 22px; border-top: 1px solid rgba(184,154,106,.18);
-    }
-    .footer-copy {
-      font-size: .62rem; color: rgba(245,240,232,.28); line-height: 1.8; margin-bottom: 6px;
-    }
+    .footer-bottom { padding-top: 22px; border-top: 1px solid rgba(184,154,106,.18); }
+    .footer-copy { font-size: .62rem; color: rgba(245,240,232,.28); line-height: 1.8; margin-bottom: 6px; }
     .footer-disclaimer { font-size: .58rem; color: rgba(245,240,232,.18); line-height: 1.7; }
 
-    /* ══════════════════════════════
-       REVEAL
-    ══════════════════════════════ */
-    .reveal {
-      opacity: 0; transform: translateY(22px);
-      transition: opacity .75s ease, transform .75s ease;
-    }
+    /* REVEAL */
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .75s ease, transform .75s ease; }
     .reveal.in { opacity: 1; transform: translateY(0); }
     .rd1 { transition-delay: .1s; }
     .rd2 { transition-delay: .2s; }
     .rd3 { transition-delay: .3s; }
 
-    /* ══════════════════════════════
-       DESKTOP (≥ 768px)
-    ══════════════════════════════ */
+    /* DESKTOP */
     @media (min-width: 768px) {
       nav { padding: 0 48px; height: 68px; }
       .hamburger { display: none; }
       .nav-links { display: flex; }
       .nav-cta-btn { display: inline-block; }
-
       .section { padding: 96px 56px; }
-
       .hero { flex-direction: row; min-height: 100svh; padding-top: 68px; }
-      .hero-img-wrap {
-        flex: 0 0 50%; height: auto; max-height: none;
-        aspect-ratio: unset;
-      }
-      .hero-img-wrap::after {
-        background: linear-gradient(to right, transparent 60%, var(--cream) 100%);
-      }
+      .hero-img-wrap { flex: 0 0 50%; height: auto; max-height: none; aspect-ratio: unset; }
+      .hero-img-wrap::after { background: linear-gradient(to right, transparent 60%, var(--cream) 100%); }
       .hero-body { flex: 1; padding: 80px 60px 80px 52px; justify-content: center; }
-
-      .about-inner {
-        display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
-      }
-      .about-img { margin-bottom: 0; aspect-ratio: 3/4; }
-
-      .dest-cards {
-        display: grid; grid-template-columns: 1.4fr 1fr;
-        grid-template-rows: 1fr 1fr; gap: 2px; height: 580px;
-      }
+      .about-inner { display: grid; grid-template-columns: 1fr; gap: 0; }
+      .dest-cards { display: grid; grid-template-columns: 1.4fr 1fr; grid-template-rows: 1fr 1fr; gap: 2px; height: 580px; }
       .dest-card { aspect-ratio: unset; height: 100%; }
       .dest-card:first-child { grid-row: span 2; }
-
-      .listings-scroll {
-        display: grid; grid-template-columns: repeat(3, 1fr);
-        gap: 2px; overflow: visible;
-        margin: 28px 0 0; padding: 0;
-      }
+      .listings-scroll { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; overflow: visible; margin: 28px 0 0; padding: 0; }
       .listing-card { flex: none; max-width: none; }
       .scroll-hint { display: none; }
-
-      .knowledge-inner {
-        display: grid; grid-template-columns: 1fr 1fr; gap: 0 48px;
-      }
-
-      .seminar-inner {
-        display: grid; grid-template-columns: 1fr auto; gap: 64px; align-items: center;
-      }
-      .seminar-date-card { margin-top: 0; }
-
+      .knowledge-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 0 48px; }
       .contact-banner { padding: 56px; }
-      .contact-banner-inner {
-        display: flex; align-items: center; justify-content: space-between; gap: 40px;
-      }
-
+      .contact-banner-inner { display: flex; align-items: center; justify-content: space-between; gap: 40px; }
       .footer-grid { grid-template-columns: repeat(4, 1fr); }
     }
-
     @media (min-width: 1200px) {
       nav, .section, .contact-banner, footer { padding-left: 80px; padding-right: 80px; }
       nav { height: 72px; }
@@ -658,20 +225,15 @@
 
 <!-- NAV -->
 <nav>
-  <a class="nav-logo" href="index.html">
-    愛麗絲奇寓記
-    <small>Alice in City · Overseas Property</small>
-  </a>
+  <a class="nav-logo" href="index.html">愛麗絲奇寓記<small>Alice in City · Overseas Property</small></a>
   <ul class="nav-links">
     <li><a href="index.html" class="active">首頁</a></li>
     <li><a href="about.html">關於我們</a></li>
     <li><a href="thailand-articles.html">泰國房產</a></li>
     <li><a href="japan.html">日本房產</a></li>
   </ul>
-  <a class="nav-cta-btn" href="contact.html">立即諮詢</a>
-  <button class="hamburger" id="hamburger" aria-label="選單">
-    <span></span><span></span><span></span>
-  </button>
+  <a class="nav-cta-btn" href="https://line.me/ti/p/rY37pUpv_k" target="_blank">立即諮詢</a>
+  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
 </nav>
 
 <!-- MOBILE MENU -->
@@ -680,8 +242,6 @@
   <a href="about.html" onclick="closeMenu()">關於我們</a>
   <a href="thailand-articles.html" onclick="closeMenu()">泰國房產</a>
   <a href="japan.html" onclick="closeMenu()">日本房產</a>
-  <a href="seminar.html" onclick="closeMenu()">說明會</a>
-  <a href="contact.html" onclick="closeMenu()">聯絡我們</a>
   <div class="mobile-menu-divider"></div>
   <p class="mobile-menu-contact">Alice 0929-688-608<br>（手機加賴）</p>
 </div>
@@ -689,19 +249,14 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-img-wrap">
-    <!-- 換成你自己的照片：把下方網址替換成你的圖片路徑，例如 images/hero.jpg -->
-<img src="Bangkok-City-Centre-Business-Lifestyle-Neighborhoods-scaled.jpg" alt="曼谷城市景觀" />
+<img src="silom-bangkok-thailand-658515368.jpeg" alt="曼谷城市景觀" />
   </div>
   <div class="hero-body">
     <p class="hero-eyebrow">海外精選不動產</p>
-    <h1 class="hero-title">
-      開啟你的<br><em>海外置產</em><br>新章節
-    </h1>
-    <p class="hero-desc">
-      愛麗絲奇寓記，專注泰國、日本精選建案，為台灣買家提供全程中文服務，從選屋到過戶，陪你走完每一步。
-    </p>
+    <h1 class="hero-title">開啟你的<br><em>海外置產</em><br>新章節</h1>
+    <p class="hero-desc">愛麗絲奇寓記，專注泰國、日本精選建案，為台灣買家提供全程中文服務，從選屋到過戶，陪你走完每一步。</p>
     <div class="hero-actions">
-<a class="btn-primary" href="#listings">瀏覽精選建案</a>
+      <a class="btn-primary" href="#listings">瀏覽精選建案</a>
       <a class="btn-outline" href="about.html">了解我們</a>
     </div>
   </div>
@@ -715,14 +270,12 @@
     <span>泰國購屋知識</span><span class="dot">◆</span>
     <span>全程中文服務</span><span class="dot">◆</span>
     <span>預售屋・成屋</span><span class="dot">◆</span>
-    <span>台北說明會</span><span class="dot">◆</span>
     <span>海外投資規劃</span><span class="dot">◆</span>
     <span>曼谷精選建案</span><span class="dot">◆</span>
     <span>東京不動產</span><span class="dot">◆</span>
     <span>泰國購屋知識</span><span class="dot">◆</span>
     <span>全程中文服務</span><span class="dot">◆</span>
     <span>預售屋・成屋</span><span class="dot">◆</span>
-    <span>台北說明會</span><span class="dot">◆</span>
     <span>海外投資規劃</span><span class="dot">◆</span>
   </div>
 </div>
@@ -730,31 +283,15 @@
 <!-- ABOUT -->
 <section class="section about reveal">
   <div class="about-inner">
-    <div class="about-img">
-      <!-- 換成你的團隊照片或辦公室照片 -->
-    </div>
     <div>
       <p class="section-label">關於我們</p>
-<h2 class="section-title">你的<em>海外生活顧問</em></h2>
-      <p class="section-desc" style="margin-bottom:14px;">
-        我們深耕泰國、日本不動產市場多年，了解每一個台灣人走向海外的故事——有人為了投資，有人為了生活，有人只是想在這個世界多留一個落腳處。
-      </p>
-      <p class="section-desc">
-        愛麗絲奇寓記提供全中文、一對一的服務，從市場分析、建案選擇到簽約過戶，我們陪你走完每一步。
-      </p>
+      <h2 class="section-title">你的<em>海外生活顧問</em></h2>
+      <p class="section-desc" style="margin-bottom:14px;">我們深耕泰國、日本不動產市場，了解每一個台灣人走向海外的故事——有人為了投資，有人為了生活，有人只是想在這個世界多留一個落腳處。</p>
+      <p class="section-desc">愛麗絲奇寓記提供全中文、一對一的服務，從市場分析、建案選擇到簽約過戶，我們陪你走完每一步。</p>
       <div class="stats-row">
-        <div class="stat-box">
-          <div class="stat-num">50<sup>+</sup></div>
-          <div class="stat-label">合作建案</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-num">10</div>
-          <div class="stat-label">國家市場</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-num">15<sup>萬</sup></div>
-          <div class="stat-label">旅泰台灣人</div>
-        </div>
+        <div class="stat-box"><div class="stat-num">100<sup>+</sup></div><div class="stat-label">合作建案</div></div>
+        <div class="stat-box"><div class="stat-num">10</div><div class="stat-label">國家市場</div></div>
+        <div class="stat-box"><div class="stat-num">15<sup>萬</sup></div><div class="stat-label">旅泰台灣人</div></div>
       </div>
     </div>
   </div>
@@ -765,11 +302,9 @@
   <p class="section-label">投資目的地</p>
   <h2 class="section-title">選擇你的<em>下一個城市</em></h2>
   <p class="section-desc">泰國、日本、馬來西亞——我們在最值得關注的市場為你精選建案。</p>
-
   <div class="dest-cards">
     <a class="dest-card rd1 reveal" href="thailand-articles.html">
-      <!-- 換成曼谷城市照片 -->
-<img src="iconsiam-07.jpg" alt="曼谷" loading="lazy" />
+      <img src="iconsiam-07.jpg" alt="曼谷" loading="lazy" />
       <div class="dest-overlay"></div>
       <div class="dest-info">
         <div>
@@ -780,8 +315,7 @@
       </div>
     </a>
     <a class="dest-card rd2 reveal" href="japan.html">
-      <!-- 換成東京城市照片 -->
-<img src="280f01d90cc0420932addceff4d25b2369f4149d-1600x1066.jpg" alt="東京" loading="lazy" />
+      <img src="280f01d90cc0420932addceff4d25b2369f4149d-1600x1066.jpg" alt="東京" loading="lazy" />
       <div class="dest-overlay"></div>
       <div class="dest-info">
         <div>
@@ -790,11 +324,25 @@
         </div>
         <span class="dest-tag">20+ 新建案</span>
       </div>
-    <!-- LISTINGS -->
+    </a>
+    <a class="dest-card rd3 reveal" href="#">
+      <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=700&q=80" alt="吉隆坡" loading="lazy" />
+      <div class="dest-overlay"></div>
+      <div class="dest-info">
+        <div>
+          <p class="dest-country">Malaysia · 馬來西亞</p>
+          <h3 class="dest-name">吉隆坡 KL</h3>
+        </div>
+        <span class="dest-tag dest-coming">即將推出</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- LISTINGS -->
 <section class="section listings reveal" id="listings">
   <p class="section-label">精選建案</p>
   <h2 class="section-title">近期<em>熱門推薦</em></h2>
-
   <div class="listings-scroll">
     <a class="listing-card" href="noble-emmerse-phrom-phong/property-noble-emmerse-phrom-phong.html">
       <div class="listing-img-wrap">
@@ -852,9 +400,8 @@
 <section class="section knowledge reveal">
   <p class="section-label">購屋知識</p>
   <h2 class="section-title">置產前，<em>先讀這些</em></h2>
-
   <div class="knowledge-inner" style="margin-top:28px;">
-    <a class="article-featured" href="#">
+    <a class="article-featured" href="article-thailand-investment-guide.html">
       <div class="article-featured-img">
         <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80" alt="泰國房產" loading="lazy" />
       </div>
@@ -865,40 +412,34 @@
       </div>
     </a>
     <div class="article-list">
-      <a class="article-item" href="#">
-        <div class="article-thumb">
-          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=200&q=80" alt="" loading="lazy" />
-        </div>
+      <a class="article-item" href="article-bangkok-districts.html">
+        <div class="article-thumb"><img src="Bangkok-1244x700.jpg" alt="" loading="lazy" /></div>
         <div>
           <p class="article-tag">泰國 · 地段解析</p>
-          <h3 class="article-title">《曼谷熱門地段：Rama9、素坤逸、河濱區》</h3>
-          <p class="article-date">2025 · 8 分鐘閱讀</p>
+          <h3 class="article-title">曼谷熱門地段：Rama9、素坤逸、河濱區</h3>
+          <p class="article-date">2025 · 10 分鐘閱讀</p>
         </div>
       </a>
-      <a class="article-item" href="#">
-        <div class="article-thumb">
-          <img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?w=200&q=80" alt="" loading="lazy" />
-        </div>
+      <a class="article-item" href="article-thailand-qa.html">
+        <div class="article-thumb"><img src="https://images.unsplash.com/photo-1555217851-6141535bd771?w=200&q=80" alt="" loading="lazy" /></div>
         <div>
           <p class="article-tag">泰國 · 購屋須知</p>
-          <h3 class="article-title">《泰國購房重要須知 Q&A》外國人可以買房嗎？</h3>
-          <p class="article-date">2025 · 6 分鐘閱讀</p>
+          <h3 class="article-title">泰國購房重要須知 Q&A——19 個常見問題</h3>
+          <p class="article-date">2025 · 12 分鐘閱讀</p>
         </div>
       </a>
-      <a class="article-item" href="#">
-        <div class="article-thumb">
-          <img src="https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=200&q=80" alt="" loading="lazy" />
-        </div>
+      <a class="article-item" href="article-japan-investment-guide.html">
+        <div class="article-thumb"><img src="https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=200&q=80" alt="" loading="lazy" /></div>
         <div>
           <p class="article-tag">日本 · 投資入門</p>
-          <h3 class="article-title">《日本不動產入門》台灣人如何在東京置產？</h3>
-          <p class="article-date">2025 · 7 分鐘閱讀</p>
+          <h3 class="article-title">日本房地產投資全攻略</h3>
+          <p class="article-date">2025 · 10 分鐘閱讀</p>
         </div>
       </a>
     </div>
   </div>
   <div style="margin-top:32px;text-align:center;">
-    <a class="btn-outline" href="#">查看全部文章</a>
+    <a class="btn-outline" href="thailand-articles.html">查看全部文章</a>
   </div>
 </section>
 
@@ -907,7 +448,7 @@
   <div class="contact-banner-inner">
     <div>
       <h2 class="contact-banner-title">有任何問題？<br><em>我們直接聊</em></h2>
-<p class="contact-banner-sub">Alice：0929-688-608（手機加賴）</p>
+      <p class="contact-banner-sub">Alice：0929-688-608（手機加賴）</p>
     </div>
     <a class="btn-brown" href="https://line.me/ti/p/rY37pUpv_k" target="_blank">LINE 立即諮詢</a>
   </div>
@@ -921,26 +462,26 @@
     <div class="footer-col">
       <p class="footer-col-title">快速連結</p>
       <ul>
-        <li><a href="index.html" class="active">首頁</a></li>
+        <li><a href="index.html">首頁</a></li>
         <li><a href="about.html">關於我們</a></li>
         <li><a href="thailand-articles.html">泰國房產</a></li>
         <li><a href="japan.html">日本房產</a></li>
       </ul>
     </div>
-   <div class="footer-col">
-  <p class="footer-col-title">精選建案</p>
-  <ul>
-    <li><a href="property-kith-samrong.html">KITH Samrong</a></li>
-    <li><a href="property-xt10-ekkamai.html">XT 10 Ekkamai</a></li>
-    <li><a href="noble-emmerse-phrom-phong/property-noble-emmerse-phrom-phong.html">Noble EMMERSE</a></li>
-    <li><a href="culture-thonglor/property-culture-thonglor.html">Culture Thonglor</a></li>
-    <li><a href="ap-aspire-onnut-station/property-ap-aspire-onnut-station.html">AP Aspire Onnut</a></li>
-  </ul>
-</div>
+    <div class="footer-col">
+      <p class="footer-col-title">精選建案</p>
+      <ul>
+        <li><a href="property-kith-samrong.html">KITH Samrong</a></li>
+        <li><a href="property-xt10-ekkamai.html">XT 10 Ekkamai</a></li>
+        <li><a href="noble-emmerse-phrom-phong/property-noble-emmerse-phrom-phong.html">Noble EMMERSE</a></li>
+        <li><a href="culture-thonglor/property-culture-thonglor.html">Culture Thonglor</a></li>
+        <li><a href="ap-aspire-onnut-station/property-ap-aspire-onnut-station.html">AP Aspire Onnut</a></li>
+      </ul>
+    </div>
     <div class="footer-col">
       <p class="footer-col-title">聯絡資訊</p>
       <p class="footer-contact-item"><strong>Alice 愛麗絲</strong><br>0929-688-608</p>
-      <p class="footer-contact-item"></p>
+      <p class="footer-contact-item">alice_huang1231@hotmail.com</p>
     </div>
     <div class="footer-col">
       <p class="footer-col-title">辦公地址</p>
@@ -956,28 +497,21 @@
 <script>
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobileMenu');
-
   hamburger.addEventListener('click', () => {
     const open = mobileMenu.classList.toggle('open');
     hamburger.classList.toggle('open', open);
     document.body.style.overflow = open ? 'hidden' : '';
   });
-
   function closeMenu() {
     mobileMenu.classList.remove('open');
     hamburger.classList.remove('open');
     document.body.style.overflow = '';
   }
-
   const reveals = document.querySelectorAll('.reveal');
-  new IntersectionObserver((entries) => {
+  const obs = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); } });
-  }, { threshold: 0.07 }).observe ? (() => {
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); } });
-    }, { threshold: 0.07 });
-    reveals.forEach(el => obs.observe(el));
-  })() : reveals.forEach(el => el.classList.add('in'));
+  }, { threshold: 0.07 });
+  reveals.forEach(el => obs.observe(el));
 </script>
 </body>
 </html>
