@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>曼谷房價十年變化與天際線的崛起｜愛麗絲奇寓記</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Sans+TC:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--cream:#f5f0e8;--cream-mid:#ede6d6;--cream-dark:#e0d5c0;--taupe:#8c7b6b;--taupe-dark:#5c4f42;--brown:#3d3028;--gold:#b89a6a;--gold-light:#d4b88a;--white:#fdfaf5;--text-main:#2e261e;--text-mid:#6b5f54;--text-dim:#9e9188;--line:rgba(140,123,107,0.2);--line-dark:rgba(140,123,107,0.4)}
+    html{scroll-behavior:smooth}
+    body{background:var(--cream);color:var(--text-main);font-family:'Noto Sans TC',sans-serif;font-weight:300;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+    nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(245,240,232,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 24px;height:60px}
+    .nav-logo{font-family:'Playfair Display',serif;font-size:1rem;color:var(--brown);text-decoration:none;line-height:1.2}
+    .nav-logo small{display:block;font-family:'Noto Sans TC',sans-serif;font-size:.46rem;letter-spacing:.26em;text-transform:uppercase;color:var(--taupe);font-weight:300}
+    .nav-back{font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--taupe);text-decoration:none;display:flex;align-items:center;gap:6px;transition:color .3s}
+    .nav-back:hover{color:var(--brown)}
+    .nav-back svg{transition:transform .3s}
+    .nav-back:hover svg{transform:translateX(-3px)}
+    .article-hero{padding-top:60px;background:var(--brown);position:relative;overflow:hidden;min-height:44vw;display:flex;flex-direction:column;justify-content:flex-end}
+    .hero-bg{position:absolute;inset:0;background:url('images.jpeg') center/cover no-repeat;filter:brightness(.4)}
+    .hero-content{position:relative;z-index:2;padding:40px 24px 44px}
+    .hero-eyebrow{font-size:.6rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+    .hero-eyebrow::before{content:'';display:inline-block;width:18px;height:1px;background:var(--gold)}
+    .hero-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,6vw,3.5rem);font-weight:400;line-height:1.15;color:#fff;margin-bottom:12px}
+    .hero-title em{font-style:italic;color:var(--gold-light)}
+    .hero-sub{font-size:.86rem;line-height:1.9;color:rgba(255,255,255,.65);max-width:560px}
+    .hero-meta{display:flex;gap:16px;flex-wrap:wrap;margin-top:16px;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+    .article-layout{max-width:860px;margin:0 auto;padding:0 24px 80px}
+    .prose{padding-top:40px}
+    .prose p{font-size:.9rem;line-height:2;color:var(--text-mid);margin-bottom:16px}
+    .prose strong{color:var(--brown);font-weight:500}
+    .prose h2{font-family:'Playfair Display',serif;font-size:clamp(1.2rem,4vw,1.6rem);font-weight:400;color:var(--brown);margin:44px 0 16px;padding-bottom:12px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:10px}
+    .prose h2::before{content:'';display:inline-block;width:3px;height:1.2em;background:var(--gold);flex-shrink:0}
+    /* HIGHLIGHT BOX */
+    .highlight-box{background:var(--brown);padding:22px 22px;margin:24px 0}
+    .highlight-box-eyebrow{font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+    .highlight-box p{font-size:.86rem;line-height:1.88;color:rgba(245,240,232,.75);margin:0}
+    .highlight-box p+p{margin-top:8px}
+    .highlight-box strong{color:var(--gold-light);font-weight:400}
+    /* LANDMARK TABLE */
+    .landmark-wrap{overflow-x:auto;margin:20px 0}
+    .landmark-table{width:100%;border-collapse:collapse;min-width:460px;font-size:.82rem}
+    .landmark-table th{background:var(--brown);color:var(--cream);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;font-weight:400;padding:9px 12px;text-align:left}
+    .landmark-table td{padding:10px 12px;border-bottom:1px solid var(--line);color:var(--text-mid);line-height:1.6;vertical-align:top}
+    .landmark-table tbody tr:nth-child(even) td{background:var(--cream-mid)}
+    .landmark-table td:first-child{color:var(--brown);font-weight:400;white-space:nowrap}
+    /* TIMELINE */
+    .timeline{display:flex;flex-direction:column;gap:0;margin:24px 0}
+    .tl-item{display:flex;gap:0}
+    .tl-left{display:flex;flex-direction:column;align-items:center;width:56px;flex-shrink:0}
+    .tl-year{font-family:'Playfair Display',serif;font-size:.85rem;color:var(--gold);flex-shrink:0;padding:10px 0 0}
+    .tl-line{width:1px;flex:1;min-height:16px;background:var(--line-dark);margin:4px 0}
+    .tl-item:last-child .tl-line{display:none}
+    .tl-body{flex:1;background:var(--white);border:1px solid var(--line);padding:14px 16px;margin:6px 0 6px 8px}
+    .tl-body.new-period{background:var(--cream-mid);border-color:var(--gold)}
+    .tl-title{font-family:'Noto Serif TC',serif;font-size:.9rem;font-weight:400;color:var(--brown);margin-bottom:6px}
+    .tl-desc{font-size:.82rem;line-height:1.8;color:var(--text-mid)}
+    .tl-desc strong{color:var(--brown);font-weight:500}
+    .new-badge{display:inline-block;font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;background:var(--gold);color:var(--brown);padding:2px 7px;border-radius:2px;margin-left:6px;vertical-align:middle}
+    /* DRIVER CARDS */
+    .driver-list{display:flex;flex-direction:column;gap:2px;margin:20px 0}
+    .driver-item{background:var(--white);border:1px solid var(--line);padding:16px 18px}
+    .driver-head{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+    .driver-icon{font-size:1rem;flex-shrink:0}
+    .driver-title{font-family:'Noto Serif TC',serif;font-size:.9rem;font-weight:500;color:var(--brown)}
+    .driver-desc{font-size:.84rem;line-height:1.88;color:var(--text-mid)}
+    .driver-desc strong{color:var(--brown);font-weight:500}
+    /* OUTLOOK */
+    .outlook-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin:20px 0}
+    .outlook-card{background:var(--white);border:1px solid var(--line);padding:18px 16px}
+    .outlook-card.dark{background:var(--brown);border-color:var(--brown)}
+    .outlook-label{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--taupe);margin-bottom:8px}
+    .outlook-card.dark .outlook-label{color:rgba(245,240,232,.45)}
+    .outlook-title{font-family:'Playfair Display',serif;font-size:1rem;color:var(--brown);margin-bottom:8px}
+    .outlook-card.dark .outlook-title{color:var(--gold-light)}
+    .outlook-desc{font-size:.8rem;line-height:1.75;color:var(--text-mid)}
+    .outlook-card.dark .outlook-desc{color:rgba(245,240,232,.6)}
+    /* NOTICE */
+    .notice-box{background:var(--cream-mid);border-left:3px solid var(--gold);padding:14px 18px;margin:16px 0}
+    .notice-box p{font-size:.84rem;line-height:1.88;color:var(--text-mid);margin:0}
+    .notice-box strong{color:var(--brown);font-weight:500}
+    /* CTA */
+    .cta-box{background:var(--gold);padding:36px 24px;margin-top:52px}
+    .cta-title{font-family:'Playfair Display',serif;font-size:clamp(1.4rem,4vw,2.2rem);font-weight:400;color:var(--brown);margin-bottom:10px;line-height:1.3}
+    .cta-title em{font-style:italic}
+    .cta-desc{font-size:.82rem;color:rgba(61,48,40,.7);line-height:1.8;margin-bottom:20px}
+    .btn-dark{display:inline-block;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;background:var(--brown);color:var(--cream);padding:12px 26px;text-decoration:none;transition:background .3s}
+    .btn-dark:hover{background:var(--taupe-dark)}
+    .related-section{margin-top:56px;padding-top:36px;border-top:1px solid var(--line)}
+    .related-title{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--brown);margin-bottom:20px}
+    .related-grid{display:grid;grid-template-columns:1fr;gap:12px}
+    .related-card{display:flex;gap:14px;text-decoration:none;padding:14px;background:var(--white);border:1px solid var(--line);transition:border-color .3s}
+    .related-card:hover{border-color:var(--gold)}
+    .related-thumb{width:72px;height:72px;flex-shrink:0;overflow:hidden}
+    .related-thumb img{width:100%;height:100%;object-fit:cover}
+    .related-tag{font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+    .related-name{font-family:'Noto Serif TC',serif;font-size:.86rem;color:var(--brown);margin:4px 0;line-height:1.4}
+    .related-date{font-size:.62rem;color:var(--text-dim)}
+    footer{background:var(--brown);padding:36px 24px 24px;border-top:2px solid var(--gold)}
+    .footer-logo{font-family:'Playfair Display',serif;font-size:1rem;color:var(--cream);margin-bottom:6px}
+    .footer-links{display:flex;gap:18px;flex-wrap:wrap;margin-top:12px}
+    .footer-links a{font-size:.72rem;color:rgba(245,240,232,.5);text-decoration:none;transition:color .3s}
+    .footer-links a:hover{color:var(--cream)}
+    .footer-copy{font-size:.6rem;color:rgba(245,240,232,.28);line-height:1.8;margin-top:18px}
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.in{opacity:1;transform:translateY(0)}
+    @media(min-width:768px){nav{padding:0 48px;height:68px}.hero-content{padding:60px 56px}.article-layout{padding-left:48px;padding-right:48px}.related-grid{grid-template-columns:1fr 1fr}}
+    @media(min-width:1100px){nav{padding:0 80px}.hero-content{padding:80px}.article-layout{padding-left:80px;padding-right:80px;max-width:1000px}}
+  </style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html">愛麗絲奇寓記<small>Overseas Property Curator</small></a>
+  <a class="nav-back" href="thailand.html">
+    <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M13 5H1M1 5L5 1M1 5l4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+    泰國房產
+  </a>
+</nav>
+
+<div class="article-hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">泰國 · 市場分析</p>
+    <h1 class="hero-title">曼谷房價十年變化<br>與<em>天際線的崛起</em></h1>
+    <p class="hero-sub">從 2010 年代初的旅遊天堂，到今日被譽為「東協新金融首都」，曼谷的天際線在短短十年間完成了驚人的轉變。</p>
+    <div class="hero-meta"><span>2010–2026 年完整分析</span><span>結構性成因・未來展望</span></div>
+  </div>
+</div>
+
+<div class="article-layout">
+
+  <div class="highlight-box reveal">
+    <p class="highlight-box-eyebrow">一座城市的蛻變</p>
+    <p>從 2010 年代初的旅遊天堂，到今日被譽為「<strong>東協新金融首都</strong>」，曼谷的天際線在短短十年間完成了驚人的轉變。新地標拔地而起，高端建案接連落成，國際品牌酒店與豪宅並肩出現，這座城市的輪廓，悄悄改寫了整個泰國的經濟版圖。</p>
+  </div>
+
+  <div class="prose reveal">
+    <h2>1. 曼谷房價的十年成長軌跡（2010–2020）</h2>
+    <p>根據房地產市場統計，2010 年至 2020 年間，曼谷市中心永久地權公寓平均價格穩定上升，部分黃金地段更出現<strong>每年 4%～7% 的增幅</strong>。即使在全球疫情期間，曼谷仍維持健康成長曲線，顯示房市基礎穩固。</p>
+    <p>這段時間內，五大地標建案成為曼谷蛻變的象徵：</p>
+  </div>
+
+  <div class="landmark-wrap reveal">
+    <table class="landmark-table">
+      <thead><tr><th>建案名稱</th><th>完工年份</th><th>樓高</th><th>每坪均價</th><th>代表意義</th></tr></thead>
+      <tbody>
+        <tr><td>MahaNakhon（麗池卡爾登飯店公寓）</td><td>2016</td><td>77 層</td><td>約 100–130 萬／坪</td><td>曼谷第一高樓，象徵國際級豪宅時代來臨</td></tr>
+        <tr><td>ICONSIAM（文華東方暹羅之印）</td><td>2018</td><td>70 層</td><td>約 100–110 萬／坪</td><td>河岸商業與豪宅複合體，改寫生活圈價值</td></tr>
+        <tr><td>Four Seasons Private Residences</td><td>2018 Q4</td><td>73 層</td><td>約 73–100 萬／坪</td><td>河濱奢華住宅代表，吸引全球投資人</td></tr>
+        <tr><td>The ESSE at Singha Complex</td><td>2019 Q4</td><td>39 層</td><td>約 85–92 萬／坪</td><td>CBD 新指標，結合辦公與住宅</td></tr>
+        <tr><td>Ashton Asoke–Rama9</td><td>2020 Q3</td><td>50 層</td><td>約 79–96 萬／坪</td><td>新 CBD 崛起的象徵，年輕專業族最愛</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="prose reveal">
+    <p>這些項目的落成，不只是建築高度的競爭，更是「國際資金進場」與「城市價值升級」的具體證明。</p>
+    <h2>2. 2021–2026：疫後復甦與市場分化 <span class="new-badge">新增</span></h2>
+    <p>2021–2023 年受疫情影響，曼谷房市進入觀察期，部分地段出現短暫供過於求。然而，<strong>2024 年起明顯回升</strong>：外資轉讓量創新高、高端租金年增 8.4%（JLL 數據），顯示市場已完成健康整理。</p>
+  </div>
+
+  <div class="timeline reveal">
+    <div class="tl-item">
+      <div class="tl-left"><span class="tl-year">2021</span><div class="tl-line"></div></div>
+      <div class="tl-body">
+        <p class="tl-title">疫情衝擊期——外籍需求暫時退潮</p>
+        <p class="tl-desc">國際旅客與外派人士大幅減少，部分地段空租率上升，整體房市進入盤整。</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-left"><span class="tl-year">2022</span><div class="tl-line"></div></div>
+      <div class="tl-body">
+        <p class="tl-title">邊境開放・需求回流</p>
+        <p class="tl-desc">泰國全面開放國境，外籍租客與投資客陸續回流，捷運新線（SRT 紅線）通車帶動北部地段。</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-left"><span class="tl-year">2023</span><div class="tl-line"></div></div>
+      <div class="tl-body">
+        <p class="tl-title">黃線・粉紅線通車——新興地段崛起</p>
+        <p class="tl-desc">MRT 黃線、粉紅線正式通車，Ladprao、Bangna 等地段投資熱度明顯上升。</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-left"><span class="tl-year">2024</span><div class="tl-line"></div></div>
+      <div class="tl-body new-period">
+        <p class="tl-title">外資年轉讓量創高——市場全面復甦</p>
+        <p class="tl-desc"><strong>外國人轉讓公寓約 14,899 戶、總值 609 億泰銖</strong>，年增幅顯著。高端租金強勁增長，DTV 數位遊牧簽證推出帶來新型租客族群。</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-left"><span class="tl-year">2025</span><div class="tl-line"></div></div>
+      <div class="tl-body new-period">
+        <p class="tl-title">外資投資額年增 37%——信心全面回歸</p>
+        <p class="tl-desc"><strong>2025 年上半年外資投資總額達 1,115 億泰銖，年增 37%</strong>。曼谷核心公寓入住率高達 94.4%。粉紅線 Muang Thong Thani 延伸段通車。</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-left"><span class="tl-year">2026</span><div class="tl-line"></div></div>
+      <div class="tl-body new-period">
+        <p class="tl-title">橘線布局期——下一波漲幅的起點</p>
+        <p class="tl-desc">橘線東段預計 <strong>2027 年通車</strong>，Rama9 至 Min Buri 沿線進入佈局黃金期。One Bangkok、Dusit Central Park 等超大型建案陸續完工，曼谷天際線再度進化。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="prose reveal">
+    <h2>3. 房價上升的背後：結構性成因</h2>
+  </div>
+
+  <div class="driver-list reveal">
+    <div class="driver-item">
+      <div class="driver-head"><span class="driver-icon">💼</span><p class="driver-title">經濟穩定與外資流入</p></div>
+      <p class="driver-desc">泰國長期保持 3%~4% 的經濟成長率，吸引超過六成《財星百大企業》在泰國設立據點。製造業、金融、科技產業的外資進駐，直接帶動商辦與住宅需求。</p>
+    </div>
+    <div class="driver-item">
+      <div class="driver-head"><span class="driver-icon">🚇</span><p class="driver-title">軌道經濟帶動城市延伸</p></div>
+      <p class="driver-desc">目前曼谷已通車 <strong>8 條以上捷運線</strong>，未來將延伸至 17 條以上，讓城市從單核心的 Sukhumvit 軸線，逐漸拓展至 Rama9、Ratchada、Bangna 等新興區域。<strong>每條捷運新線完工，房價平均漲幅可達 15%~30%</strong>。</p>
+    </div>
+    <div class="driver-item">
+      <div class="driver-head"><span class="driver-icon">👥</span><p class="driver-title">中產階級擴張</p></div>
+      <p class="driver-desc">泰國中產階級人口自 2010 年以來增加超過 600 萬人，平均年薪漲幅 5%~8%，本地購屋需求強勁。房價因此不再僅靠外資撐起，而是「<strong>內需與外資雙引擎</strong>」。</p>
+    </div>
+  </div>
+
+  <div class="prose reveal">
+    <h2>4. 城市願景：從觀光之都到國際金融核心</h2>
+    <p>曼谷已不只是旅遊目的地，它逐步轉型為<strong>東協商務中心與國際金融樞紐</strong>。EEC（東部經濟走廊）、中泰鐵路、克拉運河等大型基建，將讓泰國成為東南亞交通與貿易的交會點。</p>
+    <p>在這個轉折點，曼谷的房地產價值正如<strong>十年前的上海浦東、二十年前的新加坡濱海灣</strong>。</p>
+    <h2>5. 2026 年展望</h2>
+    <p>隨著交通、經濟、政策三大推力同步前進，曼谷房市仍有相當大的成長空間。尤其在高端與河濱住宅領域，國際買家與本地富裕族群需求持續穩定。</p>
+  </div>
+
+  <div class="outlook-grid reveal">
+    <div class="outlook-card dark">
+      <p class="outlook-label">高端市場</p>
+      <p class="outlook-title">穩健增值</p>
+      <p class="outlook-desc">JLL 預期豪華段資產價值「小幅上揚」，Thonglor、Sathorn 空租率維持 5%–8% 的極低水準。</p>
+    </div>
+    <div class="outlook-card">
+      <p class="outlook-label">捷運沿線新興區</p>
+      <p class="outlook-title">提前布局最佳時機</p>
+      <p class="outlook-desc">橘線 2027 通車前，Rama9 至 Min Buri 仍處於價格洼地，是 2026 年最值得關注的投資帶。</p>
+    </div>
+    <div class="outlook-card">
+      <p class="outlook-label">平價市場</p>
+      <p class="outlook-title">供需調整中</p>
+      <p class="outlook-desc">部分郊區供給量偏大，選擇上市建商、交通便利地段可有效降低去化風險。</p>
+    </div>
+    <div class="outlook-card dark">
+      <p class="outlook-label">整體趨勢</p>
+      <p class="outlook-title">穩定上升</p>
+      <p class="outlook-desc">長期來看，曼谷的房價曲線雖然不再暴漲，但「<strong>穩定上升、持續升值</strong>」的趨勢明確。</p>
+    </div>
+  </div>
+
+  <div class="prose reveal">
+    <h2>結語</h2>
+    <p>曼谷的天際線，是這座城市十年成長的縮影。從 MahaNakhon 到 ICONSIAM，每一座高樓都象徵著城市的下一步。當東協市場全面起飛，曼谷的故事，才正要開始。</p>
+  </div>
+
+  <div class="cta-box reveal">
+    <h2 class="cta-title">想在曼谷的故事裡<em>佔有一席之地</em>？</h2>
+    <p class="cta-desc">更多成交數據、單價帶、區域比價與實際案例，留待說明會公開。歡迎直接聯繫 Alice，依你的預算與需求精準配案。</p>
+    <a class="btn-dark" href="https://line.me/ti/p/rY37pUpv_k" target="_blank">LINE 免費諮詢</a>
+  </div>
+
+  <div class="related-section reveal">
+    <h3 class="related-title">延伸閱讀</h3>
+    <div class="related-grid">
+      <a class="related-card" href="article-bangkok-districts.html">
+        <div class="related-thumb"><img src="https://images.unsplash.com/photo-1508009603885-50cf7c579365?w=200&q=80" alt="" loading="lazy" /></div>
+        <div><p class="related-tag">泰國 · 地段解析</p><p class="related-name">曼谷熱門地段解析：Rama9、素坤逸、河濱區</p><p class="related-date">2025 · 10 分鐘閱讀</p></div>
+      </a>
+      <a class="related-card" href="article-bangkok-mrt-2026.html">
+        <div class="related-thumb"><img src="https://images.unsplash.com/photo-1598965402089-897ce52e8355?w=200&q=80" alt="" loading="lazy" /></div>
+        <div><p class="related-tag">泰國 · 交通建設</p><p class="related-name">曼谷捷運完整指南 2026 年最新版</p><p class="related-date">2026 · 8 分鐘閱讀</p></div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p class="footer-logo">愛麗絲奇寓記</p>
+  <div class="footer-links"><a href="index.html">首頁</a><a href="thailand.html">泰國房產</a><a href="japan.html">日本房產</a></div>
+  <p class="footer-copy">© 2025 愛麗絲奇寓記 alice in city｜投資國外不動產具有風險性，請詳閱行銷文件並審慎考量後再行交易。</p>
+</footer>
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+  }, { threshold: 0.06 });
+  reveals.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>泰國買房購屋與過戶流程｜愛麗絲奇寓記</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Sans+TC:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:     #f5f0e8;
+      --cream-mid: #ede6d6;
+      --cream-dark:#e0d5c0;
+      --taupe:     #8c7b6b;
+      --taupe-dark:#5c4f42;
+      --brown:     #3d3028;
+      --gold:      #b89a6a;
+      --gold-light:#d4b88a;
+      --white:     #fdfaf5;
+      --text-main: #2e261e;
+      --text-mid:  #6b5f54;
+      --text-dim:  #9e9188;
+      --line:      rgba(140,123,107,0.2);
+      --line-dark: rgba(140,123,107,0.4);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--cream);
+      color: var(--text-main);
+      font-family: 'Noto Sans TC', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: rgba(245,240,232,0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 24px; height: 60px;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem; color: var(--brown); text-decoration: none; line-height: 1.2;
+    }
+    .nav-logo small {
+      display: block; font-family: 'Noto Sans TC', sans-serif;
+      font-size: .46rem; letter-spacing: .26em; text-transform: uppercase;
+      color: var(--taupe); font-weight: 300;
+    }
+    .nav-back {
+      font-size: .65rem; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--taupe); text-decoration: none;
+      display: flex; align-items: center; gap: 6px; transition: color .3s;
+    }
+    .nav-back:hover { color: var(--brown); }
+    .nav-back:hover svg { transform: translateX(-3px); }
+    .nav-back svg { transition: transform .3s; }
+
+    /* ── HERO ── */
+    .article-hero { padding-top: 60px; background: var(--white); }
+    .article-hero-img {
+      width: 100%; aspect-ratio: 16/7; overflow: hidden; position: relative;
+    }
+    .article-hero-img img {
+      width: 100%; height: 100%; object-fit: cover; filter: brightness(.78);
+    }
+    .article-hero-img::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to bottom, transparent 40%, var(--white) 100%);
+    }
+    .article-hero-body {
+      padding: 28px 24px 36px; max-width: 800px; margin: 0 auto;
+    }
+    .article-breadcrumb {
+      font-size: .6rem; letter-spacing: .22em; text-transform: uppercase;
+      color: var(--taupe); margin-bottom: 14px;
+      display: flex; align-items: center; gap: 7px; flex-wrap: wrap;
+    }
+    .article-breadcrumb a { color: var(--taupe); text-decoration: none; }
+    .article-breadcrumb a:hover { color: var(--gold); }
+    .article-tag-badge {
+      display: inline-block;
+      font-size: .58rem; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--gold); border: 1px solid var(--gold);
+      padding: 3px 10px; margin-bottom: 14px;
+    }
+    .article-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 6vw, 3rem);
+      font-weight: 400; line-height: 1.2; color: var(--brown); margin-bottom: 18px;
+    }
+    .article-meta {
+      display: flex; gap: 18px; flex-wrap: wrap;
+      font-size: .65rem; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--text-dim); padding-top: 16px; border-top: 1px solid var(--line);
+    }
+
+    /* ── TABS ── */
+    .tabs-wrap {
+      background: var(--white);
+      border-bottom: 1px solid var(--line);
+      position: sticky; top: 60px; z-index: 100;
+    }
+    .tabs {
+      display: flex; max-width: 800px; margin: 0 auto;
+      padding: 0 24px;
+    }
+    .tab-btn {
+      font-size: .68rem; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--text-dim); background: none; border: none;
+      padding: 16px 20px 14px; cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: color .3s, border-color .3s;
+      white-space: nowrap;
+    }
+    .tab-btn.active { color: var(--brown); border-color: var(--gold); }
+    .tab-btn:hover { color: var(--brown); }
+
+    /* ── LAYOUT ── */
+    .article-layout {
+      max-width: 800px; margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* Tab panels */
+    .tab-panel { display: none; padding-top: 40px; }
+    .tab-panel.active { display: block; }
+
+    /* ── PROSE ── */
+    .prose p {
+      font-size: .9rem; line-height: 2; color: var(--text-mid); margin-bottom: 18px;
+    }
+    .prose strong { color: var(--brown); font-weight: 500; }
+
+    .prose h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.2rem, 4vw, 1.6rem);
+      font-weight: 400; color: var(--brown);
+      margin: 44px 0 16px; padding-bottom: 12px;
+      border-bottom: 1px solid var(--line);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .prose h2::before {
+      content: ''; display: inline-block;
+      width: 3px; height: 1.2em; background: var(--gold); flex-shrink: 0;
+    }
+
+    .prose h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: .95rem; font-weight: 500; color: var(--brown); margin: 28px 0 10px;
+    }
+
+    /* ── NOTICE BOX ── */
+    .notice-box {
+      background: var(--cream-mid);
+      border-left: 3px solid var(--gold);
+      padding: 18px 20px; margin: 20px 0;
+    }
+    .notice-title {
+      font-size: .62rem; letter-spacing: .22em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 10px;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .notice-box p {
+      font-size: .84rem; line-height: 1.85; color: var(--text-mid); margin: 0;
+    }
+    .notice-box p + p { margin-top: 8px; }
+    .notice-box ul { list-style: none; padding: 0; margin: 8px 0 0; }
+    .notice-box ul li {
+      font-size: .84rem; line-height: 1.85; color: var(--text-mid);
+      padding-left: 14px; position: relative; margin-bottom: 4px;
+    }
+    .notice-box ul li::before { content: '—'; position: absolute; left: 0; color: var(--gold); }
+
+    /* ── FLOW STEPS ── */
+    .flow-steps { display: flex; flex-direction: column; }
+
+    .flow-step { display: flex; gap: 0; }
+
+    .flow-left {
+      display: flex; flex-direction: column; align-items: center;
+      width: 44px; flex-shrink: 0;
+    }
+    .flow-num {
+      width: 34px; height: 34px; border-radius: 50%;
+      background: var(--brown); color: var(--cream);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: .82rem; flex-shrink: 0; position: relative; z-index: 1;
+    }
+    .flow-step.highlight .flow-num { background: var(--gold); color: var(--brown); }
+    .flow-connector {
+      width: 1px; flex: 1; min-height: 16px; background: var(--line-dark); margin: 4px 0;
+    }
+    .flow-step:last-child .flow-connector { display: none; }
+
+    .flow-body { flex: 1; padding: 0 0 28px 16px; }
+    .flow-head {
+      display: flex; align-items: baseline; gap: 8px;
+      margin-bottom: 8px; flex-wrap: wrap;
+    }
+    .flow-name {
+      font-family: 'Noto Serif TC', serif;
+      font-size: .98rem; font-weight: 500; color: var(--brown);
+    }
+    .flow-en {
+      font-size: .62rem; letter-spacing: .1em; color: var(--taupe);
+    }
+    .flow-desc {
+      font-size: .86rem; line-height: 1.88; color: var(--text-mid);
+    }
+    .flow-desc + .flow-desc { margin-top: 8px; }
+
+    /* ── REMITTANCE TABLE ── */
+    .info-table {
+      width: 100%; border-collapse: collapse; margin: 16px 0;
+      font-size: .84rem;
+    }
+    .info-table th {
+      background: var(--brown); color: var(--cream);
+      font-size: .65rem; letter-spacing: .14em; text-transform: uppercase;
+      font-weight: 400; padding: 10px 14px; text-align: left;
+    }
+    .info-table td {
+      color: var(--text-mid); line-height: 1.75;
+      padding: 10px 14px; border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+    .info-table tr:nth-child(even) td { background: var(--cream-mid); }
+    .info-table td:first-child { color: var(--brown); font-weight: 400; white-space: nowrap; }
+
+    /* ── TAX TABLE ── */
+    .tax-row {
+      display: flex; gap: 0; border-bottom: 1px solid var(--line);
+    }
+    .tax-row:first-child { border-top: 1px solid var(--line); }
+    .tax-label {
+      flex: 0 0 100px; padding: 12px 14px;
+      font-size: .8rem; font-weight: 400; color: var(--brown);
+      border-right: 1px solid var(--line);
+      background: var(--cream-mid);
+    }
+    .tax-desc {
+      flex: 1; padding: 12px 14px;
+      font-size: .82rem; line-height: 1.75; color: var(--text-mid);
+    }
+    /* ── CTA ── */
+    .cta-box {
+      background: var(--brown); padding: 32px 24px;
+      margin: 52px 0 0; text-align: center;
+    }
+    .cta-box-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem; color: var(--cream); margin-bottom: 10px; line-height: 1.3;
+    }
+    .cta-box-title em { font-style: italic; color: var(--gold-light); }
+    .cta-box-desc {
+      font-size: .8rem; color: rgba(245,240,232,.6); line-height: 1.8; margin-bottom: 20px;
+    }
+    .btn-gold {
+      display: inline-block;
+      font-size: .68rem; letter-spacing: .2em; text-transform: uppercase;
+      background: var(--gold); color: var(--brown);
+      padding: 12px 28px; text-decoration: none; transition: background .3s;
+    }
+    .btn-gold:hover { background: var(--gold-light); }
+
+    /* ── RELATED ── */
+    .related-section { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--line); }
+    .related-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--brown); margin-bottom: 20px; }
+    .related-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    .related-card {
+      display: flex; gap: 14px; text-decoration: none;
+      padding: 14px; background: var(--white); border: 1px solid var(--line);
+      transition: border-color .3s;
+    }
+    .related-card:hover { border-color: var(--gold); }
+    .related-thumb { width: 72px; height: 72px; flex-shrink: 0; overflow: hidden; }
+    .related-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .related-tag { font-size: .56rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); }
+    .related-name { font-family: 'Noto Serif TC', serif; font-size: .86rem; color: var(--brown); margin: 4px 0; line-height: 1.4; }
+    .related-date { font-size: .62rem; color: var(--text-dim); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--brown); padding: 36px 24px 24px;
+      border-top: 2px solid var(--gold);
+    }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--cream); margin-bottom: 6px; }
+    .footer-links { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 12px; }
+    .footer-links a { font-size: .72rem; color: rgba(245,240,232,.5); text-decoration: none; transition: color .3s; }
+    .footer-links a:hover { color: var(--cream); }
+    .footer-copy { font-size: .6rem; color: rgba(245,240,232,.28); line-height: 1.8; margin-top: 18px; }
+
+    /* ── REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+    .rd1 { transition-delay: .08s; }
+    .rd2 { transition-delay: .16s; }
+    .rd3 { transition-delay: .24s; }
+
+    /* ── DESKTOP ── */
+    @media (min-width: 768px) {
+      nav { padding: 0 48px; height: 68px; }
+      .tabs-wrap { top: 68px; }
+      .article-hero-body, .article-layout { padding-left: 48px; padding-right: 48px; }
+      .tabs { padding-left: 48px; }
+      .related-grid { grid-template-columns: 1fr 1fr; }
+      .tax-label { flex: 0 0 130px; }
+    }
+    @media (min-width: 1100px) {
+      nav { padding: 0 80px; }
+      .article-hero-body, .article-layout { padding-left: 80px; padding-right: 80px; max-width: 960px; }
+      .tabs { padding-left: 80px; max-width: 960px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="index.html">
+    愛麗絲奇寓記
+    <small>Overseas Property Curator</small>
+  </a>
+  <a class="nav-back" href="thailand.html">
+    <svg width="14" height="10" viewBox="0 0 14 10" fill="none">
+      <path d="M13 5H1M1 5L5 1M1 5l4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+    </svg>
+    泰國房產
+  </a>
+</nav>
+
+<!-- HERO -->
+<div class="article-hero">
+  <div class="article-hero-img">
+    <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1400&q=85" alt="泰國購屋流程" />
+  </div>
+  <div class="article-hero-body">
+    <div class="article-breadcrumb">
+      <a href="index.html">首頁</a> /
+      <a href="thailand.html">泰國房產</a> /
+      購屋知識
+    </div>
+    <span class="article-tag-badge">泰國 · 購屋知識</span>
+    <h1 class="article-title">泰國買房購屋與過戶流程</h1>
+    <div class="article-meta">
+      <span>閱讀時間約 10 分鐘</span>
+      <span>預售屋・新成屋・二手房適用</span>
+      <span>2025 年更新</span>
+    </div>
+  </div>
+</div>
+
+<!-- TABS -->
+<div class="tabs-wrap">
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab('presale')">預售屋</button>
+    <button class="tab-btn" onclick="switchTab('newbuild')">新成屋</button>
+    <button class="tab-btn" onclick="switchTab('resale')">二手房</button>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="article-layout">
+
+  <!-- ══ TAB 1：預售屋 ══ -->
+  <div class="tab-panel active" id="tab-presale">
+
+    <div class="flow-steps reveal">
+
+      <div class="flow-step">
+        <div class="flow-left"><div class="flow-num">1</div><div class="flow-connector"></div></div>
+        <div class="flow-body">
+          <div class="flow-head">
+            <span class="flow-name">預購訂購</span>
+          </div>
+          <p class="flow-desc">買方在看屋後支付訂金，建商收到訂金後開立收據並簽署購屋意願書，<strong>訂金通常不予退回</strong>。訂金金額依建案不同，約為 5 萬至 20 萬泰銖，高端豪宅可達 50 萬至 100 萬泰銖。</p>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-left"><div class="flow-num">2</div><div class="flow-connector"></div></div>
+        <div class="flow-body">
+          <div class="flow-head">
+            <span class="flow-name">支付頭期款</span>
+          </div>
+          <p class="flow-desc">訂金後 7 至 14 天內，買方需完成外匯匯款至建商帳戶，作為頭期款。一般為<strong>總價款的 10% 至 30%</strong>，建商確認入帳後簽署正式買賣合約。</p>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-left"><div class="flow-num">3</div><div class="flow-connector"></div></div>
+        <div class="flow-body">
+          <div class="flow-head">
+            <span class="flow-name">尾款支付</span>
+          </div>
+          <p class="flow-desc">買方依建案約定支付全款。由於款項直接匯入建商帳戶，將由<strong>建商負責向銀行申請開立「海外匯款證明（FET）」</strong>。買方於付清款項後簽署委託書，後續所有過戶程序、產權更名及水電更名，均由建商律師全權代辦完成，<strong>買方無需親自到場</strong>。</p>
+        </div>
+      </div>
+
+      <div class="flow-step highlight">
+        <div class="flow-left"><div class="flow-num">4</div><div class="flow-connector"></div></div>
+        <div class="flow-body">
+          <div class="flow-head">
+            <span class="flow-name">辦理過戶</span>
+          </div>
+          <p class="flow-desc">買方付清全款後，簽署授權委託書，所有產權更名手續及水電更名均由建商律師全權代辦，<strong>買方無需親自到場</strong>。過戶需提前 7 至 14 個工作天預約地政局，正式過戶手續在<strong>一個工作日內可完成</strong>。過戶完成後，買方可直接與建商預約現場領取<strong>房產證（Chanote）</strong>，或委由代理人代領。</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 匯款說明 -->
+    <div class="prose reveal" style="margin-top:8px;">
+      <h2>預售屋匯款說明</h2>
+    </div>
+
+    <div class="flow-steps reveal">
+
+      <div class="flow-step">
+        <div class="flow-left"><div class="flow-num">1</div><div class="flow-connector"></div></div>
+        <div class="flow-body">
+          <div class="flow-head"><span class="flow-name">匯款最好匯美元，匯率最好</span></div>
+          <p class="flow-desc">我們會在匯款前一天告知泰國銀行的最新參考匯率，以及需要匯多少美元。</p>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-left"><div class="flow-num">2</div><div class="flow-connector"></div></div>
+        <div class="flow-body">
+          <div class="flow-head"><span class="flow-name">匯款金額會先多抓 2%</span></div>
+          <p class="flow-desc">因為泰銖與美元匯率是會波動的，匯款如果到帳金額不足，差一點還必須要補匯一次。有多匯的金額，等開戶完成後建商都會退到您的帳上。</p>
+          <div class="notice-box" style="margin-top:10px;">
+            <p class="notice-title">⚠️ 實際案例</p>
+            <p>最近有發生客戶多匯 1%，結果 3 天後到帳金額卻不夠差一點，因為三天內匯率波動超過 1%。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-left"><div class="flow-num">3</div><div class="flow-connector"></div></div>
+        <div class="flow-body">
+          <div class="flow-head"><span class="flow-name">外幣匯款單備註說明</span></div>
+          <p class="flow-desc">外幣匯款單請備註<strong>全額到匯</strong>，匯款項目為 <strong>270 投資海外不動產</strong>。</p>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-left"><div class="flow-num">4</div><div class="flow-connector"></div></div>
+        <div class="flow-body">
+          <div class="flow-head"><span class="flow-name">不能使用的幣別</span></div>
+          <div class="notice-box" style="margin-top:4px;">
+            <ul>
+              <li><strong>台幣不行</strong>——因為泰國不是邦交國，無法開出海外匯款證明</li>
+              <li><strong>人民幣不行</strong>——因為中國政府要求不能投資海外不動產，不能開海外匯款證明</li>
+              <li><strong>不能匯泰銖</strong>——因為泰國政府要收外匯投資</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 匯款與過戶重要事項 -->
+    <div class="prose reveal">
+      <h2>匯款與過戶重要事項</h2>
+    </div>
+
+    <div class="flow-steps reveal">
+
+      <div class="flow-step">
+        <div class="flow-left"><div class="flow-num">1</div><div class="flow-connector"></div></div>
+        <div class="flow-body">
+          <p class="flow-desc">「全部」的客戶都一定要從海外匯款，因為只有<strong>海外匯款給建商</strong>，外國人才能順利過戶。</p>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-left"><div class="flow-num">2</div><div class="flow-connector"></div></div>
+        <div class="flow-body">
+          <p class="flow-desc">買房一定是<strong>美元匯到泰國</strong>，不能用泰銖搭配台幣匯到泰國，否則無法完成過戶，款項會被退回。</p>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-left"><div class="flow-num">3</div><div class="flow-connector"></div></div>
+        <div class="flow-body">
+          <p class="flow-desc"><strong>泰國沒有成屋履約制度</strong>，我們都是直接匯款到建商的戶頭。</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- AP 建商範例 -->
+    <div class="prose reveal">
+      <h2>付款方式與流程說明（以 AP 建商為例）</h2>
+    </div>
+
+    <div class="notice-box reveal" style="margin-bottom:20px;">
+      <p class="notice-title">📋 AP 建商付款結構</p>
+      <p><strong>先付 12%，尾款 88%，中間不用再繳任何房款。</strong>訂金為 50,000 泰銖。</p>
+      <p style="margin-top:8px;">AP 建商的案子流程都是這樣。要買的話，一開始就要先確定是哪一間——<strong>訂金一旦付下去就不能更改、也不能退</strong>。</p>
+    </div>
+
+    <div class="flow-steps reveal">
+
+      <div class="flow-step">
+        <div class="flow-left"><div class="flow-num">1</div><div class="flow-connector"></div></div>
+        <div class="flow-body">
+          <p class="flow-desc">先支付第一筆訂金 <strong>50,000 泰銖</strong></p>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-left"><div class="flow-num">2</div><div class="flow-connector"></div></div>
+        <div class="flow-body">
+          <p class="flow-desc">接下來 <strong>7 天至 14 天內</strong>付清 <strong>12% 頭期款</strong></p>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-left"><div class="flow-num">3</div><div class="flow-connector"></div></div>
+        <div class="flow-body">
+          <p class="flow-desc">頭期款付清後，建商會完成合約，讓客戶與買方正式簽名</p>
+        </div>
+      </div>
+
+      <div class="flow-step highlight">
+        <div class="flow-left"><div class="flow-num">4</div><div class="flow-connector"></div></div>
+        <div class="flow-body">
+          <p class="flow-desc">剩下的 <strong>88% 尾款，等交屋時再繳即可</strong></p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="notice-box reveal">
+      <p class="notice-title">📌 選定後</p>
+      <p>選定哪一戶之後，我會把單一戶別的價格表，以及應該繳的所有費用，一併提供給您。</p>
+    </div>
+
+  </div>
+  <!-- end tab-presale -->
+
+  <!-- ══ TAB 2：新成屋 ══ -->
+  <div class="tab-panel" id="tab-newbuild">
+
+    <div class="flow-steps reveal">
+
+      <div class="flow-step">
+        <div class="flow-left"><div class="flow-num">1</div><div class="flow-connector"></div></div>
+        <div class="flow-body">
+          <div class="flow-head">
+            <span class="flow-name">選定物件與預訂</span>
+            <span class="flow-en">Booking</span>
+          </div>
+          <p class="flow-desc">確定房號，簽署<strong>預約意向書（Reservation Agreement）</strong>。支付訂金（Booking Fee）：通常為固定金額，如 50,000 至 100,000 泰銖。取得預訂單（紅單）。</p>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-left"><div class="flow-num">2</div><div class="flow-connector"></div></div>
+        <div class="flow-body">
+          <div class="flow-head">
+            <span class="flow-name">簽署買賣合約</span>
+            <span class="flow-en">Signing Contract</span>
+          </div>
+          <p class="flow-desc">確認物件、價格及付款條件後，雙方簽署正式買賣合約。簽約後通常需在指定期限內支付首期房款（頭期款）。</p>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-left"><div class="flow-num">3</div><div class="flow-connector"></div></div>
+        <div class="flow-body">
+          <div class="flow-head">
+            <span class="flow-name">資金匯入與 FET（外匯交易單）</span>
+          </div>
+          <p class="flow-desc">外國人購屋關鍵：<strong>資金必須以外幣形式從海外匯入泰國銀行帳戶</strong>。建商負責向銀行申請並出具「<strong>外匯交易單（Foreign Exchange Transaction Form, FET）</strong>」，這是在土地廳辦理過戶的必備文件。</p>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-left"><div class="flow-num">4</div><div class="flow-connector"></div></div>
+        <div class="flow-body">
+          <div class="flow-head">
+            <span class="flow-name">驗屋</span>
+            <span class="flow-en">Inspection</span>
+          </div>
+          <p class="flow-desc">新成屋在付尾款前，買家可親自或委託代理人至現場驗屋，一般由我方提供<strong>免費代辦驗屋服務</strong>。驗屋內容包括房屋本體、附屬設備、家具家電及交屋狀況，如有瑕疵可要求建商修繕。</p>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-left"><div class="flow-num">5</div><div class="flow-connector"></div></div>
+        <div class="flow-body">
+          <div class="flow-head">
+            <span class="flow-name">支付尾款</span>
+            <span class="flow-en">Final Payment</span>
+          </div>
+          <p class="flow-desc">買方依建案約定支付尾款，建商收到尾款後，買方需<strong>寫委託書</strong>委由建商律師辦理更名程序，<strong>買方無需親自到場</strong>。</p>
+        </div>
+      </div>
+
+      <div class="flow-step highlight">
+        <div class="flow-left"><div class="flow-num">6</div><div class="flow-connector"></div></div>
+        <div class="flow-body">
+          <div class="flow-head">
+            <span class="flow-name">過戶與取得地契</span>
+            <span class="flow-en">Transfer of Ownership</span>
+          </div>
+          <p class="flow-desc">買賣雙方至當地<strong>土地廳（Land Office）</strong>辦理權狀轉移。需準備：護照、FET 文件、買賣合約、房屋移轉費資金。</p>
+          <p class="flow-desc">費用通常包括：過戶費、特種營業稅（持有未滿 5 年者）、印花稅、個人所得稅，<strong>具體分攤比例依合約而定</strong>。過戶手續由建商律師全權負責辦理。水電更名會在過戶的時候，由建商一併辦理完成。因為建商一次過戶多件，<strong>買方不需前往土地廳</strong>。</p>
+        </div>
+      </div>
+
+      <div class="flow-step highlight">
+        <div class="flow-left"><div class="flow-num">7</div><div class="flow-connector"></div></div>
+        <div class="flow-body">
+          <div class="flow-head">
+            <span class="flow-name">領取房產證與交屋</span>
+            <span class="flow-en">Handover</span>
+          </div>
+          <p class="flow-desc">過戶完成後，買方可直接與建商預約現場「領取<strong>房產證（Chanote）</strong>」、鑰匙及相關文件，或委由代理人領取。</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <!-- end tab-newbuild -->
+
+  <!-- ══ TAB 3：二手房 ══ -->
+  <div class="tab-panel" id="tab-resale">
+    <div class="flow-steps reveal" style="margin-top:36px;">
+
+      <div class="flow-step">
+        <div class="flow-left"><div class="flow-num">1</div><div class="flow-connector"></div></div>
+        <div class="flow-body">
+          <div class="flow-head"><span class="flow-name">尋找專業仲介商</span></div>
+          <p class="flow-desc">購房過程的第一步是尋找專業的房產仲介。</p>
+          <div class="notice-box" style="margin-top:8px;">
+            <p>在泰國買房，<strong>買家通常不需要支付仲介費</strong>（依個案而定）。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-left"><div class="flow-num">2</div><div class="flow-connector"></div></div>
+        <div class="flow-body">
+          <div class="flow-head"><span class="flow-name">簽訂預定協議</span></div>
+          <p class="flow-desc">當選定物件並與賣家達成共識後，雙方需簽訂一份預定協議，概述一般購買條款、條件和時間表。這份協議是一種初步意向書，確保雙方對交易的基本條件達成一致。</p>
+          <p class="flow-desc">（有些狀況下會直接略過此步驟，簽訂 SPA）</p>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-left"><div class="flow-num">3</div><div class="flow-connector"></div></div>
+        <div class="flow-body">
+          <div class="flow-head"><span class="flow-name">支付訂金</span></div>
+          <p class="flow-desc">買方需要支付訂金，通常為<strong>購買價格的 5–10%</strong>。賣方收到訂金後，一般會將物件自市場下架。這筆訂金通常由買賣雙方共同指定的仲介商或賣家保管，以確保交易安全。</p>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-left"><div class="flow-num">4</div><div class="flow-connector"></div></div>
+        <div class="flow-body">
+          <div class="flow-head"><span class="flow-name">簽訂買賣協議書</span></div>
+          <p class="flow-desc">支付訂金後，雙方可審查《<strong>買賣協議書（SPA）</strong>》的條款和條件。在此期間，買家可委任律師對合約、持股公司和土地所有權證書進行<strong>法律盡職調查</strong>，確保對房產的法律和財務狀況有清晰了解。</p>
+        </div>
+      </div>
+
+      <div class="flow-step highlight">
+        <div class="flow-left"><div class="flow-num">5</div><div class="flow-connector"></div></div>
+        <div class="flow-body">
+          <div class="flow-head"><span class="flow-name">結算及轉帳</span></div>
+          <p class="flow-desc">賣家取得無債務證明、外國份額證明等過戶必要文件，買家至銀行取得<strong>外匯證明（FET）</strong>以及銀行本票後，雙方擇期至土地局。房產正式於土地局過戶後，買家或其代表提交銀行本票以完成付款。</p>
+          <div class="notice-box" style="margin-top:10px;">
+            <p class="notice-title">⚠️ 重要提醒</p>
+            <p>要在泰國購買二手房<strong>需要先有泰國帳戶</strong>！當然，只要有 SPA 以及下訂金後，我們仲介商會協助幫您辦理帳戶。</p>
+          </div>
+
+          <!-- 稅費說明 -->
+          <div style="margin-top:16px;">
+            <p style="font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--taupe);margin-bottom:10px;">相關稅費</p>
+            <div class="tax-row">
+              <div class="tax-label">過戶費</div>
+              <div class="tax-desc"><strong>2%</strong>（政府估值，通常由<strong>買賣雙方各承擔 1%</strong>）</div>
+            </div>
+            <div class="tax-row">
+              <div class="tax-label">印花稅</div>
+              <div class="tax-desc"><strong>0.5%</strong>（成交價，由<strong>賣家</strong>負擔，持有超過 5 年才需繳交）</div>
+            </div>
+            <div class="tax-row">
+              <div class="tax-label">營業稅</div>
+              <div class="tax-desc"><strong>3.3%</strong>（房產持有未滿 5 年才需繳交，按政府估值或成交價<strong>較高者</strong>計算，由<strong>賣家</strong>負擔）</div>
+            </div>
+            <div class="tax-row">
+              <div class="tax-label">所得稅</div>
+              <div class="tax-desc">根據累進稅率系統計算，需專業人士精算，由<strong>賣家</strong>負擔（通常有扣除額）</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flow-step highlight">
+        <div class="flow-left"><div class="flow-num">6</div><div class="flow-connector"></div></div>
+        <div class="flow-body">
+          <div class="flow-head"><span class="flow-name">完成過戶</span></div>
+          <p class="flow-desc">所有權轉移完成後，鑰匙與文件將交給買家。新業主的姓名將於下一週期<strong>註冊至電力局（PEA）</strong>和項目物業管理（如適用），交易正式結束，買家成為房產新主人。</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <!-- end tab-resale -->
+
+  <!-- CTA -->
+  <div class="cta-box reveal">
+    <h3 class="cta-box-title">還有問題？<em>讓我們一對一解答</em></h3>
+    <p class="cta-box-desc">每個人的狀況不同，歡迎直接聯繫 Alice，我們提供全程中文、無壓力的諮詢服務。</p>
+    <a class="btn-gold" href="https://line.me/ti/p/rY37pUpv_k" target="_blank">LINE 免費諮詢</a>
+  </div>
+
+  <!-- Related -->
+  <div class="related-section reveal">
+    <h3 class="related-title">延伸閱讀</h3>
+    <div class="related-grid">
+      <a class="related-card" href="#">
+        <div class="related-thumb">
+          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=200&q=80" alt="" loading="lazy" />
+        </div>
+        <div>
+          <p class="related-tag">泰國 · 地段解析</p>
+          <p class="related-name">《曼谷熱門地段：Rama9、素坤逸、河濱區完整解析》</p>
+          <p class="related-date">2025 · 8 分鐘閱讀</p>
+        </div>
+      </a>
+      <a class="related-card" href="#">
+        <div class="related-thumb">
+          <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=200&q=80" alt="" loading="lazy" />
+        </div>
+        <div>
+          <p class="related-tag">泰國 · 投資攻略</p>
+          <p class="related-name">《泰國房產投資全攻略》曼谷為什麼是東協最值得投資的城市？</p>
+          <p class="related-date">2025 · 10 分鐘閱讀</p>
+        </div>
+      </a>
+    </div>
+  </div>
+
+</div>
+<!-- end article-layout -->
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-logo">愛麗絲奇寓記</p>
+  <div class="footer-links">
+    <a href="index.html">首頁</a>
+    <a href="thailand.html">泰國房產</a>
+    <a href="japan.html">日本房產</a>
+    
+    
+  </div>
+  <p class="footer-copy">© 2025 愛麗絲奇寓記 alice in city｜投資國外不動產具有風險性，請詳閱行銷文件並審慎考量後再行交易。</p>
+</footer>
+
+<script>
+  // Tab switching
+  function switchTab(id) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    event.currentTarget.classList.add('active');
+    // Re-trigger reveals in newly visible tab
+    document.querySelectorAll('#tab-' + id + ' .reveal').forEach(el => {
+      el.classList.add('in');
+    });
+  }
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.06 });
+  reveals.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

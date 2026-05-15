@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>愛麗絲奇寓記 | 海外精選不動產</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Sans+TC:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:     #f5f0e8;
+      --cream-mid: #ede6d6;
+      --cream-dark:#e0d5c0;
+      --taupe:     #8c7b6b;
+      --taupe-dark:#5c4f42;
+      --brown:     #3d3028;
+      --gold:      #b89a6a;
+      --gold-light:#d4b88a;
+      --white:     #fdfaf5;
+      --text-main: #2e261e;
+      --text-mid:  #6b5f54;
+      --text-dim:  #9e9188;
+      --line:      rgba(140,123,107,0.2);
+      --line-dark: rgba(140,123,107,0.4);
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      background: var(--cream);
+      color: var(--text-main);
+      font-family: 'Noto Sans TC', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ══════════════════════════════
+       NAV
+    ══════════════════════════════ */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: rgba(245,240,232,0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 24px;
+      height: 60px;
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      letter-spacing: .06em;
+      color: var(--brown);
+      text-decoration: none;
+      line-height: 1.2;
+    }
+    .nav-logo small {
+      display: block;
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: .48rem;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: var(--taupe);
+      font-weight: 300;
+    }
+
+    .nav-links {
+      display: none;
+      gap: 32px; list-style: none;
+    }
+    .nav-links a {
+      font-size: .72rem; letter-spacing: .16em; text-transform: uppercase;
+      color: var(--text-mid); text-decoration: none;
+      transition: color .3s;
+    }
+    .nav-links a:hover { color: var(--brown); }
+
+    .nav-cta-btn {
+      display: none;
+      font-size: .65rem; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--white); background: var(--brown);
+      padding: 9px 20px; text-decoration: none;
+      transition: background .3s;
+    }
+    .nav-cta-btn:hover { background: var(--taupe-dark); }
+
+    .hamburger {
+      display: flex; flex-direction: column; gap: 5px;
+      cursor: pointer; padding: 4px; background: none; border: none;
+    }
+    .hamburger span {
+      display: block; width: 22px; height: 1px;
+      background: var(--brown); transition: .3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(4px, -4px); }
+
+    .mobile-menu {
+      position: fixed; inset: 0; z-index: 190;
+      background: var(--white);
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center; gap: 32px;
+      opacity: 0; pointer-events: none;
+      transition: opacity .35s ease;
+    }
+    .mobile-menu.open { opacity: 1; pointer-events: auto; }
+    .mobile-menu a {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem; font-weight: 400;
+      color: var(--brown); text-decoration: none;
+      letter-spacing: .04em;
+      opacity: 0; transform: translateY(14px);
+      transition: color .3s, opacity .4s, transform .4s;
+    }
+    .mobile-menu.open a { opacity: 1; transform: translateY(0); }
+    .mobile-menu.open a:nth-child(1) { transition-delay: .07s; }
+    .mobile-menu.open a:nth-child(2) { transition-delay: .13s; }
+    .mobile-menu.open a:nth-child(3) { transition-delay: .19s; }
+    .mobile-menu.open a:nth-child(4) { transition-delay: .25s; }
+    .mobile-menu.open a:nth-child(5) { transition-delay: .31s; }
+    .mobile-menu.open a:nth-child(6) { transition-delay: .37s; }
+    .mobile-menu a:hover { color: var(--gold); }
+    .mobile-menu-divider { width: 36px; height: 1px; background: var(--line-dark); }
+    .mobile-menu-contact {
+      font-size: .72rem; color: var(--text-dim);
+      text-align: center; line-height: 1.8;
+      opacity: 0; transition: opacity .4s .44s;
+    }
+    .mobile-menu.open .mobile-menu-contact { opacity: 1; }
+
+    /* ══════════════════════════════
+       HERO
+    ══════════════════════════════ */
+    .hero {
+      padding-top: 60px;
+      min-height: 100svh;
+      display: flex; flex-direction: column;
+      background: var(--cream);
+    }
+
+    .hero-img-wrap {
+      width: 100%; height: 56vw;
+      min-height: 240px; max-height: 520px;
+      overflow: hidden; position: relative; flex-shrink: 0;
+    }
+    .hero-img-wrap img {
+      width: 100%; height: 100%; object-fit: cover;
+      animation: heroZoom 14s ease-out forwards;
+    }
+    @keyframes heroZoom {
+      from { transform: scale(1.07); }
+      to   { transform: scale(1); }
+    }
+    .hero-img-wrap::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to bottom, transparent 55%, var(--cream) 100%);
+    }
+
+    .hero-body {
+      padding: 28px 24px 52px;
+      flex: 1; display: flex; flex-direction: column; justify-content: center;
+    }
+
+    .hero-eyebrow {
+      font-size: .6rem; letter-spacing: .32em; text-transform: uppercase;
+      color: var(--taupe); margin-bottom: 16px;
+      display: flex; align-items: center; gap: 10px;
+      opacity: 0; animation: fadeUp .7s .2s forwards;
+    }
+    .hero-eyebrow::before {
+      content: ''; display: inline-block;
+      width: 20px; height: 1px; background: var(--gold);
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 9vw, 4.8rem);
+      font-weight: 400; line-height: 1.1;
+      color: var(--brown); margin-bottom: 18px;
+      opacity: 0; animation: fadeUp .7s .35s forwards;
+    }
+    .hero-title em { font-style: italic; color: var(--gold); }
+
+    .hero-desc {
+      font-size: .86rem; line-height: 1.9;
+      color: var(--text-mid); margin-bottom: 32px;
+      max-width: 480px;
+      opacity: 0; animation: fadeUp .7s .5s forwards;
+    }
+
+    .hero-actions {
+      display: flex; gap: 12px; flex-wrap: wrap;
+      opacity: 0; animation: fadeUp .7s .65s forwards;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ══════════════════════════════
+       BUTTONS
+    ══════════════════════════════ */
+    .btn-primary {
+      display: inline-block;
+      font-size: .68rem; letter-spacing: .2em; text-transform: uppercase;
+      background: var(--brown); color: var(--white);
+      padding: 13px 26px; text-decoration: none;
+      transition: background .3s;
+    }
+    .btn-primary:hover { background: var(--taupe-dark); }
+
+    .btn-outline {
+      display: inline-block;
+      font-size: .68rem; letter-spacing: .2em; text-transform: uppercase;
+      border: 1px solid var(--taupe); color: var(--taupe);
+      padding: 12px 22px; text-decoration: none;
+      transition: border-color .3s, color .3s;
+    }
+    .btn-outline:hover { border-color: var(--brown); color: var(--brown); }
+
+    /* ══════════════════════════════
+       MARQUEE
+    ══════════════════════════════ */
+    .marquee-wrap {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: var(--cream-mid);
+      overflow: hidden; padding: 13px 0;
+    }
+    .marquee-track {
+      display: flex; white-space: nowrap;
+      animation: marquee 22s linear infinite;
+    }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    .marquee-track span {
+      font-size: .65rem; letter-spacing: .22em; text-transform: uppercase;
+      color: var(--taupe); padding: 0 26px;
+    }
+    .marquee-track .dot { color: var(--gold); font-size: .45rem; padding: 0; }
+
+    /* ══════════════════════════════
+       SECTION BASE
+    ══════════════════════════════ */
+    .section { padding: 60px 24px; }
+
+    .section-label {
+      font-size: .6rem; letter-spacing: .3em; text-transform: uppercase;
+      color: var(--taupe); margin-bottom: 12px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .section-label::before {
+      content: ''; display: inline-block;
+      width: 18px; height: 1px; background: var(--gold);
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.7rem, 6vw, 2.8rem);
+      font-weight: 400; line-height: 1.2;
+      color: var(--brown); margin-bottom: 14px;
+    }
+    .section-title em { font-style: italic; color: var(--gold); }
+
+    .section-desc {
+      font-size: .84rem; line-height: 1.9; color: var(--text-mid);
+    }
+
+    /* ══════════════════════════════
+       ABOUT
+    ══════════════════════════════ */
+    .about { background: var(--white); }
+
+    .about-img {
+      width: 100%; aspect-ratio: 4/3;
+      overflow: hidden; margin-bottom: 30px;
+      position: relative;
+    }
+    .about-img::before {
+      content: ''; position: absolute;
+      top: -8px; left: -8px;
+      width: 48px; height: 48px;
+      border-top: 1.5px solid var(--gold);
+      border-left: 1.5px solid var(--gold);
+      z-index: 1;
+    }
+    .about-img img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform .7s;
+    }
+    .about-img:hover img { transform: scale(1.03); }
+
+    .stats-row {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 1px; background: var(--line);
+      border: 1px solid var(--line);
+      margin-top: 36px;
+    }
+    .stat-box {
+      background: var(--white); padding: 20px 12px; text-align: center;
+    }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.9rem; color: var(--brown); line-height: 1;
+    }
+    .stat-num sup { font-size: .85rem; }
+    .stat-label {
+      font-size: .58rem; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--text-dim); margin-top: 5px;
+    }
+
+    /* ══════════════════════════════
+       DESTINATIONS
+    ══════════════════════════════ */
+    .destinations { background: var(--cream); }
+
+    .dest-cards {
+      display: flex; flex-direction: column; gap: 2px; margin-top: 28px;
+    }
+
+    .dest-card {
+      position: relative; overflow: hidden;
+      text-decoration: none; display: block;
+      aspect-ratio: 16/9;
+    }
+    .dest-card img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform .6s; filter: brightness(.72);
+    }
+    .dest-card:hover img { transform: scale(1.04); filter: brightness(.82); }
+
+    .dest-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(25,16,8,.82) 0%, rgba(25,16,8,.08) 60%);
+    }
+    .dest-info {
+      position: absolute; bottom: 0; left: 0; right: 0; padding: 18px 20px;
+      display: flex; align-items: flex-end; justify-content: space-between;
+    }
+    .dest-country {
+      font-size: .56rem; letter-spacing: .26em; text-transform: uppercase;
+      color: var(--gold-light); margin-bottom: 4px;
+    }
+    .dest-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem; font-weight: 400; color: #fff; line-height: 1.1;
+    }
+    .dest-tag {
+      font-size: .55rem; letter-spacing: .14em; text-transform: uppercase;
+      color: rgba(255,255,255,.5); border: 1px solid rgba(255,255,255,.3);
+      padding: 4px 9px; flex-shrink: 0; margin-left: 10px;
+    }
+    .dest-coming { color: var(--gold-light); border-color: rgba(184,154,106,.4); }
+
+    /* ══════════════════════════════
+       LISTINGS
+    ══════════════════════════════ */
+    .listings { background: var(--cream-mid); }
+
+    .listings-scroll {
+      display: flex; gap: 12px;
+      overflow-x: auto;
+      margin: 0 -24px; padding: 28px 24px 8px;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x mandatory;
+    }
+    .listings-scroll::-webkit-scrollbar { display: none; }
+
+    .listing-card {
+      flex: 0 0 78vw; max-width: 300px;
+      background: var(--white);
+      text-decoration: none; display: block;
+      scroll-snap-align: start;
+    }
+    .listing-img-wrap {
+      position: relative; aspect-ratio: 4/3; overflow: hidden;
+    }
+    .listing-img-wrap img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform .6s; filter: brightness(.88);
+    }
+    .listing-card:hover .listing-img-wrap img { transform: scale(1.04); }
+
+    .listing-badge {
+      position: absolute; top: 12px; left: 12px;
+      font-size: .52rem; letter-spacing: .2em; text-transform: uppercase;
+      background: var(--brown); color: var(--cream); padding: 3px 9px;
+    }
+    .listing-body { padding: 16px 16px 20px; }
+    .listing-loc {
+      font-size: .58rem; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 6px;
+    }
+    .listing-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem; font-weight: 400;
+      color: var(--brown); margin-bottom: 7px; line-height: 1.3;
+    }
+    .listing-desc {
+      font-size: .74rem; color: var(--text-dim); line-height: 1.8; margin-bottom: 14px;
+    }
+    .listing-footer {
+      display: flex; justify-content: space-between; align-items: center;
+      padding-top: 12px; border-top: 1px solid var(--line);
+    }
+    .listing-price {
+      font-family: 'Playfair Display', serif;
+      font-size: .92rem; color: var(--taupe-dark);
+    }
+    .listing-more {
+      font-size: .58rem; letter-spacing: .16em; text-transform: uppercase; color: var(--gold);
+    }
+    .scroll-hint {
+      font-size: .6rem; letter-spacing: .16em; text-transform: uppercase;
+      color: var(--text-dim); text-align: center; margin-top: 12px;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+    }
+    .scroll-hint::before, .scroll-hint::after {
+      content: ''; display: inline-block; width: 18px; height: 1px; background: var(--line-dark);
+    }
+
+    /* ══════════════════════════════
+       KNOWLEDGE
+    ══════════════════════════════ */
+    .knowledge { background: var(--white); }
+
+    .article-featured {
+      display: block; text-decoration: none; margin-bottom: 2px;
+    }
+    .article-featured-img {
+      width: 100%; aspect-ratio: 16/9; overflow: hidden;
+    }
+    .article-featured-img img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform .6s;
+    }
+    .article-featured:hover .article-featured-img img { transform: scale(1.03); }
+    .article-featured-body {
+      padding: 18px 0 22px; border-bottom: 1px solid var(--line);
+    }
+    .article-tag {
+      font-size: .56rem; letter-spacing: .22em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 7px;
+    }
+    .article-featured-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem; font-weight: 400; line-height: 1.4;
+      color: var(--brown); margin-bottom: 9px;
+    }
+    .article-featured-excerpt {
+      font-size: .78rem; color: var(--text-mid); line-height: 1.8;
+    }
+
+    .article-list { margin-top: 0; }
+    .article-item {
+      display: flex; gap: 14px; align-items: flex-start;
+      padding: 18px 0; border-bottom: 1px solid var(--line);
+      text-decoration: none; color: inherit;
+    }
+    .article-thumb {
+      flex: 0 0 76px; width: 76px; height: 76px; overflow: hidden;
+    }
+    .article-thumb img {
+      width: 100%; height: 100%; object-fit: cover; transition: transform .5s;
+    }
+    .article-item:hover .article-thumb img { transform: scale(1.06); }
+    .article-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: .86rem; font-weight: 400; line-height: 1.5;
+      color: var(--brown); margin-bottom: 5px;
+    }
+    .article-date { font-size: .6rem; color: var(--text-dim); }
+
+    /* ══════════════════════════════
+       SEMINAR
+    ══════════════════════════════ */
+    .seminar { background: var(--brown); }
+    .seminar .section-label { color: rgba(212,184,138,.8); }
+    .seminar .section-label::before { background: var(--gold-light); }
+    .seminar .section-title { color: var(--cream); }
+    .seminar .section-title em { color: var(--gold-light); }
+    .seminar .section-desc { color: rgba(245,240,232,.55); }
+
+    .seminar-date-card {
+      margin-top: 32px; border: 1px solid rgba(184,154,106,.3);
+      padding: 24px 22px; display: flex; gap: 20px; align-items: center;
+    }
+    .seminar-date-big {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.2rem; color: var(--gold-light); line-height: 1; flex-shrink: 0;
+    }
+    .seminar-month {
+      font-size: .58rem; letter-spacing: .26em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 4px;
+    }
+    .seminar-where {
+      font-size: .78rem; color: rgba(245,240,232,.65); line-height: 1.7;
+    }
+    .btn-cream {
+      display: inline-block; margin-top: 24px;
+      font-size: .66rem; letter-spacing: .2em; text-transform: uppercase;
+      background: var(--cream); color: var(--brown);
+      padding: 12px 26px; text-decoration: none; transition: background .3s;
+    }
+    .btn-cream:hover { background: var(--cream-dark); }
+
+    /* ══════════════════════════════
+       CONTACT BANNER
+    ══════════════════════════════ */
+    .contact-banner { background: var(--gold); padding: 44px 24px; }
+    .contact-banner-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.55rem, 5.5vw, 2.4rem);
+      font-weight: 400; line-height: 1.2;
+      color: var(--brown); margin-bottom: 10px;
+    }
+    .contact-banner-title em { font-style: italic; }
+    .contact-banner-sub {
+      font-size: .8rem; color: rgba(61,48,40,.65);
+      line-height: 1.8; margin-bottom: 24px;
+    }
+    .btn-brown {
+      display: inline-block;
+      font-size: .66rem; letter-spacing: .2em; text-transform: uppercase;
+      background: var(--brown); color: var(--cream);
+      padding: 12px 26px; text-decoration: none; transition: background .3s;
+    }
+    .btn-brown:hover { background: var(--taupe-dark); }
+
+    /* ══════════════════════════════
+       FOOTER
+    ══════════════════════════════ */
+    footer {
+      background: var(--brown); padding: 52px 24px 32px;
+      border-top: 2px solid var(--gold);
+    }
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem; color: var(--cream); margin-bottom: 7px;
+    }
+    .footer-tagline {
+      font-size: .73rem; color: rgba(245,240,232,.45);
+      line-height: 1.8; margin-bottom: 36px;
+    }
+    .footer-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 28px 16px; margin-bottom: 36px;
+    }
+    .footer-col-title {
+      font-size: .56rem; letter-spacing: .28em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 12px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 8px; }
+    .footer-col ul a {
+      font-size: .76rem; color: rgba(245,240,232,.5);
+      text-decoration: none; transition: color .3s;
+    }
+    .footer-col ul a:hover { color: var(--cream); }
+    .footer-contact-item {
+      font-size: .76rem; color: rgba(245,240,232,.5); line-height: 1.8; margin-bottom: 7px;
+    }
+    .footer-contact-item strong { color: rgba(245,240,232,.72); font-weight: 400; }
+    .footer-bottom {
+      padding-top: 22px; border-top: 1px solid rgba(184,154,106,.18);
+    }
+    .footer-copy {
+      font-size: .62rem; color: rgba(245,240,232,.28); line-height: 1.8; margin-bottom: 6px;
+    }
+    .footer-disclaimer { font-size: .58rem; color: rgba(245,240,232,.18); line-height: 1.7; }
+
+    /* ══════════════════════════════
+       REVEAL
+    ══════════════════════════════ */
+    .reveal {
+      opacity: 0; transform: translateY(22px);
+      transition: opacity .75s ease, transform .75s ease;
+    }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+    .rd1 { transition-delay: .1s; }
+    .rd2 { transition-delay: .2s; }
+    .rd3 { transition-delay: .3s; }
+
+    /* ══════════════════════════════
+       DESKTOP (≥ 768px)
+    ══════════════════════════════ */
+    @media (min-width: 768px) {
+      nav { padding: 0 48px; height: 68px; }
+      .hamburger { display: none; }
+      .nav-links { display: flex; }
+      .nav-cta-btn { display: inline-block; }
+
+      .section { padding: 96px 56px; }
+
+      .hero { flex-direction: row; min-height: 100svh; padding-top: 68px; }
+      .hero-img-wrap {
+        flex: 0 0 50%; height: auto; max-height: none;
+        aspect-ratio: unset;
+      }
+      .hero-img-wrap::after {
+        background: linear-gradient(to right, transparent 60%, var(--cream) 100%);
+      }
+      .hero-body { flex: 1; padding: 80px 60px 80px 52px; justify-content: center; }
+
+      .about-inner {
+        display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+      }
+      .about-img { margin-bottom: 0; aspect-ratio: 3/4; }
+
+      .dest-cards {
+        display: grid; grid-template-columns: 1.4fr 1fr;
+        grid-template-rows: 1fr 1fr; gap: 2px; height: 580px;
+      }
+      .dest-card { aspect-ratio: unset; height: 100%; }
+      .dest-card:first-child { grid-row: span 2; }
+
+      .listings-scroll {
+        display: grid; grid-template-columns: repeat(3, 1fr);
+        gap: 2px; overflow: visible;
+        margin: 28px 0 0; padding: 0;
+      }
+      .listing-card { flex: none; max-width: none; }
+      .scroll-hint { display: none; }
+
+      .knowledge-inner {
+        display: grid; grid-template-columns: 1fr 1fr; gap: 0 48px;
+      }
+
+      .seminar-inner {
+        display: grid; grid-template-columns: 1fr auto; gap: 64px; align-items: center;
+      }
+      .seminar-date-card { margin-top: 0; }
+
+      .contact-banner { padding: 56px; }
+      .contact-banner-inner {
+        display: flex; align-items: center; justify-content: space-between; gap: 40px;
+      }
+
+      .footer-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    @media (min-width: 1200px) {
+      nav, .section, .contact-banner, footer { padding-left: 80px; padding-right: 80px; }
+      nav { height: 72px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="index.html">
+    愛麗絲奇寓記
+    <small>Alice in City · Overseas Property</small>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">首頁</a></li>
+    <li><a href="about.html">關於我們</a></li>
+    <li><a href="thailand.html">泰國房產</a></li>
+    <li><a href="japan.html">日本房產</a></li>
+  </ul>
+  <a class="nav-cta-btn" href="contact.html">立即諮詢</a>
+  <button class="hamburger" id="hamburger" aria-label="選單">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="closeMenu()">首頁</a>
+  <a href="about.html" onclick="closeMenu()">關於我們</a>
+  <a href="thailand.html" onclick="closeMenu()">泰國房產</a>
+  <a href="japan.html" onclick="closeMenu()">日本房產</a>
+  <a href="seminar.html" onclick="closeMenu()">說明會</a>
+  <a href="contact.html" onclick="closeMenu()">聯絡我們</a>
+  <div class="mobile-menu-divider"></div>
+  <p class="mobile-menu-contact">Alice 0929-688-608<br>（手機加賴）</p>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-img-wrap">
+    <!-- 換成你自己的照片：把下方網址替換成你的圖片路徑，例如 images/hero.jpg -->
+<img src="Bangkok-City-Centre-Business-Lifestyle-Neighborhoods-scaled.jpg" alt="曼谷城市景觀" />
+  </div>
+  <div class="hero-body">
+    <p class="hero-eyebrow">海外精選不動產</p>
+    <h1 class="hero-title">
+      開啟你的<br><em>海外置產</em><br>新章節
+    </h1>
+    <p class="hero-desc">
+      愛麗絲奇寓記，專注泰國、日本精選建案，為台灣買家提供全程中文服務，從選屋到過戶，陪你走完每一步。
+    </p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="thailand.html">瀏覽精選建案</a>
+      <a class="btn-outline" href="about.html">了解我們</a>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span>曼谷精選建案</span><span class="dot">◆</span>
+    <span>東京不動產</span><span class="dot">◆</span>
+    <span>泰國購屋知識</span><span class="dot">◆</span>
+    <span>全程中文服務</span><span class="dot">◆</span>
+    <span>預售屋・成屋</span><span class="dot">◆</span>
+    <span>台北說明會</span><span class="dot">◆</span>
+    <span>海外投資規劃</span><span class="dot">◆</span>
+    <span>曼谷精選建案</span><span class="dot">◆</span>
+    <span>東京不動產</span><span class="dot">◆</span>
+    <span>泰國購屋知識</span><span class="dot">◆</span>
+    <span>全程中文服務</span><span class="dot">◆</span>
+    <span>預售屋・成屋</span><span class="dot">◆</span>
+    <span>台北說明會</span><span class="dot">◆</span>
+    <span>海外投資規劃</span><span class="dot">◆</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="section about reveal">
+  <div class="about-inner">
+    <div class="about-img">
+      <!-- 換成你的團隊照片或辦公室照片 -->
+<img src="IMG_7411.JPG" alt="關於愛麗絲奇寓記" loading="lazy" />
+    </div>
+    <div>
+      <p class="section-label">關於我們</p>
+      <h2 class="section-title">不只是仲介，<br>是你的<em>海外生活顧問</em></h2>
+      <p class="section-desc" style="margin-bottom:14px;">
+        我們深耕泰國、日本不動產市場多年，了解每一個台灣人走向海外的故事——有人為了投資，有人為了生活，有人只是想在這個世界多留一個落腳處。
+      </p>
+      <p class="section-desc">
+        愛麗絲奇寓記提供全中文、一對一的服務，從市場分析、建案選擇到簽約過戶，我們陪你走完每一步。
+      </p>
+      <div class="stats-row">
+        <div class="stat-box">
+          <div class="stat-num">50<sup>+</sup></div>
+          <div class="stat-label">合作建案</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">10</div>
+          <div class="stat-label">國家市場</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">15<sup>萬</sup></div>
+          <div class="stat-label">旅泰台灣人</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DESTINATIONS -->
+<section class="section destinations reveal">
+  <p class="section-label">投資目的地</p>
+  <h2 class="section-title">選擇你的<em>下一個城市</em></h2>
+  <p class="section-desc">泰國、日本、馬來西亞——我們在最值得關注的市場為你精選建案。</p>
+
+  <div class="dest-cards">
+    <a class="dest-card rd1 reveal" href="thailand.html">
+      <!-- 換成曼谷城市照片 -->
+<img src="iconsiam-07.jpg" alt="曼谷" loading="lazy" />
+      <div class="dest-overlay"></div>
+      <div class="dest-info">
+        <div>
+          <p class="dest-country">Thailand · 泰國</p>
+          <h3 class="dest-name">曼谷 Bangkok</h3>
+        </div>
+        <span class="dest-tag">50+ 新建案</span>
+      </div>
+    </a>
+    <a class="dest-card rd2 reveal" href="japan.html">
+      <!-- 換成東京城市照片 -->
+      <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=700&q=80" alt="東京" loading="lazy" />
+      <div class="dest-overlay"></div>
+      <div class="dest-info">
+        <div>
+          <p class="dest-country">Japan · 日本</p>
+          <h3 class="dest-name">東京 Tokyo</h3>
+        </div>
+        <span class="dest-tag">20+ 新建案</span>
+      </div>
+    </a>
+    <a class="dest-card rd3 reveal" href="contact.html">
+      <!-- 換成吉隆坡城市照片 -->
+      <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=700&q=80" alt="吉隆坡" loading="lazy" />
+      <div class="dest-overlay"></div>
+      <div class="dest-info">
+        <div>
+          <p class="dest-country">Malaysia · 馬來西亞</p>
+          <h3 class="dest-name">吉隆坡 KL</h3>
+        </div>
+        <span class="dest-tag dest-coming">即將推出</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- LISTINGS -->
+<section class="section listings reveal">
+  <p class="section-label">精選建案</p>
+  <h2 class="section-title">近期<em>熱門推薦</em></h2>
+
+  <div class="listings-scroll">
+    <a class="listing-card" href="noble-emmerse-phrom-phong/property-noble-emmerse-phrom-phong.html">
+      <div class="listing-img-wrap">
+        <img src="noble-emmerse-phrom-phong/images/hero-exterior-1.jpg" alt="Noble EMMERSE Phrom Phong" loading="lazy" />
+        <span class="listing-badge">預售屋</span>
+      </div>
+      <div class="listing-body">
+        <p class="listing-loc">Bangkok · 鵬蓬 Phrom Phong</p>
+        <h3 class="listing-name">Noble EMMERSE 諾博譽城</h3>
+        <p class="listing-desc">BTS 鵬蓬 350 米，55 層頂級私宅，低於區域均價近 20% 切入高端市場。</p>
+        <div class="listing-footer">
+          <span class="listing-price">THB 8M 起</span>
+          <span class="listing-more">詳細資訊 →</span>
+        </div>
+      </div>
+    </a>
+    <a class="listing-card" href="property-xt10-ekkamai.html">
+      <div class="listing-img-wrap">
+<img src="xt10-exterior1.jpg" alt="XT 10 Ekkamai" loading="lazy" />
+        <span class="listing-badge">預售屋</span>
+      </div>
+      <div class="listing-body">
+        <p class="listing-loc">Bangkok · 艾卡邁 Ekkamai</p>
+        <h3 class="listing-name">XT 10 Ekkamai</h3>
+        <p class="listing-desc">Sansiri × Mitsui Fudosan 聯手打造，雙塔 933 戶，艾卡邁核心地段，外籍人士聚居首選。</p>
+        <div class="listing-footer">
+          <span class="listing-price">THB 3.89M 起</span>
+          <span class="listing-more">詳細資訊 →</span>
+        </div>
+      </div>
+    </a>
+    <a class="listing-card" href="ap-aspire-onnut-station/property-ap-aspire-onnut-station.html">
+      <div class="listing-img-wrap">
+        <img src="ap-aspire-onnut-station/images/hero-1-city.jpg" alt="AP Aspire Onnut Station" loading="lazy" />
+        <span class="listing-badge new" style="background:#c4521e">新成屋</span>
+      </div>
+      <div class="listing-body">
+        <p class="listing-loc">Bangkok · On Nut · Sukhumvit</p>
+        <h3 class="listing-name">AP Aspire Onnut Station</h3>
+        <p class="listing-desc">BTS On Nut 200 米，頂樓天際泳池，2025 Q3 已完工，即買即住即出租。</p>
+        <div class="listing-footer">
+          <span class="listing-price">THB 3.76M 起</span>
+          <span class="listing-more">詳細資訊 →</span>
+        </div>
+      </div>
+    </a>
+  </div>
+  <p class="scroll-hint">左右滑動查看更多</p>
+  <div style="margin-top:32px;text-align:center;">
+    <a class="btn-outline" href="thailand.html">查看全部建案</a>
+  </div>
+</section>
+
+<!-- KNOWLEDGE -->
+<section class="section knowledge reveal">
+  <p class="section-label">購屋知識</p>
+  <h2 class="section-title">置產前，<em>先讀這些</em></h2>
+
+  <div class="knowledge-inner" style="margin-top:28px;">
+    <a class="article-featured" href="#">
+      <div class="article-featured-img">
+        <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80" alt="泰國房產" loading="lazy" />
+      </div>
+      <div class="article-featured-body">
+        <p class="article-tag">泰國 · 投資攻略</p>
+        <h3 class="article-featured-title">《泰國房產投資全攻略》曼谷房價攀升，成為東協投資熱點</h3>
+        <p class="article-featured-excerpt">從外資購屋限制、稅費整理到最具潛力地段，一篇讀懂泰國不動產市場現況。</p>
+      </div>
+    </a>
+    <div class="article-list">
+      <a class="article-item" href="#">
+        <div class="article-thumb">
+          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=200&q=80" alt="" loading="lazy" />
+        </div>
+        <div>
+          <p class="article-tag">泰國 · 地段解析</p>
+          <h3 class="article-title">《曼谷熱門地段：Rama9、素坤逸、河濱區》</h3>
+          <p class="article-date">2025 · 8 分鐘閱讀</p>
+        </div>
+      </a>
+      <a class="article-item" href="#">
+        <div class="article-thumb">
+          <img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?w=200&q=80" alt="" loading="lazy" />
+        </div>
+        <div>
+          <p class="article-tag">泰國 · 購屋須知</p>
+          <h3 class="article-title">《泰國購房重要須知 Q&A》外國人可以買房嗎？</h3>
+          <p class="article-date">2025 · 6 分鐘閱讀</p>
+        </div>
+      </a>
+      <a class="article-item" href="#">
+        <div class="article-thumb">
+          <img src="https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=200&q=80" alt="" loading="lazy" />
+        </div>
+        <div>
+          <p class="article-tag">日本 · 投資入門</p>
+          <h3 class="article-title">《日本不動產入門》台灣人如何在東京置產？</h3>
+          <p class="article-date">2025 · 7 分鐘閱讀</p>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div style="margin-top:32px;text-align:center;">
+    <a class="btn-outline" href="#">查看全部文章</a>
+  </div>
+</section>
+
+<!-- CONTACT BANNER -->
+<div class="contact-banner reveal">
+  <div class="contact-banner-inner">
+    <div>
+      <h2 class="contact-banner-title">有任何問題？<br><em>我們直接聊</em></h2>
+<p class="contact-banner-sub">Alice：0929-688-608（手機加賴）</p>
+    </div>
+    <a class="btn-brown" href="https://line.me/ti/p/rY37pUpv_k" target="_blank">LINE 立即諮詢</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-logo">愛麗絲奇寓記</p>
+  <p class="footer-tagline">海外精選不動產・全程中文服務<br>曼谷 × 芭堤雅 × 普吉島 × 東京</p>
+  <div class="footer-grid">
+    <div class="footer-col">
+      <p class="footer-col-title">快速連結</p>
+      <ul>
+        <li><a href="index.html" class="active">首頁</a></li>
+        <li><a href="about.html">關於我們</a></li>
+        <li><a href="thailand.html">泰國房產</a></li>
+        <li><a href="japan.html">日本房產</a></li>
+      </ul>
+    </div>
+   <div class="footer-col">
+  <p class="footer-col-title">精選建案</p>
+  <ul>
+    <li><a href="property-kith-samrong.html">KITH Samrong</a></li>
+    <li><a href="property-xt10-ekkamai.html">XT 10 Ekkamai</a></li>
+    <li><a href="noble-emmerse-phrom-phong/property-noble-emmerse-phrom-phong.html">Noble EMMERSE</a></li>
+    <li><a href="culture-thonglor/property-culture-thonglor.html">Culture Thonglor</a></li>
+    <li><a href="ap-aspire-onnut-station/property-ap-aspire-onnut-station.html">AP Aspire Onnut</a></li>
+  </ul>
+</div>
+    <div class="footer-col">
+      <p class="footer-col-title">聯絡資訊</p>
+      <p class="footer-contact-item"><strong>Alice 愛麗絲</strong><br>0929-688-608</p>
+      <p class="footer-contact-item"></p>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-title">辦公地址</p>
+      <p class="footer-contact-item">台北市大安區<br>仁愛路三段28號2樓</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 愛麗絲奇寓記 Alice in City｜碩盛國際不動產有限公司 (109)新北經紀字第003786號</p>
+    <p class="footer-disclaimer">投資國外不動產具有風險性，請投資人詳閱行銷文件並審慎考量後再行交易。</p>
+  </div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  hamburger.addEventListener('click', () => {
+    const open = mobileMenu.classList.toggle('open');
+    hamburger.classList.toggle('open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+
+  function closeMenu() {
+    mobileMenu.classList.remove('open');
+    hamburger.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  const reveals = document.querySelectorAll('.reveal');
+  new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); } });
+  }, { threshold: 0.07 }).observe ? (() => {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); } });
+    }, { threshold: 0.07 });
+    reveals.forEach(el => obs.observe(el));
+  })() : reveals.forEach(el => el.classList.add('in'));
+</script>
+</body>
+</html>

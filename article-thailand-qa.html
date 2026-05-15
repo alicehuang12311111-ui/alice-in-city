@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>泰國購房重要須知 Q&A｜愛麗絲奇寓記</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Sans+TC:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:     #f5f0e8;
+      --cream-mid: #ede6d6;
+      --cream-dark:#e0d5c0;
+      --taupe:     #8c7b6b;
+      --taupe-dark:#5c4f42;
+      --brown:     #3d3028;
+      --gold:      #b89a6a;
+      --gold-light:#d4b88a;
+      --white:     #fdfaf5;
+      --text-main: #2e261e;
+      --text-mid:  #6b5f54;
+      --text-dim:  #9e9188;
+      --line:      rgba(140,123,107,0.2);
+      --line-dark: rgba(140,123,107,0.4);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--cream);
+      color: var(--text-main);
+      font-family: 'Noto Sans TC', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: rgba(245,240,232,0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 24px; height: 60px;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem; color: var(--brown); text-decoration: none; line-height: 1.2;
+    }
+    .nav-logo small {
+      display: block; font-family: 'Noto Sans TC', sans-serif;
+      font-size: .46rem; letter-spacing: .26em; text-transform: uppercase;
+      color: var(--taupe); font-weight: 300;
+    }
+    .nav-back {
+      font-size: .65rem; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--taupe); text-decoration: none;
+      display: flex; align-items: center; gap: 6px; transition: color .3s;
+    }
+    .nav-back:hover { color: var(--brown); }
+    .nav-back svg { transition: transform .3s; }
+    .nav-back:hover svg { transform: translateX(-3px); }
+
+    /* ── HERO ── */
+    .article-hero { padding-top: 60px; background: var(--white); }
+    .article-hero-img {
+      width: 100%; aspect-ratio: 16/7; overflow: hidden; position: relative;
+    }
+    .article-hero-img img {
+      width: 100%; height: 100%; object-fit: cover; filter: brightness(.75);
+    }
+    .article-hero-img::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to bottom, transparent 40%, var(--white) 100%);
+    }
+    .article-hero-body {
+      padding: 28px 24px 36px; max-width: 800px; margin: 0 auto;
+    }
+    .article-breadcrumb {
+      font-size: .6rem; letter-spacing: .22em; text-transform: uppercase;
+      color: var(--taupe); margin-bottom: 14px;
+      display: flex; align-items: center; gap: 7px; flex-wrap: wrap;
+    }
+    .article-breadcrumb a { color: var(--taupe); text-decoration: none; }
+    .article-breadcrumb a:hover { color: var(--gold); }
+    .article-tag-badge {
+      display: inline-block;
+      font-size: .58rem; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--gold); border: 1px solid var(--gold);
+      padding: 3px 10px; margin-bottom: 14px;
+    }
+    .article-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 6vw, 3rem);
+      font-weight: 400; line-height: 1.2; color: var(--brown); margin-bottom: 18px;
+    }
+    .article-meta {
+      display: flex; gap: 18px; flex-wrap: wrap;
+      font-size: .65rem; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--text-dim); padding-top: 16px; border-top: 1px solid var(--line);
+    }
+
+    /* ── LAYOUT ── */
+    .article-layout {
+      max-width: 800px; margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+
+    /* ── CATEGORY TABS ── */
+    .cat-tabs {
+      display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 36px;
+    }
+    .cat-btn {
+      font-size: .62rem; letter-spacing: .16em; text-transform: uppercase;
+      color: var(--taupe); background: none;
+      border: 1px solid var(--line-dark);
+      padding: 7px 14px; cursor: pointer;
+      transition: background .25s, color .25s, border-color .25s;
+    }
+    .cat-btn.active, .cat-btn:hover {
+      background: var(--brown); color: var(--cream); border-color: var(--brown);
+    }
+
+    /* ── Q&A ITEMS ── */
+    .qa-list { display: flex; flex-direction: column; gap: 2px; }
+
+    .qa-item {
+      background: var(--white);
+      border: 1px solid var(--line);
+      overflow: hidden;
+      transition: border-color .3s;
+    }
+    .qa-item.hidden { display: none; }
+    .qa-item:hover { border-color: var(--line-dark); }
+
+    .qa-question {
+      display: flex; align-items: flex-start; gap: 14px;
+      padding: 18px 20px; cursor: pointer;
+      user-select: none;
+    }
+    .qa-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem; color: var(--gold);
+      flex-shrink: 0; line-height: 1.4; min-width: 24px;
+    }
+    .qa-q-text {
+      font-family: 'Noto Serif TC', serif;
+      font-size: .9rem; font-weight: 400; color: var(--brown);
+      line-height: 1.6; flex: 1;
+    }
+    .qa-arrow {
+      flex-shrink: 0; margin-top: 3px;
+      color: var(--taupe); transition: transform .3s;
+    }
+    .qa-item.open .qa-arrow { transform: rotate(180deg); }
+
+    .qa-answer {
+      max-height: 0; overflow: hidden;
+      transition: max-height .4s ease, padding .3s ease;
+      padding: 0 20px 0 58px;
+    }
+    .qa-item.open .qa-answer {
+      max-height: 1200px;
+      padding: 0 20px 22px 58px;
+    }
+
+    .qa-answer p {
+      font-size: .86rem; line-height: 1.9; color: var(--text-mid);
+      margin-bottom: 10px;
+    }
+    .qa-answer p:last-child { margin-bottom: 0; }
+    .qa-answer strong { color: var(--brown); font-weight: 500; }
+
+    .qa-answer ol, .qa-answer ul {
+      list-style: none; padding: 0; margin: 0 0 10px;
+    }
+    .qa-answer ol { counter-reset: qa-counter; }
+    .qa-answer li {
+      font-size: .86rem; line-height: 1.9; color: var(--text-mid);
+      padding: 4px 0 4px 20px; position: relative;
+      border-bottom: 1px solid var(--line);
+    }
+    .qa-answer li:last-child { border-bottom: none; }
+    .qa-answer ul li::before {
+      content: '—'; position: absolute; left: 0; color: var(--gold); font-size: .8rem;
+    }
+    .qa-answer ol li::before {
+      content: counter(qa-counter, lower-alpha) '.';
+      counter-increment: qa-counter;
+      position: absolute; left: 0; color: var(--gold); font-size: .78rem;
+    }
+
+    /* Sub-list (I. II. III.) */
+    .qa-answer .sub-list { list-style: none; padding: 0; margin: 8px 0; }
+    .qa-answer .sub-list li {
+      padding: 10px 0 10px 28px; border-bottom: 1px solid var(--line);
+    }
+    .qa-answer .sub-list li::before { content: none; }
+    .sub-marker {
+      position: absolute; left: 0;
+      font-family: 'Playfair Display', serif;
+      font-size: .78rem; color: var(--gold); font-weight: 400;
+    }
+
+    /* Notice inside answer */
+    .qa-notice {
+      background: var(--cream-mid);
+      border-left: 2px solid var(--gold);
+      padding: 12px 16px; margin: 10px 0;
+      font-size: .82rem; line-height: 1.85; color: var(--text-mid);
+    }
+    .qa-notice strong { color: var(--brown); }
+
+    /* ── SECTION DIVIDER ── */
+    .qa-section-label {
+      font-size: .6rem; letter-spacing: .28em; text-transform: uppercase;
+      color: var(--taupe); margin: 36px 0 12px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .qa-section-label::before {
+      content: ''; display: inline-block;
+      width: 16px; height: 1px; background: var(--gold);
+    }
+
+    /* ── CTA ── */
+    .cta-box {
+      background: var(--brown); padding: 32px 24px;
+      margin: 52px 0 0; text-align: center;
+    }
+    .cta-box-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem; color: var(--cream); margin-bottom: 10px; line-height: 1.3;
+    }
+    .cta-box-title em { font-style: italic; color: var(--gold-light); }
+    .cta-box-desc {
+      font-size: .8rem; color: rgba(245,240,232,.6); line-height: 1.8; margin-bottom: 20px;
+    }
+    .btn-gold {
+      display: inline-block;
+      font-size: .68rem; letter-spacing: .2em; text-transform: uppercase;
+      background: var(--gold); color: var(--brown);
+      padding: 12px 28px; text-decoration: none; transition: background .3s;
+    }
+    .btn-gold:hover { background: var(--gold-light); }
+
+    /* ── RELATED ── */
+    .related-section { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--line); }
+    .related-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--brown); margin-bottom: 20px; }
+    .related-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    .related-card {
+      display: flex; gap: 14px; text-decoration: none;
+      padding: 14px; background: var(--white); border: 1px solid var(--line);
+      transition: border-color .3s;
+    }
+    .related-card:hover { border-color: var(--gold); }
+    .related-thumb { width: 72px; height: 72px; flex-shrink: 0; overflow: hidden; }
+    .related-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .related-tag { font-size: .56rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); }
+    .related-name { font-family: 'Noto Serif TC', serif; font-size: .86rem; color: var(--brown); margin: 4px 0; line-height: 1.4; }
+    .related-date { font-size: .62rem; color: var(--text-dim); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--brown); padding: 36px 24px 24px;
+      border-top: 2px solid var(--gold);
+    }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--cream); margin-bottom: 6px; }
+    .footer-links { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 12px; }
+    .footer-links a { font-size: .72rem; color: rgba(245,240,232,.5); text-decoration: none; transition: color .3s; }
+    .footer-links a:hover { color: var(--cream); }
+    .footer-copy { font-size: .6rem; color: rgba(245,240,232,.28); line-height: 1.8; margin-top: 18px; }
+
+    /* ── REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+
+    /* ── DESKTOP ── */
+    @media (min-width: 768px) {
+      nav { padding: 0 48px; height: 68px; }
+      .article-hero-body, .article-layout { padding-left: 48px; padding-right: 48px; }
+      .related-grid { grid-template-columns: 1fr 1fr; }
+      .qa-item.open .qa-answer { padding-left: 58px; }
+    }
+    @media (min-width: 1100px) {
+      nav { padding: 0 80px; }
+      .article-hero-body, .article-layout { padding-left: 80px; padding-right: 80px; max-width: 960px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="index.html">
+    愛麗絲奇寓記
+    <small>Overseas Property Curator</small>
+  </a>
+  <a class="nav-back" href="thailand.html">
+    <svg width="14" height="10" viewBox="0 0 14 10" fill="none">
+      <path d="M13 5H1M1 5L5 1M1 5l4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+    </svg>
+    泰國房產
+  </a>
+</nav>
+
+<!-- HERO -->
+<div class="article-hero">
+  <div class="article-hero-img">
+    <img src="https://images.unsplash.com/photo-1555217851-6141535bd771?w=1400&q=85" alt="泰國購房須知" />
+  </div>
+  <div class="article-hero-body">
+    <div class="article-breadcrumb">
+      <a href="index.html">首頁</a> /
+      <a href="thailand.html">泰國房產</a> /
+      購屋知識
+    </div>
+    <span class="article-tag-badge">泰國 · 購屋須知</span>
+    <h1 class="article-title">泰國購房重要須知 Q&A</h1>
+    <div class="article-meta">
+      <span>共 19 個常見問題</span>
+      <span>閱讀時間約 12 分鐘</span>
+      <span>2025 年更新</span>
+    </div>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="article-layout">
+
+  <!-- 分類篩選 -->
+  <div class="cat-tabs reveal">
+    <button class="cat-btn active" onclick="filterCat('all', this)">全部問題</button>
+    <button class="cat-btn" onclick="filterCat('ownership', this)">產權規定</button>
+    <button class="cat-btn" onclick="filterCat('process', this)">購買流程</button>
+    <button class="cat-btn" onclick="filterCat('cost', this)">費用稅務</button>
+    <button class="cat-btn" onclick="filterCat('living', this)">生活資訊</button>
+  </div>
+
+  <!-- Q&A LIST -->
+  <div class="qa-list reveal">
+
+    <!-- 產權規定 -->
+    <p class="qa-section-label">產權規定</p>
+
+    <div class="qa-item" data-cat="ownership">
+      <div class="qa-question" onclick="toggleQA(this)">
+        <span class="qa-num">1</span>
+        <span class="qa-q-text">外國人可以在泰國購買永久產權（freehold）不動產嗎？</span>
+        <svg class="qa-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none">
+          <path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="qa-answer">
+        <ol>
+          <li>是的，外國人可以在泰國購買永久產權（freehold）不動產。</li>
+          <li>根據泰國法律，外國人可以擁有永久產權的公寓大樓單位。在每個公寓大樓項目中，<strong>外國人最多可以購買可售建築面積的 49%</strong>。</li>
+          <li>2008 年修訂的第 2522 號公寓法（1979 年）第 19 條規定，外國人可在泰國購買永久產權的公寓大樓單位，每個公寓大樓項目中外國人最多可購買可售建築面積的 49%。</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="qa-item" data-cat="ownership">
+      <div class="qa-question" onclick="toggleQA(this)">
+        <span class="qa-num">2</span>
+        <span class="qa-q-text">外國人可以 100% 擁有泰國永久產權（freehold）公寓大樓產權嗎？</span>
+        <svg class="qa-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none">
+          <path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="qa-answer">
+        <ol>
+          <li>外國人在泰國可以 100% 持有永久產權（freehold）公寓大樓產權。</li>
+          <li>舉例來說，如果一棟公寓大樓有 100 個單位（每個單位面積相同），<strong>外國人可以購買不超過 49 個單位</strong>。對於獨棟別墅或土地，外國人須以泰國公司名義持有。</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="qa-item" data-cat="ownership">
+      <div class="qa-question" onclick="toggleQA(this)">
+        <span class="qa-num">3</span>
+        <span class="qa-q-text">外國人可以購買並擁有泰國土地嗎？</span>
+        <svg class="qa-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none">
+          <path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="qa-answer">
+        <p><strong>不可以</strong>，但可以透過<strong>限期租賃（leasehold）</strong>或設立公司間接持有土地。</p>
+      </div>
+    </div>
+
+    <div class="qa-item" data-cat="ownership">
+      <div class="qa-question" onclick="toggleQA(this)">
+        <span class="qa-num">4</span>
+        <span class="qa-q-text">什麼是限期租賃（leasehold）？</span>
+        <svg class="qa-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none">
+          <path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="qa-answer">
+        <p>外國人可以透過租賃獲得<strong>最多 30 年的土地使用權</strong>，並可選擇延長至 60 年或 90 年。</p>
+      </div>
+    </div>
+
+    <div class="qa-item" data-cat="ownership">
+      <div class="qa-question" onclick="toggleQA(this)">
+        <span class="qa-num">9</span>
+        <span class="qa-q-text">泰國公寓大樓可以共同持有嗎？共同持有人數有限制嗎？</span>
+        <svg class="qa-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none">
+          <path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="qa-answer">
+        <ol>
+          <li>是的，外國人可以與其他人共同持有房屋產權。</li>
+          <li>公寓大樓共同持有的人數多為 <strong>4 人</strong>，而且必須<strong>年滿 21 歲</strong>才能進行購買登記手續。</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="qa-item" data-cat="ownership">
+      <div class="qa-question" onclick="toggleQA(this)">
+        <span class="qa-num">15</span>
+        <span class="qa-q-text">外國人在泰國可以貸款嗎？</span>
+        <svg class="qa-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none">
+          <path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="qa-answer">
+        <ol>
+          <li>原則可以，但必須<strong>在泰國有工作簽並繳稅有三年以上經歷</strong>。</li>
+          <li>若您在中國大陸有工作和相當資產，可以在泰國的中國工商銀行做貸款，但審核極嚴格、程序較複雜、利率高，過件極少。一切以當時銀行規則而定。</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- 購買流程 -->
+    <p class="qa-section-label">購買流程</p>
+
+    <div class="qa-item" data-cat="process">
+      <div class="qa-question" onclick="toggleQA(this)">
+        <span class="qa-num">5</span>
+        <span class="qa-q-text">泰國購買公寓大樓的過戶順序為何？</span>
+        <svg class="qa-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none">
+          <path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="qa-answer">
+        <p>泰國大樓的過戶順序是指將一個物業的所有權從賣方轉移到買方的法律程序。這包括：<strong>給付訂金、簽署合同、匯款給付建商、現場驗屋、辦理產權登記、收取產權證書</strong>等步驟。</p>
+      </div>
+    </div>
+
+    <div class="qa-item" data-cat="process">
+      <div class="qa-question" onclick="toggleQA(this)">
+        <span class="qa-num">6</span>
+        <span class="qa-q-text">泰國購買公寓大樓的過戶流程期間為何？</span>
+        <svg class="qa-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none">
+          <path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="qa-answer">
+        <p>過戶流程期間可因多個因素而有所不同。通常情況下，<strong>過戶流程可能需要 1 到 2 個月</strong>的時間，取決於買方外匯帳戶給付至建商帳戶的時長。時程如下：</p>
+        <ul class="sub-list">
+          <li>
+            <span class="sub-marker">I．</span>
+            <strong>訂金：第 1 天</strong><br>
+            看屋後給付訂金（可使用現金、刷卡，或匯款至當地 24 小時內開立的銀行匯款）。建商收到訂金後會開立訂金收據並由買方簽購屋意願書，若無建案合約訂金不予退回。一般訂金為 5 萬至 20 萬泰銖不等，如為超級豪宅可為 50 萬至 100 萬泰銖不等。
+          </li>
+          <li>
+            <span class="sub-marker">II．</span>
+            <strong>頭期款：第 7 天 — 第 14 天</strong><br>
+            買方需於此期間完成海外匯款，將頭期款匯至建商帳戶（不可逾期匯款）。一般頭期款為總價之 10% 至 30%。建商確認入帳後，雙方簽署正式「買賣合約（SPA）」。待建商完成合同簽章並發回給買方後，即正式完成購屋簽約程序與條款確認。
+          </li>
+          <li>
+            <span class="sub-marker">III．</span>
+            <strong>尾款：第 14 天 — 第 21 天</strong><br>
+            在完成合約簽署與寄送後，買方需將尾款匯入建商帳戶。建商收到尾款後，會聯繫銀行開立全額之「海外匯款證明（FET）」，並向地政局辦理產權過戶預約。一般預約過戶時間約需 7 個工作天。
+          </li>
+          <li>
+            <span class="sub-marker">IV．</span>
+            <strong>過戶與交屋：過戶完成後</strong><br>
+            過戶完成後，建商會通知業主（新屋主）或由銷售仲介出示買方授權書，領取<strong>房產證（地契）、房屋登記冊（藍本）及門禁磁卡</strong>等物品。
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="qa-item" data-cat="process">
+      <div class="qa-question" onclick="toggleQA(this)">
+        <span class="qa-num">7</span>
+        <span class="qa-q-text">過戶手續需要多久的時間？</span>
+        <svg class="qa-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none">
+          <path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="qa-answer">
+        <p>過戶手續在<strong>一天內完成</strong>，但需提前 <strong>7 個工作天</strong>預約地政局辦理過戶。</p>
+      </div>
+    </div>
+
+    <div class="qa-item" data-cat="process">
+      <div class="qa-question" onclick="toggleQA(this)">
+        <span class="qa-num">8</span>
+        <span class="qa-q-text">過戶所需文件有哪些？</span>
+        <svg class="qa-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none">
+          <path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="qa-answer">
+        <p>進行房地產過戶手續時，需要準備的文件包括：</p>
+        <ol>
+          <li>購買人的護照、台灣身份證件影本</li>
+          <li>近期 6 個月內泰國入境紀錄</li>
+          <li>建房買賣合同</li>
+          <li>購房授權書</li>
+          <li><strong>100% 海外匯入款項的證明（FET）</strong></li>
+          <li>已結婚者需有婚姻證書（需要含有公證處、外交部和泰國辦事處的公證）</li>
+          <li>水電費發票及存摺金</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="qa-item" data-cat="process">
+      <div class="qa-question" onclick="toggleQA(this)">
+        <span class="qa-num">14</span>
+        <span class="qa-q-text">前往泰國需要辦理何種簽證？</span>
+        <svg class="qa-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none">
+          <path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="qa-answer">
+        <p>以下是 3 種前往泰國的簽證方式：</p>
+        <ol>
+          <li><strong>落地簽（VOA）單次</strong>：停留期限不超過 15 天。</li>
+          <li><strong>觀光簽證單次</strong>：有效期限為 3 個月，停留期限不超過 60 天。</li>
+          <li><strong>免簽</strong>：停留期限不超過 60 天。</li>
+        </ol>
+        <div class="qa-notice">
+          簽證所需文件包括：護照正本、身份證影本、照片、機票預訂確認、入境紀錄等。簽證費用根據簽證類型而定。請注意，簽證規定可能會有所變化，建議您在計劃前往泰國時向<strong>泰國駐外使館或領事館</strong>查詢最新的簽證要求。
+        </div>
+      </div>
+    </div>
+
+    <div class="qa-item" data-cat="process">
+      <div class="qa-question" onclick="toggleQA(this)">
+        <span class="qa-num">18</span>
+        <span class="qa-q-text">購房後是否可以出租賺取租金？</span>
+        <svg class="qa-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none">
+          <path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="qa-answer">
+        <p>是的，<strong>外國人可以將公寓用於短期或長期出租</strong>。</p>
+      </div>
+    </div>
+
+    <div class="qa-item" data-cat="process">
+      <div class="qa-question" onclick="toggleQA(this)">
+        <span class="qa-num">19</span>
+        <span class="qa-q-text">泰國的短期出租是否合法？</span>
+        <svg class="qa-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none">
+          <path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="qa-answer">
+        <p><strong>短期出租須高於 30 天，不可日租</strong>，除非購買酒店形式的公寓大樓產權，才可日租。</p>
+      </div>
+    </div>
+
+    <!-- 費用稅務 -->
+    <p class="qa-section-label">費用稅務</p>
+
+    <div class="qa-item" data-cat="cost">
+      <div class="qa-question" onclick="toggleQA(this)">
+        <span class="qa-num">10</span>
+        <span class="qa-q-text">永久產權公寓過戶費用是多少？</span>
+        <svg class="qa-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none">
+          <path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="qa-answer">
+        <p>永久產權公寓的過戶需要支付產權移轉費，費用為<strong>政府評估價值的 2%</strong>。規定為買方負責支付產權移轉費，但買賣雙方可以協商分攤費用。<strong>一般是買賣方各負擔一半</strong>。</p>
+      </div>
+    </div>
+
+    <div class="qa-item" data-cat="cost">
+      <div class="qa-question" onclick="toggleQA(this)">
+        <span class="qa-num">11</span>
+        <span class="qa-q-text">什麼是大樓維修基金（Sinking Funds）？</span>
+        <svg class="qa-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none">
+          <path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="qa-answer">
+        <p>大樓維修基金是一次性款項，用於大樓大型修繕或設備維護費用。該基金在支付房屋給買家時<strong>一次性支付</strong>，用於支付未來某一時間可能需要的一次性維修或改良費用，例如外牆重新粉刷等。</p>
+        <p>預售屋公共基金的金額取決於公寓的面積，<strong>通常以每平方米的價格來計算</strong>。</p>
+      </div>
+    </div>
+
+    <div class="qa-item" data-cat="cost">
+      <div class="qa-question" onclick="toggleQA(this)">
+        <span class="qa-num">12</span>
+        <span class="qa-q-text">泰國公寓的管理費如何計算？由誰支付？</span>
+        <svg class="qa-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none">
+          <path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="qa-answer">
+        <ol>
+          <li>公寓管理費根據<strong>每平方米的面積計算</strong>，具體費用視管理規模的規定而定。住宅的管理費通常在每平方米 <strong>30 至 100 泰銖</strong>之間，商辦室的管理費則在每平方米 <strong>20 至 40 泰銖</strong>之間。</li>
+          <li>在出租時，一般由<strong>房東負擔公寓管理費</strong>，除非與租客另有約定。</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="qa-item" data-cat="cost">
+      <div class="qa-question" onclick="toggleQA(this)">
+        <span class="qa-num">16</span>
+        <span class="qa-q-text">泰國公寓大樓是否有房產稅？</span>
+        <svg class="qa-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none">
+          <path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="qa-answer">
+        <p>2020 年起，泰國引入土地及建物稅，但公寓的自住單位稅率較低，<strong>每一百萬需繳交 20 泰銖／年</strong>的稅費。如購買 1,000 萬的房產，每年只需繳交 <strong>2,000 泰銖</strong>的自用稅費。</p>
+      </div>
+    </div>
+
+    <div class="qa-item" data-cat="cost">
+      <div class="qa-question" onclick="toggleQA(this)">
+        <span class="qa-num">17</span>
+        <span class="qa-q-text">泰國房產有遺產稅嗎？</span>
+        <svg class="qa-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none">
+          <path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="qa-answer">
+        <p>是的，泰國有遺產稅，遺產稅適用於超過<strong>一億泰銖</strong>的遺產，稅率為 <strong>10%</strong>。</p>
+      </div>
+    </div>
+
+    <!-- 生活資訊 -->
+    <p class="qa-section-label">生活資訊</p>
+
+    <div class="qa-item" data-cat="living">
+      <div class="qa-question" onclick="toggleQA(this)">
+        <span class="qa-num">13</span>
+        <span class="qa-q-text">泰國公寓的電費、水費、有線電視費、網路費的大致價格是多少？</span>
+        <svg class="qa-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none">
+          <path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="qa-answer">
+        <ul>
+          <li><strong>電費</strong>：根據使用的電量計算，大約在 <strong>3–4 泰銖／度</strong>左右</li>
+          <li><strong>水費</strong>：約為每單位 <strong>15 泰銖</strong></li>
+          <li><strong>有線電視月費</strong>：約每月 <strong>499–699 泰銖</strong></li>
+          <li><strong>網路月費</strong>：約每月 <strong>400 泰銖</strong></li>
+        </ul>
+        <div class="qa-notice">
+          這些價格可能會因地區和供應情況有所不同而浮動。
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- end qa-list -->
+
+  <!-- CTA -->
+  <div class="cta-box reveal">
+    <h3 class="cta-box-title">還有問題？<em>讓我們一對一解答</em></h3>
+    <p class="cta-box-desc">每個人的狀況不同，歡迎直接聯繫 Alice，我們提供全程中文、無壓力的諮詢服務。</p>
+    <a class="btn-gold" href="https://line.me/ti/p/rY37pUpv_k" target="_blank">LINE 免費諮詢</a>
+  </div>
+
+  <!-- Related -->
+  <div class="related-section reveal">
+    <h3 class="related-title">延伸閱讀</h3>
+    <div class="related-grid">
+      <a class="related-card" href="article-thailand-buying-process.html">
+        <div class="related-thumb">
+          <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=200&q=80" alt="" loading="lazy" />
+        </div>
+        <div>
+          <p class="related-tag">泰國 · 購屋流程</p>
+          <p class="related-name">泰國買房購屋與過戶流程</p>
+          <p class="related-date">2025 · 10 分鐘閱讀</p>
+        </div>
+      </a>
+      <a class="related-card" href="#">
+        <div class="related-thumb">
+          <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=200&q=80" alt="" loading="lazy" />
+        </div>
+        <div>
+          <p class="related-tag">泰國 · 投資攻略</p>
+          <p class="related-name">《泰國房產投資全攻略》曼谷為什麼是東協最值得投資的城市？</p>
+          <p class="related-date">2025 · 10 分鐘閱讀</p>
+        </div>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-logo">愛麗絲奇寓記</p>
+  <div class="footer-links">
+    <a href="index.html">首頁</a>
+    <a href="thailand.html">泰國房產</a>
+    <a href="japan.html">日本房產</a>
+    
+    
+  </div>
+  <p class="footer-copy">© 2025 愛麗絲奇寓記 alice in city｜投資國外不動產具有風險性，請詳閱行銷文件並審慎考量後再行交易。</p>
+</footer>
+
+<script>
+  // Accordion toggle
+  function toggleQA(btn) {
+    const item = btn.closest('.qa-item');
+    const isOpen = item.classList.contains('open');
+    // Close all
+    document.querySelectorAll('.qa-item.open').forEach(el => el.classList.remove('open'));
+    // Open clicked if was closed
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // Category filter
+  function filterCat(cat, btn) {
+    document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.qa-item').forEach(item => {
+      if (cat === 'all' || item.dataset.cat === cat) {
+        item.classList.remove('hidden');
+      } else {
+        item.classList.add('hidden');
+        item.classList.remove('open');
+      }
+    });
+    // Show/hide section labels
+    document.querySelectorAll('.qa-section-label').forEach(label => {
+      label.style.display = cat === 'all' ? '' : 'none';
+    });
+  }
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.06 });
+  reveals.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>泰國房產繼承與法律要點｜愛麗絲奇寓記</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Sans+TC:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:     #f5f0e8;
+      --cream-mid: #ede6d6;
+      --cream-dark:#e0d5c0;
+      --taupe:     #8c7b6b;
+      --taupe-dark:#5c4f42;
+      --brown:     #3d3028;
+      --gold:      #b89a6a;
+      --gold-light:#d4b88a;
+      --white:     #fdfaf5;
+      --text-main: #2e261e;
+      --text-mid:  #6b5f54;
+      --text-dim:  #9e9188;
+      --line:      rgba(140,123,107,0.2);
+      --line-dark: rgba(140,123,107,0.4);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--cream);
+      color: var(--text-main);
+      font-family: 'Noto Sans TC', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: rgba(245,240,232,0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 24px; height: 60px;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem; color: var(--brown); text-decoration: none; line-height: 1.2;
+    }
+    .nav-logo small {
+      display: block; font-family: 'Noto Sans TC', sans-serif;
+      font-size: .46rem; letter-spacing: .26em; text-transform: uppercase;
+      color: var(--taupe); font-weight: 300;
+    }
+    .nav-back {
+      font-size: .65rem; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--taupe); text-decoration: none;
+      display: flex; align-items: center; gap: 6px; transition: color .3s;
+    }
+    .nav-back:hover { color: var(--brown); }
+    .nav-back svg { transition: transform .3s; }
+    .nav-back:hover svg { transform: translateX(-3px); }
+
+    /* ── HERO ── */
+    .article-hero { padding-top: 60px; background: var(--white); }
+    .article-hero-img {
+      width: 100%; aspect-ratio: 16/7; overflow: hidden; position: relative;
+    }
+    .article-hero-img img {
+      width: 100%; height: 100%; object-fit: cover; filter: brightness(.72);
+    }
+    .article-hero-img::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to bottom, transparent 40%, var(--white) 100%);
+    }
+    .article-hero-body {
+      padding: 28px 24px 36px; max-width: 800px; margin: 0 auto;
+    }
+    .article-breadcrumb {
+      font-size: .6rem; letter-spacing: .22em; text-transform: uppercase;
+      color: var(--taupe); margin-bottom: 14px;
+      display: flex; align-items: center; gap: 7px; flex-wrap: wrap;
+    }
+    .article-breadcrumb a { color: var(--taupe); text-decoration: none; }
+    .article-breadcrumb a:hover { color: var(--gold); }
+    .article-tag-badge {
+      display: inline-block;
+      font-size: .58rem; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--gold); border: 1px solid var(--gold);
+      padding: 3px 10px; margin-bottom: 14px;
+    }
+    .article-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.7rem, 5.5vw, 2.8rem);
+      font-weight: 400; line-height: 1.2; color: var(--brown); margin-bottom: 18px;
+    }
+    .article-meta {
+      display: flex; gap: 18px; flex-wrap: wrap;
+      font-size: .65rem; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--text-dim); padding-top: 16px; border-top: 1px solid var(--line);
+    }
+
+    /* ── STICKY CHAPTER NAV ── */
+    .chapter-nav-wrap {
+      background: rgba(245,240,232,0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+      position: sticky; top: 60px; z-index: 100;
+      overflow-x: auto; scrollbar-width: none;
+    }
+    .chapter-nav-wrap::-webkit-scrollbar { display: none; }
+    .chapter-nav {
+      display: flex; max-width: 800px; margin: 0 auto;
+      padding: 0 24px; white-space: nowrap;
+    }
+    .chapter-nav a {
+      font-size: .62rem; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--text-dim); text-decoration: none;
+      padding: 14px 16px 12px; border-bottom: 2px solid transparent;
+      transition: color .3s, border-color .3s; display: block;
+    }
+    .chapter-nav a:hover, .chapter-nav a.active { color: var(--brown); border-color: var(--gold); }
+
+    /* ── LAYOUT ── */
+    .article-layout {
+      max-width: 800px; margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* ── CHAPTER BLOCK ── */
+    .chapter-block {
+      margin-top: 56px; scroll-margin-top: 110px;
+    }
+    .chapter-header {
+      display: flex; align-items: center; gap: 16px;
+      margin-bottom: 24px; padding-bottom: 16px;
+      border-bottom: 1px solid var(--line);
+    }
+    .chapter-badge {
+      flex-shrink: 0;
+      font-family: 'Playfair Display', serif;
+      font-size: .75rem; font-weight: 400;
+      color: var(--gold); letter-spacing: .06em;
+      border: 1px solid var(--gold);
+      padding: 6px 10px; white-space: nowrap;
+    }
+    .chapter-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.15rem, 4vw, 1.55rem);
+      font-weight: 400; color: var(--brown); line-height: 1.3;
+    }
+    .chapter-title em { font-style: italic; color: var(--gold); }
+
+    /* ── QUESTION CARDS (accordion) ── */
+    .q-list { display: flex; flex-direction: column; gap: 2px; margin-top: 20px; }
+
+    .q-item {
+      background: var(--white); border: 1px solid var(--line); overflow: hidden;
+      transition: border-color .3s;
+    }
+    .q-item:hover { border-color: var(--line-dark); }
+    .q-item.open { border-color: var(--gold); }
+
+    .q-trigger {
+      display: flex; align-items: flex-start; gap: 14px;
+      padding: 16px 18px; cursor: pointer; user-select: none;
+    }
+    .q-num {
+      font-family: 'Playfair Display', serif;
+      font-size: .95rem; color: var(--gold);
+      flex-shrink: 0; line-height: 1.5; min-width: 20px;
+    }
+    .q-text {
+      font-family: 'Noto Serif TC', serif;
+      font-size: .88rem; font-weight: 400; color: var(--brown);
+      line-height: 1.6; flex: 1;
+    }
+    .q-arrow {
+      flex-shrink: 0; margin-top: 4px; color: var(--taupe);
+      transition: transform .3s;
+    }
+    .q-item.open .q-arrow { transform: rotate(180deg); }
+
+    .q-answer {
+      max-height: 0; overflow: hidden;
+      transition: max-height .45s ease, padding .3s ease;
+      padding: 0 18px 0 52px;
+    }
+    .q-item.open .q-answer {
+      max-height: 2400px;
+      padding: 2px 18px 22px 52px;
+    }
+
+    /* ── PROSE IN ANSWER ── */
+    .q-answer p {
+      font-size: .86rem; line-height: 1.92; color: var(--text-mid); margin-bottom: 12px;
+    }
+    .q-answer p:last-child { margin-bottom: 0; }
+    .q-answer strong { color: var(--brown); font-weight: 500; }
+
+    .q-answer ol, .q-answer ul {
+      list-style: none; padding: 0; margin: 8px 0 12px;
+    }
+    .q-answer li {
+      font-size: .86rem; line-height: 1.9; color: var(--text-mid);
+      padding: 7px 0 7px 22px; position: relative;
+      border-bottom: 1px solid var(--line);
+    }
+    .q-answer li:last-child { border-bottom: none; }
+    .q-answer ul li::before {
+      content: '—'; position: absolute; left: 0; color: var(--gold); font-size: .8rem;
+    }
+    .q-answer ol { counter-reset: ans-counter; }
+    .q-answer ol li::before {
+      content: counter(ans-counter, upper-roman) '.';
+      counter-increment: ans-counter;
+      position: absolute; left: 0; color: var(--gold); font-size: .72rem; top: 8px;
+    }
+
+    /* ── NOTICE BOX ── */
+    .notice-box {
+      background: var(--cream-mid);
+      border-left: 3px solid var(--gold);
+      padding: 14px 18px; margin: 12px 0;
+    }
+    .notice-box p {
+      font-size: .84rem; line-height: 1.88; color: var(--text-mid); margin: 0;
+    }
+    .notice-box p + p { margin-top: 6px; }
+    .notice-box strong { color: var(--brown); font-weight: 500; }
+
+    /* ── TABLE ── */
+    .ans-table-wrap { overflow-x: auto; margin: 12px 0; }
+    .ans-table {
+      width: 100%; border-collapse: collapse; min-width: 340px; font-size: .82rem;
+    }
+    .ans-table th {
+      background: var(--brown); color: var(--cream);
+      font-size: .62rem; letter-spacing: .12em; text-transform: uppercase;
+      font-weight: 400; padding: 9px 12px; text-align: left;
+    }
+    .ans-table td {
+      padding: 9px 12px; border-bottom: 1px solid var(--line);
+      color: var(--text-mid); line-height: 1.65; vertical-align: top;
+    }
+    .ans-table tbody tr:nth-child(even) td { background: var(--cream-mid); }
+    .ans-table td:first-child { color: var(--brown); font-weight: 400; white-space: nowrap; }
+
+    /* ── INHERITANCE ORDER ── */
+    .inherit-order {
+      display: flex; flex-direction: column; gap: 2px; margin: 12px 0;
+    }
+    .inherit-row {
+      display: flex; align-items: center; gap: 12px;
+      background: var(--white); border: 1px solid var(--line);
+      padding: 10px 14px;
+    }
+    .inherit-rank {
+      font-family: 'Playfair Display', serif;
+      font-size: .85rem; color: var(--gold);
+      flex-shrink: 0; width: 20px; text-align: center;
+    }
+    .inherit-name {
+      font-size: .86rem; color: var(--brown); font-weight: 400;
+    }
+
+    /* ── SECTION INTRO ── */
+    .section-intro {
+      background: var(--cream-mid);
+      border: 1px solid var(--line);
+      padding: 20px 22px; margin-bottom: 24px;
+    }
+    .section-intro p {
+      font-size: .86rem; line-height: 1.92; color: var(--text-mid); margin: 0;
+    }
+    .section-intro p + p { margin-top: 8px; }
+    .section-intro strong { color: var(--brown); font-weight: 500; }
+
+    /* ── GIFT TAX CARDS ── */
+    .gift-cards {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin: 20px 0;
+    }
+    .gift-card {
+      background: var(--white); border: 1px solid var(--line); padding: 20px 18px;
+    }
+    .gift-card-label {
+      font-size: .6rem; letter-spacing: .22em; text-transform: uppercase;
+      color: var(--taupe); margin-bottom: 8px;
+    }
+    .gift-card-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem; color: var(--brown); line-height: 1; margin-bottom: 6px;
+    }
+    .gift-card-value span { font-size: .85rem; color: var(--gold); }
+    .gift-card-desc { font-size: .78rem; color: var(--text-dim); line-height: 1.7; }
+
+    /* ── IMPORTANT STRIP ── */
+    .important-strip {
+      background: var(--brown); padding: 22px 22px;
+      margin: 20px 0;
+      display: flex; gap: 14px; align-items: flex-start;
+    }
+    .important-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 2px; }
+    .important-text {
+      font-size: .86rem; line-height: 1.88; color: rgba(245,240,232,.8);
+    }
+    .important-text strong { color: var(--gold-light); font-weight: 400; }
+
+    /* ── CTA ── */
+    .cta-box {
+      background: var(--brown); padding: 32px 24px;
+      margin: 52px 0 0; text-align: center;
+    }
+    .cta-box-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem; color: var(--cream); margin-bottom: 10px; line-height: 1.3;
+    }
+    .cta-box-title em { font-style: italic; color: var(--gold-light); }
+    .cta-box-desc {
+      font-size: .8rem; color: rgba(245,240,232,.6); line-height: 1.8; margin-bottom: 20px;
+    }
+    .btn-gold {
+      display: inline-block;
+      font-size: .68rem; letter-spacing: .2em; text-transform: uppercase;
+      background: var(--gold); color: var(--brown);
+      padding: 12px 28px; text-decoration: none; transition: background .3s;
+    }
+    .btn-gold:hover { background: var(--gold-light); }
+
+    /* ── RELATED ── */
+    .related-section { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--line); }
+    .related-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--brown); margin-bottom: 20px; }
+    .related-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    .related-card {
+      display: flex; gap: 14px; text-decoration: none;
+      padding: 14px; background: var(--white); border: 1px solid var(--line);
+      transition: border-color .3s;
+    }
+    .related-card:hover { border-color: var(--gold); }
+    .related-thumb { width: 72px; height: 72px; flex-shrink: 0; overflow: hidden; }
+    .related-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .related-tag { font-size: .56rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); }
+    .related-name { font-family: 'Noto Serif TC', serif; font-size: .86rem; color: var(--brown); margin: 4px 0; line-height: 1.4; }
+    .related-date { font-size: .62rem; color: var(--text-dim); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--brown); padding: 36px 24px 24px;
+      border-top: 2px solid var(--gold);
+    }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--cream); margin-bottom: 6px; }
+    .footer-links { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 12px; }
+    .footer-links a { font-size: .72rem; color: rgba(245,240,232,.5); text-decoration: none; transition: color .3s; }
+    .footer-links a:hover { color: var(--cream); }
+    .footer-copy { font-size: .6rem; color: rgba(245,240,232,.28); line-height: 1.8; margin-top: 18px; }
+
+    /* ── REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+
+    /* ── DESKTOP ── */
+    @media (min-width: 768px) {
+      nav { padding: 0 48px; height: 68px; }
+      .chapter-nav-wrap { top: 68px; }
+      .article-hero-body, .article-layout { padding-left: 48px; padding-right: 48px; }
+      .chapter-nav { padding-left: 48px; }
+      .related-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (min-width: 1100px) {
+      nav { padding: 0 80px; }
+      .article-hero-body, .article-layout { padding-left: 80px; padding-right: 80px; max-width: 960px; }
+      .chapter-nav { padding-left: 80px; max-width: 960px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="index.html">
+    愛麗絲奇寓記
+    <small>Overseas Property Curator</small>
+  </a>
+  <a class="nav-back" href="thailand.html">
+    <svg width="14" height="10" viewBox="0 0 14 10" fill="none">
+      <path d="M13 5H1M1 5L5 1M1 5l4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+    </svg>
+    泰國房產
+  </a>
+</nav>
+
+<!-- HERO -->
+<div class="article-hero">
+  <div class="article-hero-img">
+    <img src="images-12.jpeg" alt="泰國房產繼承與法律" />
+  </div>
+  <div class="article-hero-body">
+    <div class="article-breadcrumb">
+      <a href="index.html">首頁</a> /
+      <a href="thailand.html">泰國房產</a> /
+      購屋知識
+    </div>
+    <span class="article-tag-badge">泰國 · 法律知識</span>
+    <h1 class="article-title">泰國房產繼承與法律要點</h1>
+    <div class="article-meta">
+      <span>閱讀時間約 12 分鐘</span>
+      <span>預售屋繼承・成屋繼承・贈與</span>
+      <span>2025 年更新</span>
+    </div>
+  </div>
+</div>
+
+<!-- CHAPTER NAV -->
+<div class="chapter-nav-wrap">
+  <div class="chapter-nav">
+    <a href="#chap1">壹・預售屋繼承</a>
+    <a href="#chap2">貳・成屋繼承</a>
+    <a href="#chap3">參・房產贈與</a>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="article-layout">
+
+  <!-- ══ 壹：預售屋繼承 ══ -->
+  <div class="chapter-block reveal" id="chap1">
+    <div class="chapter-header">
+      <span class="chapter-badge">壹</span>
+      <h2 class="chapter-title">泰國預售屋（<em>尚未過戶</em>）買家死亡後的處理</h2>
+    </div>
+
+    <div class="section-intro">
+      <p>預售屋買賣屬於「<strong>債權性契約</strong>」，即便尚未過戶，合約中的付款權利義務屬於遺產，可由合法繼承人承接。</p>
+    </div>
+
+    <div class="q-list">
+
+      <div class="q-item">
+        <div class="q-trigger" onclick="toggleQ(this)">
+          <span class="q-num">1</span>
+          <span class="q-text">預售屋買家繳付 30% 後死亡，權利是否可繼承？是否須重新簽約？</span>
+          <svg class="q-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+        </div>
+        <div class="q-answer">
+          <p><strong>可繼承。</strong>預售屋買賣屬於「債權性契約」，即便尚未過戶，合約中的付款權利義務屬於遺產，可由合法繼承人承接。處理方式：</p>
+          <ol>
+            <li>需向開發商提出死亡證明與繼承人身份文件（詳下述），要求變更合約承繼人。</li>
+            <li>某些開發商可能要求重新簽約或補充協議。</li>
+            <li>若繼承人眾多，須全體共同同意誰為主約承接人。</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="q-item">
+        <div class="q-trigger" onclick="toggleQ(this)">
+          <span class="q-num">2</span>
+          <span class="q-text">繼承人若放棄繼承，已繳訂金是否可退？</span>
+          <svg class="q-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+        </div>
+        <div class="q-answer">
+          <p><strong>不能退。</strong>根據泰國預售屋買賣契約的常見條款，一旦簽約並繳納訂金，若買方死亡且繼承人放棄繼承，該筆訂金視為買方違約，將不予退還。</p>
+          <p>此時，開發商通常會依合約約定將該房源重新釋出銷售，且無須向繼承人返還任何款項。該筆訂金即使屬於遺產，也因「無人承接遺產義務」而失效，不構成退款事由。</p>
+        </div>
+      </div>
+
+      <div class="q-item">
+        <div class="q-trigger" onclick="toggleQ(this)">
+          <span class="q-num">3</span>
+          <span class="q-text">多名繼承人（兄妹等）如何處理？若無遺囑，需準備哪些文件？</span>
+          <svg class="q-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+        </div>
+        <div class="q-answer">
+          <p>若無遺囑，依泰國《民商法》第 1629 條，繼承順序如下：</p>
+          <div class="inherit-order">
+            <div class="inherit-row"><span class="inherit-rank">I</span><span class="inherit-name">配偶</span></div>
+            <div class="inherit-row"><span class="inherit-rank">II</span><span class="inherit-name">子女</span></div>
+            <div class="inherit-row"><span class="inherit-rank">III</span><span class="inherit-name">父母</span></div>
+            <div class="inherit-row"><span class="inherit-rank">IV</span><span class="inherit-name">兄弟姊妹</span></div>
+            <div class="inherit-row"><span class="inherit-rank">V</span><span class="inherit-name">祖父母</span></div>
+            <div class="inherit-row"><span class="inherit-rank">VI</span><span class="inherit-name">叔伯舅姨等旁系血親</span></div>
+          </div>
+          <p style="margin-top:12px;">所需文件：</p>
+          <ol>
+            <li>死亡證明（泰文翻譯 + 公證）</li>
+            <li>全體繼承人之護照影本、公證親屬關係文件</li>
+            <li>如無遺囑，須辦理法院「遺產繼承令」（probate judgment）</li>
+            <li>指定一人為代表人與開發商接洽，並出具全體授權書</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="q-item">
+        <div class="q-trigger" onclick="toggleQ(this)">
+          <span class="q-num">4</span>
+          <span class="q-text">在泰國 vs. 台灣立遺囑，有什麼不同？效率有沒有差異？</span>
+          <svg class="q-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+        </div>
+        <div class="q-answer">
+          <div class="ans-table-wrap">
+            <table class="ans-table">
+              <thead>
+                <tr><th>立遺囑地點</th><th>說明</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>在泰國立遺囑（建議）</td>
+                  <td>最具法律效力與執行效率，可直接用於泰國法院處理遺產繼承程序。</td>
+                </tr>
+                <tr>
+                  <td>在台灣立遺囑</td>
+                  <td>須經外交部、泰國大使館或法院「認證」程序，始得在泰國使用。若格式或內容與泰國法不符，恐被部分駁回。</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-item">
+        <div class="q-trigger" onclick="toggleQ(this)">
+          <span class="q-num">5</span>
+          <span class="q-text">泰國有「特留分」制度嗎？什麼是遺囑自由原則？</span>
+          <svg class="q-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+        </div>
+        <div class="q-answer">
+          <p><strong>泰國無「特留分」制度。</strong>擁有遺囑絕對自由原則，根據《泰國民商法第 1620–1635 條》：</p>
+          <ul>
+            <li>立遺囑人可任意指定財產給任何人</li>
+            <li>即便完全不給法定繼承人也無違法（例如：只給朋友或公益單位）</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══ 貳：成屋繼承 ══ -->
+  <div class="chapter-block reveal" id="chap2">
+    <div class="chapter-header">
+      <span class="chapter-badge">貳</span>
+      <h2 class="chapter-title">泰國預售屋（<em>已過戶</em>）買家死亡後的處理</h2>
+    </div>
+
+    <div class="section-intro">
+      <p>房產已完成過戶後，依泰國《民商法第 1629 條》承認自然繼承順序（如配偶 → 子女 → 父母）。無遺囑時，所有具繼承權之人皆為房產共有人，除非法院指派代表人管理產權。</p>
+    </div>
+
+    <div class="q-list">
+
+      <div class="q-item">
+        <div class="q-trigger" onclick="toggleQ(this)">
+          <span class="q-num">1</span>
+          <span class="q-text">房產已完成過戶，過世後如何處理？泰國承認自然繼承順序嗎？</span>
+          <svg class="q-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+        </div>
+        <div class="q-answer">
+          <p>承認自然繼承順序（如配偶 → 子女 → 父母），依據《民商法第 1629 條》辦理。無遺囑時，所有具繼承權之人皆為房產共有人，除非法院指派代表人管理產權。</p>
+        </div>
+      </div>
+
+      <div class="q-item">
+        <div class="q-trigger" onclick="toggleQ(this)">
+          <span class="q-num">2</span>
+          <span class="q-text">是否需辦理法院認證程序？是否須繳遺產稅？</span>
+          <svg class="q-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+        </div>
+        <div class="q-answer">
+          <p>需辦理法院遺囑認證或<strong>法定繼承判決（probate process）</strong>。遺產稅僅在資產超過門檻時才需要繳納：</p>
+          <div class="ans-table-wrap">
+            <table class="ans-table">
+              <thead><tr><th>項目</th><th>說明</th></tr></thead>
+              <tbody>
+                <tr><td>起徵門檻</td><td>單一繼承人取得遺產超過 <strong>100,000,000 泰銖</strong></td></tr>
+                <tr><td>稅率</td><td><strong>5%</strong>（直系血親）／<strong>10%</strong>（其他）</td></tr>
+                <tr><td>免稅對象</td><td>配偶（無論繼承多少）</td></tr>
+                <tr><td>房產計價</td><td>依土地廳估價，不一定是市價</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="notice-box" style="margin-top:10px;">
+            <p>若單筆房產價值<strong>未達 1 億泰銖</strong>，通常無需繳納遺產稅。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="q-item">
+        <div class="q-trigger" onclick="toggleQ(this)">
+          <span class="q-num">3</span>
+          <span class="q-text">是否需回台辦理手續？所有繼承人是否都需親自到泰國過戶？</span>
+          <svg class="q-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+        </div>
+        <div class="q-answer">
+          <p>若在台灣有遺產程序，仍需另外在泰國完成法定繼承文件或遺囑認證。<strong>所有繼承人不必親自到泰國</strong>，可委任泰國律師全權處理。須準備授權書（Power of Attorney）、經公證與泰文翻譯文件。</p>
+        </div>
+      </div>
+
+      <div class="q-item">
+        <div class="q-trigger" onclick="toggleQ(this)">
+          <span class="q-num">4</span>
+          <span class="q-text">台灣製作的遺囑可否在泰國使用？若繼承人為未成年，如何處理？</span>
+          <svg class="q-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+        </div>
+        <div class="q-answer">
+          <p>可用，但需：</p>
+          <ol>
+            <li>翻譯成泰文</li>
+            <li>由外交部、泰國大使館或法院「合法化認證」</li>
+          </ol>
+          <p style="margin-top:10px;">若繼承人為<strong>未成年</strong>，必須經由法定監護人代表，且法院須核可其代表權。</p>
+        </div>
+      </div>
+
+      <div class="q-item">
+        <div class="q-trigger" onclick="toggleQ(this)">
+          <span class="q-num">5</span>
+          <span class="q-text">可否指定泰國律師代辦？繼承人過戶是否須繳費？</span>
+          <svg class="q-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+        </div>
+        <div class="q-answer">
+          <p><strong>可。</strong>泰國律師可全程處理法院認證與地政過戶。費用包含：</p>
+          <ol>
+            <li>過戶登記費：<strong>0.01%～2%</strong>（若指定價格低於市價，會重新估價）</li>
+            <li>印花稅或稅務：一般屬免稅，若出售則另計</li>
+            <li>律師費：約 <strong>1 萬–3 萬泰銖</strong>（視案件複雜度）</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="q-item">
+        <div class="q-trigger" onclick="toggleQ(this)">
+          <span class="q-num">6</span>
+          <span class="q-text">繼承後是否必須在一年內過戶？否則須出售？費用怎麼計算？</span>
+          <svg class="q-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+        </div>
+        <div class="q-answer">
+          <p>根據泰國地政廳與土地法規：</p>
+          <ol>
+            <li>不動產繼承後，繼承人應於<strong>一年內</strong>完成過戶。</li>
+            <li>若超過期限，有可能被認為無法完成繼承程序，部分府有政策傾向出售資產以解決產權歸屬。</li>
+            <li>實務中，仍可補辦，但需說明原因並可能產生<strong>額外罰款或加收稅費</strong>。</li>
+          </ol>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══ 參：房產贈與 ══ -->
+  <div class="chapter-block reveal" id="chap3">
+    <div class="chapter-header">
+      <span class="chapter-badge">參</span>
+      <h2 class="chapter-title">泰國房產<em>買房贈與</em></h2>
+    </div>
+
+    <div class="section-intro">
+      <p>泰國自 2016 年起實施《財產與贈與稅法》（Gift and Inheritance Tax Act），對以下情形課稅：接收財產的人屬於個人自然人（法人不適用）；年度接收贈與金額超過 <strong>20,000,000 泰銖</strong>（來自父母）或 <strong>10,000,000 泰銖</strong>（來自非直系親屬）；超出部分將被課徵 <strong>5% 贈與稅</strong>。</p>
+    </div>
+
+    <!-- 金錢贈與 -->
+    <p style="font-size:.65rem;letter-spacing:.24em;text-transform:uppercase;color:var(--taupe);margin:28px 0 12px;display:flex;align-items:center;gap:8px;">
+      <span style="display:inline-block;width:14px;height:1px;background:var(--gold);"></span>
+      金錢贈與（Cash Gift）
+    </p>
+
+    <div class="gift-cards">
+      <div class="gift-card">
+        <p class="gift-card-label">父母贈與子女年免稅額</p>
+        <p class="gift-card-value">2,000 <span>萬泰銖</span></p>
+        <p class="gift-card-desc">超出部分課徵 5% 贈與稅</p>
+      </div>
+      <div class="gift-card" style="background:var(--cream-mid);">
+        <p class="gift-card-label">非直系親屬年免稅額</p>
+        <p class="gift-card-value">1,000 <span>萬泰銖</span></p>
+        <p class="gift-card-desc">例如朋友、兄弟姊妹，超出部分課徵 5% 贈與稅</p>
+      </div>
+    </div>
+
+    <div class="q-list">
+      <div class="q-item">
+        <div class="q-trigger" onclick="toggleQ(this)">
+          <span class="q-num">1</span>
+          <span class="q-text">金錢贈與適用條件與注意事項</span>
+          <svg class="q-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+        </div>
+        <div class="q-answer">
+          <p>若父母贈與金錢給子女，只要<strong>一年內累積未超過 20,000,000 泰銖</strong>，免稅。但需符合以下條件：</p>
+          <ul>
+            <li>有正式金流證明（銀行轉帳紀錄）</li>
+            <li>父母與子女之間有明確親屬關係（戶籍、出生證明）</li>
+            <li>建議製作<strong>贈與聲明書（Deed of Gift）</strong>，註明金額、無償性質與用途</li>
+          </ul>
+          <p style="margin-top:10px;">若為<strong>非直系親屬</strong>（例如朋友、兄弟姊妹），免稅額限縮為 <strong>10,000,000 泰銖</strong>。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 房產贈與 -->
+    <p style="font-size:.65rem;letter-spacing:.24em;text-transform:uppercase;color:var(--taupe);margin:28px 0 12px;display:flex;align-items:center;gap:8px;">
+      <span style="display:inline-block;width:14px;height:1px;background:var(--gold);"></span>
+      房產贈與（Immovable Property Gift）
+    </p>
+
+    <div class="important-strip">
+      <span class="important-icon">⚠️</span>
+      <p class="important-text">實務上，外國人<strong>無法</strong>在泰國以「贈與」方式取得房產。</p>
+    </div>
+
+    <div class="q-list">
+      <div class="q-item">
+        <div class="q-trigger" onclick="toggleQ(this)">
+          <span class="q-num">2</span>
+          <span class="q-text">為什麼外國人無法以贈與方式取得泰國房產？</span>
+          <svg class="q-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+        </div>
+        <div class="q-answer">
+          <p>根據泰國土地法與外籍擁有不動產的相關規定：</p>
+          <ol>
+            <li>外國人無論是從泰國人或其他外國人手中接收房產，都<strong>不得以贈與（Gift）形式過戶</strong>。</li>
+            <li>地政機關在實務上會<strong>拒絕登記贈與契約予外國人</strong>，並要求提供具對價之買賣契約（Sale and Purchase Agreement）及付款證明。</li>
+            <li>即使是<strong>父母與子女皆為外國人</strong>之間的房產轉讓，仍必須以買賣形式處理，並提供匯入外幣證明（FET form）作為合法資金來源佐證。</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-box reveal">
+    <h3 class="cta-box-title">有繼承或贈與相關疑問？<em>讓我們協助你</em></h3>
+    <p class="cta-box-desc">法律細節因人而異，歡迎直接聯繫 Alice，我們提供全程中文、無壓力的諮詢服務，並可協助介紹合適的泰國律師。</p>
+    <a class="btn-gold" href="https://line.me/ti/p/rY37pUpv_k" target="_blank">LINE 免費諮詢</a>
+  </div>
+
+  <!-- Related -->
+  <div class="related-section reveal">
+    <h3 class="related-title">延伸閱讀</h3>
+    <div class="related-grid">
+      <a class="related-card" href="article-thailand-tax.html">
+        <div class="related-thumb">
+          <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=200&q=80" alt="" loading="lazy" />
+        </div>
+        <div>
+          <p class="related-tag">泰國 · 稅務知識</p>
+          <p class="related-name">泰國買房稅務——簡析房產稅、遺產稅、贈與稅</p>
+          <p class="related-date">2025 · 8 分鐘閱讀</p>
+        </div>
+      </a>
+      <a class="related-card" href="article-thailand-qa.html">
+        <div class="related-thumb">
+          <img src="https://images.unsplash.com/photo-1555217851-6141535bd771?w=200&q=80" alt="" loading="lazy" />
+        </div>
+        <div>
+          <p class="related-tag">泰國 · 購屋須知</p>
+          <p class="related-name">泰國購房重要須知 Q&A</p>
+          <p class="related-date">2025 · 12 分鐘閱讀</p>
+        </div>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-logo">愛麗絲奇寓記</p>
+  <div class="footer-links">
+    <a href="index.html">首頁</a>
+    <a href="thailand.html">泰國房產</a>
+    <a href="japan.html">日本房產</a>
+    
+    
+  </div>
+  <p class="footer-copy">© 2025 愛麗絲奇寓記 alice in city｜投資國外不動產具有風險性，請詳閱行銷文件並審慎考量後再行交易。</p>
+</footer>
+
+<script>
+  function toggleQ(trigger) {
+    const item = trigger.closest('.q-item');
+    const isOpen = item.classList.contains('open');
+    item.closest('.q-list').querySelectorAll('.q-item.open').forEach(el => el.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // Active chapter nav on scroll
+  const chapters = document.querySelectorAll('.chapter-block');
+  const chapLinks = document.querySelectorAll('.chapter-nav a');
+  new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        chapLinks.forEach(a => a.classList.remove('active'));
+        const link = document.querySelector(`.chapter-nav a[href="#${e.target.id}"]`);
+        if (link) link.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' }).observe ? (() => {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          chapLinks.forEach(a => a.classList.remove('active'));
+          const link = document.querySelector(`.chapter-nav a[href="#${e.target.id}"]`);
+          if (link) link.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+    chapters.forEach(c => obs.observe(c));
+  })() : null;
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+  }, { threshold: 0.06 });
+  reveals.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

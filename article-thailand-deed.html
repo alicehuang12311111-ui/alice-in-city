@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>泰國地契完整解析｜愛麗絲奇寓記</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Sans+TC:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --cream:     #f5f0e8;
+      --cream-mid: #ede6d6;
+      --cream-dark:#e0d5c0;
+      --taupe:     #8c7b6b;
+      --taupe-dark:#5c4f42;
+      --brown:     #3d3028;
+      --gold:      #b89a6a;
+      --gold-light:#d4b88a;
+      --white:     #fdfaf5;
+      --text-main: #2e261e;
+      --text-mid:  #6b5f54;
+      --text-dim:  #9e9188;
+      --line:      rgba(140,123,107,0.2);
+      --line-dark: rgba(140,123,107,0.4);
+      --red:       #c0392b;
+      --green:     #27643a;
+      --black-text:#1a1a1a;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--cream);
+      color: var(--text-main);
+      font-family: 'Noto Sans TC', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: rgba(245,240,232,0.96); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 24px; height: 60px;
+    }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--brown); text-decoration: none; line-height: 1.2; }
+    .nav-logo small { display: block; font-family: 'Noto Sans TC', sans-serif; font-size: .46rem; letter-spacing: .26em; text-transform: uppercase; color: var(--taupe); font-weight: 300; }
+    .nav-back { font-size: .65rem; letter-spacing: .18em; text-transform: uppercase; color: var(--taupe); text-decoration: none; display: flex; align-items: center; gap: 6px; transition: color .3s; }
+    .nav-back:hover { color: var(--brown); }
+    .nav-back svg { transition: transform .3s; }
+    .nav-back:hover svg { transform: translateX(-3px); }
+
+    /* ── HERO ── */
+    .article-hero { padding-top: 60px; background: var(--white); }
+    .article-hero-img { width: 100%; aspect-ratio: 16/7; overflow: hidden; position: relative; }
+    .article-hero-img img { width: 100%; height: 100%; object-fit: cover; filter: brightness(.72); object-position: center top; }
+    .article-hero-img::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 40%, var(--white) 100%); }
+    .article-hero-body { padding: 28px 24px 36px; max-width: 800px; margin: 0 auto; }
+    .article-breadcrumb { font-size: .6rem; letter-spacing: .22em; text-transform: uppercase; color: var(--taupe); margin-bottom: 14px; display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
+    .article-breadcrumb a { color: var(--taupe); text-decoration: none; }
+    .article-breadcrumb a:hover { color: var(--gold); }
+    .article-tag-badge { display: inline-block; font-size: .58rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); border: 1px solid var(--gold); padding: 3px 10px; margin-bottom: 14px; }
+    .article-title { font-family: 'Playfair Display', serif; font-size: clamp(1.7rem, 5.5vw, 2.8rem); font-weight: 400; line-height: 1.2; color: var(--brown); margin-bottom: 18px; }
+    .article-meta { display: flex; gap: 18px; flex-wrap: wrap; font-size: .65rem; letter-spacing: .12em; text-transform: uppercase; color: var(--text-dim); padding-top: 16px; border-top: 1px solid var(--line); }
+
+    /* ── LAYOUT ── */
+    .article-layout { max-width: 800px; margin: 0 auto; padding: 40px 24px 80px; }
+
+    /* ── PROSE ── */
+    .prose p { font-size: .9rem; line-height: 2; color: var(--text-mid); margin-bottom: 16px; }
+    .prose strong { color: var(--brown); font-weight: 500; }
+    .prose h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.2rem, 4vw, 1.6rem); font-weight: 400; color: var(--brown);
+      margin: 48px 0 18px; padding-bottom: 12px; border-bottom: 1px solid var(--line);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .prose h2::before { content: ''; display: inline-block; width: 3px; height: 1.2em; background: var(--gold); flex-shrink: 0; }
+
+    /* ── DEED TYPE CARDS ── */
+    .deed-cards { display: flex; flex-direction: column; gap: 2px; margin: 24px 0; }
+
+    .deed-card {
+      background: var(--white); border: 1px solid var(--line);
+      overflow: hidden;
+    }
+    .deed-card-header {
+      display: flex; align-items: center; gap: 14px;
+      padding: 16px 18px; cursor: pointer; user-select: none;
+    }
+    .deed-seal {
+      width: 38px; height: 38px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .65rem; font-weight: 500; letter-spacing: .04em;
+      flex-shrink: 0; color: white;
+    }
+    .deed-seal.red    { background: var(--red); }
+    .deed-seal.green  { background: var(--green); }
+    .deed-seal.black  { background: #2c2c2c; }
+    .deed-seal.gray   { background: #888; }
+
+    .deed-name { flex: 1; }
+    .deed-title { font-family: 'Noto Serif TC', serif; font-size: .95rem; font-weight: 500; color: var(--brown); margin-bottom: 2px; }
+    .deed-sub { font-size: .68rem; letter-spacing: .1em; color: var(--taupe); }
+    .deed-badge {
+      font-size: .58rem; letter-spacing: .14em; text-transform: uppercase;
+      padding: 3px 8px; flex-shrink: 0;
+    }
+    .deed-badge.best { background: var(--brown); color: var(--cream); }
+    .deed-badge.good { background: var(--cream-dark); color: var(--taupe-dark); }
+    .deed-badge.ok   { background: var(--cream-mid); color: var(--taupe); }
+    .deed-badge.caution { background: #f5e8e8; color: #8b2020; }
+
+    .deed-arrow { color: var(--taupe); transition: transform .3s; flex-shrink: 0; }
+    .deed-card.open .deed-arrow { transform: rotate(180deg); }
+
+    .deed-body {
+      max-height: 0; overflow: hidden;
+      transition: max-height .45s ease, padding .3s;
+      padding: 0 18px 0 70px;
+    }
+    .deed-card.open .deed-body { max-height: 1200px; padding: 4px 18px 22px 70px; }
+
+    .deed-body p { font-size: .86rem; line-height: 1.92; color: var(--text-mid); margin-bottom: 10px; }
+    .deed-body p:last-child { margin-bottom: 0; }
+    .deed-body strong { color: var(--brown); font-weight: 500; }
+    .deed-body ul { list-style: none; padding: 0; margin: 8px 0; }
+    .deed-body ul li { font-size: .84rem; line-height: 1.85; color: var(--text-mid); padding: 5px 0 5px 18px; position: relative; border-bottom: 1px solid var(--line); }
+    .deed-body ul li:last-child { border-bottom: none; }
+    .deed-body ul li::before { content: '—'; position: absolute; left: 0; color: var(--gold); font-size: .8rem; }
+
+    /* ── COLOUR LEGEND ── */
+    .color-legend {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 2px; margin: 24px 0;
+    }
+    .color-block {
+      padding: 18px 14px; text-align: center;
+    }
+    .color-block.red-bg   { background: #fdf0ef; border: 1px solid #e8c5c3; }
+    .color-block.green-bg { background: #eff5f1; border: 1px solid #c3dcc9; }
+    .color-block.black-bg { background: #f0efee; border: 1px solid #c8c4c0; }
+    .color-dot {
+      width: 28px; height: 28px; border-radius: 50%;
+      margin: 0 auto 8px; display: flex; align-items: center; justify-content: center;
+    }
+    .color-dot.red   { background: var(--red); }
+    .color-dot.green { background: var(--green); }
+    .color-dot.black { background: #2c2c2c; }
+    .color-block-name { font-family: 'Noto Serif TC', serif; font-size: .86rem; color: var(--brown); margin-bottom: 4px; }
+    .color-block-sub { font-size: .68rem; color: var(--taupe); }
+
+    /* ── IMAGE BLOCK ── */
+    .img-block { margin: 28px 0; }
+    .img-block img {
+      width: 100%; display: block; border: 1px solid var(--line);
+    }
+    .img-caption {
+      font-size: .7rem; letter-spacing: .12em; color: var(--text-dim);
+      text-align: center; padding: 10px 0 0; line-height: 1.6;
+    }
+
+    .img-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin: 28px 0;
+    }
+    .img-grid-item { position: relative; overflow: hidden; }
+    .img-grid-item img { width: 100%; display: block; border: 1px solid var(--line); }
+    .img-grid-item .img-caption { padding: 8px 4px 0; }
+
+    /* ── FACE A/B SPLIT ── */
+    .face-split {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 2px; margin: 24px 0;
+    }
+    .face-card {
+      background: var(--white); border: 1px solid var(--line); padding: 20px 18px;
+    }
+    .face-label {
+      font-size: .6rem; letter-spacing: .24em; text-transform: uppercase;
+      color: var(--taupe); margin-bottom: 8px;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .face-label::before { content: ''; display: inline-block; width: 12px; height: 1px; background: var(--gold); }
+    .face-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--brown); margin-bottom: 10px; }
+    .face-desc { font-size: .82rem; line-height: 1.85; color: var(--text-mid); }
+    .face-list { list-style: none; padding: 0; margin: 10px 0 0; }
+    .face-list li { font-size: .8rem; color: var(--text-mid); padding: 5px 0 5px 16px; position: relative; border-bottom: 1px solid var(--line); }
+    .face-list li:last-child { border-bottom: none; }
+    .face-list li::before { content: '·'; position: absolute; left: 0; color: var(--gold); font-size: 1rem; top: 3px; }
+
+    /* ── NOTICE / WARNING ── */
+    .notice-box { background: var(--cream-mid); border-left: 3px solid var(--gold); padding: 14px 18px; margin: 20px 0; }
+    .notice-box p { font-size: .84rem; line-height: 1.88; color: var(--text-mid); margin: 0; }
+    .notice-box p + p { margin-top: 8px; }
+    .notice-box strong { color: var(--brown); font-weight: 500; }
+
+    .warning-box { background: #fdf5f5; border-left: 3px solid #c0392b; padding: 14px 18px; margin: 20px 0; }
+    .warning-box p { font-size: .84rem; line-height: 1.88; color: #6b3030; margin: 0; }
+    .warning-box strong { color: #8b2020; font-weight: 500; }
+
+    /* ── SUMMARY TABLE ── */
+    .summary-wrap { overflow-x: auto; margin: 20px 0; }
+    .summary-table { width: 100%; border-collapse: collapse; min-width: 420px; }
+    .summary-table th { background: var(--brown); color: var(--cream); font-size: .62rem; letter-spacing: .12em; text-transform: uppercase; font-weight: 400; padding: 10px 12px; text-align: left; }
+    .summary-table td { font-size: .82rem; color: var(--text-mid); line-height: 1.65; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    .summary-table tbody tr:nth-child(even) td { background: var(--cream-mid); }
+    .summary-table td:first-child { color: var(--brown); font-weight: 400; white-space: nowrap; }
+
+    /* ── CTA ── */
+    .cta-box { background: var(--brown); padding: 32px 24px; margin: 52px 0 0; text-align: center; }
+    .cta-box-title { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--cream); margin-bottom: 10px; line-height: 1.3; }
+    .cta-box-title em { font-style: italic; color: var(--gold-light); }
+    .cta-box-desc { font-size: .8rem; color: rgba(245,240,232,.6); line-height: 1.8; margin-bottom: 20px; }
+    .btn-gold { display: inline-block; font-size: .68rem; letter-spacing: .2em; text-transform: uppercase; background: var(--gold); color: var(--brown); padding: 12px 28px; text-decoration: none; transition: background .3s; }
+    .btn-gold:hover { background: var(--gold-light); }
+
+    /* ── RELATED ── */
+    .related-section { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--line); }
+    .related-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--brown); margin-bottom: 20px; }
+    .related-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    .related-card { display: flex; gap: 14px; text-decoration: none; padding: 14px; background: var(--white); border: 1px solid var(--line); transition: border-color .3s; }
+    .related-card:hover { border-color: var(--gold); }
+    .related-thumb { width: 72px; height: 72px; flex-shrink: 0; overflow: hidden; }
+    .related-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .related-tag { font-size: .56rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); }
+    .related-name { font-family: 'Noto Serif TC', serif; font-size: .86rem; color: var(--brown); margin: 4px 0; line-height: 1.4; }
+    .related-date { font-size: .62rem; color: var(--text-dim); }
+
+    /* ── FOOTER ── */
+    footer { background: var(--brown); padding: 36px 24px 24px; border-top: 2px solid var(--gold); }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--cream); margin-bottom: 6px; }
+    .footer-links { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 12px; }
+    .footer-links a { font-size: .72rem; color: rgba(245,240,232,.5); text-decoration: none; transition: color .3s; }
+    .footer-links a:hover { color: var(--cream); }
+    .footer-copy { font-size: .6rem; color: rgba(245,240,232,.28); line-height: 1.8; margin-top: 18px; }
+
+    /* ── REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+
+    /* ── DESKTOP ── */
+    @media (min-width: 768px) {
+      nav { padding: 0 48px; height: 68px; }
+      .article-hero-body, .article-layout { padding-left: 48px; padding-right: 48px; }
+      .related-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (min-width: 1100px) {
+      nav { padding: 0 80px; }
+      .article-hero-body, .article-layout { padding-left: 80px; padding-right: 80px; max-width: 960px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="index.html">
+    愛麗絲奇寓記
+    <small>Overseas Property Curator</small>
+  </a>
+  <a class="nav-back" href="thailand.html">
+    <svg width="14" height="10" viewBox="0 0 14 10" fill="none">
+      <path d="M13 5H1M1 5L5 1M1 5l4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+    </svg>
+    泰國房產
+  </a>
+</nav>
+
+<!-- HERO -->
+<div class="article-hero">
+  <div class="article-hero-img">
+    <img src="deed-chanote-sample.png" alt="泰國地契" />
+  </div>
+  <div class="article-hero-body">
+    <div class="article-breadcrumb">
+      <a href="index.html">首頁</a> /
+      <a href="thailand.html">泰國房產</a> /
+      購屋知識
+    </div>
+    <span class="article-tag-badge">泰國 · 購屋知識</span>
+    <h1 class="article-title">泰國地契完整解析</h1>
+    <div class="article-meta">
+      <span>閱讀時間約 8 分鐘</span>
+      <span>地契種類・Chanote・過戶必備</span>
+      <span>2025 年更新</span>
+    </div>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="article-layout">
+
+  <!-- 一、權狀介紹 -->
+  <div class="prose reveal">
+    <h2>一、什麼是泰國地契？</h2>
+    <p>泰國的權狀（或稱地契）如台灣的謄本、所有權狀，只是泰國的權狀分為很多種。在泰國擁有土地特權必須有一定文件證明，這個文件就是土地契約，稱之為地契。</p>
+    <p>這個<strong>契約是土地局按照土地法頒發的土地特權文件</strong>，文件包括契約地圖、地契表和地契文案。地契文案內容在於說明該土地地主所有權已按照土地局蓋章，該地主可以買賣等私有特權。</p>
+    <p>泰國地契等同於國內買房意義上的產權證。<strong>地契上標註的地不是整個開發項目的地，而是您購買單元的地。</strong>地契中記錄了地塊形狀和邊界樁編號，以及歷史交易情況。以後房屋需要交易時，必須要提供這張地契。</p>
+  </div>
+
+  <!-- 三種地契對比圖 -->
+  <div class="img-block reveal">
+    <img src="deed-three-types.png" alt="泰國三種地契：นส.3ก、นส.3、นส.4" />
+    <p class="img-caption">泰國三種主要地契：นส.3 ก（左）、นส.3（中）、นส.4 Chanote（右）</p>
+  </div>
+
+  <!-- 二、地契種類 -->
+  <div class="prose reveal">
+    <h2>二、地契種類與安全性比較</h2>
+    <p>下面介紹泰國常見的權狀種類。購買泰國房產時，<strong>最好挑選有 Chanote 權狀之不動產</strong>，次選 Nor Sor 3 Gor，再差也要有 Nor Sor 3 證書。</p>
+  </div>
+
+  <!-- 顏色圖例 -->
+  <div class="color-legend reveal">
+    <div class="color-block red-bg">
+      <div class="color-dot red"></div>
+      <p class="color-block-name">紅色</p>
+      <p class="color-block-sub">Chanote<br>Nor Sor 4</p>
+    </div>
+    <div class="color-block green-bg">
+      <div class="color-dot green"></div>
+      <p class="color-block-name">綠色</p>
+      <p class="color-block-sub">Nor Sor 3 Gor</p>
+    </div>
+    <div class="color-block black-bg">
+      <div class="color-dot black"></div>
+      <p class="color-block-name">黑色</p>
+      <p class="color-block-sub">Nor Sor 3</p>
+    </div>
+  </div>
+
+  <!-- 地契卡片 -->
+  <div class="deed-cards reveal">
+
+    <!-- Chanote -->
+    <div class="deed-card">
+      <div class="deed-card-header" onclick="toggleDeed(this)">
+        <div class="deed-seal red">紅</div>
+        <div class="deed-name">
+          <p class="deed-title">Chanote（Nor Sor 4）｜完整永久產權</p>
+          <p class="deed-sub">โฉนดที่ดิน · 最高等級地契</p>
+        </div>
+        <span class="deed-badge best">最推薦</span>
+        <svg class="deed-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+      </div>
+      <div class="deed-body">
+        <p>Chanote 是泰國的權狀中，<strong>具有完整所有權的唯一一種</strong>，代表你可以自由買賣移轉、抵押貸款等行為。這種類型的產權證書賦予持有人對土地的 100% 所有權，並保證了對土地的獨占性，是最安全且最可靠的地契。</p>
+        <ul>
+          <li>Chanote 裡面登記的面積是<strong>經過 GPS 準確測量</strong>，通常可以當作是正確面積</li>
+          <li>背面也會有面積及買賣方清單</li>
+          <li>在權狀最上方有<strong>紅色 Garuda（泰國國徽）</strong>，可確認是 Chanote 權狀</li>
+          <li>意味著可以對土地進行<strong>自由買賣、轉讓或抵押</strong></li>
+          <li>若他人公開且 <strong>10 年間</strong>惡意佔有你的土地而你沒有去排除，他人可向土地部申請取得所有權</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Nor Sor 3 Gor -->
+    <div class="deed-card">
+      <div class="deed-card-header" onclick="toggleDeed(this)">
+        <div class="deed-seal green">綠</div>
+        <div class="deed-name">
+          <p class="deed-title">Nor Sor 3 Gor｜確認使用證書</p>
+          <p class="deed-sub">นส.3 ก · 可買賣、可抵押</p>
+        </div>
+        <span class="deed-badge good">次推薦</span>
+        <svg class="deed-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+      </div>
+      <div class="deed-body">
+        <p>確認使用證書，亦可以買賣移轉、抵押貸款。在證書最上方有<strong>黑色 Garuda（泰國國徽）</strong>，通常可以確認是 Nor Sor 3 Gor 證書。</p>
+        <p>這類證書只是一個非官方測量後、經土地部確認權利的證書，<strong>土地實際上還是泰國土地部所有</strong>，經申請調查，可以被申請升級為 Chanote 權狀。Nor Sor 3 Gor 也會在法定的審核時間結束後自動升級成為 Chanote。</p>
+        <ul>
+          <li>由<strong>土地廳進行面積測量</strong>，因此該土地具有確切的界限</li>
+          <li>可向土地廳提交申請書要求升級為 Chanote</li>
+          <li>若他人公開且 <strong>1 年間</strong>惡意佔有而你沒有去排除，他人可申請取得 Nor Sor 3 Gor</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Nor Sor 3 -->
+    <div class="deed-card">
+      <div class="deed-card-header" onclick="toggleDeed(this)">
+        <div class="deed-seal black">黑</div>
+        <div class="deed-name">
+          <p class="deed-title">Nor Sor 3｜使用證書</p>
+          <p class="deed-sub">นส.3 · 買賣需公告 30 天</p>
+        </div>
+        <span class="deed-badge ok">謹慎評估</span>
+        <svg class="deed-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+      </div>
+      <div class="deed-body">
+        <p>若要買賣移轉、抵押貸款等行為<strong>必須在土地部公告 30 天，且不能登記</strong>。在證書最上方有綠色 Garuda（泰國國徽），可確認是 Nor Sor 3 證書。</p>
+        <ul>
+          <li><strong>未經測量面積或定義與鄰地之地界</strong>，可能會有地界之爭議</li>
+          <li>可以申請升級為 Nor Sor 3 Gor 確認使用證書</li>
+          <li>對惡意佔有者的排除時間亦僅有 <strong>1 年</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 其他 -->
+    <div class="deed-card">
+      <div class="deed-card-header" onclick="toggleDeed(this)">
+        <div class="deed-seal gray">其他</div>
+        <div class="deed-name">
+          <p class="deed-title">其他類型地契</p>
+          <p class="deed-sub">Sor Por Gor、Sor Tor Gor、Gor Sor Nor 5 等</p>
+        </div>
+        <span class="deed-badge caution">不建議購買</span>
+        <svg class="deed-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+      </div>
+      <div class="deed-body">
+        <p>多達數十種，可能<strong>僅能作農業使用、土地重劃配回土地禁止轉讓、森林保護區</strong>或僅有少數使用權利。</p>
+        <p>此外，除了 Chanote 地契以外，其他產權證<strong>不允許任何針對該土地的租賃行為</strong>，如用益物權、抵押貸款或以獲得抵押為目的的地上權。</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 比較表 -->
+  <div class="summary-wrap reveal">
+    <table class="summary-table">
+      <thead>
+        <tr><th>地契種類</th><th>公章顏色</th><th>測量方式</th><th>可買賣/抵押</th><th>佔有排除期限</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Chanote（Nor Sor 4）</td><td>紅色 🔴</td><td>GPS 精確測量</td><td>✓ 可自由買賣</td><td>10 年</td></tr>
+        <tr><td>Nor Sor 3 Gor</td><td>黑色 ⚫</td><td>土地廳測量</td><td>✓ 可買賣</td><td>1 年</td></tr>
+        <tr><td>Nor Sor 3</td><td>綠色 🟢</td><td>未測量</td><td>⚠ 需公告 30 天</td><td>1 年</td></tr>
+        <tr><td>其他（Possessory Right）</td><td>—</td><td>未測量</td><td>✗ 不可買賣</td><td>—</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 三、地契正反兩面 -->
+  <div class="prose reveal">
+    <h2>三、地契正反兩面說明</h2>
+    <p>地契分為正反兩面，並且都是以泰文書寫的。</p>
+  </div>
+
+  <div class="face-split reveal">
+    <div class="face-card">
+      <p class="face-label">A 面・正面</p>
+      <h3 class="face-title">房屋相關資訊</h3>
+      <p class="face-desc">此類地契的紅色 Logo 表示的是永久產權。</p>
+      <ul class="face-list">
+        <li>過戶單元的信息</li>
+        <li>項目地址、名稱</li>
+        <li>樓層、建築面積</li>
+        <li>公寓戶型</li>
+        <li>開發商信息</li>
+      </ul>
+    </div>
+    <div class="face-card" style="background:var(--cream-mid);">
+      <p class="face-label">B 面・背面</p>
+      <h3 class="face-title">土地交易與抵押</h3>
+      <p class="face-desc">記錄所有歷史交易與產權轉移記錄。</p>
+      <ul class="face-list">
+        <li>原產權持有人信息</li>
+        <li>抵押記錄</li>
+        <li>曾經持有者信息</li>
+        <li>現持有者信息</li>
+        <li>交易日期與金額</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 登記注册表圖 -->
+  <div class="img-block reveal">
+    <img src="deed-registration.png" alt="泰國地契背面登記注冊表" />
+    <p class="img-caption">地契背面（B面）：登記注冊表，記錄歷次產權轉移、抵押與解除記錄</p>
+  </div>
+
+  <!-- Chanote 詳解圖 -->
+  <div class="prose reveal">
+    <h2>四、Chanote 地契各欄位說明</h2>
+    <p>Chanote 是外國人在泰國購買公寓時會拿到的產權證書，以下是各欄位的對應說明。</p>
+  </div>
+
+  <div class="img-block reveal">
+    <img src="deed-chanote-sample.png" alt="Chanote 地契欄位說明" />
+    <p class="img-caption">Chanote 地契正面：各欄位標示說明（含 Chanote number、地塊平面圖、授權土地廳章）</p>
+  </div>
+
+  <!-- 公寓產權證 -->
+  <div class="img-block reveal">
+    <img src="deed-chanote-detail.png" alt="泰國公寓產權證（อาคารชุด）欄位說明" />
+    <p class="img-caption">公寓產權證（หนังสือกรรมสิทธิ์ห้องชุด）：標示地契號、房號、樓層、面積、開發商名稱等重要資訊</p>
+  </div>
+
+  <!-- นส.3 -->
+  <div class="img-block reveal">
+    <img src="deed-nor-sor3.png" alt="Nor Sor 3 地契樣本" />
+    <p class="img-caption">สมุดสรรพอากร（使用權證書）樣本，屬於早期地契格式</p>
+  </div>
+
+  <!-- 四、結論 -->
+  <div class="prose reveal">
+    <h2>五、結論與購買建議</h2>
+    <p>我們上面介紹的是單獨持分之不動產，通常在別墅、工廠、土地等類型不動產才有。若是區分所有權不動產如公寓也有權狀，但不會像台灣分為土地權狀與建物權狀，而是<strong>僅有一張權狀標明面積、高度、土地持分等</strong>，土地權狀只會有一張在管委會代為管理。</p>
+  </div>
+
+  <div class="notice-box reveal">
+    <p>✅ 購買泰國房產時，<strong>最好挑選有 Chanote 權狀之不動產</strong>，並與律師到現場確認權狀號碼與地界編號（在平面圖上）。次選 Nor Sor 3 Gor，再差也要有 Nor Sor 3 證書。</p>
+  </div>
+
+  <div class="warning-box reveal">
+    <p>⚠️ 泰國某些地方仍存在<strong>違建、偽造等非法行為</strong>，若涉及買賣等法律行為，應該要請當地律師陪同較能保障自己權益。</p>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-box reveal">
+    <h3 class="cta-box-title">對地契有疑問？<em>讓我們幫你確認</em></h3>
+    <p class="cta-box-desc">每個建案的地契狀況不同，歡迎直接聯繫 Alice，我們協助你確認地契類型與產權狀況。</p>
+    <a class="btn-gold" href="https://line.me/ti/p/rY37pUpv_k" target="_blank">LINE 免費諮詢</a>
+  </div>
+
+  <!-- Related -->
+  <div class="related-section reveal">
+    <h3 class="related-title">延伸閱讀</h3>
+    <div class="related-grid">
+      <a class="related-card" href="article-thailand-buying-process.html">
+        <div class="related-thumb">
+          <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=200&q=80" alt="" loading="lazy" />
+        </div>
+        <div>
+          <p class="related-tag">泰國 · 購屋流程</p>
+          <p class="related-name">泰國買房購屋與過戶流程</p>
+          <p class="related-date">2025 · 10 分鐘閱讀</p>
+        </div>
+      </a>
+      <a class="related-card" href="article-thailand-qa.html">
+        <div class="related-thumb">
+          <img src="https://images.unsplash.com/photo-1555217851-6141535bd771?w=200&q=80" alt="" loading="lazy" />
+        </div>
+        <div>
+          <p class="related-tag">泰國 · 購屋須知</p>
+          <p class="related-name">泰國購房重要須知 Q&A</p>
+          <p class="related-date">2025 · 12 分鐘閱讀</p>
+        </div>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-logo">愛麗絲奇寓記</p>
+  <div class="footer-links">
+    <a href="index.html">首頁</a>
+    <a href="thailand.html">泰國房產</a>
+    <a href="japan.html">日本房產</a>
+    
+    
+  </div>
+  <p class="footer-copy">© 2025 愛麗絲奇寓記 alice in city｜投資國外不動產具有風險性，請詳閱行銷文件並審慎考量後再行交易。</p>
+</footer>
+
+<script>
+  function toggleDeed(header) {
+    const card = header.closest('.deed-card');
+    const isOpen = card.classList.contains('open');
+    document.querySelectorAll('.deed-card.open').forEach(c => c.classList.remove('open'));
+    if (!isOpen) card.classList.add('open');
+  }
+
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+  }, { threshold: 0.06 });
+  reveals.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

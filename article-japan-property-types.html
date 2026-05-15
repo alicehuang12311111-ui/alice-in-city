@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>日本房產類型全解析｜一戶建、公寓、塔樓完整指南｜愛麗絲奇寓記</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Sans+TC:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    :root {
+      --cream:#f5f0e8; --cream-mid:#ede6d6; --cream-dark:#e0d5c0;
+      --taupe:#8c7b6b; --taupe-dark:#5c4f42; --brown:#3d3028;
+      --gold:#b89a6a; --gold-light:#d4b88a; --white:#fdfaf5;
+      --text-main:#2e261e; --text-mid:#6b5f54; --text-dim:#9e9188;
+      --line:rgba(140,123,107,0.2); --line-dark:rgba(140,123,107,0.4);
+    }
+    html { scroll-behavior:smooth; }
+    body { background:var(--cream); color:var(--text-main); font-family:'Noto Sans TC',sans-serif; font-weight:300; overflow-x:hidden; -webkit-font-smoothing:antialiased; }
+
+    nav { position:fixed; top:0; left:0; right:0; z-index:200; background:rgba(245,240,232,0.96); backdrop-filter:blur(12px); border-bottom:1px solid var(--line); display:flex; align-items:center; justify-content:space-between; padding:0 24px; height:60px; }
+    .nav-logo { font-family:'Playfair Display',serif; font-size:1rem; color:var(--brown); text-decoration:none; line-height:1.2; }
+    .nav-logo small { display:block; font-family:'Noto Sans TC',sans-serif; font-size:.46rem; letter-spacing:.26em; text-transform:uppercase; color:var(--taupe); font-weight:300; }
+    .nav-back { font-size:.65rem; letter-spacing:.18em; text-transform:uppercase; color:var(--taupe); text-decoration:none; display:flex; align-items:center; gap:6px; transition:color .3s; }
+    .nav-back:hover { color:var(--brown); }
+    .nav-back svg { transition:transform .3s; }
+    .nav-back:hover svg { transform:translateX(-3px); }
+
+    .article-hero { padding-top:60px; background:var(--white); }
+    .article-hero-img { width:100%; aspect-ratio:16/7; overflow:hidden; position:relative; }
+    .article-hero-img img { width:100%; height:100%; object-fit:cover; filter:brightness(.72); }
+    .article-hero-img::after { content:''; position:absolute; inset:0; background:linear-gradient(to bottom, transparent 40%, var(--white) 100%); }
+    .article-hero-body { padding:28px 24px 36px; max-width:800px; margin:0 auto; }
+    .article-breadcrumb { font-size:.6rem; letter-spacing:.22em; text-transform:uppercase; color:var(--taupe); margin-bottom:14px; display:flex; align-items:center; gap:7px; flex-wrap:wrap; }
+    .article-breadcrumb a { color:var(--taupe); text-decoration:none; }
+    .article-tag-badge { display:inline-block; font-size:.58rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); border:1px solid var(--gold); padding:3px 10px; margin-bottom:14px; }
+    .article-title { font-family:'Playfair Display',serif; font-size:clamp(1.7rem,5.5vw,2.8rem); font-weight:400; line-height:1.2; color:var(--brown); margin-bottom:18px; }
+    .article-meta { display:flex; gap:18px; flex-wrap:wrap; font-size:.65rem; letter-spacing:.12em; text-transform:uppercase; color:var(--text-dim); padding-top:16px; border-top:1px solid var(--line); }
+
+    .article-layout { max-width:800px; margin:0 auto; padding:40px 24px 80px; }
+
+    .prose p { font-size:.9rem; line-height:2; color:var(--text-mid); margin-bottom:16px; }
+    .prose strong { color:var(--brown); font-weight:500; }
+    .prose h2 { font-family:'Noto Serif TC',serif; font-size:1.1rem; color:var(--brown); margin:36px 0 14px; padding-bottom:10px; border-bottom:1px solid var(--line); }
+    .prose h3 { font-family:'Noto Serif TC',serif; font-size:.95rem; color:var(--brown); margin:24px 0 10px; }
+
+    .why-box { background:var(--cream-mid); border:1px solid var(--line); padding:20px 22px; margin-bottom:32px; }
+    .why-box-title { font-size:.65rem; letter-spacing:.24em; text-transform:uppercase; color:var(--gold); margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+    .why-box-title::before { content:''; display:inline-block; width:14px; height:1px; background:var(--gold); }
+    .why-box p { font-size:.86rem; line-height:1.88; color:var(--text-mid); }
+    .why-box p strong { color:var(--brown); font-weight:500; }
+
+    .type-list { display:flex; flex-direction:column; gap:2px; margin:20px 0; }
+    .type-card { background:var(--white); border:1px solid var(--line); overflow:hidden; transition:border-color .3s; }
+    .type-card:hover { border-color:var(--line-dark); }
+    .type-card.open { border-color:var(--gold); }
+    .type-trigger { display:flex; align-items:center; gap:14px; padding:18px; cursor:pointer; user-select:none; }
+    .type-icon { width:36px; height:36px; flex-shrink:0; background:var(--cream-mid); display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:1rem; color:var(--gold); }
+    .type-name-wrap { flex:1; }
+    .type-name { font-family:'Noto Serif TC',serif; font-size:.95rem; font-weight:500; color:var(--brown); }
+    .type-sub { font-size:.65rem; color:var(--taupe); margin-top:2px; }
+    .type-badge { font-size:.55rem; letter-spacing:.14em; text-transform:uppercase; padding:3px 9px; flex-shrink:0; }
+    .type-badge.invest { background:var(--brown); color:var(--cream); }
+    .type-badge.live { background:var(--cream-dark); color:var(--taupe-dark); }
+    .type-badge.premium { background:#1a1a2e; color:#d4b88a; }
+    .type-arrow { color:var(--taupe); transition:transform .3s; flex-shrink:0; }
+    .type-card.open .type-arrow { transform:rotate(180deg); }
+    .type-body { max-height:0; overflow:hidden; transition:max-height .45s ease, padding .3s; padding:0 18px 0 18px; }
+    .type-card.open .type-body { max-height:800px; padding:4px 18px 24px; }
+    .type-body p { font-size:.86rem; line-height:1.92; color:var(--text-mid); margin-bottom:10px; }
+    .type-body p:last-child { margin-bottom:0; }
+    .type-body strong { color:var(--brown); font-weight:500; }
+    .type-body ul { list-style:none; padding:0; margin:8px 0; }
+    .type-body ul li { font-size:.84rem; line-height:1.85; color:var(--text-mid); padding:5px 0 5px 18px; position:relative; border-bottom:1px solid var(--line); }
+    .type-body ul li:last-child { border-bottom:none; }
+    .type-body ul li::before { content:'—'; position:absolute; left:0; color:var(--gold); font-size:.8rem; }
+    .type-body ul li strong { color:var(--brown); font-weight:500; }
+
+    .section-divider { margin:40px 0 20px; padding-bottom:12px; border-bottom:1px solid var(--line); }
+    .section-divider-label { font-size:.62rem; letter-spacing:.28em; text-transform:uppercase; color:var(--taupe); }
+    .section-divider-label::before { content:''; display:inline-block; width:14px; height:1px; background:var(--gold); margin-right:10px; }
+
+    .ldk-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin:16px 0 28px; }
+    .ldk-item { background:var(--white); border:1px solid var(--line); padding:12px 14px; text-align:center; }
+    .ldk-code { font-family:'Playfair Display',serif; font-size:1.2rem; color:var(--gold); display:block; margin-bottom:4px; }
+    .ldk-desc { font-size:.72rem; color:var(--text-mid); line-height:1.5; }
+
+    .quake-grid { display:grid; grid-template-columns:1fr; gap:10px; margin:16px 0 28px; }
+    .quake-card { background:var(--white); border:1px solid var(--line); padding:16px 18px; border-left:3px solid var(--gold); }
+    .quake-name { font-family:'Noto Serif TC',serif; font-size:.9rem; color:var(--brown); margin-bottom:6px; }
+    .quake-desc { font-size:.82rem; line-height:1.85; color:var(--text-mid); }
+    .quake-desc strong { color:var(--brown); font-weight:500; }
+
+    .notice-box { background:var(--cream-mid); border-left:3px solid var(--gold); padding:14px 18px; margin:16px 0; }
+    .notice-box p { font-size:.84rem; line-height:1.88; color:var(--text-mid); margin:0; }
+    .notice-box strong { color:var(--brown); font-weight:500; }
+
+    .cta-box { background:var(--brown); padding:32px 24px; margin:52px 0 0; text-align:center; }
+    .cta-box-title { font-family:'Playfair Display',serif; font-size:1.25rem; color:var(--cream); margin-bottom:10px; line-height:1.3; }
+    .cta-box-title em { font-style:italic; color:var(--gold-light); }
+    .cta-box-desc { font-size:.8rem; color:rgba(245,240,232,.6); line-height:1.8; margin-bottom:20px; }
+    .btn-gold { display:inline-block; font-size:.68rem; letter-spacing:.2em; text-transform:uppercase; background:var(--gold); color:var(--brown); padding:12px 28px; text-decoration:none; transition:background .3s; }
+    .btn-gold:hover { background:var(--gold-light); }
+
+    .related-section { margin-top:56px; padding-top:36px; border-top:1px solid var(--line); }
+    .related-title { font-family:'Playfair Display',serif; font-size:1.05rem; color:var(--brown); margin-bottom:20px; }
+    .related-grid { display:grid; grid-template-columns:1fr; gap:12px; }
+    .related-card { display:flex; gap:14px; text-decoration:none; padding:14px; background:var(--white); border:1px solid var(--line); transition:border-color .3s; }
+    .related-card:hover { border-color:var(--gold); }
+    .related-thumb { width:72px; height:72px; flex-shrink:0; overflow:hidden; }
+    .related-thumb img { width:100%; height:100%; object-fit:cover; }
+    .related-tag { font-size:.56rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); }
+    .related-name { font-family:'Noto Serif TC',serif; font-size:.86rem; color:var(--brown); margin:4px 0; line-height:1.4; }
+    .related-date { font-size:.62rem; color:var(--text-dim); }
+
+    footer { background:var(--brown); padding:36px 24px 24px; border-top:2px solid var(--gold); }
+    .footer-logo { font-family:'Playfair Display',serif; font-size:1rem; color:var(--cream); margin-bottom:6px; }
+    .footer-links { display:flex; gap:18px; flex-wrap:wrap; margin-top:12px; }
+    .footer-links a { font-size:.72rem; color:rgba(245,240,232,.5); text-decoration:none; transition:color .3s; }
+    .footer-links a:hover { color:var(--cream); }
+    .footer-copy { font-size:.6rem; color:rgba(245,240,232,.28); line-height:1.8; margin-top:18px; }
+
+    .reveal { opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease; }
+    .reveal.in { opacity:1; transform:translateY(0); }
+
+    @media (min-width:768px) {
+      nav { padding:0 48px; height:68px; }
+      .article-hero-body, .article-layout { padding-left:48px; padding-right:48px; }
+      .related-grid { grid-template-columns:1fr 1fr; }
+      .quake-grid { grid-template-columns:1fr 1fr 1fr; }
+    }
+    @media (min-width:1100px) {
+      nav { padding:0 80px; }
+      .article-hero-body, .article-layout { padding-left:80px; padding-right:80px; max-width:960px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">愛麗絲奇寓記<small>Overseas Property Curator</small></a>
+  <a class="nav-back" href="japan.html">
+    <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M13 5H1M1 5L5 1M1 5l4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+    日本房產
+  </a>
+</nav>
+
+<div class="article-hero">
+  <div class="article-hero-img">
+    <img src="https://images.unsplash.com/photo-1480796927426-f609979314bd?w=1400&q=85" alt="日本房產類型" />
+  </div>
+  <div class="article-hero-body">
+    <div class="article-breadcrumb">
+      <a href="index.html">首頁</a> / <a href="japan.html">日本房產</a> / 購屋知識
+    </div>
+    <span class="article-tag-badge">日本 · 房產類型</span>
+    <h1 class="article-title">日本房產類型全解析<br>一戶建、公寓、塔樓、新屋、中古屋完整指南</h1>
+    <div class="article-meta">
+      <span>閱讀時間約 10 分鐘</span>
+      <span>屋齡・建物形式・格局・耐震</span>
+      <span>2025–2026 年更新</span>
+    </div>
+  </div>
+</div>
+
+<div class="article-layout">
+
+  <div class="prose reveal">
+    <p>日本房產之所以吸引全球投資者，不只因為價格透明、法規成熟，更因為<strong>房屋類型多元，不同結構與屋齡都有截然不同的投資邏輯</strong>。選對類型，你的投報率、空置率、後續轉手能力，從第一天就會落在正確軌道。</p>
+  </div>
+
+  <div class="why-box reveal">
+    <p class="why-box-title">日本房產分類兩大方向</p>
+    <p>日本房產主要從兩大方向分類：<strong>屋齡</strong>（新屋 vs 中古屋）與<strong>建物形式</strong>（一戶建、公寓、塔樓）。了解這兩個維度，是判斷物件價值的基礎。</p>
+  </div>
+
+  <div class="section-divider reveal">
+    <span class="section-divider-label">一、屋齡：新屋 vs 中古屋</span>
+  </div>
+
+  <div class="type-list reveal">
+    <div class="type-card" id="type-new">
+      <div class="type-trigger" onclick="toggleType('type-new')">
+        <div class="type-icon">新</div>
+        <div class="type-name-wrap">
+          <p class="type-name">新屋（新築）</p>
+          <p class="type-sub">落成未滿一年且從未入住的物件</p>
+        </div>
+        <span class="type-badge live">保值優先</span>
+        <svg class="type-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+      </div>
+      <div class="type-body">
+        <p>新屋是許多海外買家的首選，具備<strong>最新耐震等級、設備新、維修成本最低</strong>的優勢，保值力強、轉手市場接受度高。</p>
+        <ul>
+          <li><strong>優點</strong>：最新耐震等級、設備新、維修成本最低、保值力強</li>
+          <li><strong>限制</strong>：總價較高、投報率通常低於中古屋</li>
+          <li><strong>適合族群</strong>：自住、重保值、希望買進城市核心區域的買家</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="type-card" id="type-used">
+      <div class="type-trigger" onclick="toggleType('type-used')">
+        <div class="type-icon">中</div>
+        <div class="type-name-wrap">
+          <p class="type-name">中古屋（二手屋）</p>
+          <p class="type-sub">屋齡 10 年以上，通常為新屋價格的 6～8 成</p>
+        </div>
+        <span class="type-badge invest">投資主流</span>
+        <svg class="type-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+      </div>
+      <div class="type-body">
+        <p>中古屋在日本非常普遍，市場成熟、資訊透明。<strong>進入門檻友善、投報率較高</strong>，可透過裝修提高租金或轉售價值，是日本投資房的主流。</p>
+        <ul>
+          <li><strong>優點</strong>：價格合理、投報率較高、選擇多地段彈性大</li>
+          <li><strong>限制</strong>：設備可能較舊、維修成本需提前評估</li>
+          <li><strong>適合族群</strong>：想在日本置產、強調現金流、追求投報率的投資者</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider reveal">
+    <span class="section-divider-label">二、建物形式：一戶建、公寓、塔樓</span>
+  </div>
+
+  <div class="type-list reveal">
+    <div class="type-card" id="type-house">
+      <div class="type-trigger" onclick="toggleType('type-house')">
+        <div class="type-icon">戶</div>
+        <div class="type-name-wrap">
+          <p class="type-name">一戶建</p>
+          <p class="type-sub">獨棟住宅＋完整土地所有權</p>
+        </div>
+        <span class="type-badge live">自住自由</span>
+        <svg class="type-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+      </div>
+      <div class="type-body">
+        <p>一戶建就是獨棟住宅＋土地所有權，日本人非常重視「持有土地」的價值。可自由改造格局、庭院、停車位，適合民宿、share house、渡假用途。</p>
+        <ul>
+          <li><strong>優點</strong>：土地完整歸屋主、可自由改造、適合民宿用途</li>
+          <li><strong>缺點</strong>：木造居多折舊較快、維修需自理、多位於郊區或住宅區</li>
+          <li><strong>適合族群</strong>：自住、度假宅、想擁有土地資產的買家</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="type-card" id="type-apato">
+      <div class="type-trigger" onclick="toggleType('type-apato')">
+        <div class="type-icon">ア</div>
+        <div class="type-name-wrap">
+          <p class="type-name">小型公寓（アパート）</p>
+          <p class="type-sub">木造或輕量鋼構，2～3層，無電梯</p>
+        </div>
+        <span class="type-badge invest">平價入門</span>
+        <svg class="type-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+      </div>
+      <div class="type-body">
+        <p>大多使用木頭及較輕的鐵筋建造，<strong>通常高度不超過 3 層樓、無電梯</strong>。隔音相對較差，夏天不易散熱、冬天不易儲熱，但價格低廉、出租容易。</p>
+        <ul>
+          <li><strong>特點</strong>：木造隔音較弱、無電梯、無管理組織</li>
+          <li><strong>優勢</strong>：價格低、出租容易、進入門檻低</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="type-card" id="type-mansion">
+      <div class="type-trigger" onclick="toggleType('type-mansion')">
+        <div class="type-icon">マ</div>
+        <div class="type-name-wrap">
+          <p class="type-name">一般公寓（マンション）</p>
+          <p class="type-sub">RC鋼筋混凝土，有電梯，管理完善</p>
+        </div>
+        <span class="type-badge invest">出租主流</span>
+        <svg class="type-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+      </div>
+      <div class="type-body">
+        <p>使用<strong>較堅固的鋼筋及水泥</strong>搭建，樓層較高、有電梯，隔音及儲熱優於小型公寓，安全管理嚴格。有管理委員會與修繕基金，出租族群穩定、保值力高。</p>
+        <ul>
+          <li><strong>特點</strong>：RC 鋼筋混凝土、耐震較佳、有管理委員會與修繕基金</li>
+          <li><strong>優勢</strong>：出租族群穩定、保值力高、安全管理嚴格</li>
+          <li><strong>適合族群</strong>：長期出租、追求穩定現金流者</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="type-card" id="type-tower">
+      <div class="type-trigger" onclick="toggleType('type-tower')">
+        <div class="type-icon">塔</div>
+        <div class="type-name-wrap">
+          <p class="type-name">塔樓（Tower Mansion）</p>
+          <p class="type-sub">30 層以上高層住宅，日本都市最強勢產品</p>
+        </div>
+        <span class="type-badge premium">資產保值王</span>
+        <svg class="type-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+      </div>
+      <div class="type-body">
+        <p>塔樓是日本都市房市中<strong>最強勢的產品類型</strong>，因稀有性＋地段優勢，被視為日本不動產中的「資產級商品」。</p>
+        <ul>
+          <li><strong>優點</strong>：最強耐震結構、高隱私、公設完善、核心地段供給極少</li>
+          <li><strong>缺點</strong>：價格高</li>
+          <li><strong>特性</strong>：出租需求旺盛、轉手機會最好，適合高資產族長期持有</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider reveal">
+    <span class="section-divider-label">三、格局 LDK 完整解析</span>
+  </div>
+
+  <div class="prose reveal">
+    <p>在日本的租屋網與買房網上常見 1R、1K、1DK、2LDK 等標示，這些英文字母代表不同的房屋格局：</p>
+  </div>
+
+  <div class="ldk-grid reveal">
+    <div class="ldk-item"><span class="ldk-code">R</span><span class="ldk-desc">臥室<br>（Room）</span></div>
+    <div class="ldk-item"><span class="ldk-code">K</span><span class="ldk-desc">廚房<br>（Kitchen）</span></div>
+    <div class="ldk-item"><span class="ldk-code">D</span><span class="ldk-desc">餐廳<br>（Dining）</span></div>
+    <div class="ldk-item"><span class="ldk-code">L</span><span class="ldk-desc">客廳<br>（Living）</span></div>
+    <div class="ldk-item"><span class="ldk-code">S</span><span class="ldk-desc">納戶<br>（無窗儲藏室）</span></div>
+    <div class="ldk-item"><span class="ldk-code">帖</span><span class="ldk-desc">榻榻米計量<br>（約半坪）</span></div>
+  </div>
+
+  <div class="prose reveal">
+    <p><strong>1R</strong>：開放式套房　<strong>1K</strong>：一房＋獨立廚房　<strong>1LDK</strong>：最常見的都會型格局　<strong>2LDK / 3LDK</strong>：適合家庭或長租需求</p>
+    <p>另外，日本因常用榻榻米計算面積，量詞為「帖／疊」，通常一帖約 90×180 cm，<strong>兩帖約等於台灣的一坪</strong>。</p>
+  </div>
+
+  <div class="section-divider reveal">
+    <span class="section-divider-label">四、耐震等級：耐震、制震、免震</span>
+  </div>
+
+  <div class="quake-grid reveal">
+    <div class="quake-card">
+      <p class="quake-name">耐震（最普及）</p>
+      <p class="quake-desc">以柱樑結構承受地震力，是日本<strong>最常見</strong>的建築形式。隨著地震次數增多，損傷會累積，屋齡較高的耐震建築需特別注意。</p>
+    </div>
+    <div class="quake-card">
+      <p class="quake-name">制震（吸收震動）</p>
+      <p class="quake-desc">加入制震阻尼器（ダンパー），可<strong>大幅降低高樓晃動</strong>。東京晴空塔與台北 101 均使用此構造。</p>
+    </div>
+    <div class="quake-card">
+      <p class="quake-name">免震（最高等級）</p>
+      <p class="quake-desc">將建物與地盤隔離，可<strong>減少 70～80% 晃動</strong>，是現代高級住宅標準。澀谷 Scramble Square 即使用免震技術。</p>
+    </div>
+  </div>
+
+  <div class="notice-box reveal">
+    <p>💡 <strong>選對類型是第一步</strong>：新屋＝保值穩定、中古屋＝投報效率、一戶建＝土地資產、公寓＝城市主流、塔樓＝保值王者。目的不同，最佳選擇也不同。</p>
+  </div>
+
+  <div class="cta-box reveal">
+    <h3 class="cta-box-title">不確定<em>哪種類型最適合你</em>？</h3>
+    <p class="cta-box-desc">依你的預算、目標與風險偏好，我們幫你找到最合適的日本房產配置方案。</p>
+    <a class="btn-gold" href="https://line.me/ti/p/rY37pUpv_k" target="_blank">LINE 免費諮詢</a>
+  </div>
+
+  <div class="related-section reveal">
+    <h3 class="related-title">延伸閱讀</h3>
+    <div class="related-grid">
+      <a class="related-card" href="article-japan-investment-guide.html">
+        <div class="related-thumb"><img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=200&q=80" alt="" loading="lazy" /></div>
+        <div>
+          <p class="related-tag">日本 · 投資攻略</p>
+          <p class="related-name">日本房地產投資全攻略</p>
+          <p class="related-date">2025 · 8 分鐘閱讀</p>
+        </div>
+      </a>
+      <a class="related-card" href="article-japan-buying-process.html">
+        <div class="related-thumb"><img src="https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=200&q=80" alt="" loading="lazy" /></div>
+        <div>
+          <p class="related-tag">日本 · 購屋流程</p>
+          <p class="related-name">日本購屋流程、稅費、貸款全解析</p>
+          <p class="related-date">2025 · 12 分鐘閱讀</p>
+        </div>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p class="footer-logo">愛麗絲奇寓記</p>
+  <div class="footer-links">
+    <a href="index.html">首頁</a><a href="thailand.html">泰國房產</a>
+    <a href="japan.html">日本房產</a>
+  </div>
+  <p class="footer-copy">© 2025 愛麗絲奇寓記｜投資國外不動產具有風險性，請詳閱行銷文件並審慎考量後再行交易。</p>
+</footer>
+
+<script>
+  function toggleType(id) {
+    const card = document.getElementById(id);
+    const isOpen = card.classList.contains('open');
+    document.querySelectorAll('.type-card.open').forEach(c => c.classList.remove('open'));
+    if (!isOpen) card.classList.add('open');
+  }
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+  }, { threshold: 0.06 });
+  reveals.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

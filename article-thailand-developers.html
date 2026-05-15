@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>知名的泰國房地產十大建商｜愛麗絲奇寓記</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Sans+TC:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    :root {
+      --cream:#f5f0e8; --cream-mid:#ede6d6; --cream-dark:#e0d5c0;
+      --taupe:#8c7b6b; --taupe-dark:#5c4f42; --brown:#3d3028;
+      --gold:#b89a6a; --gold-light:#d4b88a; --white:#fdfaf5;
+      --text-main:#2e261e; --text-mid:#6b5f54; --text-dim:#9e9188;
+      --line:rgba(140,123,107,0.2); --line-dark:rgba(140,123,107,0.4);
+    }
+    html { scroll-behavior:smooth; }
+    body { background:var(--cream); color:var(--text-main); font-family:'Noto Sans TC',sans-serif; font-weight:300; overflow-x:hidden; -webkit-font-smoothing:antialiased; }
+
+    nav { position:fixed; top:0; left:0; right:0; z-index:200; background:rgba(245,240,232,0.96); backdrop-filter:blur(12px); border-bottom:1px solid var(--line); display:flex; align-items:center; justify-content:space-between; padding:0 24px; height:60px; }
+    .nav-logo { font-family:'Playfair Display',serif; font-size:1rem; color:var(--brown); text-decoration:none; line-height:1.2; }
+    .nav-logo small { display:block; font-family:'Noto Sans TC',sans-serif; font-size:.46rem; letter-spacing:.26em; text-transform:uppercase; color:var(--taupe); font-weight:300; }
+    .nav-back { font-size:.65rem; letter-spacing:.18em; text-transform:uppercase; color:var(--taupe); text-decoration:none; display:flex; align-items:center; gap:6px; transition:color .3s; }
+    .nav-back:hover { color:var(--brown); }
+    .nav-back svg { transition:transform .3s; }
+    .nav-back:hover svg { transform:translateX(-3px); }
+
+    .article-hero { padding-top:60px; background:var(--white); }
+    .article-hero-img { width:100%; aspect-ratio:16/7; overflow:hidden; position:relative; }
+    .article-hero-img img { width:100%; height:100%; object-fit:cover; filter:brightness(.72); }
+    .article-hero-img::after { content:''; position:absolute; inset:0; background:linear-gradient(to bottom, transparent 40%, var(--white) 100%); }
+    .article-hero-body { padding:28px 24px 36px; max-width:800px; margin:0 auto; }
+    .article-breadcrumb { font-size:.6rem; letter-spacing:.22em; text-transform:uppercase; color:var(--taupe); margin-bottom:14px; display:flex; align-items:center; gap:7px; flex-wrap:wrap; }
+    .article-breadcrumb a { color:var(--taupe); text-decoration:none; }
+    .article-tag-badge { display:inline-block; font-size:.58rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); border:1px solid var(--gold); padding:3px 10px; margin-bottom:14px; }
+    .article-title { font-family:'Playfair Display',serif; font-size:clamp(1.7rem,5.5vw,2.8rem); font-weight:400; line-height:1.2; color:var(--brown); margin-bottom:18px; }
+    .article-meta { display:flex; gap:18px; flex-wrap:wrap; font-size:.65rem; letter-spacing:.12em; text-transform:uppercase; color:var(--text-dim); padding-top:16px; border-top:1px solid var(--line); }
+
+    .article-layout { max-width:800px; margin:0 auto; padding:40px 24px 80px; }
+
+    /* WHY CARD */
+    .why-box { background:var(--cream-mid); border:1px solid var(--line); padding:20px 22px; margin-bottom:32px; }
+    .why-box-title { font-size:.65rem; letter-spacing:.24em; text-transform:uppercase; color:var(--gold); margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+    .why-box-title::before { content:''; display:inline-block; width:14px; height:1px; background:var(--gold); }
+    .why-box p { font-size:.86rem; line-height:1.88; color:var(--text-mid); }
+    .why-box p strong { color:var(--brown); font-weight:500; }
+
+    /* DEVELOPER CARDS */
+    .dev-list { display:flex; flex-direction:column; gap:2px; }
+
+    .dev-card { background:var(--white); border:1px solid var(--line); overflow:hidden; transition:border-color .3s; }
+    .dev-card:hover { border-color:var(--line-dark); }
+    .dev-card.open { border-color:var(--gold); }
+
+    .dev-trigger { display:flex; align-items:center; gap:14px; padding:18px 18px; cursor:pointer; user-select:none; }
+    .dev-rank { font-family:'Playfair Display',serif; font-size:1.2rem; color:var(--gold); flex-shrink:0; width:28px; text-align:center; }
+    .dev-rank.top5 { color:var(--brown); }
+    .dev-name-wrap { flex:1; }
+    .dev-name { font-family:'Noto Serif TC',serif; font-size:.95rem; font-weight:500; color:var(--brown); }
+    .dev-en { font-size:.65rem; color:var(--taupe); margin-top:2px; letter-spacing:.08em; }
+    .dev-badge { font-size:.55rem; letter-spacing:.14em; text-transform:uppercase; padding:3px 9px; flex-shrink:0; }
+    .dev-badge.tier1 { background:var(--brown); color:var(--cream); }
+    .dev-badge.tier2 { background:var(--cream-dark); color:var(--taupe-dark); }
+    .dev-badge.luxury { background:#1a1a2e; color:#d4b88a; }
+    .dev-arrow { color:var(--taupe); transition:transform .3s; flex-shrink:0; }
+    .dev-card.open .dev-arrow { transform:rotate(180deg); }
+
+    .dev-body { max-height:0; overflow:hidden; transition:max-height .45s ease, padding .3s; padding:0 18px 0 60px; }
+    .dev-card.open .dev-body { max-height:1000px; padding:4px 18px 24px 60px; }
+
+    .dev-body p { font-size:.86rem; line-height:1.92; color:var(--text-mid); margin-bottom:10px; }
+    .dev-body p:last-child { margin-bottom:0; }
+    .dev-body strong { color:var(--brown); font-weight:500; }
+
+    .dev-series { display:flex; flex-wrap:wrap; gap:6px; margin:10px 0; }
+    .dev-series-tag { font-size:.6rem; letter-spacing:.1em; color:var(--taupe); border:1px solid var(--line-dark); padding:3px 8px; }
+    .dev-series-tag.main { background:var(--brown); color:var(--cream); border-color:var(--brown); }
+
+    .dev-body ul { list-style:none; padding:0; margin:8px 0; }
+    .dev-body ul li { font-size:.84rem; line-height:1.85; color:var(--text-mid); padding:5px 0 5px 18px; position:relative; border-bottom:1px solid var(--line); }
+    .dev-body ul li:last-child { border-bottom:none; }
+    .dev-body ul li::before { content:'—'; position:absolute; left:0; color:var(--gold); font-size:.8rem; }
+    .dev-body ul li strong { color:var(--brown); font-weight:500; }
+
+    /* SECTION */
+    .section-divider { margin:40px 0 20px; padding-bottom:12px; border-bottom:1px solid var(--line); display:flex; align-items:center; gap:10px; }
+    .section-divider-label { font-size:.62rem; letter-spacing:.28em; text-transform:uppercase; color:var(--taupe); }
+    .section-divider-label::before { content:''; display:inline-block; width:14px; height:1px; background:var(--gold); margin-right:10px; }
+
+    /* NOTICE */
+    .notice-box { background:var(--cream-mid); border-left:3px solid var(--gold); padding:14px 18px; margin:16px 0; }
+    .notice-box p { font-size:.84rem; line-height:1.88; color:var(--text-mid); margin:0; }
+    .notice-box strong { color:var(--brown); font-weight:500; }
+
+    /* PROSE */
+    .prose p { font-size:.9rem; line-height:2; color:var(--text-mid); margin-bottom:16px; }
+    .prose strong { color:var(--brown); font-weight:500; }
+
+    /* CTA */
+    .cta-box { background:var(--brown); padding:32px 24px; margin:52px 0 0; text-align:center; }
+    .cta-box-title { font-family:'Playfair Display',serif; font-size:1.25rem; color:var(--cream); margin-bottom:10px; line-height:1.3; }
+    .cta-box-title em { font-style:italic; color:var(--gold-light); }
+    .cta-box-desc { font-size:.8rem; color:rgba(245,240,232,.6); line-height:1.8; margin-bottom:20px; }
+    .btn-gold { display:inline-block; font-size:.68rem; letter-spacing:.2em; text-transform:uppercase; background:var(--gold); color:var(--brown); padding:12px 28px; text-decoration:none; transition:background .3s; }
+    .btn-gold:hover { background:var(--gold-light); }
+
+    /* RELATED */
+    .related-section { margin-top:56px; padding-top:36px; border-top:1px solid var(--line); }
+    .related-title { font-family:'Playfair Display',serif; font-size:1.05rem; color:var(--brown); margin-bottom:20px; }
+    .related-grid { display:grid; grid-template-columns:1fr; gap:12px; }
+    .related-card { display:flex; gap:14px; text-decoration:none; padding:14px; background:var(--white); border:1px solid var(--line); transition:border-color .3s; }
+    .related-card:hover { border-color:var(--gold); }
+    .related-thumb { width:72px; height:72px; flex-shrink:0; overflow:hidden; }
+    .related-thumb img { width:100%; height:100%; object-fit:cover; }
+    .related-tag { font-size:.56rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); }
+    .related-name { font-family:'Noto Serif TC',serif; font-size:.86rem; color:var(--brown); margin:4px 0; line-height:1.4; }
+    .related-date { font-size:.62rem; color:var(--text-dim); }
+
+    footer { background:var(--brown); padding:36px 24px 24px; border-top:2px solid var(--gold); }
+    .footer-logo { font-family:'Playfair Display',serif; font-size:1rem; color:var(--cream); margin-bottom:6px; }
+    .footer-links { display:flex; gap:18px; flex-wrap:wrap; margin-top:12px; }
+    .footer-links a { font-size:.72rem; color:rgba(245,240,232,.5); text-decoration:none; transition:color .3s; }
+    .footer-links a:hover { color:var(--cream); }
+    .footer-copy { font-size:.6rem; color:rgba(245,240,232,.28); line-height:1.8; margin-top:18px; }
+
+    .reveal { opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease; }
+    .reveal.in { opacity:1; transform:translateY(0); }
+
+    @media (min-width:768px) {
+      nav { padding:0 48px; height:68px; }
+      .article-hero-body, .article-layout { padding-left:48px; padding-right:48px; }
+      .related-grid { grid-template-columns:1fr 1fr; }
+    }
+    @media (min-width:1100px) {
+      nav { padding:0 80px; }
+      .article-hero-body, .article-layout { padding-left:80px; padding-right:80px; max-width:960px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">愛麗絲奇寓記<small>Overseas Property Curator</small></a>
+  <a class="nav-back" href="thailand.html">
+    <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M13 5H1M1 5L5 1M1 5l4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+    泰國房產
+  </a>
+</nav>
+
+<div class="article-hero">
+  <div class="article-hero-img">
+    <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1400&q=85" alt="泰國建商" />
+  </div>
+  <div class="article-hero-body">
+    <div class="article-breadcrumb">
+      <a href="index.html">首頁</a> / <a href="thailand.html">泰國房產</a> / 購屋知識
+    </div>
+    <span class="article-tag-badge">泰國 · 建商介紹</span>
+    <h1 class="article-title">知名的泰國房地產十大建商</h1>
+    <div class="article-meta">
+      <span>閱讀時間約 10 分鐘</span>
+      <span>品牌特色・代表建案系列</span>
+      <span>2025–2026 年更新</span>
+    </div>
+  </div>
+</div>
+
+<div class="article-layout">
+
+  <div class="prose reveal">
+    <p>購買曼谷房產的時候，一定會聽到許多人推薦要買<strong>十大建商</strong>的建案，好的建商不僅品質有保障，未來要轉售的價格也會更加出色。</p>
+    <p>在許多的評論與泰國投資教戰手則中，<strong>開發商是影響不動產價值頗深的重點因素</strong>，一家具有口碑的優秀開發商可以讓泰國房產的增值幅度遠遠大於同地段的未上市小建商。</p>
+  </div>
+
+  <div class="why-box reveal">
+    <p class="why-box-title">為什麼要選十大建商？</p>
+    <p>能上榜的企業無庸置疑都是值得關注與把握的優質選項。<strong>大型上市建商</strong>財務透明、施工品質穩定、物業管理完善，且因品牌知名度高，未來轉售時買家接受度更高，空租率也相對較低。</p>
+  </div>
+
+  <!-- 前五名 -->
+  <div class="section-divider reveal">
+    <span class="section-divider-label">前五大建商——大規模、全方位</span>
+  </div>
+
+  <div class="dev-list reveal">
+
+    <!-- AP Thailand -->
+    <div class="dev-card" id="dev-ap">
+      <div class="dev-trigger" onclick="toggleDev('dev-ap')">
+        <span class="dev-rank top5">1</span>
+        <div class="dev-name-wrap">
+          <p class="dev-name">AP Thailand</p>
+          <p class="dev-en">AP Thailand Public Company Limited · 成立 1991 年</p>
+        </div>
+        <span class="dev-badge tier1">台灣人熟悉</span>
+        <svg class="dev-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+      </div>
+      <div class="dev-body">
+        <p>泰國前三大房地產開發商之一，成立於 1991 年，以<strong>眼光精準、敢於創新</strong>聞名國際。旗下許多建案坐落於比鄰捷運的精華位置，並且在優秀建築設計的條件下，依然提供許多平價的高端住宅選項，吸引許多來自國外的投資型買家。</p>
+        <p>特色在於<strong>優質的地段選擇</strong>與多樣化的住宅類型，從高級公寓到別墅皆有，且建案多集中在曼谷市中心及其周邊，深受台灣投資客喜愛。</p>
+        <p class="dev-body" style="font-size:.78rem;color:var(--text-dim);margin-top:8px;">代表建案系列：</p>
+        <div class="dev-series">
+          <span class="dev-series-tag main">LIFE 系列</span>
+          <span class="dev-series-tag main">RHYTHM 系列</span>
+          <span class="dev-series-tag main">Aspire 系列</span>
+          <span class="dev-series-tag">與三菱地產合作</span>
+        </div>
+        <ul>
+          <li><strong>LIFE 系列</strong>：與日本三菱地產集團合作，位於曼谷核心商業區，主打高品質設計的高級住宅</li>
+          <li><strong>RHYTHM 系列</strong>：價格適中、設計時尚，主要吸引中高端投資客</li>
+          <li><strong>Aspire 系列</strong>：價格實惠、CP 值高，主打年輕人、初次置產的投資者市場</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Sansiri -->
+    <div class="dev-card" id="dev-sansiri">
+      <div class="dev-trigger" onclick="toggleDev('dev-sansiri')">
+        <span class="dev-rank top5">2</span>
+        <div class="dev-name-wrap">
+          <p class="dev-name">Sansiri 尚思瑞</p>
+          <p class="dev-en">Sansiri Public Company Limited · 成立 1984 年</p>
+        </div>
+        <span class="dev-badge tier1">品牌服務佳</span>
+        <svg class="dev-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+      </div>
+      <div class="dev-body">
+        <p>泰國第二大開發商，以<strong>超前的設計理念和高品質的物業管理</strong>被廣泛稱道，連續多年被評選為最值得信賴的開發商。極受矚目的特色在於提供<strong>多語言 APP</strong>，可讓各地買家透過 APP 輕鬆了解建案最新資訊與施工進度，甚至還會定期送上小禮物，提供細緻的售後服務。</p>
+        <div class="dev-series">
+          <span class="dev-series-tag main">98 Wireless</span>
+          <span class="dev-series-tag main">Narasiri</span>
+          <span class="dev-series-tag main">BuGaan</span>
+          <span class="dev-series-tag">XT 系列</span>
+          <span class="dev-series-tag">The Muve 系列</span>
+        </div>
+        <ul>
+          <li><strong>豪華系列</strong>（Narasiri、BuGaan、98 Wireless）：主打奢華住宅市場的中高價位系列</li>
+          <li><strong>平價系列</strong>（XT、The Muve）：針對小資、年輕族群設計，價格實惠</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Origin Property -->
+    <div class="dev-card" id="dev-origin">
+      <div class="dev-trigger" onclick="toggleDev('dev-origin')">
+        <span class="dev-rank top5">3</span>
+        <div class="dev-name-wrap">
+          <p class="dev-name">Origin Property</p>
+          <p class="dev-en">Origin Property Public Company Limited · 成立 2009 年</p>
+        </div>
+        <span class="dev-badge tier1">台灣人熟悉</span>
+        <svg class="dev-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+      </div>
+      <div class="dev-body">
+        <p>雖然成立於 2009 年，但已成為泰國<strong>前 5 大上市房地產開發商之一</strong>，業務範圍從新興的開發區到市中心豪宅皆有，現今多著重於鄰近地鐵、高速公路等<strong>交通便利區域</strong>的建案開發，因此不僅受到當地人的喜愛，也極受海外投資人的矚目。</p>
+        <div class="dev-series">
+          <span class="dev-series-tag main">Park Origin 系列</span>
+          <span class="dev-series-tag main">Origin Place</span>
+          <span class="dev-series-tag">The Origin 系列</span>
+          <span class="dev-series-tag">Notting Hill 系列</span>
+        </div>
+        <ul>
+          <li><strong>Park Origin 系列</strong>：高端住宅旗艦，如 Park Origin Thonglor、Park Origin Phaya Thai</li>
+          <li><strong>The Origin 系列</strong>：捷運沿線平價公寓，CP 值高，適合首次投資</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Noble Development -->
+    <div class="dev-card" id="dev-noble">
+      <div class="dev-trigger" onclick="toggleDev('dev-noble')">
+        <span class="dev-rank top5">4</span>
+        <div class="dev-name-wrap">
+          <p class="dev-name">Noble Development</p>
+          <p class="dev-en">Noble Development Public Company Limited · 成立 1991 年</p>
+        </div>
+        <span class="dev-badge tier2">設計感強</span>
+        <svg class="dev-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+      </div>
+      <div class="dev-body">
+        <p>Noble 一向以<strong>創新者</strong>自居領先市場，提供客人優質居住環境，推出的開發案在泰國當地的銷售反應一向良好，期房常常一推出就獲得廣大回響。特別受到<strong>日本客人歡迎</strong>，小而巧的設計感與強大的收納空間，是讓日本客人愛不釋手的原因。</p>
+        <p>Noble 一向只挑選最具開發潛力的地點，特別是<strong>素坤逸路沿線</strong>，每一個項目推出都是非常值得投資的物件。2019 年重組，引入香港弘捷國際資本及 BTS 集團為股東。</p>
+        <div class="dev-series">
+          <span class="dev-series-tag main">NOBE 系列</span>
+          <span class="dev-series-tag main">Noble State 系列</span>
+          <span class="dev-series-tag">Nue Noble 系列</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Supalai -->
+    <div class="dev-card" id="dev-supalai">
+      <div class="dev-trigger" onclick="toggleDev('dev-supalai')">
+        <span class="dev-rank top5">5</span>
+        <div class="dev-name-wrap">
+          <p class="dev-name">Supalai 素帕莱</p>
+          <p class="dev-en">Supalai Public Company Limited · 成立 1989 年</p>
+        </div>
+        <span class="dev-badge tier2">全泰國佈局</span>
+        <svg class="dev-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+      </div>
+      <div class="dev-body">
+        <p>資本雄厚、盈利能力極強的泰國上市建商，項目遍及全泰國，不僅有曼谷，還有外府如<strong>普吉、清邁</strong>等地的項目，並涉足酒店、度假村項目。被多次冠以泰國最佳房地產開發企業的頭衔。</p>
+        <p>Supalai 還計畫持續將項目擴展到各省，<strong>產品線從平價到中高端皆有</strong>，是泰國本地自住客與外資投資客都喜愛的品牌。</p>
+        <div class="dev-series">
+          <span class="dev-series-tag main">Supalai Veranda 系列</span>
+          <span class="dev-series-tag main">Supalai Lite 系列</span>
+          <span class="dev-series-tag">Supalai Prime 系列</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 第6-10名 -->
+  <div class="section-divider reveal" style="margin-top:40px;">
+    <span class="section-divider-label">第 6–10 名——各具特色</span>
+  </div>
+
+  <div class="dev-list reveal">
+
+    <!-- SC Asset -->
+    <div class="dev-card" id="dev-sc">
+      <div class="dev-trigger" onclick="toggleDev('dev-sc')">
+        <span class="dev-rank">6</span>
+        <div class="dev-name-wrap">
+          <p class="dev-name">SC Asset Corporation</p>
+          <p class="dev-en">SC Asset Corporation Public Company Limited</p>
+        </div>
+        <span class="dev-badge tier2">豪宅專精</span>
+        <svg class="dev-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+      </div>
+      <div class="dev-body">
+        <p>以高端住宅項目著稱，旗下 <strong>Grand Residence 系列</strong>鎖定高資產客群。近年積極擴張，推出多元的住宅產品線，從高層公寓到獨棟住宅皆有佈局。SC Asset 也持續在曼谷核心商業區收購土地，為未來推案做準備。</p>
+        <div class="dev-series">
+          <span class="dev-series-tag main">Grand Residence</span>
+          <span class="dev-series-tag">KHUN by YOO</span>
+          <span class="dev-series-tag">Scope 系列</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Land and Houses -->
+    <div class="dev-card" id="dev-lh">
+      <div class="dev-trigger" onclick="toggleDev('dev-lh')">
+        <span class="dev-rank">7</span>
+        <div class="dev-name-wrap">
+          <p class="dev-name">Land and Houses</p>
+          <p class="dev-en">Land and Houses Public Company Limited · 成立 1973 年</p>
+        </div>
+        <span class="dev-badge tier2">資本最雄厚</span>
+        <svg class="dev-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+      </div>
+      <div class="dev-body">
+        <p>泰國首屈一指的代表性開發商，成立於 1973 年，<strong>1983 年正式成立為公司</strong>，至今已營運逾 40 年。以開發獨棟別墅、連棟住宅起家，開發項目遍及泰國各府，連續 8 年被評為亞洲最佳房地產開發品牌。</p>
+        <p>Land and House 集團龐大、觸角多元，旗下擁有<strong>金融銀行 LH BANK、HomePro（泰國最大傢俱家電量販店）</strong>等，龐大的市值與深厚的品牌實力是深獲消費者信賴的重點。</p>
+        <div class="dev-series">
+          <span class="dev-series-tag main">Q House 系列</span>
+          <span class="dev-series-tag">別墅住宅系列</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ananda -->
+    <div class="dev-card" id="dev-ananda">
+      <div class="dev-trigger" onclick="toggleDev('dev-ananda')">
+        <span class="dev-rank">8</span>
+        <div class="dev-name-wrap">
+          <p class="dev-name">Ananda Development</p>
+          <p class="dev-en">Ananda Development Public Company Limited · 成立 1999 年</p>
+        </div>
+        <span class="dev-badge tier2">捷運沿線專精</span>
+        <svg class="dev-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+      </div>
+      <div class="dev-body">
+        <p>在許多排行榜榮登泰國前三大開發商，致力於打造便捷、舒適的都市生活，2012 年正式掛牌上市。自 2013 年起，與日本豪宅代表品牌<strong>三井不動產（Mitsui Fudosan）</strong>聯手，打造多個高端聯名建案。</p>
+        <p>Ananda 的建築設計風格獨特，在市中心有一系列的 <strong>Ashton 高端住宅品牌</strong>矗立於交通便捷的捷運主要幹道上，2007 年推出的「<strong>IDEO 系列</strong>」品牌深受年輕買家歡迎。</p>
+        <div class="dev-series">
+          <span class="dev-series-tag main">Ashton 系列</span>
+          <span class="dev-series-tag main">IDEO 系列</span>
+          <span class="dev-series-tag">與三井不動產合作</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Frasers Property -->
+    <div class="dev-card" id="dev-frasers">
+      <div class="dev-trigger" onclick="toggleDev('dev-frasers')">
+        <span class="dev-rank">9</span>
+        <div class="dev-name-wrap">
+          <p class="dev-name">Frasers Property Thailand</p>
+          <p class="dev-en">Frasers Property Thailand · 新加坡集團旗下</p>
+        </div>
+        <span class="dev-badge tier2">國際集團背景</span>
+        <svg class="dev-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+      </div>
+      <div class="dev-body">
+        <p>來自<strong>新加坡的大型國際商業集團</strong>旗下，1993 年在泰國 SET 上市，以打造高端豪華住宅起家，旗下打造之精品住宅得獎無數，獲得最佳奢華公寓開發商獎、最佳都市開發等多項國際大獎，僅專注於高端精品項目。</p>
+        <p>國際集團背景賦予品牌更高的可信度，產品定位清晰，主打的地段均在曼谷精華位置。</p>
+        <div class="dev-series">
+          <span class="dev-series-tag main">Frasers Suites</span>
+          <span class="dev-series-tag">THE LINE 系列</span>
+          <span class="dev-series-tag">Capri by Fraser</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pruksa -->
+    <div class="dev-card" id="dev-pruksa">
+      <div class="dev-trigger" onclick="toggleDev('dev-pruksa')">
+        <span class="dev-rank">10</span>
+        <div class="dev-name-wrap">
+          <p class="dev-name">Pruksa Real Estate 普夏地產</p>
+          <p class="dev-en">Pruksa Real Estate Public Company Limited · 成立 1993 年</p>
+        </div>
+        <span class="dev-badge tier2">推案量最大</span>
+        <svg class="dev-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+      </div>
+      <div class="dev-body">
+        <p>在許多排行榜中穩坐泰國第一名房地產開發商的寶座，<strong>品牌信任度達 81%</strong>，根據朱拉隆功商學院的品牌信任指數調查，位列泰國最受信任的五大開發商之一。</p>
+        <p>旗下既有公寓 Condo 項目，也有別墅，旗下有獨棟別墅、聯排別墅及公寓<strong>共 30 個品牌、超過 100 個項目</strong>，不僅在泰國，在印度及馬爾地夫也都有開發海外不動產項目。</p>
+        <div class="dev-series">
+          <span class="dev-series-tag main">The Privacy 系列</span>
+          <span class="dev-series-tag main">Chapter 系列</span>
+          <span class="dev-series-tag">Plum Condo 系列</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sena Development -->
+    <div class="dev-card" id="dev-sena">
+      <div class="dev-trigger" onclick="toggleDev('dev-sena')">
+        <span class="dev-rank">◆</span>
+        <div class="dev-name-wrap">
+          <p class="dev-name">Sena Development</p>
+          <p class="dev-en">Sena Development Public Company Limited · SET 上市（代碼：SENA）</p>
+        </div>
+        <span class="dev-badge tier1">我們有售</span>
+        <svg class="dev-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+      </div>
+      <div class="dev-body">
+        <p>泰國 SET 上市建商，專注於<strong>捷運沿線平價公寓</strong>開發，主打 3 百萬泰銖以下的首購族與年輕專業人士市場。以「讓更多人能買得起房」為品牌核心，是泰國少數持續深耕<strong>平價住宅創新</strong>的上市建商。</p>
+        <p>2025 年計畫推出 12 個新案、總價值約 130 億泰銖，並持續與日本 <strong>阪急阪神不動產（Hankyu Hanshin Properties）</strong> 合作，聯合開發多個曼谷核心區域建案，引入日系品質管理標準。</p>
+        <div class="dev-series">
+          <span class="dev-series-tag main">SENA Kith 系列</span>
+          <span class="dev-series-tag main">SENA Fest 系列</span>
+          <span class="dev-series-tag">與阪急阪神合作建案</span>
+          <span class="dev-series-tag">公寓・透天・聯排</span>
+        </div>
+        <ul>
+          <li><strong>SENA Kith 系列</strong>：鄰近捷運站的平價公寓，CP 值高，適合首次投資或出租</li>
+          <li><strong>日本合作系列</strong>：與阪急阪神不動產聯手，品質管控嚴格，適合重視施工品質的買家</li>
+          <li>建案多集中在 <strong>BTS / MRT 沿線</strong>，租屋族群穩定，出租空置率低</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 結語 -->
+  <div class="prose reveal" style="margin-top:40px;">
+    <p>以上十家建商各有特色與定位，選擇建商時應同時考量<strong>地段、建案品牌系列、售後服務與轉售流動性</strong>。對於台灣投資者而言，AP Thailand、Origin Property、Sansiri 是最常見的選擇，因為這三家在台灣有相對完整的中文服務資源。</p>
+  </div>
+
+  <div class="notice-box reveal">
+    <p>💡 <strong>選擇建商的關鍵原則</strong>：上市公司 > 財務透明 > 有完工交屋紀錄 > 物業管理口碑好。買十大建商的建案，不代表可以閉眼睛買——地段、戶型與定價仍是最重要的評估指標。</p>
+  </div>
+
+  <div class="cta-box reveal">
+    <h3 class="cta-box-title">想知道哪個建商的<em>哪個建案最適合你</em>？</h3>
+    <p class="cta-box-desc">我們熟悉各大建商的最新建案動態，歡迎直接聯繫 Alice，依你的預算與需求精準推薦。</p>
+    <a class="btn-gold" href="https://line.me/ti/p/rY37pUpv_k" target="_blank">LINE 免費諮詢</a>
+  </div>
+
+  <div class="related-section reveal">
+    <h3 class="related-title">延伸閱讀</h3>
+    <div class="related-grid">
+      <a class="related-card" href="article-bangkok-districts.html">
+        <div class="related-thumb"><img src="https://images.unsplash.com/photo-1508009603885-50cf7c579365?w=200&q=80" alt="" loading="lazy" /></div>
+        <div>
+          <p class="related-tag">泰國 · 地段解析</p>
+          <p class="related-name">曼谷熱門地段解析：Rama9、素坤逸、河濱區</p>
+          <p class="related-date">2025 · 10 分鐘閱讀</p>
+        </div>
+      </a>
+      <a class="related-card" href="article-bangkok-mrt-2026.html">
+        <div class="related-thumb"><img src="https://images.unsplash.com/photo-1598965402089-897ce52e8355?w=200&q=80" alt="" loading="lazy" /></div>
+        <div>
+          <p class="related-tag">泰國 · 交通建設</p>
+          <p class="related-name">曼谷捷運完整指南 2026 年最新版</p>
+          <p class="related-date">2026 · 8 分鐘閱讀</p>
+        </div>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p class="footer-logo">愛麗絲奇寓記</p>
+  <div class="footer-links">
+    <a href="index.html">首頁</a><a href="thailand.html">泰國房產</a>
+    <a href="japan.html">日本房產</a>
+  </div>
+  <p class="footer-copy">© 2025 愛麗絲奇寓記 alice in city｜投資國外不動產具有風險性，請詳閱行銷文件並審慎考量後再行交易。</p>
+</footer>
+
+<script>
+  function toggleDev(id) {
+    const card = document.getElementById(id);
+    const isOpen = card.classList.contains('open');
+    document.querySelectorAll('.dev-card.open').forEach(c => c.classList.remove('open'));
+    if (!isOpen) card.classList.add('open');
+  }
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+  }, { threshold: 0.06 });
+  reveals.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

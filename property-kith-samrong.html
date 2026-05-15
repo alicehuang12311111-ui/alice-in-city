@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>曼谷大都會和府 KITH Samrong｜愛麗絲奇寓記 Alice in City</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Sans+TC:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--cream:#f5f0e8;--cream-mid:#ede6d6;--cream-dark:#e0d5c0;--taupe:#8c7b6b;--taupe-dark:#5c4f42;--brown:#3d3028;--gold:#b89a6a;--gold-light:#d4b88a;--white:#fdfaf5;--text-main:#2e261e;--text-mid:#6b5f54;--text-dim:#9e9188;--line:rgba(140,123,107,0.2);--line-dark:rgba(140,123,107,0.4)}
+    html{scroll-behavior:smooth}
+    body{background:var(--cream);color:var(--text-main);font-family:'Noto Sans TC',sans-serif;font-weight:300;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(245,240,232,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 24px;height:60px}
+    .nav-logo{font-family:'Playfair Display',serif;font-size:1rem;color:var(--brown);text-decoration:none;line-height:1.2}
+    .nav-logo small{display:block;font-family:'Noto Sans TC',sans-serif;font-size:.46rem;letter-spacing:.26em;text-transform:uppercase;color:var(--taupe);font-weight:300}
+    .nav-links{display:none;gap:28px;list-style:none}
+    .nav-links a{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--text-mid);text-decoration:none;transition:color .3s}
+    .nav-links a:hover,.nav-links a.active{color:var(--brown)}
+    .nav-cta{display:none;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--white);background:var(--brown);padding:9px 20px;text-decoration:none;transition:background .3s}
+    .nav-cta:hover{background:var(--taupe-dark)}
+    .hamburger{display:flex;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+    .hamburger span{display:block;width:22px;height:1px;background:var(--brown);transition:.3s}
+    .hamburger.open span:nth-child(1){transform:rotate(45deg) translate(4px,4px)}
+    .hamburger.open span:nth-child(2){opacity:0}
+    .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(4px,-4px)}
+    .mobile-menu{position:fixed;inset:0;z-index:190;background:var(--white);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:28px;opacity:0;pointer-events:none;transition:opacity .35s}
+    .mobile-menu.open{opacity:1;pointer-events:auto}
+    .mobile-menu a{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--brown);text-decoration:none;opacity:0;transform:translateY(14px);transition:color .3s,opacity .4s,transform .4s}
+    .mobile-menu.open a{opacity:1;transform:translateY(0)}
+    .mobile-menu.open a:nth-child(1){transition-delay:.07s}.mobile-menu.open a:nth-child(2){transition-delay:.13s}.mobile-menu.open a:nth-child(3){transition-delay:.19s}.mobile-menu.open a:nth-child(4){transition-delay:.25s}.mobile-menu.open a:nth-child(5){transition-delay:.31s}
+    /* HERO */
+    .prop-hero{padding-top:60px;background:var(--brown)}
+    .hero-main{position:relative;overflow:hidden}
+    .hero-main img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;transition:opacity .3s}
+    .hero-main::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 45%,rgba(61,48,40,.92) 100%);pointer-events:none}
+    .hero-overlay{position:absolute;bottom:0;left:0;right:0;z-index:2;padding:24px 24px 28px}
+    .hero-builder{font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+    .hero-name{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,6vw,3rem);font-weight:400;color:#fff;line-height:1.1;margin-bottom:5px}
+    .hero-en{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:14px}
+    .hero-tags{display:flex;gap:7px;flex-wrap:wrap}
+    .hero-tag{font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;border:1px solid rgba(184,154,106,.5);color:var(--gold-light);padding:3px 9px}
+    .hero-tag.main{background:var(--gold);color:var(--brown);border-color:var(--gold)}
+    .hero-thumbs{display:flex;gap:2px;background:var(--brown);padding:2px;overflow-x:auto;scrollbar-width:none}
+    .hero-thumbs::-webkit-scrollbar{display:none}
+    .hero-thumb{flex:0 0 80px;height:54px;overflow:hidden;cursor:pointer;opacity:.55;transition:opacity .25s}
+    .hero-thumb:hover,.hero-thumb.active{opacity:1}
+    .hero-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+    /* INFO BAR */
+    .info-bar{background:var(--brown);border-bottom:1px solid rgba(184,154,106,.2);overflow-x:auto;scrollbar-width:none}
+    .info-bar::-webkit-scrollbar{display:none}
+    .info-bar-inner{display:flex;max-width:960px;margin:0 auto}
+    .info-item{flex:0 0 auto;padding:13px 18px;text-align:center;border-right:1px solid rgba(184,154,106,.15)}
+    .info-item:last-child{border-right:none}
+    .info-label{font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,240,232,.4);margin-bottom:3px}
+    .info-value{font-family:'Playfair Display',serif;font-size:.95rem;color:var(--gold-light);white-space:nowrap}
+    .info-value small{font-family:'Noto Sans TC',sans-serif;font-size:.58rem;color:rgba(245,240,232,.4);display:block;margin-top:1px}
+    /* STICKY NAV */
+    .sticky-nav{background:var(--cream-mid);border-bottom:1px solid var(--line);overflow-x:auto;scrollbar-width:none;position:sticky;top:60px;z-index:100}
+    .sticky-nav::-webkit-scrollbar{display:none}
+    .sticky-nav-inner{display:flex;max-width:960px;margin:0 auto;padding:0 20px;white-space:nowrap}
+    .sticky-nav a{font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-dim);text-decoration:none;padding:11px 13px 9px;border-bottom:2px solid transparent;transition:color .25s,border-color .25s;display:block}
+    .sticky-nav a:hover{color:var(--brown);border-color:var(--gold)}
+    /* LAYOUT */
+    .prop-layout{max-width:960px;margin:0 auto;padding:0 24px 80px}
+    .prop-section{margin-top:52px;scroll-margin-top:110px}
+    .section-label{font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--taupe);margin-bottom:10px;display:flex;align-items:center;gap:10px}
+    .section-label::before{content:'';display:inline-block;width:16px;height:1px;background:var(--gold)}
+    .section-title{font-family:'Playfair Display',serif;font-size:clamp(1.2rem,4vw,1.8rem);font-weight:400;color:var(--brown);margin-bottom:14px}
+    .section-title em{font-style:italic;color:var(--gold)}
+    .prose{font-size:.88rem;line-height:1.95;color:var(--text-mid);margin-bottom:10px}
+    .prose strong{color:var(--brown);font-weight:500}
+    /* IMAGE TYPES */
+    .img-16-9{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+    .img-4-3{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+    .img-caption{font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-dim);text-align:center;padding:7px 0 3px}
+    /* EXTERIOR GALLERY */
+    .ext-gallery{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:16px}
+    .ext-gallery .full{grid-column:1/-1}
+    .ext-gallery img{width:100%;object-fit:cover;display:block}
+    .ext-gallery .full img{aspect-ratio:16/9}
+    .ext-gallery .half img{aspect-ratio:4/3}
+    /* FACILITIES GALLERY */
+    .fac-gallery{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;margin-top:16px}
+    .fac-gallery img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+    /* FLOORPLAN GRID */
+    .fp-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:16px}
+    .fp-item{background:var(--white);border:1px solid var(--line)}
+    .fp-item img{width:100%;aspect-ratio:3/4;object-fit:contain;display:block;background:#fff;padding:10px}
+    .fp-label{font-size:.7rem;letter-spacing:.08em;color:var(--brown);text-align:center;padding:8px 6px 10px;border-top:1px solid var(--line)}
+    .fp-size{color:var(--taupe);font-size:.64rem}
+    /* SPEC IMAGES */
+    .spec-img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;border:1px solid var(--line);margin-top:10px}
+    /* SPECS GRID */
+    .specs-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:16px}
+    .spec-card{background:var(--white);border:1px solid var(--line);padding:14px}
+    .spec-card-label{font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;color:var(--taupe);margin-bottom:5px}
+    .spec-card-value{font-family:'Playfair Display',serif;font-size:1rem;color:var(--brown)}
+    .spec-card-value.hi{color:var(--gold)}
+    .spec-card-sub{font-size:.72rem;color:var(--text-dim);margin-top:2px}
+    /* TRANSPORT */
+    .transport-list{display:flex;flex-direction:column;gap:2px;margin-top:14px}
+    .t-item{background:var(--white);border:1px solid var(--line);padding:12px 16px;display:flex;align-items:center;gap:12px}
+    .t-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+    .t-dot.bts{background:#3ab04a}.t-dot.mrt{background:#1a5fb4}.t-dot.yellow{background:#f5a800}.t-dot.bus{background:var(--taupe)}
+    .t-name{font-size:.84rem;color:var(--brown);flex:1}
+    .t-dist{font-family:'Playfair Display',serif;font-size:.95rem;color:var(--gold);flex-shrink:0}
+    /* MAP */
+    .map-wrap{margin-top:16px}
+    .map-wrap iframe{width:100%;height:300px;border:1px solid var(--line);display:block}
+    /* NEARBY */
+    .nearby-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px 20px;margin-top:16px}
+    .nearby-cat-title{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+    .nearby-list{list-style:none;padding:0}
+    .nearby-list li{font-size:.8rem;color:var(--text-mid);line-height:1.8;padding:3px 0 3px 14px;position:relative;border-bottom:1px solid var(--line)}
+    .nearby-list li:last-child{border-bottom:none}
+    .nearby-list li::before{content:'—';position:absolute;left:0;color:var(--gold);font-size:.72rem}
+    .nearby-list li strong{color:var(--brown);font-weight:400}
+    /* UNIT CARDS */
+    .unit-list{display:flex;flex-direction:column;gap:2px;margin-top:14px}
+    .unit-item{background:var(--white);border:1px solid var(--line);padding:14px 16px;display:flex;align-items:center;gap:12px;transition:border-color .3s}
+    .unit-item:hover{border-color:var(--gold)}
+    .unit-type{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--gold);flex-shrink:0;width:28px}
+    .unit-info{flex:1}
+    .unit-name{font-size:.86rem;color:var(--brown)}
+    .unit-size{font-family:'Playfair Display',serif;font-size:1rem;color:var(--taupe-dark)}
+    .unit-size span{font-size:.66rem;font-family:'Noto Sans TC',sans-serif;color:var(--text-dim)}
+    .unit-badge{font-size:.54rem;letter-spacing:.12em;text-transform:uppercase;background:var(--cream-mid);color:var(--taupe);padding:3px 8px;border:1px solid var(--line-dark);flex-shrink:0}
+    /* FACILITIES TAGS */
+    .fac-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+    .fac-tag{font-size:.7rem;color:var(--text-mid);border:1px solid var(--line-dark);background:var(--white);padding:7px 13px;display:flex;align-items:center;gap:5px}
+    /* NOTICE */
+    .notice-box{background:var(--cream-mid);border-left:3px solid var(--gold);padding:13px 16px;margin:14px 0}
+    .notice-box p{font-size:.83rem;line-height:1.88;color:var(--text-mid);margin:0}
+    .notice-box p+p{margin-top:7px}
+    .notice-box strong{color:var(--brown);font-weight:500}
+    /* DEV BOX */
+    .dev-box{background:var(--white);border:1px solid var(--line);padding:20px 18px;margin-top:14px}
+    .dev-box p{font-size:.84rem;line-height:1.88;color:var(--text-mid);margin-bottom:10px}
+    .dev-box p:last-child{margin-bottom:0}
+    .dev-box strong{color:var(--brown);font-weight:500}
+    /* CTA */
+    .cta-box{background:var(--brown);padding:32px 24px;margin-top:52px}
+    .cta-title{font-family:'Playfair Display',serif;font-size:clamp(1.2rem,4vw,1.9rem);color:var(--cream);margin-bottom:10px;line-height:1.3}
+    .cta-title em{font-style:italic;color:var(--gold-light)}
+    .cta-desc{font-size:.82rem;color:rgba(245,240,232,.6);line-height:1.8;margin-bottom:22px}
+    .cta-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn-gold{display:inline-block;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;background:var(--gold);color:var(--brown);padding:12px 26px;text-decoration:none;transition:background .3s}
+    .btn-gold:hover{background:var(--gold-light)}
+    .btn-ol{display:inline-block;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;border:1px solid rgba(245,240,232,.3);color:rgba(245,240,232,.7);padding:11px 22px;text-decoration:none;transition:all .3s}
+    .btn-ol:hover{border-color:var(--cream);color:var(--cream)}
+    /* RELATED */
+    .related-section{margin-top:48px;padding-top:32px;border-top:1px solid var(--line)}
+    .related-title{font-family:'Playfair Display',serif;font-size:1rem;color:var(--brown);margin-bottom:14px}
+    .related-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .related-card{display:flex;gap:12px;text-decoration:none;padding:12px;background:var(--white);border:1px solid var(--line);transition:border-color .3s}
+    .related-card:hover{border-color:var(--gold)}
+    .related-thumb{width:60px;height:60px;flex-shrink:0;overflow:hidden}
+    .related-thumb img{width:100%;height:100%;object-fit:cover}
+    .related-tag{font-size:.54rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+    .related-name{font-family:'Noto Serif TC',serif;font-size:.8rem;color:var(--brown);margin-top:3px;line-height:1.4}
+    /* FOOTER */
+    footer{background:var(--brown);padding:32px 24px 22px;border-top:2px solid var(--gold)}
+    .footer-logo{font-family:'Playfair Display',serif;font-size:1rem;color:var(--cream);margin-bottom:3px}
+    .footer-en{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+    .footer-links{display:flex;gap:16px;flex-wrap:wrap}
+    .footer-links a{font-size:.72rem;color:rgba(245,240,232,.5);text-decoration:none}
+    .footer-links a:hover{color:var(--cream)}
+    .footer-copy{font-size:.58rem;color:rgba(245,240,232,.25);line-height:1.8;margin-top:16px}
+    /* REVEAL */
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.in{opacity:1;transform:translateY(0)}
+    @media(min-width:768px){
+      nav{padding:0 48px;height:68px}.sticky-nav{top:68px}
+      .hamburger{display:none}.nav-links{display:flex}.nav-cta{display:inline-block}
+      .prop-layout{padding-left:48px;padding-right:48px}
+      .specs-grid{grid-template-columns:repeat(3,1fr)}
+      .nearby-grid{grid-template-columns:repeat(4,1fr)}
+      .hero-thumb{flex:0 0 110px;height:74px}
+      .hero-overlay{padding:40px 56px 48px}
+      .map-wrap iframe{height:420px}
+    }
+    @media(min-width:1100px){
+      nav{padding:0 80px}
+      .prop-layout{padding-left:80px;padding-right:80px;max-width:1060px}
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">愛麗絲奇寓記<small>Alice in City · Overseas Property</small></a>
+  <ul class="nav-links">
+    <li><a href="index.html">首頁</a></li>
+    <li><a href="about.html">關於我們</a></li>
+    <li><a href="thailand.html" class="active">泰國房產</a></li>
+    <li><a href="japan.html">日本房產</a></li>
+    
+    
+    
+  </ul>
+  <a class="nav-cta" href="contact.html">立即諮詢</a>
+  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="closeMenu()">首頁</a>
+  <a href="thailand.html" onclick="closeMenu()">泰國房產</a>
+  <a href="japan.html" onclick="closeMenu()">日本房產</a>
+  <a href="seminar.html" onclick="closeMenu()">說明會</a>
+  <a href="contact.html" onclick="closeMenu()">聯絡我們</a>
+</div>
+
+<!-- HERO -->
+<div class="prop-hero">
+  <div class="hero-main">
+    <img id="heroImg" src="kith-entrance.jpg" alt="曼谷大都會和府 KITH Samrong" />
+    <div class="hero-overlay">
+      <p class="hero-builder">SENA Development · 泰國前十大上市建商</p>
+      <h1 class="hero-name">曼谷大都會和府</h1>
+      <p class="hero-en">KITH SAMRONG INTERCHANGE</p>
+      <div class="hero-tags">
+        <span class="hero-tag main">168 萬泰銖起</span>
+        <span class="hero-tag">三軌交匯</span>
+        <span class="hero-tag">永久產權</span>
+        <span class="hero-tag">精裝交屋</span>
+        <span class="hero-tag">2026 Q4</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-thumbs">
+    <div class="hero-thumb active" onclick="sw('kith-entrance.jpg',this)"><img src="kith-entrance.jpg" alt=""/></div>
+    <div class="hero-thumb" onclick="sw('kith-exterior1.jpg',this)"><img src="kith-exterior1.jpg" alt=""/></div>
+    <div class="hero-thumb" onclick="sw('kith-exterior2.jpg',this)"><img src="kith-exterior2.jpg" alt=""/></div>
+    <div class="hero-thumb" onclick="sw('kith-exterior-night.jpg',this)"><img src="kith-exterior-night.jpg" alt=""/></div>
+    <div class="hero-thumb" onclick="sw('kith-garden.jpg',this)"><img src="kith-garden.jpg" alt=""/></div>
+    <div class="hero-thumb" onclick="sw('kith-lobby.jpg',this)"><img src="kith-lobby.jpg" alt=""/></div>
+    <div class="hero-thumb" onclick="sw('kith-gym.jpg',this)"><img src="kith-gym.jpg" alt=""/></div>
+    <div class="hero-thumb" onclick="sw('kith-bangkok-mall.jpg',this)"><img src="kith-bangkok-mall.jpg" alt=""/></div>
+  </div>
+</div>
+
+<!-- INFO BAR -->
+<div class="info-bar">
+  <div class="info-bar-inner">
+    <div class="info-item"><div class="info-label">起售價格</div><div class="info-value">168 萬<small>泰銖</small></div></div>
+    <div class="info-item"><div class="info-label">所有權</div><div class="info-value">永久<small>Freehold</small></div></div>
+    <div class="info-item"><div class="info-label">單位總數</div><div class="info-value">490<small>住宅單位</small></div></div>
+    <div class="info-item"><div class="info-label">停車位</div><div class="info-value">167<small>個</small></div></div>
+    <div class="info-item"><div class="info-label">交屋時間</div><div class="info-value">2026<small>年第四季</small></div></div>
+    <div class="info-item"><div class="info-label">交付標準</div><div class="info-value">精裝<small>含傢俱</small></div></div>
+  </div>
+</div>
+
+<!-- STICKY NAV -->
+<div class="sticky-nav">
+  <div class="sticky-nav-inner">
+    <a href="#overview">建案介紹</a>
+    <a href="#exterior">建案外觀</a>
+    <a href="#facilities">公共設施</a>
+    <a href="#location">交通位置</a>
+    <a href="#nearby">周邊配套</a>
+    <a href="#units">戶型格局</a>
+    <a href="#developer">建商介紹</a>
+  </div>
+</div>
+
+<div class="prop-layout">
+
+  <!-- 建案介紹 -->
+  <div class="prop-section reveal" id="overview">
+    <p class="section-label">建案介紹</p>
+    <h2 class="section-title">三軌交匯，出門就是<em>曼谷核心</em></h2>
+    <p class="prose">曼谷大都會和府（KITH Samrong Interchange）位於曼谷素坤逸路，距離 BTS Samrong 站僅 <strong>350 米</strong>，Samrong 站是 BTS 綠線、黃色線與紫色延長線三軌交匯點，是曼谷重要的大型交通樞紐。只需 <strong>8 個站</strong>便可抵達通羅（Thong Lo）區。</p>
+    <div class="specs-grid">
+      <div class="spec-card"><p class="spec-card-label">建案名稱</p><p class="spec-card-value">曼谷大都會和府</p><p class="spec-card-sub">KITH Samrong Interchange</p></div>
+      <div class="spec-card"><p class="spec-card-label">建商</p><p class="spec-card-value">SENA Development</p><p class="spec-card-sub">泰國前十大上市建商</p></div>
+      <div class="spec-card"><p class="spec-card-label">地址</p><p class="spec-card-value">Sukhumvit Road</p><p class="spec-card-sub">Samrong-Nue, BTS Samrong</p></div>
+      <div class="spec-card"><p class="spec-card-label">所有權</p><p class="spec-card-value hi">永久產權</p><p class="spec-card-sub">Freehold</p></div>
+      <div class="spec-card"><p class="spec-card-label">單位數量</p><p class="spec-card-value hi">490 個</p><p class="spec-card-sub">住宅單位</p></div>
+      <div class="spec-card"><p class="spec-card-label">停車位</p><p class="spec-card-value">167 個</p></div>
+      <div class="spec-card"><p class="spec-card-label">交屋時間</p><p class="spec-card-value">2026 Q4</p></div>
+      <div class="spec-card"><p class="spec-card-label">交付標準</p><p class="spec-card-value">精裝修</p><p class="spec-card-sub">含傢俱配置</p></div>
+      <div class="spec-card"><p class="spec-card-label">起售價格</p><p class="spec-card-value hi">168 萬泰銖起</p><p class="spec-card-sub">約 140 萬台幣</p></div>
+    </div>
+  </div>
+
+  <!-- 建案外觀 -->
+  <div class="prop-section reveal" id="exterior">
+    <p class="section-label">建案外觀</p>
+    <h2 class="section-title">建案實景</h2>
+    <div class="ext-gallery">
+      <div class="full"><img src="kith-entrance.jpg" alt="KITH Samrong 入口" loading="lazy"/></div>
+      <div class="half"><img src="kith-exterior1.jpg" alt="白天外觀" loading="lazy"/></div>
+      <div class="half"><img src="kith-exterior2.jpg" alt="建案外觀" loading="lazy"/></div>
+    </div>
+    <img class="img-16-9" src="kith-exterior-night.jpg" alt="KITH Samrong 夜景" loading="lazy" style="margin-top:2px;"/>
+    <p class="img-caption">建案外觀・入口・夜景</p>
+  </div>
+
+  <!-- 公共設施 -->
+  <div class="prop-section reveal" id="facilities">
+    <p class="section-label">公共設施</p>
+    <h2 class="section-title">完善配套，<em>精緻生活</em></h2>
+    <div class="fac-gallery">
+      <img src="kith-garden.jpg" alt="花園" loading="lazy"/>
+      <img src="kith-lobby.jpg" alt="大廳" loading="lazy"/>
+      <img src="kith-gym.jpg" alt="健身房" loading="lazy"/>
+    </div>
+    <p class="img-caption">花園・大廳・健身房</p>
+    <div class="fac-tags">
+      <div class="fac-tag"><span>🌿</span>花園</div>
+      <div class="fac-tag"><span>🏋️</span>健身房</div>
+      <div class="fac-tag"><span>🛋️</span>多功能大廳</div>
+      <div class="fac-tag"><span>👕</span>洗衣房</div>
+      <div class="fac-tag"><span>🎯</span>多功能室</div>
+      <div class="fac-tag"><span>🔒</span>24 小時安保</div>
+      <div class="fac-tag"><span>📹</span>CCTV 監控</div>
+      <div class="fac-tag"><span>🔑</span>門禁卡系統</div>
+      <div class="fac-tag"><span>📱</span>SENA 360 APP</div>
+    </div>
+    <div class="notice-box">
+      <p>📱 <strong>SENA 360</strong>：線上繳費、包裹即時通知、24 小時維修報告，為業主提供全方位數位化管理服務。</p>
+    </div>
+  </div>
+
+  <!-- 交通位置 -->
+  <div class="prop-section reveal" id="location">
+    <p class="section-label">交通位置</p>
+    <h2 class="section-title"><em>三軌交匯</em>，出行零壓力</h2>
+
+    <!-- Google Maps -->
+    <div class="map-wrap">
+      <iframe
+        src="https://maps.google.com/maps?q=KITH+Samrong+Interchange,+Sukhumvit+Road,+Samrong,+Samut+Prakan,+Thailand&t=m&z=15&ie=UTF8&iwloc=&output=embed"
+        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        title="KITH Samrong Interchange 位置地圖">
+      </iframe>
+    </div>
+
+    <img class="img-16-9" src="kith-map.jpg" alt="KITH Samrong 周邊地圖" loading="lazy" style="margin-top:8px;border:1px solid var(--line);"/>
+    <p class="img-caption">周邊捷運路線與配套地圖</p>
+
+    <div class="transport-list">
+      <div class="t-item"><div class="t-dot bts"></div><span class="t-name">BTS Samrong 站（天鐵綠線）</span><span class="t-dist">350 米</span></div>
+      <div class="t-item"><div class="t-dot mrt"></div><span class="t-name">MRT Samrong 站（地鐵）</span><span class="t-dist">350 米</span></div>
+      <div class="t-item"><div class="t-dot yellow"></div><span class="t-name">黃線 Samrong 站（三軌交匯）</span><span class="t-dist">350 米</span></div>
+      <div class="t-item"><div class="t-dot bus"></div><span class="t-name">公車站</span><span class="t-dist">300 米</span></div>
+      <div class="t-item"><div class="t-dot bts"></div><span class="t-name">BTS Pu Chao 站</span><span class="t-dist">1.2 公里</span></div>
+    </div>
+    <div class="notice-box">
+      <p>🚇 只需 <strong>8 個站</strong>可抵達 Thong Lo 通羅區。</p>
+      <p>🏬 兩個站即達 <strong>The Bangkok Mall</strong>（東南亞最大購物商場）與 <strong>BITEC</strong> 曼谷會展中心。</p>
+    </div>
+    <img class="img-16-9" src="kith-bangkok-mall.jpg" alt="The Bangkok Mall" loading="lazy" style="margin-top:10px;"/>
+    <p class="img-caption">兩個站即達 — The Bangkok Mall</p>
+  </div>
+
+  <!-- 周邊配套 -->
+  <div class="prop-section reveal" id="nearby">
+    <p class="section-label">周邊配套</p>
+    <h2 class="section-title">生活所需，<em>一應俱全</em></h2>
+    <div class="nearby-grid">
+      <div>
+        <p class="nearby-cat-title">🏫 學校</p>
+        <ul class="nearby-list">
+          <li>聖安德魯斯國際學校 <strong>2 公里</strong></li>
+          <li>Wat Dan Samrong School <strong>1.4 公里</strong></li>
+          <li>Darunrat School <strong>3.2 公里</strong></li>
+          <li>PATANA 國際學校 <strong>4.6 公里</strong></li>
+        </ul>
+      </div>
+      <div>
+        <p class="nearby-cat-title">🛒 購物</p>
+        <ul class="nearby-list">
+          <li>Big C Samrong 超市 <strong>1 公里</strong></li>
+          <li>Imperial World Samrong <strong>1.1 公里</strong></li>
+          <li>Iam Charoen Market <strong>1.1 公里</strong></li>
+          <li>Samrong Plaza Market <strong>1.3 公里</strong></li>
+        </ul>
+      </div>
+      <div>
+        <p class="nearby-cat-title">🏥 醫院</p>
+        <ul class="nearby-list">
+          <li>Muang Samut Pu Chao <strong>2.7 公里</strong></li>
+          <li>Samrong Medical <strong>2.9 公里</strong></li>
+          <li>Manarom 醫院 <strong>2.9 公里</strong></li>
+          <li>Vibharam 醫院 <strong>4 公里</strong></li>
+        </ul>
+      </div>
+      <div>
+        <p class="nearby-cat-title">🛣️ 高速公路</p>
+        <ul class="nearby-list">
+          <li>Bangplee-Suksawat <strong>3 分鐘</strong></li>
+          <li>Bangna-Trad 高速 <strong>5 分鐘</strong></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 戶型格局 -->
+  <div class="prop-section reveal" id="units">
+    <p class="section-label">戶型格局</p>
+    <h2 class="section-title">四種戶型，<em>靈活選擇</em></h2>
+    <div class="unit-list">
+      <div class="unit-item"><span class="unit-type">A1</span><div class="unit-info"><p class="unit-name">1 臥室・步入式衣帽間</p><p class="unit-size">23–23.5 <span>平方米</span></p></div><span class="unit-badge">最受歡迎</span></div>
+      <div class="unit-item"><span class="unit-type">A2</span><div class="unit-info"><p class="unit-name">1 臥室・帶私人廚房</p><p class="unit-size">23 <span>平方米</span></p></div><span class="unit-badge">附廚房</span></div>
+      <div class="unit-item"><span class="unit-type">B</span><div class="unit-info"><p class="unit-name">1 臥室・標準戶</p><p class="unit-size">26–27 <span>平方米</span></p></div><span class="unit-badge">寬敞舒適</span></div>
+      <div class="unit-item"><span class="unit-type">C</span><div class="unit-info"><p class="unit-name">1 室 Plus・大坪數</p><p class="unit-size">34 <span>平方米</span></p></div><span class="unit-badge">最大戶型</span></div>
+    </div>
+    <!-- 格局圖 -->
+    <div class="fp-grid">
+      <div class="fp-item">
+        <img src="kith-layout-a1.jpg" alt="A1 格局圖" loading="lazy"/>
+        <p class="fp-label">A1 型 <span class="fp-size">23–23.5 ㎡・步入式衣帽間</span></p>
+      </div>
+      <div class="fp-item">
+        <img src="kith-layout-a2.jpg" alt="A2 格局圖" loading="lazy"/>
+        <p class="fp-label">A2 型 <span class="fp-size">23 ㎡・私人廚房</span></p>
+      </div>
+      <div class="fp-item">
+        <img src="kith-layout-b.jpg" alt="B 格局圖" loading="lazy"/>
+        <p class="fp-label">B 型 <span class="fp-size">26–27 ㎡</span></p>
+      </div>
+      <div class="fp-item">
+        <img src="kith-layout-c.jpg" alt="C 格局圖" loading="lazy"/>
+        <p class="fp-label">C 型 <span class="fp-size">34 ㎡・1室 Plus</span></p>
+      </div>
+    </div>
+    <!-- 傢俱配置 -->
+    <p class="img-caption" style="margin-top:20px;">A1 型 — 交屋傢俱配置</p>
+    <img class="spec-img" src="kith-spec-a1.jpg" alt="A1 傢俱配置" loading="lazy"/>
+    <p class="img-caption" style="margin-top:10px;">B 型 — 交屋傢俱配置</p>
+    <img class="spec-img" src="kith-spec-b.jpg" alt="B 傢俱配置" loading="lazy"/>
+  </div>
+
+  <!-- 建商介紹 -->
+  <div class="prop-section reveal" id="developer">
+    <p class="section-label">實力開發商</p>
+    <h2 class="section-title">SENA Development，<em>泰國老牌建商</em></h2>
+    <div class="dev-box">
+      <p>建商 SENA 成立於 <strong>1979 年</strong>，2009 年於泰國證券交易所上市（股票代碼：SENA），擁有超過 36 年別墅、商業、公寓等不同業態的建築經驗，是泰國知名老牌建商。</p>
+      <p>Sena 開發的公寓因其<strong>物美價廉</strong>吸引了眾多忠實客戶，2025 年計畫推出 12 個新案、總價值約 130 億泰銖，並持續與日本<strong>阪急阪神不動產</strong>合作聯合開發，引入日系品質管理標準。</p>
+      <p>在「<strong>2019 年度泰國房地產獎</strong>」中斬獲 5 項大獎。</p>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-box reveal">
+    <h3 class="cta-title">對這個建案有興趣？<em>讓我們幫你了解詳情</em></h3>
+    <p class="cta-desc">168 萬泰銖起、三軌交匯、2026 年精裝交屋——歡迎聯繫 Alice，全程中文服務。</p>
+    <div class="cta-actions">
+      <a class="btn-gold" href="https://line.me/ti/p/rY37pUpv_k" target="_blank">LINE 索取詳細資料</a>
+      <a class="btn-ol" href="seminar.html">參加說明會</a>
+    </div>
+  </div>
+
+  <div class="related-section reveal">
+    <h3 class="related-title">相關文章</h3>
+    <div class="related-grid">
+      <a class="related-card" href="article-thailand-buying-process.html">
+        <div class="related-thumb"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=200&q=80" alt="" loading="lazy"/></div>
+        <div><p class="related-tag">購屋流程</p><p class="related-name">泰國買房購屋與過戶流程</p></div>
+      </a>
+      <a class="related-card" href="article-thailand-developers.html">
+        <div class="related-thumb"><img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=200&q=80" alt="" loading="lazy"/></div>
+        <div><p class="related-tag">建商介紹</p><p class="related-name">泰國房地產十大建商</p></div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p class="footer-logo">愛麗絲奇寓記</p>
+  <p class="footer-en">Alice in City · Overseas Property Curator</p>
+  <div class="footer-links">
+    <a href="index.html">首頁</a><a href="thailand.html">泰國房產</a>
+    <a href="japan.html">日本房產</a>
+  </div>
+  <p class="footer-copy">© 愛麗絲奇寓記 alice in city｜碩盛國際不動產有限公司 (109)新北經紀字第003786號｜投資國外不動產具有風險性，請詳閱行銷文件並審慎考量後再行交易。</p>
+</footer>
+
+<script>
+  function sw(src,thumb){
+    document.getElementById('heroImg').src=src;
+    document.querySelectorAll('.hero-thumb').forEach(t=>t.classList.remove('active'));
+    thumb.classList.add('active');
+  }
+  const hamburger=document.getElementById('hamburger');
+  const mobileMenu=document.getElementById('mobileMenu');
+  hamburger.addEventListener('click',()=>{
+    const open=mobileMenu.classList.toggle('open');
+    hamburger.classList.toggle('open',open);
+    document.body.style.overflow=open?'hidden':'';
+  });
+  function closeMenu(){
+    mobileMenu.classList.remove('open');
+    hamburger.classList.remove('open');
+    document.body.style.overflow='';
+  }
+  const reveals=document.querySelectorAll('.reveal');
+  const obs=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}});
+  },{threshold:.05});
+  reveals.forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

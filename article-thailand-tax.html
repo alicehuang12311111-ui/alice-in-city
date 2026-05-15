@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>泰國買房稅務—簡析房產稅、遺產稅、贈與稅｜愛麗絲奇寓記</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Sans+TC:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:     #f5f0e8;
+      --cream-mid: #ede6d6;
+      --cream-dark:#e0d5c0;
+      --taupe:     #8c7b6b;
+      --taupe-dark:#5c4f42;
+      --brown:     #3d3028;
+      --gold:      #b89a6a;
+      --gold-light:#d4b88a;
+      --white:     #fdfaf5;
+      --text-main: #2e261e;
+      --text-mid:  #6b5f54;
+      --text-dim:  #9e9188;
+      --line:      rgba(140,123,107,0.2);
+      --line-dark: rgba(140,123,107,0.4);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--cream);
+      color: var(--text-main);
+      font-family: 'Noto Sans TC', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: rgba(245,240,232,0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 24px; height: 60px;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem; color: var(--brown); text-decoration: none; line-height: 1.2;
+    }
+    .nav-logo small {
+      display: block; font-family: 'Noto Sans TC', sans-serif;
+      font-size: .46rem; letter-spacing: .26em; text-transform: uppercase;
+      color: var(--taupe); font-weight: 300;
+    }
+    .nav-back {
+      font-size: .65rem; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--taupe); text-decoration: none;
+      display: flex; align-items: center; gap: 6px; transition: color .3s;
+    }
+    .nav-back:hover { color: var(--brown); }
+    .nav-back svg { transition: transform .3s; }
+    .nav-back:hover svg { transform: translateX(-3px); }
+
+    /* ── HERO ── */
+    .article-hero { padding-top: 60px; background: var(--white); }
+    .article-hero-img {
+      width: 100%; aspect-ratio: 16/7; overflow: hidden; position: relative;
+    }
+    .article-hero-img img {
+      width: 100%; height: 100%; object-fit: cover; filter: brightness(.75);
+    }
+    .article-hero-img::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to bottom, transparent 40%, var(--white) 100%);
+    }
+    .article-hero-body {
+      padding: 28px 24px 36px; max-width: 800px; margin: 0 auto;
+    }
+    .article-breadcrumb {
+      font-size: .6rem; letter-spacing: .22em; text-transform: uppercase;
+      color: var(--taupe); margin-bottom: 14px;
+      display: flex; align-items: center; gap: 7px; flex-wrap: wrap;
+    }
+    .article-breadcrumb a { color: var(--taupe); text-decoration: none; }
+    .article-breadcrumb a:hover { color: var(--gold); }
+    .article-tag-badge {
+      display: inline-block;
+      font-size: .58rem; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--gold); border: 1px solid var(--gold);
+      padding: 3px 10px; margin-bottom: 14px;
+    }
+    .article-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.7rem, 5.5vw, 2.8rem);
+      font-weight: 400; line-height: 1.2; color: var(--brown); margin-bottom: 18px;
+    }
+    .article-meta {
+      display: flex; gap: 18px; flex-wrap: wrap;
+      font-size: .65rem; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--text-dim); padding-top: 16px; border-top: 1px solid var(--line);
+    }
+
+    /* ── STICKY NAV ── */
+    .stage-nav-wrap {
+      background: rgba(245,240,232,0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+      position: sticky; top: 60px; z-index: 100;
+      overflow-x: auto; scrollbar-width: none;
+    }
+    .stage-nav-wrap::-webkit-scrollbar { display: none; }
+    .stage-nav {
+      display: flex; max-width: 800px; margin: 0 auto;
+      padding: 0 24px; white-space: nowrap;
+    }
+    .stage-nav a {
+      font-size: .62rem; letter-spacing: .15em; text-transform: uppercase;
+      color: var(--text-dim); text-decoration: none;
+      padding: 14px 16px 12px; border-bottom: 2px solid transparent;
+      transition: color .3s, border-color .3s; display: block;
+    }
+    .stage-nav a:hover, .stage-nav a.active { color: var(--brown); border-color: var(--gold); }
+
+    /* ── LAYOUT ── */
+    .article-layout {
+      max-width: 800px; margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* ── PROSE ── */
+    .prose { padding: 40px 0 0; }
+    .prose p {
+      font-size: .9rem; line-height: 2; color: var(--text-mid); margin-bottom: 16px;
+    }
+    .prose strong { color: var(--brown); font-weight: 500; }
+
+    /* ── STAGE BLOCK ── */
+    .stage-block {
+      margin-top: 52px; scroll-margin-top: 110px;
+    }
+
+    .stage-header {
+      display: flex; align-items: center; gap: 16px;
+      margin-bottom: 24px; padding-bottom: 16px;
+      border-bottom: 1px solid var(--line);
+    }
+    .stage-badge {
+      flex-shrink: 0;
+      width: 44px; height: 44px;
+      background: var(--brown); color: var(--cream);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif;
+    }
+    .stage-badge-roman {
+      font-size: .6rem; letter-spacing: .06em; line-height: 1; color: var(--gold-light);
+    }
+    .stage-badge-cn {
+      font-size: .72rem; line-height: 1.3;
+    }
+    .stage-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.2rem, 4vw, 1.6rem);
+      font-weight: 400; color: var(--brown); line-height: 1.2;
+    }
+    .stage-title em { font-style: italic; color: var(--gold); }
+
+    .stage-desc {
+      font-size: .88rem; line-height: 1.95; color: var(--text-mid); margin-bottom: 20px;
+    }
+    .stage-desc strong { color: var(--brown); font-weight: 500; }
+
+    /* ── TAX CARDS ── */
+    .tax-cards { display: flex; flex-direction: column; gap: 2px; margin-top: 16px; }
+
+    .tax-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      padding: 18px 20px;
+      display: flex; gap: 16px; align-items: flex-start;
+    }
+    .tax-card-icon {
+      width: 36px; height: 36px; flex-shrink: 0;
+      background: var(--cream-mid);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+    }
+    .tax-card-body {}
+    .tax-card-name {
+      font-family: 'Noto Serif TC', serif;
+      font-size: .88rem; font-weight: 500; color: var(--brown); margin-bottom: 5px;
+    }
+    .tax-card-desc {
+      font-size: .84rem; line-height: 1.85; color: var(--text-mid);
+    }
+    .tax-card-desc strong { color: var(--brown); font-weight: 500; }
+    .tax-card-rate {
+      margin-top: 6px;
+      display: inline-block;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem; color: var(--gold);
+    }
+
+    /* ── NOTICE BOX ── */
+    .notice-box {
+      background: var(--cream-mid);
+      border-left: 3px solid var(--gold);
+      padding: 16px 20px; margin: 16px 0;
+    }
+    .notice-box p {
+      font-size: .84rem; line-height: 1.88; color: var(--text-mid); margin: 0;
+    }
+    .notice-box p + p { margin-top: 8px; }
+    .notice-box strong { color: var(--brown); font-weight: 500; }
+
+    /* ── SUMMARY TABLE ── */
+    .summary-wrap { overflow-x: auto; margin: 28px 0; }
+    .summary-table {
+      width: 100%; border-collapse: collapse; min-width: 480px;
+    }
+    .summary-table thead th {
+      background: var(--brown); color: var(--cream);
+      font-size: .62rem; letter-spacing: .14em; text-transform: uppercase;
+      font-weight: 400; padding: 10px 14px; text-align: left;
+    }
+    .summary-table tbody td {
+      font-size: .82rem; color: var(--text-mid); line-height: 1.7;
+      padding: 10px 14px; border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+    .summary-table tbody tr:nth-child(even) td { background: var(--cream-mid); }
+    .summary-table td:first-child { color: var(--taupe); font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; white-space: nowrap; }
+    .summary-table td:nth-child(2) { color: var(--brown); font-weight: 400; }
+
+    /* ── TAX BRACKET TABLE ── */
+    .bracket-table {
+      width: 100%; border-collapse: collapse; margin: 16px 0;
+      font-size: .82rem;
+    }
+    .bracket-table th {
+      background: var(--cream-dark); color: var(--brown);
+      font-size: .62rem; letter-spacing: .12em; text-transform: uppercase;
+      font-weight: 400; padding: 9px 14px; text-align: left;
+      border-bottom: 1px solid var(--line-dark);
+    }
+    .bracket-table td {
+      padding: 9px 14px; border-bottom: 1px solid var(--line);
+      color: var(--text-mid); line-height: 1.6; vertical-align: top;
+    }
+    .bracket-table tbody tr:last-child td { border-bottom: none; }
+    .bracket-table td:first-child { color: var(--brown); }
+    .bracket-table td:last-child {
+      font-family: 'Playfair Display', serif;
+      font-size: .95rem; color: var(--gold); text-align: right;
+    }
+    .bracket-table-title {
+      font-size: .65rem; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--taupe); margin: 20px 0 8px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .bracket-table-title::before {
+      content: ''; display: inline-block;
+      width: 14px; height: 1px; background: var(--gold);
+    }
+
+    /* ── INHERITANCE / GIFT SPLIT ── */
+    .split-cards {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 2px; margin-top: 16px;
+    }
+    .split-card {
+      background: var(--white); border: 1px solid var(--line);
+      padding: 20px 18px;
+    }
+    .split-card-label {
+      font-size: .6rem; letter-spacing: .22em; text-transform: uppercase;
+      color: var(--taupe); margin-bottom: 8px;
+    }
+    .split-card-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem; color: var(--brown); line-height: 1; margin-bottom: 6px;
+    }
+    .split-card-value span { font-size: .9rem; color: var(--gold); }
+    .split-card-desc { font-size: .78rem; color: var(--text-dim); line-height: 1.7; }
+
+    /* ── OVERVIEW STRIP ── */
+    .overview-strip {
+      background: var(--brown); padding: 28px 24px; margin: 52px 0 0;
+    }
+    .overview-strip-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem; color: var(--gold-light);
+      margin-bottom: 16px; letter-spacing: .06em;
+    }
+    .overview-row {
+      display: flex; gap: 0;
+      border-bottom: 1px solid rgba(184,154,106,.2);
+      padding: 10px 0; align-items: baseline;
+    }
+    .overview-row:last-child { border-bottom: none; }
+    .overview-stage {
+      flex: 0 0 72px;
+      font-size: .6rem; letter-spacing: .16em; text-transform: uppercase;
+      color: rgba(245,240,232,.45);
+    }
+    .overview-item {
+      flex: 1; font-size: .82rem; color: rgba(245,240,232,.75); line-height: 1.7;
+    }
+    .overview-item strong { color: var(--gold-light); font-weight: 400; }
+
+    /* ── CTA ── */
+    .cta-box {
+      background: var(--brown); padding: 32px 24px;
+      margin: 40px 0 0; text-align: center;
+    }
+    .cta-box-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem; color: var(--cream); margin-bottom: 10px; line-height: 1.3;
+    }
+    .cta-box-title em { font-style: italic; color: var(--gold-light); }
+    .cta-box-desc {
+      font-size: .8rem; color: rgba(245,240,232,.6); line-height: 1.8; margin-bottom: 20px;
+    }
+    .btn-gold {
+      display: inline-block;
+      font-size: .68rem; letter-spacing: .2em; text-transform: uppercase;
+      background: var(--gold); color: var(--brown);
+      padding: 12px 28px; text-decoration: none; transition: background .3s;
+    }
+    .btn-gold:hover { background: var(--gold-light); }
+
+    /* ── RELATED ── */
+    .related-section { margin-top: 56px; padding-top: 36px; border-top: 1px solid var(--line); }
+    .related-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--brown); margin-bottom: 20px; }
+    .related-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    .related-card {
+      display: flex; gap: 14px; text-decoration: none;
+      padding: 14px; background: var(--white); border: 1px solid var(--line);
+      transition: border-color .3s;
+    }
+    .related-card:hover { border-color: var(--gold); }
+    .related-thumb { width: 72px; height: 72px; flex-shrink: 0; overflow: hidden; }
+    .related-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .related-tag { font-size: .56rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); }
+    .related-name { font-family: 'Noto Serif TC', serif; font-size: .86rem; color: var(--brown); margin: 4px 0; line-height: 1.4; }
+    .related-date { font-size: .62rem; color: var(--text-dim); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--brown); padding: 36px 24px 24px;
+      border-top: 2px solid var(--gold);
+    }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--cream); margin-bottom: 6px; }
+    .footer-links { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 12px; }
+    .footer-links a { font-size: .72rem; color: rgba(245,240,232,.5); text-decoration: none; transition: color .3s; }
+    .footer-links a:hover { color: var(--cream); }
+    .footer-copy { font-size: .6rem; color: rgba(245,240,232,.28); line-height: 1.8; margin-top: 18px; }
+
+    /* ── REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+
+    /* ── DESKTOP ── */
+    @media (min-width: 768px) {
+      nav { padding: 0 48px; height: 68px; }
+      .stage-nav-wrap { top: 68px; }
+      .article-hero-body, .article-layout { padding-left: 48px; padding-right: 48px; }
+      .stage-nav { padding-left: 48px; }
+      .related-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (min-width: 1100px) {
+      nav { padding: 0 80px; }
+      .article-hero-body, .article-layout { padding-left: 80px; padding-right: 80px; max-width: 960px; }
+      .stage-nav { padding-left: 80px; max-width: 960px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="index.html">
+    愛麗絲奇寓記
+    <small>Overseas Property Curator</small>
+  </a>
+  <a class="nav-back" href="thailand.html">
+    <svg width="14" height="10" viewBox="0 0 14 10" fill="none">
+      <path d="M13 5H1M1 5L5 1M1 5l4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+    </svg>
+    泰國房產
+  </a>
+</nav>
+
+<!-- HERO -->
+<div class="article-hero">
+  <div class="article-hero-img">
+    <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1400&q=85" alt="泰國買房稅務" />
+  </div>
+  <div class="article-hero-body">
+    <div class="article-breadcrumb">
+      <a href="index.html">首頁</a> /
+      <a href="thailand.html">泰國房產</a> /
+      購屋知識
+    </div>
+    <span class="article-tag-badge">泰國 · 稅務知識</span>
+    <h1 class="article-title">泰國買房稅務<br>簡析房產稅、遺產稅、贈與稅</h1>
+    <div class="article-meta">
+      <span>閱讀時間約 8 分鐘</span>
+      <span>購買・持有・賣出・遺產・贈與</span>
+      <span>2025 年更新</span>
+    </div>
+  </div>
+</div>
+
+<!-- STAGE NAV -->
+<div class="stage-nav-wrap">
+  <div class="stage-nav">
+    <a href="#stage1">購買</a>
+    <a href="#stage2">持有</a>
+    <a href="#stage3">出售</a>
+    <a href="#stage4">遺產</a>
+    <a href="#stage5">贈與</a>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="article-layout">
+
+  <div class="prose reveal">
+    <p>泰國房地產市場對於投資者來說充滿吸引力，不僅提供穩健的投資回報，還能在新興市場中達到資產多元化的效果。相比其他國家，泰國的繼承與贈與稅相對寬鬆，特別適合那些尋求穩定租金收入、並希望以稅務效率高的方式進行財富傳承的高資產族群。</p>
+    <p>泰國買房不只是投資，還有資產分配、資產移轉等多用途，其較穩定的租金受益與資產報酬，成為世界富人們在東南亞的首選。</p>
+    <p>本文簡易區分<strong>購買、持有、賣出、遺產、贈與</strong>等五大階段，敘述各階段所需繳納的稅費及其他費用。</p>
+  </div>
+
+  <!-- 五大階段總覽 -->
+  <div class="overview-strip reveal">
+    <p class="overview-strip-title">五大階段稅費總覽</p>
+    <div class="overview-row">
+      <span class="overview-stage">購買</span>
+      <span class="overview-item">過戶費 <strong>2%</strong>（買賣雙方各 1%）</span>
+    </div>
+    <div class="overview-row">
+      <span class="overview-stage">持有</span>
+      <span class="overview-item">住宅累進稅率 <strong>0.02%–0.10%</strong>；商用 <strong>0.30%–0.70%</strong></span>
+    </div>
+    <div class="overview-row">
+      <span class="overview-stage">出售</span>
+      <span class="overview-item">過戶費 2%・特種營業稅 <strong>3.3%</strong>（持有未滿 5 年）・印花稅 <strong>0.5%</strong>・個人所得稅（累進）</span>
+    </div>
+    <div class="overview-row">
+      <span class="overview-stage">遺產</span>
+      <span class="overview-item">直系繼承人免稅額 <strong>5,000 萬泰銖</strong>；超出部分 5%（直系）/ 10%（其他）</span>
+    </div>
+    <div class="overview-row">
+      <span class="overview-stage">贈與</span>
+      <span class="overview-item">子女每年免稅額 <strong>2,000 萬泰銖</strong>；其他受贈人 1,000 萬泰銖；稅率 5%（直系）/ 10%（其他）</span>
+    </div>
+  </div>
+
+  <!-- ── 階段一：購買 ── -->
+  <div class="stage-block reveal" id="stage1">
+    <div class="stage-header">
+      <div class="stage-badge">
+        <span class="stage-badge-roman">I</span>
+        <span class="stage-badge-cn">購買</span>
+      </div>
+      <h2 class="stage-title">階段一：<em>購買階段</em></h2>
+    </div>
+
+    <p class="stage-desc">在泰國，買方購置房產時並不需要繳納直接的稅款，但有一項「過戶費」，通常由買賣雙方平分。</p>
+
+    <div class="tax-cards">
+      <div class="tax-card">
+        <div class="tax-card-icon">🏛️</div>
+        <div class="tax-card-body">
+          <p class="tax-card-name">過戶費（買方稅費）</p>
+          <p class="tax-card-desc">一般由買賣雙方<strong>各負擔 1%</strong>。</p>
+          <span class="tax-card-rate">2%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 階段二：持有 ── -->
+  <div class="stage-block reveal" id="stage2">
+    <div class="stage-header">
+      <div class="stage-badge">
+        <span class="stage-badge-roman">II</span>
+        <span class="stage-badge-cn">持有</span>
+      </div>
+      <h2 class="stage-title">階段二：<em>持有階段</em></h2>
+    </div>
+
+    <p class="stage-desc">外國人可以合法持有泰國的住宅與商用不動產（注意：<strong>外國人不能以個人身份持有土地</strong>），但稅率根據使用類型有所不同而影響稅額計算方式。</p>
+
+    <p class="bracket-table-title">表一、住宅用途土地或建物房產持有稅</p>
+    <p class="stage-desc">對於住宅用途的房產，稅率採<strong>累進制</strong>，根據政府估價金額有所不同，超過 1 億泰銖的房產稅率在 0.02% 至 0.10% 之間。</p>
+    <table class="bracket-table">
+      <thead>
+        <tr><th>評估價值範圍</th><th style="text-align:right;">稅率</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>100 萬泰銖 — 5,000 萬泰銖</td><td>0.02%</td></tr>
+        <tr><td>5,000 萬泰銖 — 7,500 萬泰銖</td><td>0.03%</td></tr>
+        <tr><td>7,500 萬泰銖 — 1 億泰銖</td><td>0.05%</td></tr>
+        <tr><td>超過 1 億泰銖</td><td>0.10%</td></tr>
+      </tbody>
+    </table>
+
+    <p class="bracket-table-title" style="margin-top:32px;">表二、商業用途土地或建物房產持有稅</p>
+    <p class="stage-desc">若是<strong>商用或非住宅用途</strong>的房產，稅率較高，從 0.30% 起跳，對於估價超過 50 億泰銖的房產，稅率可達 0.70%。</p>
+    <table class="bracket-table">
+      <thead>
+        <tr><th>評估價值範圍</th><th style="text-align:right;">稅率</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>100 萬泰銖 — 5,000 萬泰銖</td><td>0.30%</td></tr>
+        <tr><td>5,000 萬泰銖 — 2 億泰銖</td><td>0.40%</td></tr>
+        <tr><td>2 億泰銖 — 10 億泰銖</td><td>0.50%</td></tr>
+        <tr><td>10 億泰銖 — 50 億泰銖</td><td>0.60%</td></tr>
+        <tr><td>超過 50 億泰銖</td><td>0.70%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── 階段三：出售 ── -->
+  <div class="stage-block reveal" id="stage3">
+    <div class="stage-header">
+      <div class="stage-badge">
+        <span class="stage-badge-roman">III</span>
+        <span class="stage-badge-cn">出售</span>
+      </div>
+      <h2 class="stage-title">階段三：<em>出售階段（個人）</em></h2>
+    </div>
+
+    <div class="tax-cards">
+      <div class="tax-card">
+        <div class="tax-card-icon">🏛️</div>
+        <div class="tax-card-body">
+          <p class="tax-card-name">過戶費</p>
+          <p class="tax-card-desc">一般由買賣雙方<strong>各負擔 1%</strong>。</p>
+          <span class="tax-card-rate">2%</span>
+        </div>
+      </div>
+      <div class="tax-card">
+        <div class="tax-card-icon">📋</div>
+        <div class="tax-card-body">
+          <p class="tax-card-name">特種營業稅</p>
+          <p class="tax-card-desc">若房產在購買後 <strong>5 年內出售</strong>，需繳納特種營業稅。</p>
+          <span class="tax-card-rate">3.3%</span>
+        </div>
+      </div>
+      <div class="tax-card">
+        <div class="tax-card-icon">🔖</div>
+        <div class="tax-card-body">
+          <p class="tax-card-name">印花稅</p>
+          <p class="tax-card-desc">適用於<strong>不需繳特種營業稅</strong>的情況（持有超過 5 年）。</p>
+          <span class="tax-card-rate">0.5%</span>
+          <p class="tax-card-desc" style="margin-top:4px; font-size:.76rem;">以銷售價格計算</p>
+        </div>
+      </div>
+      <div class="tax-card">
+        <div class="tax-card-icon">👤</div>
+        <div class="tax-card-body">
+          <p class="tax-card-name">個人所得稅</p>
+          <p class="tax-card-desc">依<strong>銷售淨收益的累進稅率</strong>計算。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="summary-wrap" style="margin-top:20px;">
+      <table class="summary-table">
+        <thead>
+          <tr>
+            <th>稅費類型</th>
+            <th>稅率</th>
+            <th>計算依據</th>
+            <th>說明</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>過戶費</td>
+            <td>2%</td>
+            <td>評估價值</td>
+            <td>通常由買賣雙方各分擔 1%</td>
+          </tr>
+          <tr>
+            <td>特別商業稅（SBT）</td>
+            <td>3.3%</td>
+            <td>以評估價值或銷售價格中較高者為準</td>
+            <td>若在購買後 5 年內轉售則適用</td>
+          </tr>
+          <tr>
+            <td>印花稅</td>
+            <td>0.5%</td>
+            <td>銷售價格</td>
+            <td>僅在不適用特別商業稅的情況下才適用</td>
+          </tr>
+          <tr>
+            <td>個人所得稅</td>
+            <td>累進稅率</td>
+            <td>銷售淨利</td>
+            <td>根據累進稅率系統計算，需專業人士才能精算出實際金額</td>
+          </tr>
+          <tr>
+            <td>佣金</td>
+            <td>3–5%</td>
+            <td>銷售價格</td>
+            <td>支付給代理或經紀人</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ── 階段四：遺產稅 ── -->
+  <div class="stage-block reveal" id="stage4">
+    <div class="stage-header">
+      <div class="stage-badge">
+        <span class="stage-badge-roman">IV</span>
+        <span class="stage-badge-cn">遺產</span>
+      </div>
+      <h2 class="stage-title">階段四：<em>遺產稅</em></h2>
+    </div>
+
+    <p class="stage-desc">泰國的遺產稅有免稅額度，稅率根據<strong>繼承人與被繼承人的關係</strong>而有所不同。</p>
+
+    <div class="split-cards">
+      <div class="split-card">
+        <p class="split-card-label">免稅額｜直系繼承人</p>
+        <p class="split-card-value">5,000 <span>萬泰銖</span></p>
+        <p class="split-card-desc">超出部分稅率 <strong>5%</strong></p>
+      </div>
+      <div class="split-card" style="background:var(--cream-mid);">
+        <p class="split-card-label">免稅額｜其他繼承人</p>
+        <p class="split-card-value">5,000 <span>萬泰銖</span></p>
+        <p class="split-card-desc">超出部分稅率 <strong>10%</strong></p>
+      </div>
+    </div>
+
+    <table class="bracket-table" style="margin-top:16px;">
+      <thead>
+        <tr>
+          <th>繼承人類型</th>
+          <th>免稅額</th>
+          <th style="text-align:right;">超出部分稅率</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>直系繼承人</td>
+          <td>5,000 萬泰銖</td>
+          <td>5%</td>
+        </tr>
+        <tr>
+          <td>其他繼承人</td>
+          <td>5,000 萬泰銖</td>
+          <td>10%</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── 階段五：贈與稅 ── -->
+  <div class="stage-block reveal" id="stage5">
+    <div class="stage-header">
+      <div class="stage-badge">
+        <span class="stage-badge-roman">V</span>
+        <span class="stage-badge-cn">贈與</span>
+      </div>
+      <h2 class="stage-title">階段五：<em>贈與稅</em></h2>
+    </div>
+
+    <p class="stage-desc">贈與稅適用於金錢與非金錢的贈與（包括不動產）。與繼承稅類似，也有免稅額度。</p>
+
+    <div class="split-cards">
+      <div class="split-card">
+        <p class="split-card-label">免稅額｜每年每位子女</p>
+        <p class="split-card-value">2,000 <span>萬泰銖</span></p>
+        <p class="split-card-desc">直系子女每年可享有 2,000 萬泰銖免稅額</p>
+      </div>
+      <div class="split-card" style="background:var(--cream-mid);">
+        <p class="split-card-label">免稅額｜其他受贈人</p>
+        <p class="split-card-value">1,000 <span>萬泰銖</span></p>
+        <p class="split-card-desc">其他受贈人每年可享有 1,000 萬泰銖免稅額</p>
+      </div>
+    </div>
+
+    <table class="bracket-table" style="margin-top:16px;">
+      <thead>
+        <tr>
+          <th>受贈人類型</th>
+          <th>年免稅額</th>
+          <th>稅率</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>直系子女</td>
+          <td>2,000 萬泰銖</td>
+          <td>5%</td>
+        </tr>
+        <tr>
+          <td>其他受贈人</td>
+          <td>1,000 萬泰銖</td>
+          <td>10%</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-box reveal">
+    <h3 class="cta-box-title">想了解更多稅務規劃？<em>讓我們一對一解答</em></h3>
+    <p class="cta-box-desc">每個人的資產狀況不同，歡迎直接聯繫 Alice，我們提供全程中文、無壓力的諮詢服務。</p>
+    <a class="btn-gold" href="https://line.me/ti/p/rY37pUpv_k" target="_blank">LINE 免費諮詢</a>
+  </div>
+
+  <!-- Related -->
+  <div class="related-section reveal">
+    <h3 class="related-title">延伸閱讀</h3>
+    <div class="related-grid">
+      <a class="related-card" href="article-thailand-buying-process.html">
+        <div class="related-thumb">
+          <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=200&q=80" alt="" loading="lazy" />
+        </div>
+        <div>
+          <p class="related-tag">泰國 · 購屋流程</p>
+          <p class="related-name">泰國買房購屋與過戶流程</p>
+          <p class="related-date">2025 · 10 分鐘閱讀</p>
+        </div>
+      </a>
+      <a class="related-card" href="article-thailand-qa.html">
+        <div class="related-thumb">
+          <img src="https://images.unsplash.com/photo-1555217851-6141535bd771?w=200&q=80" alt="" loading="lazy" />
+        </div>
+        <div>
+          <p class="related-tag">泰國 · 購屋須知</p>
+          <p class="related-name">泰國購房重要須知 Q&A</p>
+          <p class="related-date">2025 · 12 分鐘閱讀</p>
+        </div>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-logo">愛麗絲奇寓記</p>
+  <div class="footer-links">
+    <a href="index.html">首頁</a>
+    <a href="thailand.html">泰國房產</a>
+    <a href="japan.html">日本房產</a>
+    
+    
+  </div>
+  <p class="footer-copy">© 2025 愛麗絲奇寓記 alice in city｜投資國外不動產具有風險性，請詳閱行銷文件並審慎考量後再行交易。</p>
+</footer>
+
+<script>
+  // Active stage nav on scroll
+  const sections = document.querySelectorAll('.stage-block');
+  const navLinks = document.querySelectorAll('.stage-nav a');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navLinks.forEach(a => a.classList.remove('active'));
+        const link = document.querySelector(`.stage-nav a[href="#${e.target.id}"]`);
+        if (link) link.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+  sections.forEach(s => observer.observe(s));
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); revealObs.unobserve(e.target); }
+    });
+  }, { threshold: 0.06 });
+  reveals.forEach(el => revealObs.observe(el));
+</script>
+</body>
+</html>

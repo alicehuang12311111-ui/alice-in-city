@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>曼谷捷運完整指南 2026｜愛麗絲奇寓記</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Sans+TC:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --cream:     #f5f0e8;
+      --cream-mid: #ede6d6;
+      --cream-dark:#e0d5c0;
+      --taupe:     #8c7b6b;
+      --taupe-dark:#5c4f42;
+      --brown:     #3d3028;
+      --gold:      #b89a6a;
+      --gold-light:#d4b88a;
+      --white:     #fdfaf5;
+      --text-main: #2e261e;
+      --text-mid:  #6b5f54;
+      --text-dim:  #9e9188;
+      --line:      rgba(140,123,107,0.2);
+      --line-dark: rgba(140,123,107,0.4);
+      /* Line colours */
+      --bts-green: #3ab04a;
+      --mrt-blue:  #1a5fb4;
+      --mrt-purple:#7b2d8b;
+      --mrt-pink:  #e91e8c;
+      --mrt-yellow:#f5a800;
+      --srt-red:   #c0392b;
+      --gold-line: #d4a800;
+      --arl:       #8b1a1a;
+      --orange:    #e07020;
+      --grey:      #666666;
+    }
+    html { scroll-behavior: smooth; }
+    body { background:var(--cream); color:var(--text-main); font-family:'Noto Sans TC',sans-serif; font-weight:300; overflow-x:hidden; -webkit-font-smoothing:antialiased; }
+
+    /* NAV */
+    nav { position:fixed; top:0; left:0; right:0; z-index:200; background:rgba(245,240,232,0.96); backdrop-filter:blur(12px); border-bottom:1px solid var(--line); display:flex; align-items:center; justify-content:space-between; padding:0 24px; height:60px; }
+    .nav-logo { font-family:'Playfair Display',serif; font-size:1rem; color:var(--brown); text-decoration:none; line-height:1.2; }
+    .nav-logo small { display:block; font-family:'Noto Sans TC',sans-serif; font-size:.46rem; letter-spacing:.26em; text-transform:uppercase; color:var(--taupe); font-weight:300; }
+    .nav-back { font-size:.65rem; letter-spacing:.18em; text-transform:uppercase; color:var(--taupe); text-decoration:none; display:flex; align-items:center; gap:6px; transition:color .3s; }
+    .nav-back:hover { color:var(--brown); }
+    .nav-back svg { transition:transform .3s; }
+    .nav-back:hover svg { transform:translateX(-3px); }
+
+    /* HERO */
+    .hero { padding-top:60px; background:var(--brown); position:relative; overflow:hidden; min-height:44vw; display:flex; flex-direction:column; justify-content:flex-end; }
+.hero-bg { position:absolute; inset:0; background:url('fef5fcfed80b2265f77eae7fd1267ab74c165f07-1600x1066.jpg') center/cover no-repeat; filter:brightness(.4); }    .hero-content { position:relative; z-index:2; padding:40px 24px 44px; }
+    .hero-eyebrow { font-size:.6rem; letter-spacing:.32em; text-transform:uppercase; color:var(--gold); margin-bottom:14px; display:flex; align-items:center; gap:10px; }
+    .hero-eyebrow::before { content:''; display:inline-block; width:18px; height:1px; background:var(--gold); }
+    .hero-title { font-family:'Playfair Display',serif; font-size:clamp(1.8rem,6vw,3.5rem); font-weight:400; line-height:1.15; color:#fff; margin-bottom:14px; }
+    .hero-title em { font-style:italic; color:var(--gold-light); }
+    .hero-desc { font-size:.86rem; line-height:1.9; color:rgba(255,255,255,.65); max-width:580px; }
+    .hero-meta { display:flex; gap:16px; flex-wrap:wrap; margin-top:18px; font-size:.6rem; letter-spacing:.16em; text-transform:uppercase; color:rgba(255,255,255,.4); }
+
+    /* UPDATE BADGE */
+    .update-badge { background:var(--gold); padding:10px 24px; display:flex; align-items:center; gap:10px; }
+    .update-badge-text { font-size:.72rem; color:var(--brown); letter-spacing:.1em; }
+    .update-badge-text strong { font-weight:500; }
+
+    /* LAYOUT */
+    .article-layout { max-width:860px; margin:0 auto; padding:0 24px 80px; }
+
+    /* STATUS LEGEND */
+    .status-legend { display:flex; flex-wrap:wrap; gap:10px; margin:28px 0; }
+    .status-badge { display:inline-flex; align-items:center; gap:6px; font-size:.62rem; letter-spacing:.12em; text-transform:uppercase; padding:5px 10px; border-radius:2px; }
+    .status-badge.open    { background:#e8f5e9; color:#1b5e20; border:1px solid #a5d6a7; }
+    .status-badge.building{ background:#fff3e0; color:#e65100; border:1px solid #ffcc80; }
+    .status-badge.planned { background:#f3e5f5; color:#4a148c; border:1px solid #ce93d8; }
+    .status-dot { width:7px; height:7px; border-radius:50%; }
+    .status-dot.open    { background:#2e7d32; }
+    .status-dot.building{ background:#e65100; }
+    .status-dot.planned { background:#7b1fa2; }
+
+    /* SECTION */
+    .section-block { margin-top:52px; }
+    .section-label { font-size:.6rem; letter-spacing:.3em; text-transform:uppercase; color:var(--taupe); margin-bottom:12px; display:flex; align-items:center; gap:10px; }
+    .section-label::before { content:''; display:inline-block; width:16px; height:1px; background:var(--gold); }
+    .section-title { font-family:'Playfair Display',serif; font-size:clamp(1.3rem,4vw,1.9rem); font-weight:400; color:var(--brown); margin-bottom:14px; }
+    .section-title em { font-style:italic; color:var(--gold); }
+    .section-desc { font-size:.88rem; line-height:1.95; color:var(--text-mid); }
+    .section-desc strong { color:var(--brown); font-weight:500; }
+
+    /* LINE CARDS */
+    .line-list { display:flex; flex-direction:column; gap:2px; margin-top:24px; }
+
+    .line-card { background:var(--white); border:1px solid var(--line); overflow:hidden; transition:border-color .3s; }
+    .line-card:hover { border-color:var(--line-dark); }
+    .line-card.open-card { border-color:rgba(46,125,50,.3); }
+
+    .line-trigger { display:flex; align-items:center; gap:0; cursor:pointer; user-select:none; }
+
+    .line-color-bar { width:5px; flex-shrink:0; align-self:stretch; }
+
+    .line-trigger-inner { display:flex; align-items:center; gap:12px; padding:16px 18px; flex:1; }
+
+    .line-dot { width:12px; height:12px; border-radius:50%; flex-shrink:0; }
+
+    .line-name-wrap { flex:1; }
+    .line-name-th { font-family:'Noto Serif TC',serif; font-size:.9rem; font-weight:400; color:var(--brown); }
+    .line-name-en { font-size:.65rem; color:var(--taupe); margin-top:2px; letter-spacing:.08em; }
+
+    .line-status { flex-shrink:0; }
+    .line-status-badge { font-size:.56rem; letter-spacing:.14em; text-transform:uppercase; padding:3px 8px; border-radius:2px; white-space:nowrap; }
+    .line-status-badge.open     { background:#e8f5e9; color:#1b5e20; }
+    .line-status-badge.building { background:#fff3e0; color:#e65100; }
+    .line-status-badge.planned  { background:#f3e5f5; color:#6a1b9a; }
+    .line-status-badge.partial  { background:#e3f2fd; color:#0d47a1; }
+
+    .line-arrow { color:var(--taupe); transition:transform .3s; flex-shrink:0; margin-right:18px; }
+    .line-card.expanded .line-arrow { transform:rotate(180deg); }
+
+    .line-body { max-height:0; overflow:hidden; transition:max-height .45s ease, padding .3s; padding:0 18px 0 23px; }
+    .line-card.expanded .line-body { max-height:1000px; padding:4px 18px 22px 23px; }
+
+    .line-body p { font-size:.86rem; line-height:1.92; color:var(--text-mid); margin-bottom:10px; }
+    .line-body p:last-child { margin-bottom:0; }
+    .line-body strong { color:var(--brown); font-weight:500; }
+    .line-body ul { list-style:none; padding:0; margin:8px 0; }
+    .line-body ul li { font-size:.84rem; line-height:1.85; color:var(--text-mid); padding:5px 0 5px 18px; position:relative; border-bottom:1px solid var(--line); }
+    .line-body ul li:last-child { border-bottom:none; }
+    .line-body ul li::before { content:'—'; position:absolute; left:0; color:var(--gold); font-size:.8rem; }
+    .line-body ul li strong { color:var(--brown); font-weight:500; }
+
+    /* INFO TAG in body */
+    .line-info-row { display:flex; flex-wrap:wrap; gap:8px; margin:10px 0; }
+    .line-info-tag { font-size:.6rem; letter-spacing:.12em; text-transform:uppercase; border:1px solid var(--line-dark); color:var(--taupe); padding:3px 9px; }
+    .line-info-tag.highlight { background:var(--brown); color:var(--cream); border-color:var(--brown); }
+
+    /* NOTICE */
+    .notice-box { background:var(--cream-mid); border-left:3px solid var(--gold); padding:14px 18px; margin:16px 0; }
+    .notice-box p { font-size:.84rem; line-height:1.88; color:var(--text-mid); margin:0; }
+    .notice-box p+p { margin-top:8px; }
+    .notice-box strong { color:var(--brown); font-weight:500; }
+
+    .warning-box { background:#fdf5f5; border-left:3px solid #c0392b; padding:14px 18px; margin:16px 0; }
+    .warning-box p { font-size:.84rem; line-height:1.88; color:#6b3030; margin:0; }
+    .warning-box strong { color:#8b2020; font-weight:500; }
+
+    /* PROPERTY IMPACT */
+    .impact-grid { display:grid; grid-template-columns:1fr 1fr; gap:2px; margin-top:20px; }
+    .impact-card { background:var(--white); border:1px solid var(--line); padding:18px 16px; }
+    .impact-card.dark { background:var(--brown); border-color:var(--brown); }
+    .impact-line { display:flex; align-items:center; gap:8px; margin-bottom:8px; }
+    .impact-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+    .impact-line-name { font-size:.65rem; letter-spacing:.12em; text-transform:uppercase; color:var(--taupe); }
+    .impact-card.dark .impact-line-name { color:rgba(245,240,232,.5); }
+    .impact-title { font-family:'Noto Serif TC',serif; font-size:.88rem; color:var(--brown); margin-bottom:6px; line-height:1.4; }
+    .impact-card.dark .impact-title { color:var(--cream); }
+    .impact-desc { font-size:.78rem; color:var(--text-dim); line-height:1.7; }
+    .impact-card.dark .impact-desc { color:rgba(245,240,232,.55); }
+
+    /* TIMELINE TABLE */
+    .timeline-wrap { overflow-x:auto; margin:20px 0; }
+    .timeline-table { width:100%; border-collapse:collapse; min-width:400px; font-size:.82rem; }
+    .timeline-table th { background:var(--brown); color:var(--cream); font-size:.6rem; letter-spacing:.12em; text-transform:uppercase; font-weight:400; padding:9px 12px; text-align:left; }
+    .timeline-table td { padding:9px 12px; border-bottom:1px solid var(--line); color:var(--text-mid); line-height:1.6; vertical-align:top; }
+    .timeline-table tbody tr:nth-child(even) td { background:var(--cream-mid); }
+    .timeline-table td:first-child { white-space:nowrap; }
+    .timeline-table .tag-open     { font-size:.55rem; background:#e8f5e9; color:#1b5e20; padding:2px 7px; border-radius:2px; white-space:nowrap; }
+    .timeline-table .tag-building { font-size:.55rem; background:#fff3e0; color:#e65100; padding:2px 7px; border-radius:2px; white-space:nowrap; }
+    .timeline-table .tag-planned  { font-size:.55rem; background:#f3e5f5; color:#6a1b9a; padding:2px 7px; border-radius:2px; white-space:nowrap; }
+
+    /* CTA */
+    .cta-box { background:var(--brown); padding:32px 24px; margin:52px 0 0; text-align:center; }
+    .cta-box-title { font-family:'Playfair Display',serif; font-size:1.25rem; color:var(--cream); margin-bottom:10px; line-height:1.3; }
+    .cta-box-title em { font-style:italic; color:var(--gold-light); }
+    .cta-box-desc { font-size:.8rem; color:rgba(245,240,232,.6); line-height:1.8; margin-bottom:20px; }
+    .btn-gold { display:inline-block; font-size:.68rem; letter-spacing:.2em; text-transform:uppercase; background:var(--gold); color:var(--brown); padding:12px 28px; text-decoration:none; transition:background .3s; }
+    .btn-gold:hover { background:var(--gold-light); }
+
+    /* RELATED */
+    .related-section { margin-top:56px; padding-top:36px; border-top:1px solid var(--line); }
+    .related-title { font-family:'Playfair Display',serif; font-size:1.05rem; color:var(--brown); margin-bottom:20px; }
+    .related-grid { display:grid; grid-template-columns:1fr; gap:12px; }
+    .related-card { display:flex; gap:14px; text-decoration:none; padding:14px; background:var(--white); border:1px solid var(--line); transition:border-color .3s; }
+    .related-card:hover { border-color:var(--gold); }
+    .related-thumb { width:72px; height:72px; flex-shrink:0; overflow:hidden; }
+    .related-thumb img { width:100%; height:100%; object-fit:cover; }
+    .related-tag { font-size:.56rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); }
+    .related-name { font-family:'Noto Serif TC',serif; font-size:.86rem; color:var(--brown); margin:4px 0; line-height:1.4; }
+    .related-date { font-size:.62rem; color:var(--text-dim); }
+
+    /* FOOTER */
+    footer { background:var(--brown); padding:36px 24px 24px; border-top:2px solid var(--gold); }
+    .footer-logo { font-family:'Playfair Display',serif; font-size:1rem; color:var(--cream); margin-bottom:6px; }
+    .footer-links { display:flex; gap:18px; flex-wrap:wrap; margin-top:12px; }
+    .footer-links a { font-size:.72rem; color:rgba(245,240,232,.5); text-decoration:none; transition:color .3s; }
+    .footer-links a:hover { color:var(--cream); }
+    .footer-copy { font-size:.6rem; color:rgba(245,240,232,.28); line-height:1.8; margin-top:18px; }
+
+    /* REVEAL */
+    .reveal { opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease; }
+    .reveal.in { opacity:1; transform:translateY(0); }
+
+    /* DESKTOP */
+    @media (min-width:768px) {
+      nav { padding:0 48px; height:68px; }
+      .hero-content { padding:60px 56px 60px; }
+      .article-layout { padding-left:48px; padding-right:48px; }
+      .related-grid { grid-template-columns:1fr 1fr; }
+      .impact-grid { grid-template-columns:repeat(3,1fr); }
+    }
+    @media (min-width:1100px) {
+      nav { padding:0 80px; }
+      .hero-content { padding:80px 80px; }
+      .article-layout { padding-left:80px; padding-right:80px; max-width:1000px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">愛麗絲奇寓記<small>Overseas Property Curator</small></a>
+  <a class="nav-back" href="thailand.html">
+    <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M13 5H1M1 5L5 1M1 5l4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+    泰國房產
+  </a>
+</nav>
+
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">泰國 · 交通建設</p>
+    <h1 class="hero-title">曼谷捷運完整指南<br><em>2026 年最新版</em></h1>
+    <p class="hero-desc">從 BTS 綠線到橘線建設，完整整理曼谷現有通車路線、施工中路線與未來規劃，掌握捷運動態就是掌握房產增值先機。</p>
+    <div class="hero-meta">
+      <span>2026 年 4 月更新</span>
+      <span>10 條路線完整解析</span>
+      <span>含投資建議</span>
+    </div>
+  </div>
+</div>
+
+<div class="update-badge">
+  <p class="update-badge-text"><strong>2026 年最新資料</strong>——粉紅線延伸段已於 2025 年 5 月通車・橘線東段預計 2027 通車・紫線南段施工中</p>
+</div>
+
+<div class="article-layout">
+
+  <!-- 概況 -->
+  <div class="section-block reveal">
+    <p class="section-label">整體概況</p>
+    <h2 class="section-title">曼谷捷運網絡<em>正在高速擴張</em></h2>
+    <p class="section-desc">曼谷的軌道交通系統以驚人的速度成長。從最早的 BTS 綠線、MRT 藍線，到近年通車的黃線、粉紅線，加上多條正在建設或規劃中的路線，<strong>未來十年曼谷捷運覆蓋率將超越許多亞洲大城市</strong>。</p>
+    <p class="section-desc" style="margin-top:12px;">對房產投資者而言，捷運新線通車往往帶動沿線房價<strong>平均漲幅 15%～30%</strong>，提前佈局是關鍵。</p>
+
+    <div class="status-legend" style="margin-top:24px;">
+      <span class="status-badge open"><span class="status-dot open"></span>已通車</span>
+      <span class="status-badge building"><span class="status-dot building"></span>建設中</span>
+      <span class="status-badge planned"><span class="status-dot planned"></span>規劃中</span>
+    </div>
+  </div>
+
+  <!-- 路線總覽表 -->
+  <div class="section-block reveal">
+    <p class="section-label">路線總覽</p>
+    <h2 class="section-title">所有路線<em>一覽</em></h2>
+    <div class="timeline-wrap">
+      <table class="timeline-table">
+        <thead>
+          <tr><th>路線</th><th>狀態</th><th>通車／預計</th><th>房產影響</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>BTS 綠線（素坤逸＋是隆）</td><td><span class="tag-open">已通車</span></td><td>1999年起陸續延伸</td><td>曼谷最成熟商圈，保值首選</td></tr>
+          <tr><td>BTS 金線</td><td><span class="tag-open">已通車</span></td><td>2020年通車</td><td>ICONSIAM 河岸豪宅帶動</td></tr>
+          <tr><td>MRT 藍線（環狀）</td><td><span class="tag-open">已通車</span></td><td>2004年起，2020年完成環狀</td><td>藍線內圈區域房價持續上升</td></tr>
+          <tr><td>MRT 紫線（北段）</td><td><span class="tag-open">已通車</span></td><td>2016年通車</td><td>暖武里府住宅需求穩定</td></tr>
+          <tr><td>SRT 紅線</td><td><span class="tag-open">已通車</span></td><td>2022年通車</td><td>邦蘇樞紐帶動周邊發展</td></tr>
+          <tr><td>MRT 黃線</td><td><span class="tag-open">已通車</span></td><td>2023年通車</td><td>曼谷東部平價住宅興起</td></tr>
+          <tr><td>MRT 粉紅線</td><td><span class="tag-open">已通車</span></td><td>2023年通車，2025年5月延伸</td><td>北部 Ladprao 區域需求增加</td></tr>
+          <tr><td>MRT 橘線（東段）</td><td><span class="tag-building">建設中</span></td><td>預計 2027 年</td><td>Rama9 至 Min Buri 沿線潛力強</td></tr>
+          <tr><td>MRT 紫線（南段）</td><td><span class="tag-building">建設中</span></td><td>部分 2027，全線 2029-2030</td><td>河岸南側新開發機會</td></tr>
+          <tr><td>MRT 灰線</td><td><span class="tag-planned">規劃中</span></td><td>最快 2030 年後</td><td>Thong Lo 地段長線布局</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 各線詳解 -->
+  <div class="section-block reveal">
+    <p class="section-label">各線詳細說明</p>
+    <h2 class="section-title">點開每條路線<em>了解詳情</em></h2>
+
+    <div class="line-list" style="margin-top:20px;">
+
+      <!-- BTS 綠線 -->
+      <div class="line-card open-card" id="lc-green">
+        <div class="line-trigger" onclick="toggleLine('lc-green')">
+          <div class="line-color-bar" style="background:var(--bts-green);"></div>
+          <div class="line-trigger-inner">
+            <div class="line-dot" style="background:var(--bts-green);"></div>
+            <div class="line-name-wrap">
+              <p class="line-name-th">BTS 綠線（素坤逸線＋是隆線）</p>
+              <p class="line-name-en">BTS Sukhumvit Line + Silom Line</p>
+            </div>
+            <span class="line-status"><span class="line-status-badge open">✓ 已通車</span></span>
+            <svg class="line-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+        <div class="line-body">
+          <div class="line-info-row">
+            <span class="line-info-tag highlight">投資首選</span>
+            <span class="line-info-tag">素坤逸線：Mo Chit → Samut Prakan</span>
+            <span class="line-info-tag">是隆線：National Stadium → Bang Wa</span>
+          </div>
+          <p>曼谷最重要的軌道路線，也是房產投資價值最高的沿線。素坤逸線（淺綠）與是隆線（深綠）交會於<strong>暹羅站（Siam）</strong>，串聯曼谷最核心的商業與居住地段。</p>
+          <p>BTS 綠色捷運線仍是最主要的商圈熱點，市中心的 <strong>Siam–Asoke–Thonglor</strong>，南段的 On Nut 與北段的 Chatuchak 都是熱門投資地點。2026 年基本無大變化，路線格局已大致底定。</p>
+          <ul>
+            <li><strong>Ploenchit / Chit Lom</strong>：Central Embassy 商圈，地價最高段之一</li>
+            <li><strong>Asoke（E4）</strong>：與 MRT 藍線交會，Terminal 21 商圈</li>
+            <li><strong>Phrom Phong（E5）</strong>：日本人聚居，The Em District 高端商圈</li>
+            <li><strong>Thong Lo（E6）</strong>：名人、開發商最愛，保值性強</li>
+            <li><strong>On Nut（E9）</strong>：平價入門地段，租金 CP 值高</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- BTS 金線 -->
+      <div class="line-card open-card" id="lc-gold">
+        <div class="line-trigger" onclick="toggleLine('lc-gold')">
+          <div class="line-color-bar" style="background:var(--gold-line);"></div>
+          <div class="line-trigger-inner">
+            <div class="line-dot" style="background:var(--gold-line);"></div>
+            <div class="line-name-wrap">
+              <p class="line-name-th">BTS 金線</p>
+              <p class="line-name-en">BTS Gold Line — 2020 年通車</p>
+            </div>
+            <span class="line-status"><span class="line-status-badge open">✓ 已通車</span></span>
+            <svg class="line-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+        <div class="line-body">
+          <div class="line-info-row">
+            <span class="line-info-tag">4 個站點</span>
+            <span class="line-info-tag">泰國第一條無人駕駛列車</span>
+          </div>
+          <p>連接 ICONSIAM 的重要捷運線，雖然只有 4 個站點，但對於從 Silom 等商業區過河到 ICONSIAM 消費非常便利。2020 年 12 月 16 日正式開通，是曼谷<strong>第一部無人駕駛列車系統</strong>。</p>
+          <p>河岸區坐落不少豪宅，金線可以說是天上掉下來的禮物。由於 ICONSIAM 與 Four Seasons Residences 等指標建案持續開發，<strong>河岸豪宅投資價值持續看好</strong>。</p>
+        </div>
+      </div>
+
+      <!-- MRT 藍線 -->
+      <div class="line-card open-card" id="lc-blue">
+        <div class="line-trigger" onclick="toggleLine('lc-blue')">
+          <div class="line-color-bar" style="background:var(--mrt-blue);"></div>
+          <div class="line-trigger-inner">
+            <div class="line-dot" style="background:var(--mrt-blue);"></div>
+            <div class="line-name-wrap">
+              <p class="line-name-th">MRT 藍線（環狀）</p>
+              <p class="line-name-en">MRT Blue Line — 2020 年完成環狀</p>
+            </div>
+            <span class="line-status"><span class="line-status-badge open">✓ 已通車</span></span>
+            <svg class="line-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+        <div class="line-body">
+          <div class="line-info-row">
+            <span class="line-info-tag highlight">唯一環狀線</span>
+            <span class="line-info-tag">38 個站點</span>
+            <span class="line-info-tag">與 BTS 多處轉乘</span>
+          </div>
+          <p>曼谷最重要的地鐵線，也是<strong>唯一一條環狀線</strong>，在 2020 年 4 月完成環狀線的串聯並向西延伸。MRT 藍色線的主要工程已大致完成，2026 年路線格局穩定。</p>
+          <p>藍線以及藍線內的區域，隨著環狀線的完工在近幾年看見可觀的<strong>房價與租金漲幅</strong>，特別是靠近昭披耶河的地區，許多新建案將迎來極好的投資前景。</p>
+          <ul>
+            <li><strong>Sukhumvit（BL22）</strong>：與 BTS Asoke 交會，最重要樞紐之一</li>
+            <li><strong>Silom（BL26）</strong>：與 BTS 是隆線交會，金融商業核心</li>
+            <li><strong>Phra Ram 9（BL28）</strong>：新 CBD Rama9 的核心站</li>
+            <li><strong>Chatuchak Park（BL12）</strong>：假日市集，北部住宅重鎮</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- MRT 紫線北段 -->
+      <div class="line-card open-card" id="lc-purple-n">
+        <div class="line-trigger" onclick="toggleLine('lc-purple-n')">
+          <div class="line-color-bar" style="background:var(--mrt-purple);"></div>
+          <div class="line-trigger-inner">
+            <div class="line-dot" style="background:var(--mrt-purple);"></div>
+            <div class="line-name-wrap">
+              <p class="line-name-th">MRT 紫線（北段）</p>
+              <p class="line-name-en">MRT Purple Line North — 2016 年通車</p>
+            </div>
+            <span class="line-status"><span class="line-status-badge open">✓ 已通車</span></span>
+            <svg class="line-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+        <div class="line-body">
+          <div class="line-info-row">
+            <span class="line-info-tag">Khlong Bang Phai ↔ Tao Poon</span>
+            <span class="line-info-tag">23 公里 / 16 站</span>
+          </div>
+          <p>服務曼谷西北方的暖武里府（Nonthaburi），雖然運量過去不如 BTS 綠線和 MRT 藍線，但<strong>運量持續穩定上升</strong>，並帶動沿線商業與住宅發展。</p>
+          <p>暖武里府靠近曼谷市區的地方，新的商場和十大建商的推案持續不停，<strong>適合預算有限的投資者布局</strong>。2025 年起實施每日票價上限 40 泰銖優惠（至 2026 年 11 月）。</p>
+        </div>
+      </div>
+
+      <!-- SRT 紅線 -->
+      <div class="line-card open-card" id="lc-red">
+        <div class="line-trigger" onclick="toggleLine('lc-red')">
+          <div class="line-color-bar" style="background:var(--srt-red);"></div>
+          <div class="line-trigger-inner">
+            <div class="line-dot" style="background:var(--srt-red);"></div>
+            <div class="line-name-wrap">
+              <p class="line-name-th">SRT 紅線（郊區鐵路）</p>
+              <p class="line-name-en">SRT Red Line — 2022 年通車</p>
+            </div>
+            <span class="line-status"><span class="line-status-badge open">✓ 已通車</span></span>
+            <svg class="line-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+        <div class="line-body">
+          <div class="line-info-row">
+            <span class="line-info-tag highlight">邦蘇大站樞紐</span>
+            <span class="line-info-tag">連接廊曼機場</span>
+          </div>
+          <p>連接邦蘇大站（Krung Thep Aphiwat）與廊曼機場，為北段重要通勤路線。票價便宜，落地廊曼機場後可直接換乘進入曼谷市區。</p>
+          <p>紅線未來 2 期、3 期、4 期工程持續規劃推進，<strong>邦蘇樞紐</strong>將成為東南亞最大交通樞紐，設有 24 個站台、每日客流逾 30 萬人。對於邦蘇周邊的房產投資，長線布局價值明確。</p>
+        </div>
+      </div>
+
+      <!-- MRT 黃線 -->
+      <div class="line-card open-card" id="lc-yellow">
+        <div class="line-trigger" onclick="toggleLine('lc-yellow')">
+          <div class="line-color-bar" style="background:var(--mrt-yellow);"></div>
+          <div class="line-trigger-inner">
+            <div class="line-dot" style="background:var(--mrt-yellow);"></div>
+            <div class="line-name-wrap">
+              <p class="line-name-th">MRT 黃線（Nakkhara Phiphat Line）</p>
+              <p class="line-name-en">MRT Yellow Line — 2023 年通車</p>
+            </div>
+            <span class="line-status"><span class="line-status-badge open">✓ 已通車</span></span>
+            <svg class="line-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+        <div class="line-body">
+          <div class="line-info-row">
+            <span class="line-info-tag">Lat Phrao ↔ Samrong</span>
+            <span class="line-info-tag">30 公里 / 23 站</span>
+            <span class="line-info-tag">2026 年官方正式命名</span>
+          </div>
+          <p>2023 年通車，2026 年 1 月 8 日正式命名為「Nakkhara Phiphat Line（那卡拉披帕線）」。連接 Lat Phrao（MRT 藍線）至 Samrong（BTS 綠線），<strong>服務曼谷東部廣大住宅區</strong>。</p>
+          <p>黃色線是許多平價住宅的重要推廣區域，但運量仍與藍線、綠線有差距，需要時間來強化沿線商業發展。<strong>Bangna 區域</strong>為黃線帶動的主要新興投資地段，2026 年無延伸計畫。</p>
+        </div>
+      </div>
+
+      <!-- MRT 粉紅線 -->
+      <div class="line-card open-card" id="lc-pink">
+        <div class="line-trigger" onclick="toggleLine('lc-pink')">
+          <div class="line-color-bar" style="background:var(--mrt-pink);"></div>
+          <div class="line-trigger-inner">
+            <div class="line-dot" style="background:var(--mrt-pink);"></div>
+            <div class="line-name-wrap">
+              <p class="line-name-th">MRT 粉紅線（Wiwat Nakhon Line）</p>
+              <p class="line-name-en">MRT Pink Line — 2023 通車・2025.5 延伸</p>
+            </div>
+            <span class="line-status"><span class="line-status-badge partial">✓ 延伸通車</span></span>
+            <svg class="line-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+        <div class="line-body">
+          <div class="line-info-row">
+            <span class="line-info-tag highlight">2025 年最新延伸</span>
+            <span class="line-info-tag">Nonthaburi ↔ Min Buri</span>
+            <span class="line-info-tag">2026 年官方命名「維瓦納空線」</span>
+          </div>
+          <p>2023 年正式通車（Laksi–Min Buri，17 站；暖武里府政府中心–TOT，13 站）。<strong>2025 年 5 月 20 日</strong>正式開通 Muang Thong Thani 延伸段（2 站），可直達 IMPACT Arena 展覽中心。</p>
+          <p>粉紅線橫跨曼谷北部，串聯廊曼機場周邊地區。<strong>Saphanmai、Ladprao</strong> 等住宅區隨著粉紅線的啟動，成為近 3 年的房市熱門區域。2026 年路線大致穩定，無新延伸計畫。</p>
+          <div class="notice-box">
+            <p>📌 <strong>2025 年最新狀態</strong>：2025 年 3 月 28 日緬甸地震後，粉紅線曾短暫停駛進行安全檢測，目前已全面恢復正常運營。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- MRT 橘線（建設中） -->
+      <div class="line-card" id="lc-orange">
+        <div class="line-trigger" onclick="toggleLine('lc-orange')">
+          <div class="line-color-bar" style="background:var(--orange);"></div>
+          <div class="line-trigger-inner">
+            <div class="line-dot" style="background:var(--orange);"></div>
+            <div class="line-name-wrap">
+              <p class="line-name-th">MRT 橘線</p>
+              <p class="line-name-en">MRT Orange Line — 東段預計 2027</p>
+            </div>
+            <span class="line-status"><span class="line-status-badge building">🔨 建設中</span></span>
+            <svg class="line-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+        <div class="line-body">
+          <div class="line-info-row">
+            <span class="line-info-tag highlight">曼谷最重要東西向幹線</span>
+            <span class="line-info-tag">全線 35.9 公里 / 29 站</span>
+          </div>
+          <p>橘線是曼谷捷運路網中<strong>最重要的東西向捷運線</strong>，橫貫曼谷東西的重點商圈與住宅區。工程分為東西兩段：</p>
+          <ul>
+            <li><strong>東段</strong>（Thailand Cultural Centre → Yaek Rom Klao，22.5 公里）：土木工程已 100% 完成，2024 年 12 月簽署 Siemens 系統合約，<strong>目前最新預計 2027 年底通車</strong>（MRTA 宣布提前於原訂 2028 年）</li>
+            <li><strong>西段</strong>（Thailand Cultural Centre → Bang Khun Non，13.4 公里）：2024 年 7 月開工，截至 2025 年 7 月進度約 14%，<strong>預計 2030 年完工</strong></li>
+          </ul>
+          <div class="notice-box">
+            <p>💡 橘線將與 MRT 藍線（Thailand Cultural Centre）、BTS 綠線多處交會，<strong>Rama9 至 Min Buri 沿線</strong>為重點投資地段，建議提前布局。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- MRT 紫線南段（建設中） -->
+      <div class="line-card" id="lc-purple-s">
+        <div class="line-trigger" onclick="toggleLine('lc-purple-s')">
+          <div class="line-color-bar" style="background:var(--mrt-purple);"></div>
+          <div class="line-trigger-inner">
+            <div class="line-dot" style="background:var(--mrt-purple);"></div>
+            <div class="line-name-wrap">
+              <p class="line-name-th">MRT 紫線南段延伸</p>
+              <p class="line-name-en">MRT Purple Line South — 部分 2027，全線 2029-30</p>
+            </div>
+            <span class="line-status"><span class="line-status-badge building">🔨 建設中</span></span>
+            <svg class="line-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+        <div class="line-body">
+          <div class="line-info-row">
+            <span class="line-info-tag">Tao Poon → Rat Burana</span>
+            <span class="line-info-tag">23.6 公里 / 17 站</span>
+            <span class="line-info-tag">建設進度約 68%</span>
+          </div>
+          <p>從 Tao Poon 向南延伸至 Rat Burana，穿越昭披耶河，服務曼谷南部地區。2022 年 3 月正式動工，目前整體工程進度約 <strong>68%</strong>。</p>
+          <ul>
+            <li><strong>2025 年 8 月</strong>最新消息：國會大廈站至國家圖書館站部分路段將於 <strong>2027 年先行通車</strong></li>
+            <li>全線完工時間延後至 <strong>2029-2030 年</strong></li>
+            <li>2025 年 9 月發生 Samsen Road 地面塌陷事故（施工區附近），MRTA 已暫停該區段施工進行調查</li>
+          </ul>
+          <div class="notice-box">
+            <p>💡 紫線南段完工後將大幅改善曼谷南部交通，對<strong>河岸區（Riverside）及 Rat Burana</strong> 一帶房產長期價值具正面影響。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 灰線（規劃中） -->
+      <div class="line-card" id="lc-grey">
+        <div class="line-trigger" onclick="toggleLine('lc-grey')">
+          <div class="line-color-bar" style="background:var(--grey);"></div>
+          <div class="line-trigger-inner">
+            <div class="line-dot" style="background:var(--grey);"></div>
+            <div class="line-name-wrap">
+              <p class="line-name-th">MRT 灰線</p>
+              <p class="line-name-en">MRT Grey Line — 規劃中，最快 2030 後</p>
+            </div>
+            <span class="line-status"><span class="line-status-badge planned">◌ 規劃中</span></span>
+            <svg class="line-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+        <div class="line-body">
+          <div class="line-info-row">
+            <span class="line-info-tag">Watcharaphon → Thong Lo</span>
+            <span class="line-info-tag">EIA 環評待通過</span>
+          </div>
+          <p>連接曼谷東北部 Watcharaphon 至 Thong Lo 的重要路線，全長約 20.6 公里。目前仍在規劃階段，<strong>2026 年政府編列約 7,000-8,000 萬泰銖顧問費</strong>進行可行性研究，研究結果預計 2028 年送交內閣審核。</p>
+          <p>雖然目前看不見太多進展，但作為通達 <strong>Thong Lo / Ekkamai</strong> 的重點捷運路線，灰線一旦動工將對這兩個地段帶來顯著利多。放心灰線的展望，將在未來給我們一個驚喜。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 房產投資影響 -->
+  <div class="section-block reveal">
+    <p class="section-label">房產投資參考</p>
+    <h2 class="section-title">捷運動態<em>對應投資建議</em></h2>
+    <p class="section-desc">不同路線的通車時間與進度，直接影響沿線地段的投資時機。</p>
+
+    <div class="impact-grid" style="margin-top:20px;">
+      <div class="impact-card">
+        <div class="impact-line"><div class="impact-dot" style="background:var(--bts-green);"></div><span class="impact-line-name">BTS 綠線</span></div>
+        <p class="impact-title">現在買、長期持有</p>
+        <p class="impact-desc">Thong Lo、Ekkamai、On Nut 依然是穩租、穩增值的核心地段，適合保守型投資。</p>
+      </div>
+      <div class="impact-card dark">
+        <div class="impact-line"><div class="impact-dot" style="background:var(--orange);"></div><span class="impact-line-name">橘線（建設中）</span></div>
+        <p class="impact-title">提前布局最佳時機</p>
+        <p class="impact-desc">東段 2027 通車，現在是 Rama9 至 Min Buri 沿線的佈局黃金期。預計通車後房價漲 15～30%。</p>
+      </div>
+      <div class="impact-card">
+        <div class="impact-line"><div class="impact-dot" style="background:var(--mrt-purple);"></div><span class="impact-line-name">紫線南段（建設中）</span></div>
+        <p class="impact-title">河岸南側長線機會</p>
+        <p class="impact-desc">全線 2029-2030 通車，適合長期投資者提早布局河岸區與 Rat Burana 地段。</p>
+      </div>
+      <div class="impact-card">
+        <div class="impact-line"><div class="impact-dot" style="background:var(--mrt-blue);"></div><span class="impact-line-name">MRT 藍線</span></div>
+        <p class="impact-title">環狀線帶動中圈地段</p>
+        <p class="impact-desc">藍線環狀完成後，Rama9、Huai Khwang 等中圈地段持續受惠，租金需求穩定。</p>
+      </div>
+      <div class="impact-card">
+        <div class="impact-line"><div class="impact-dot" style="background:var(--mrt-pink);"></div><span class="impact-line-name">粉紅線</span></div>
+        <p class="impact-title">北部平價投資新選擇</p>
+        <p class="impact-desc">Saphanmai、Ladprao 一帶租金 CP 值高，適合總價預算較低的投資入門首選。</p>
+      </div>
+      <div class="impact-card dark">
+        <div class="impact-line"><div class="impact-dot" style="background:var(--grey);"></div><span class="impact-line-name">灰線（規劃中）</span></div>
+        <p class="impact-title">Thong Lo 超長線布局</p>
+        <p class="impact-desc">灰線最快 2030 後通車，但 Thong Lo 本身已是頂級地段，灰線只是錦上添花。</p>
+      </div>
+    </div>
+
+    <div class="notice-box" style="margin-top:20px;">
+      <p>⚠️ <strong>重要提醒</strong>：曼谷捷運建設計畫常因政策、環評、招標等因素調整時程，以上通車預測時間均為截至 2026 年 4 月的最新資料，僅供參考。實際投資請以最新官方公告為準。</p>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-box reveal">
+    <h3 class="cta-box-title">想知道哪個捷運站<em>旁的建案最值得看</em>？</h3>
+    <p class="cta-box-desc">我們熟悉每條捷運線沿線的建案動態，歡迎直接聯繫 Alice，依你的預算與需求精準配對。</p>
+    <a class="btn-gold" href="https://line.me/ti/p/rY37pUpv_k" target="_blank">LINE 免費諮詢</a>
+  </div>
+
+  <div class="related-section reveal">
+    <h3 class="related-title">延伸閱讀</h3>
+    <div class="related-grid">
+      <a class="related-card" href="article-bangkok-districts.html">
+        <div class="related-thumb"><img src="https://images.unsplash.com/photo-1508009603885-50cf7c579365?w=200&q=80" alt="" loading="lazy" /></div>
+        <div>
+          <p class="related-tag">泰國 · 地段解析</p>
+          <p class="related-name">曼谷熱門地段解析：Rama9、素坤逸、河濱區</p>
+          <p class="related-date">2025 · 10 分鐘閱讀</p>
+        </div>
+      </a>
+      <a class="related-card" href="article-thailand-buying-process.html">
+        <div class="related-thumb"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=200&q=80" alt="" loading="lazy" /></div>
+        <div>
+          <p class="related-tag">泰國 · 購屋流程</p>
+          <p class="related-name">泰國買房購屋與過戶流程</p>
+          <p class="related-date">2025 · 10 分鐘閱讀</p>
+        </div>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p class="footer-logo">愛麗絲奇寓記</p>
+  <div class="footer-links">
+    <a href="index.html">首頁</a><a href="thailand.html">泰國房產</a>
+    <a href="japan.html">日本房產</a>
+  </div>
+  <p class="footer-copy">© 2025 愛麗絲奇寓記 alice in city｜投資國外不動產具有風險性，請詳閱行銷文件並審慎考量後再行交易。</p>
+</footer>
+
+<script>
+  function toggleLine(id) {
+    const card = document.getElementById(id);
+    card.classList.toggle('expanded');
+  }
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+  }, { threshold: 0.06 });
+  reveals.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

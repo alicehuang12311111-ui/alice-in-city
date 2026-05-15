@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>泰國購屋知識｜愛麗絲奇寓記</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Sans+TC:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --cream: #f5f0e8; --cream-mid: #ede6d6; --cream-dark: #e0d5c0;
+      --taupe: #8c7b6b; --taupe-dark: #5c4f42; --brown: #3d3028;
+      --gold: #b89a6a; --gold-light: #d4b88a; --white: #fdfaf5;
+      --text-main: #2e261e; --text-mid: #6b5f54; --text-dim: #9e9188;
+      --line: rgba(140,123,107,0.2); --line-dark: rgba(140,123,107,0.4);
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--cream); color: var(--text-main); font-family: 'Noto Sans TC', sans-serif; font-weight: 300; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; background: rgba(245,240,232,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; padding: 0 24px; height: 60px; }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--brown); text-decoration: none; line-height: 1.2; }
+    .nav-logo small { display: block; font-family: 'Noto Sans TC', sans-serif; font-size: .46rem; letter-spacing: .26em; text-transform: uppercase; color: var(--taupe); font-weight: 300; }
+    .nav-links { display: none; gap: 28px; list-style: none; }
+    .nav-links a { font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; color: var(--text-mid); text-decoration: none; transition: color .3s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--brown); }
+    .nav-cta { display: none; font-size: .65rem; letter-spacing: .2em; text-transform: uppercase; color: var(--white); background: var(--brown); padding: 9px 20px; text-decoration: none; transition: background .3s; }
+    .nav-cta:hover { background: var(--taupe-dark); }
+    .hamburger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .hamburger span { display: block; width: 22px; height: 1px; background: var(--brown); transition: .3s; }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(4px,4px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(4px,-4px); }
+    .mobile-menu { position: fixed; inset: 0; z-index: 190; background: var(--white); display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 28px; opacity: 0; pointer-events: none; transition: opacity .35s; }
+    .mobile-menu.open { opacity: 1; pointer-events: auto; }
+    .mobile-menu a { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--brown); text-decoration: none; opacity: 0; transform: translateY(14px); transition: color .3s, opacity .4s, transform .4s; }
+    .mobile-menu.open a { opacity: 1; transform: translateY(0); }
+    .mobile-menu.open a:nth-child(1){transition-delay:.07s}.mobile-menu.open a:nth-child(2){transition-delay:.13s}.mobile-menu.open a:nth-child(3){transition-delay:.19s}.mobile-menu.open a:nth-child(4){transition-delay:.25s}.mobile-menu.open a:nth-child(5){transition-delay:.31s}.mobile-menu.open a:nth-child(6){transition-delay:.37s}
+    .mobile-menu a:hover { color: var(--gold); }
+
+    /* HERO */
+    .page-hero { padding-top: 60px; background: var(--white); border-bottom: 1px solid var(--line); }
+    .page-hero-inner { max-width: 900px; margin: 0 auto; padding: 48px 24px 44px; }
+    .page-eyebrow { font-size: .6rem; letter-spacing: .32em; text-transform: uppercase; color: var(--taupe); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+    .page-eyebrow::before { content: ''; display: inline-block; width: 18px; height: 1px; background: var(--gold); }
+    .page-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 6vw, 3.2rem); font-weight: 400; line-height: 1.15; color: var(--brown); margin-bottom: 14px; }
+    .page-title em { font-style: italic; color: var(--gold); }
+    .page-desc { font-size: .88rem; line-height: 1.9; color: var(--text-mid); max-width: 560px; }
+    .page-stats { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--line); }
+    .page-stat { font-size: .65rem; letter-spacing: .14em; text-transform: uppercase; color: var(--text-dim); }
+    .page-stat strong { color: var(--brown); font-weight: 400; display: block; font-family: 'Playfair Display', serif; font-size: 1.2rem; letter-spacing: 0; text-transform: none; margin-bottom: 2px; }
+
+    /* FILTER TABS */
+    .filter-wrap { background: var(--cream-mid); border-bottom: 1px solid var(--line); overflow-x: auto; scrollbar-width: none; }
+    .filter-wrap::-webkit-scrollbar { display: none; }
+    .filter-inner { display: flex; max-width: 900px; margin: 0 auto; padding: 0 24px; white-space: nowrap; }
+    .filter-btn { font-size: .65rem; letter-spacing: .16em; text-transform: uppercase; color: var(--text-dim); background: none; border: none; border-bottom: 2px solid transparent; padding: 14px 16px 12px; cursor: pointer; transition: color .3s, border-color .3s; }
+    .filter-btn:hover, .filter-btn.active { color: var(--brown); border-color: var(--gold); }
+
+    /* ARTICLE GRID */
+    .articles-wrap { max-width: 900px; margin: 0 auto; padding: 40px 24px 80px; }
+
+    /* FEATURED (first article) */
+    .article-featured { display: block; text-decoration: none; margin-bottom: 2px; }
+    .article-featured-inner { display: grid; grid-template-columns: 1fr; background: var(--white); border: 1px solid var(--line); overflow: hidden; transition: border-color .3s; }
+    .article-featured:hover .article-featured-inner { border-color: var(--gold); }
+    .af-img { aspect-ratio: 16/7; overflow: hidden; position: relative; }
+    .af-img img { width: 100%; height: 100%; object-fit: cover; filter: brightness(.82); transition: transform .6s, filter .5s; }
+    .article-featured:hover .af-img img { transform: scale(1.03); filter: brightness(.92); }
+    .af-img::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 50%, rgba(61,48,40,.6) 100%); }
+    .af-body { padding: 24px 22px 28px; }
+    .af-category { font-size: .58rem; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); margin-bottom: 9px; }
+    .af-title { font-family: 'Playfair Display', serif; font-size: clamp(1.2rem, 4vw, 1.8rem); font-weight: 400; color: var(--brown); line-height: 1.3; margin-bottom: 10px; }
+    .af-excerpt { font-size: .82rem; line-height: 1.85; color: var(--text-mid); margin-bottom: 16px; }
+    .af-meta { font-size: .62rem; letter-spacing: .12em; text-transform: uppercase; color: var(--text-dim); display: flex; gap: 14px; flex-wrap: wrap; }
+    .new-badge { display: inline-block; font-size: .52rem; letter-spacing: .14em; text-transform: uppercase; background: var(--gold); color: var(--brown); padding: 2px 7px; border-radius: 2px; margin-left: 6px; vertical-align: middle; }
+    .updated-badge { display: inline-block; font-size: .52rem; letter-spacing: .14em; text-transform: uppercase; background: var(--cream-dark); color: var(--taupe-dark); border: 1px solid var(--line-dark); padding: 2px 7px; border-radius: 2px; margin-left: 6px; vertical-align: middle; }
+
+    /* ARTICLE LIST */
+    .article-list { display: flex; flex-direction: column; gap: 2px; margin-top: 2px; }
+
+    .article-card { display: flex; gap: 0; text-decoration: none; background: var(--white); border: 1px solid var(--line); overflow: hidden; transition: border-color .3s; }
+    .article-card:hover { border-color: var(--gold); }
+    .article-card.hidden { display: none; }
+
+.ac-thumb { flex: 0 0 110px; width: 110px; height: 110px; overflow: hidden; position: relative; }
+    .ac-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; filter: brightness(.85); transition: transform .5s, filter .4s; }
+    .article-card:hover .ac-thumb img { transform: scale(1.05); filter: brightness(.95); }
+
+    .ac-body { flex: 1; padding: 16px 16px 18px; display: flex; flex-direction: column; justify-content: space-between; }
+    .ac-category { font-size: .56rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+    .ac-title { font-family: 'Noto Serif TC', serif; font-size: .9rem; font-weight: 400; color: var(--brown); line-height: 1.45; margin-bottom: 6px; flex: 1; }
+    .ac-excerpt { font-size: .75rem; color: var(--text-dim); line-height: 1.7; display: none; }
+    .ac-meta { font-size: .6rem; letter-spacing: .1em; text-transform: uppercase; color: var(--text-dim); margin-top: 8px; display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+
+    /* SECTION DIVIDER */
+    .cat-divider { display: flex; align-items: center; gap: 14px; margin: 40px 0 16px; }
+    .cat-divider-label { font-size: .62rem; letter-spacing: .26em; text-transform: uppercase; color: var(--taupe); white-space: nowrap; }
+    .cat-divider-line { flex: 1; height: 1px; background: var(--line); }
+
+    /* CTA BANNER */
+    .cta-banner { background: var(--brown); padding: 32px 24px; margin-top: 52px; text-align: center; }
+    .cta-banner-title { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--cream); margin-bottom: 10px; line-height: 1.3; }
+    .cta-banner-title em { font-style: italic; color: var(--gold-light); }
+    .cta-banner-desc { font-size: .8rem; color: rgba(245,240,232,.6); line-height: 1.8; margin-bottom: 22px; }
+    .btn-gold { display: inline-block; font-size: .68rem; letter-spacing: .2em; text-transform: uppercase; background: var(--gold); color: var(--brown); padding: 12px 28px; text-decoration: none; transition: background .3s; }
+    .btn-gold:hover { background: var(--gold-light); }
+
+    /* FOOTER */
+    footer { background: var(--brown); padding: 40px 24px 28px; border-top: 2px solid var(--gold); }
+    .footer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 16px; margin-bottom: 32px; max-width: 900px; margin-left: auto; margin-right: auto; }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--cream); margin-bottom: 7px; }
+    .footer-tagline { font-size: .73rem; color: rgba(245,240,232,.45); line-height: 1.8; }
+    .footer-col-title { font-size: .58rem; letter-spacing: .26em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 8px; }
+    .footer-col ul a { font-size: .76rem; color: rgba(245,240,232,.5); text-decoration: none; transition: color .3s; }
+    .footer-col ul a:hover { color: var(--cream); }
+    .footer-bottom { max-width: 900px; margin: 0 auto; padding-top: 20px; border-top: 1px solid rgba(184,154,106,.18); }
+    .footer-copy { font-size: .62rem; color: rgba(245,240,232,.28); line-height: 1.8; margin-bottom: 6px; }
+    .footer-disclaimer { font-size: .58rem; color: rgba(245,240,232,.18); line-height: 1.7; }
+
+    /* REVEAL */
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+
+    /* DESKTOP */
+    @media (min-width: 768px) {
+      nav { padding: 0 48px; height: 68px; }
+      .hamburger { display: none; }
+      .nav-links { display: flex; }
+      .nav-cta { display: inline-block; }
+      .page-hero-inner, .filter-inner, .articles-wrap { padding-left: 48px; padding-right: 48px; }
+      .article-featured-inner { grid-template-columns: 1fr 1fr; }
+      .af-img { aspect-ratio: unset; height: 100%; }
+      .ac-thumb { flex: 0 0 140px; width: 140px; }
+      .ac-excerpt { display: block; }
+      .footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr; }
+    }
+    @media (min-width: 1100px) {
+      nav { padding: 0 80px; }
+      .page-hero-inner, .filter-inner, .articles-wrap { padding-left: 80px; padding-right: 80px; max-width: 1060px; }
+      .footer-grid { max-width: 1060px; }
+      .footer-bottom { max-width: 1060px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="index.html">愛麗絲奇寓記<small>Overseas Property Curator</small></a>
+  <ul class="nav-links">
+    <li><a href="index.html">首頁</a></li>
+    <li><a href="thailand.html" class="active">泰國房產</a></li>
+    <li><a href="japan.html">日本房產</a></li>
+    
+    
+  </ul>
+  <a class="nav-cta" href="contact.html">立即諮詢</a>
+  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="closeMenu()">首頁</a>
+  <a href="thailand.html" onclick="closeMenu()">泰國房產</a>
+  <a href="japan.html" onclick="closeMenu()">日本房產</a>
+  <a href="contact.html" onclick="closeMenu()">聯絡我們</a>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <p class="page-eyebrow">泰國房產 · 知識專區</p>
+    <h1 class="page-title">泰國購屋知識<br><em>完整文章總覽</em></h1>
+    <p class="page-desc">從購屋流程、稅務規劃到地段解析，愛麗絲奇寓記為台灣買家整理最完整的泰國房產知識，讓你置產前做好萬全準備。</p>
+    <div class="page-stats">
+      <div class="page-stat"><strong>12</strong>篇完整文章</div>
+      <div class="page-stat"><strong>2026</strong>年持續更新</div>
+      <div class="page-stat"><strong>繁體中文</strong>撰寫</div>
+    </div>
+  </div>
+</div>
+
+<!-- FILTER -->
+<div class="filter-wrap">
+  <div class="filter-inner">
+    <button class="filter-btn active" onclick="filterArticles('all', this)">全部</button>
+    <button class="filter-btn" onclick="filterArticles('process', this)">購屋流程</button>
+    <button class="filter-btn" onclick="filterArticles('investment', this)">投資分析</button>
+    <button class="filter-btn" onclick="filterArticles('legal', this)">法律稅務</button>
+    <button class="filter-btn" onclick="filterArticles('market', this)">市場地段</button>
+    <button class="filter-btn" onclick="filterArticles('knowledge', this)">購屋須知</button>
+  </div>
+</div>
+
+<!-- ARTICLES -->
+<div class="articles-wrap">
+
+  <!-- FEATURED -->
+  <a class="article-featured reveal" href="article-thailand-investment-guide.html" data-cat="investment">
+    <div class="article-featured-inner">
+      <div class="af-img">
+        <img src="https://images.unsplash.com/photo-1508009603885-50cf7c579365?w=900&q=80" alt="泰國房產投資全攻略" loading="lazy" />
+      </div>
+      <div class="af-body">
+        <p class="af-category">泰國 · 投資全攻略</p>
+        <h2 class="af-title">《泰國房產投資全攻略》外國人購屋規範、地段解析、流程與投報率</h2>
+        <p class="af-excerpt">泰國近年成為海外置產熱門市場，本文整合購屋規範、熱門地段、流程與成本，是你入門泰國房產的第一篇必讀文章。</p>
+        <div class="af-meta">
+          <span>2025–2026 更新</span>
+          <span>閱讀時間約 8 分鐘</span>
+          <span class="updated-badge">2026 更新</span>
+        </div>
+      </div>
+    </div>
+  </a>
+
+  <!-- 購屋流程 -->
+  <div class="cat-divider reveal">
+    <span class="cat-divider-label">購屋流程</span>
+    <div class="cat-divider-line"></div>
+  </div>
+
+  <div class="article-list">
+    <a class="article-card reveal" href="article-thailand-buying-process.html" data-cat="process">
+      <div class="ac-thumb">
+        <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=300&q=80" alt="" loading="lazy" />
+      </div>
+      <div class="ac-body">
+        <p class="ac-category">泰國 · 購屋流程</p>
+        <h3 class="ac-title">泰國買房購屋與過戶流程——預售屋、新成屋、二手房三大類完整說明</h3>
+        <p class="ac-excerpt">從訂金、頭期款、FET 匯款到土地廳過戶，含 AP 建商付款實例，三種購屋類型一篇看懂。</p>
+        <div class="ac-meta"><span>2025 更新</span><span>10 分鐘閱讀</span></div>
+      </div>
+    </a>
+    <a class="article-card reveal" href="article-thailand-qa.html" data-cat="process knowledge">
+      <div class="ac-thumb">
+        <img src="https://images.unsplash.com/photo-1555217851-6141535bd771?w=300&q=80" alt="" loading="lazy" />
+      </div>
+      <div class="ac-body">
+        <p class="ac-category">泰國 · 購屋須知</p>
+        <h3 class="ac-title">泰國購房重要須知 Q&A——19 個常見問題完整解答</h3>
+        <p class="ac-excerpt">外國人可以買房嗎？過戶要親自去嗎？FET 是什麼？管理費怎麼算？19 個購屋前必讀問答。</p>
+        <div class="ac-meta"><span>2025 更新</span><span>12 分鐘閱讀</span></div>
+      </div>
+    </a>
+  </div>
+
+  <!-- 法律稅務 -->
+  <div class="cat-divider reveal">
+    <span class="cat-divider-label">法律稅務</span>
+    <div class="cat-divider-line"></div>
+  </div>
+
+  <div class="article-list">
+    <a class="article-card reveal" href="article-thailand-tax.html" data-cat="legal">
+      <div class="ac-thumb">
+        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=300&q=80" alt="" loading="lazy" />
+      </div>
+      <div class="ac-body">
+        <p class="ac-category">泰國 · 稅務知識</p>
+        <h3 class="ac-title">泰國買房稅務——簡析房產稅、遺產稅、贈與稅</h3>
+        <p class="ac-excerpt">購買、持有、出售、遺產、贈與五大階段稅費完整整理，含住宅與商業用途累進稅率表。</p>
+        <div class="ac-meta"><span>2025 更新</span><span>8 分鐘閱讀</span></div>
+      </div>
+    </a>
+    <a class="article-card reveal" href="article-thailand-inheritance.html" data-cat="legal">
+      <div class="ac-thumb">
+        <img src="images-12.jpeg" alt="" loading="lazy" />
+      </div>
+      <div class="ac-body">
+        <p class="ac-category">泰國 · 法律知識</p>
+        <h3 class="ac-title">泰國房產繼承與法律要點——預售屋、成屋繼承與房產贈與完整說明</h3>
+        <p class="ac-excerpt">買家死亡後如何繼承？在台灣立遺囑可以用嗎？外國人能以贈與方式取得房產嗎？</p>
+        <div class="ac-meta"><span>2025 更新</span><span>12 分鐘閱讀</span></div>
+      </div>
+    </a>
+    <a class="article-card reveal" href="article-thailand-deed.html" data-cat="legal knowledge">
+      <div class="ac-thumb">
+        <img src="deed-chanote-sample.png" alt="" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=300&q=80'" />
+      </div>
+      <div class="ac-body">
+        <p class="ac-category">泰國 · 購屋知識</p>
+        <h3 class="ac-title">泰國地契完整解析——Chanote、Nor Sor 3 Gor、Nor Sor 3 比較</h3>
+        <p class="ac-excerpt">三種地契差異、安全性比較、地契正反面說明，含原始地契圖片解析，買房前必讀。</p>
+        <div class="ac-meta"><span>2025 更新</span><span>8 分鐘閱讀</span></div>
+      </div>
+    </a>
+  </div>
+
+  <!-- 投資分析 -->
+  <div class="cat-divider reveal">
+    <span class="cat-divider-label">投資分析</span>
+    <div class="cat-divider-line"></div>
+  </div>
+
+  <div class="article-list">
+    <a class="article-card reveal" href="article-thailand-roi.html" data-cat="investment">
+      <div class="ac-thumb">
+        <img src="image-13.jpg" alt="" loading="lazy" />
+      </div>
+      <div class="ac-body">
+        <p class="ac-category">泰國 · 投資知識</p>
+        <h3 class="ac-title">泰國房產投報率怎麼算？實際案例分享<span class="updated-badge">2026 更新</span></h3>
+        <p class="ac-excerpt">毛報酬 6.28% vs 淨報酬 3–5%，各地段投報率比較，含 1,000 萬泰銖公寓試算案例。</p>
+        <div class="ac-meta"><span>2025–2026 更新</span><span>8 分鐘閱讀</span></div>
+      </div>
+    </a>
+    <a class="article-card reveal" href="article-thailand-rental.html" data-cat="investment">
+      <div class="ac-thumb">
+        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=300&q=80" alt="" loading="lazy" />
+      </div>
+      <div class="ac-body">
+        <p class="ac-category">泰國 · 出租市場</p>
+        <h3 class="ac-title">泰國房產出租市場：長租 vs 短租——六種租客類型完整解析<span class="updated-badge">2026 更新</span></h3>
+        <p class="ac-excerpt">外國人能合法出租嗎？長短租有何限制？曼谷六大租客族群，幫你找對目標市場。</p>
+        <div class="ac-meta"><span>2025–2026 更新</span><span>10 分鐘閱讀</span></div>
+      </div>
+    </a>
+    <a class="article-card reveal" href="article-thailand-developers.html" data-cat="investment knowledge">
+      <div class="ac-thumb">
+        <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=300&q=80" alt="" loading="lazy" />
+      </div>
+      <div class="ac-body">
+        <p class="ac-category">泰國 · 建商介紹</p>
+        <h3 class="ac-title">知名的泰國房地產十大建商——品牌特色與代表建案系列<span class="updated-badge">2026 更新</span></h3>
+        <p class="ac-excerpt">AP Thailand、Sansiri、Origin 等十大建商完整介紹，含 Sena Development 特別收錄，幫你選對開發商。</p>
+        <div class="ac-meta"><span>2025–2026 更新</span><span>10 分鐘閱讀</span></div>
+      </div>
+    </a>
+  </div>
+
+  <!-- 市場地段 -->
+  <div class="cat-divider reveal">
+    <span class="cat-divider-label">市場地段</span>
+    <div class="cat-divider-line"></div>
+  </div>
+
+  <div class="article-list">
+    <a class="article-card reveal" href="article-bangkok-districts.html" data-cat="market">
+      <div class="ac-thumb">
+        <img src="Bangkok-1244x700.jpg" alt="" loading="lazy" />
+      </div>
+      <div class="ac-body">
+        <p class="ac-category">泰國 · 地段解析</p>
+        <h3 class="ac-title">曼谷熱門地段解析：Rama9、素坤逸、河濱區——11 個地段完整介紹</h3>
+        <p class="ac-excerpt">中央倫披尼、素坤逸各站特性、拉瑪九新 CBD、河岸奢華區，附自住 vs 投資建議。</p>
+        <div class="ac-meta"><span>2025 更新</span><span>10 分鐘閱讀</span></div>
+      </div>
+    </a>
+    <a class="article-card reveal" href="article-bangkok-mrt-2026.html" data-cat="market">
+      <div class="ac-thumb">
+        <img src="fef5fcfed80b2265f77eae7fd1267ab74c165f07-1600x1066.jpg" alt="" loading="lazy" />
+      </div>
+      <div class="ac-body">
+        <p class="ac-category">泰國 · 交通建設</p>
+        <h3 class="ac-title">曼谷捷運完整指南 2026 年最新版——10 條路線狀態全解析<span class="new-badge">2026 更新</span></h3>
+        <p class="ac-excerpt">已通車路線、橘線 2027 通車預測、紫線南段施工進度，附各線對應投資建議。</p>
+        <div class="ac-meta"><span>2026 年 4 月更新</span><span>8 分鐘閱讀</span></div>
+      </div>
+    </a>
+    <a class="article-card reveal" href="article-bangkok-price-history.html" data-cat="market investment">
+      <div class="ac-thumb">
+        <img src="images.jpeg" alt="" loading="lazy" />
+      </div>
+      <div class="ac-body">
+        <p class="ac-category">泰國 · 市場分析</p>
+        <h3 class="ac-title">曼谷房價十年變化與天際線的崛起——2010 至 2026 年完整分析<span class="updated-badge">2026 補充</span></h3>
+        <p class="ac-excerpt">五大地標建案、房價成長結構性成因、疫後復甦軌跡，以及 2026 年的市場展望。</p>
+        <div class="ac-meta"><span>2025–2026 更新</span><span>10 分鐘閱讀</span></div>
+      </div>
+    </a>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-banner reveal">
+    <h3 class="cta-banner-title">文章看完了，<em>下一步是什麼？</em></h3>
+    <p class="cta-banner-desc">更多成交數據、單價帶、區域比價與實際建案，歡迎直接聯繫 Alice 或參加我們的說明會。</p>
+    <a class="btn-gold" href="https://line.me/ti/p/rY37pUpv_k" target="_blank">LINE 立即諮詢</a>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <p class="footer-logo">愛麗絲奇寓記</p>
+      <p class="footer-tagline">海外精選不動產・全程中文服務<br>曼谷 × 芭堤雅 × 普吉島 × 東京</p>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-title">泰國文章</p>
+      <ul>
+        <li><a href="article-thailand-investment-guide.html">投資全攻略</a></li>
+        <li><a href="article-thailand-buying-process.html">購屋流程</a></li>
+        <li><a href="article-thailand-tax.html">稅務簡析</a></li>
+        <li><a href="article-bangkok-districts.html">地段解析</a></li>
+        <li><a href="article-bangkok-mrt-2026.html">捷運指南 2026</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-title">快速連結</p>
+      <ul>
+        <li><a href="index.html">首頁</a></li>
+        <li><a href="thailand.html">泰國房產</a></li>
+        <li><a href="japan.html">日本房產</a></li>
+        
+      </ul>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-title">聯絡資訊</p>
+      <ul>
+        <li><a href="tel:0929688608">愛麗絲 0929-688-608</a></li>
+        <li><a href="https://line.me/ti/p/rY37pUpv_k">LINE 諮詢</a></li>
+        <li><a href="mailto:">發送 Email</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 愛麗絲奇寓記 alice in city｜碩盛國際不動產有限公司 (109)新北經紀字第003786號</p>
+    <p class="footer-disclaimer">投資國外不動產具有風險性，請投資人詳閱行銷文件並審慎考量後再行交易。</p>
+  </div>
+</footer>
+
+<script>
+  // Hamburger
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    const open = mobileMenu.classList.toggle('open');
+    hamburger.classList.toggle('open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  function closeMenu() {
+    mobileMenu.classList.remove('open');
+    hamburger.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // Filter
+  function filterArticles(cat, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const cards = document.querySelectorAll('.article-card, .article-featured');
+    const dividers = document.querySelectorAll('.cat-divider');
+    if (cat === 'all') {
+      cards.forEach(c => c.classList.remove('hidden'));
+      dividers.forEach(d => d.style.display = '');
+    } else {
+      cards.forEach(c => {
+        const cats = (c.dataset.cat || '').split(' ');
+        c.classList.toggle('hidden', !cats.includes(cat));
+      });
+      dividers.forEach(d => d.style.display = 'none');
+    }
+  }
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+  }, { threshold: 0.06 });
+  reveals.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>泰國房產投報率怎麼算？實際案例分享｜愛麗絲奇寓記</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Sans+TC:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--cream:#f5f0e8;--cream-mid:#ede6d6;--cream-dark:#e0d5c0;--taupe:#8c7b6b;--taupe-dark:#5c4f42;--brown:#3d3028;--gold:#b89a6a;--gold-light:#d4b88a;--white:#fdfaf5;--text-main:#2e261e;--text-mid:#6b5f54;--text-dim:#9e9188;--line:rgba(140,123,107,0.2);--line-dark:rgba(140,123,107,0.4)}
+    html{scroll-behavior:smooth}
+    body{background:var(--cream);color:var(--text-main);font-family:'Noto Sans TC',sans-serif;font-weight:300;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+    nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(245,240,232,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 24px;height:60px}
+    .nav-logo{font-family:'Playfair Display',serif;font-size:1rem;color:var(--brown);text-decoration:none;line-height:1.2}
+    .nav-logo small{display:block;font-family:'Noto Sans TC',sans-serif;font-size:.46rem;letter-spacing:.26em;text-transform:uppercase;color:var(--taupe);font-weight:300}
+    .nav-back{font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--taupe);text-decoration:none;display:flex;align-items:center;gap:6px;transition:color .3s}
+    .nav-back:hover{color:var(--brown)}
+    .nav-back svg{transition:transform .3s}
+    .nav-back:hover svg{transform:translateX(-3px)}
+    .article-hero{padding-top:60px;background:var(--white)}
+    .article-hero-img{width:100%;aspect-ratio:16/7;overflow:hidden;position:relative}
+    .article-hero-img img{width:100%;height:100%;object-fit:cover;filter:brightness(.75)}
+    .article-hero-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,var(--white) 100%)}
+    .article-hero-body{padding:28px 24px 36px;max-width:800px;margin:0 auto}
+    .article-breadcrumb{font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--taupe);margin-bottom:14px;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+    .article-breadcrumb a{color:var(--taupe);text-decoration:none}
+    .article-tag-badge{display:inline-block;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold);padding:3px 10px;margin-bottom:14px}
+    .article-title{font-family:'Playfair Display',serif;font-size:clamp(1.7rem,5.5vw,2.8rem);font-weight:400;line-height:1.2;color:var(--brown);margin-bottom:18px}
+    .article-meta{display:flex;gap:18px;flex-wrap:wrap;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-dim);padding-top:16px;border-top:1px solid var(--line)}
+    .article-layout{max-width:800px;margin:0 auto;padding:40px 24px 80px}
+    .prose p{font-size:.9rem;line-height:2;color:var(--text-mid);margin-bottom:16px}
+    .prose strong{color:var(--brown);font-weight:500}
+    .prose h2{font-family:'Playfair Display',serif;font-size:clamp(1.2rem,4vw,1.6rem);font-weight:400;color:var(--brown);margin:44px 0 16px;padding-bottom:12px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:10px}
+    .prose h2::before{content:'';display:inline-block;width:3px;height:1.2em;background:var(--gold);flex-shrink:0}
+    /* YIELD CARDS */
+    .yield-overview{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;margin:20px 0}
+    .yield-card{background:var(--white);border:1px solid var(--line);padding:18px 14px;text-align:center}
+    .yield-card.highlight{background:var(--brown);border-color:var(--brown)}
+    .yield-num{font-family:'Playfair Display',serif;font-size:1.7rem;color:var(--gold);line-height:1;margin-bottom:5px}
+    .yield-card.highlight .yield-num{color:var(--gold-light)}
+    .yield-label{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-dim)}
+    .yield-card.highlight .yield-label{color:rgba(245,240,232,.5)}
+    .yield-desc{font-size:.72rem;color:var(--text-dim);margin-top:5px;line-height:1.5}
+    .yield-card.highlight .yield-desc{color:rgba(245,240,232,.45)}
+    /* REGION TABLE */
+    .region-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:.84rem}
+    .region-table th{background:var(--brown);color:var(--cream);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;font-weight:400;padding:9px 12px;text-align:left}
+    .region-table td{padding:9px 12px;border-bottom:1px solid var(--line);color:var(--text-mid);line-height:1.6;vertical-align:top}
+    .region-table tbody tr:nth-child(even) td{background:var(--cream-mid)}
+    .region-table td:first-child{color:var(--brown);font-weight:400}
+    /* CALC BOX */
+    .calc-box{background:var(--white);border:1px solid var(--line);padding:24px 22px;margin:20px 0}
+    .calc-title{font-family:'Playfair Display',serif;font-size:1rem;color:var(--brown);margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+    .calc-row{display:flex;justify-content:space-between;align-items:baseline;padding:8px 0;border-bottom:1px solid var(--line);font-size:.86rem}
+    .calc-row:last-child{border-bottom:none}
+    .calc-label{color:var(--text-mid)}
+    .calc-value{font-family:'Playfair Display',serif;font-size:.95rem;color:var(--brown)}
+    .calc-value.result{color:var(--gold);font-size:1.1rem}
+    .calc-note{font-size:.74rem;color:var(--text-dim);margin-top:12px;line-height:1.7}
+    /* COST LIST */
+    .cost-list{display:flex;flex-direction:column;gap:2px;margin:16px 0}
+    .cost-item{background:var(--white);border:1px solid var(--line);padding:14px 18px;display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+    .cost-item-label{font-size:.86rem;color:var(--text-mid)}
+    .cost-item-value{font-size:.86rem;color:var(--brown);font-weight:400;white-space:nowrap}
+    /* NOTICE */
+    .notice-box{background:var(--cream-mid);border-left:3px solid var(--gold);padding:14px 18px;margin:16px 0}
+    .notice-box p{font-size:.84rem;line-height:1.88;color:var(--text-mid);margin:0}
+    .notice-box p+p{margin-top:8px}
+    .notice-box strong{color:var(--brown);font-weight:500}
+    .new-badge{display:inline-block;font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;background:var(--gold);color:var(--brown);padding:2px 7px;border-radius:2px;margin-left:6px;vertical-align:middle}
+    /* CTA */
+    .cta-box{background:var(--brown);padding:32px 24px;margin:52px 0 0;text-align:center}
+    .cta-box-title{font-family:'Playfair Display',serif;font-size:1.25rem;color:var(--cream);margin-bottom:10px;line-height:1.3}
+    .cta-box-title em{font-style:italic;color:var(--gold-light)}
+    .cta-box-desc{font-size:.8rem;color:rgba(245,240,232,.6);line-height:1.8;margin-bottom:20px}
+    .btn-gold{display:inline-block;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;background:var(--gold);color:var(--brown);padding:12px 28px;text-decoration:none;transition:background .3s}
+    .btn-gold:hover{background:var(--gold-light)}
+    .related-section{margin-top:56px;padding-top:36px;border-top:1px solid var(--line)}
+    .related-title{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--brown);margin-bottom:20px}
+    .related-grid{display:grid;grid-template-columns:1fr;gap:12px}
+    .related-card{display:flex;gap:14px;text-decoration:none;padding:14px;background:var(--white);border:1px solid var(--line);transition:border-color .3s}
+    .related-card:hover{border-color:var(--gold)}
+    .related-thumb{width:72px;height:72px;flex-shrink:0;overflow:hidden}
+    .related-thumb img{width:100%;height:100%;object-fit:cover}
+    .related-tag{font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+    .related-name{font-family:'Noto Serif TC',serif;font-size:.86rem;color:var(--brown);margin:4px 0;line-height:1.4}
+    .related-date{font-size:.62rem;color:var(--text-dim)}
+    footer{background:var(--brown);padding:36px 24px 24px;border-top:2px solid var(--gold)}
+    .footer-logo{font-family:'Playfair Display',serif;font-size:1rem;color:var(--cream);margin-bottom:6px}
+    .footer-links{display:flex;gap:18px;flex-wrap:wrap;margin-top:12px}
+    .footer-links a{font-size:.72rem;color:rgba(245,240,232,.5);text-decoration:none;transition:color .3s}
+    .footer-links a:hover{color:var(--cream)}
+    .footer-copy{font-size:.6rem;color:rgba(245,240,232,.28);line-height:1.8;margin-top:18px}
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.in{opacity:1;transform:translateY(0)}
+    @media(min-width:768px){nav{padding:0 48px;height:68px}.article-hero-body,.article-layout{padding-left:48px;padding-right:48px}.related-grid{grid-template-columns:1fr 1fr}}
+    @media(min-width:1100px){nav{padding:0 80px}.article-hero-body,.article-layout{padding-left:80px;padding-right:80px;max-width:960px}}
+  </style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html">愛麗絲奇寓記<small>Overseas Property Curator</small></a>
+  <a class="nav-back" href="thailand.html">
+    <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M13 5H1M1 5L5 1M1 5l4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+    泰國房產
+  </a>
+</nav>
+<div class="article-hero">
+<div class="article-hero-img"><img src="image-13.jpg" alt="投報率計算" /></div>
+  <div class="article-hero-body">
+    <div class="article-breadcrumb"><a href="index.html">首頁</a> / <a href="thailand.html">泰國房產</a> / 投資知識</div>
+    <span class="article-tag-badge">泰國 · 投資知識</span>
+    <h1 class="article-title">泰國房產投報率怎麼算？實際案例分享</h1>
+    <div class="article-meta"><span>閱讀時間約 8 分鐘</span><span>毛報酬・淨報酬・試算公式</span><span>2025–2026 年更新</span></div>
+  </div>
+</div>
+<div class="article-layout">
+
+  <div class="prose reveal">
+    <h2>一、平均投報率概況 <span class="new-badge">2025–2026 更新</span></h2>
+    <p>根據 Global Property Guide 2025 年 Q3 最新數據，泰國公寓的平均<strong>毛租金投報率（Gross Yield）約為 6.28%</strong>，較 2023 年的 4.5% 有顯著提升，反映出租賃需求的強勁復甦。不同區域因生活機能、交通與外籍租客比例不同，實際報酬率會略有差異。</p>
+    <p>需要特別注意的是，<strong>毛報酬率並不等於實際入袋的淨報酬率</strong>——扣除管理費、空置期、稅務、代管費後，淨報酬率通常落在 3%–5% 之間。</p>
+  </div>
+
+  <div class="yield-overview reveal">
+    <div class="yield-card">
+      <div class="yield-num">6.28%</div>
+      <div class="yield-label">全國平均毛報酬</div>
+      <div class="yield-desc">Global Property Guide Q3 2025</div>
+    </div>
+    <div class="yield-card highlight">
+      <div class="yield-num">3–5%</div>
+      <div class="yield-label">實際淨報酬（扣費後）</div>
+      <div class="yield-desc">扣除管理費、稅務、空置期</div>
+    </div>
+    <div class="yield-card">
+      <div class="yield-num">5–7%</div>
+      <div class="yield-label">捷運沿線新興區</div>
+      <div class="yield-desc">Rama9、On Nut、Phra Khanong</div>
+    </div>
+  </div>
+
+  <div class="prose reveal">
+    <h2>二、各區域投報率參考</h2>
+  </div>
+
+  <div class="reveal" style="overflow-x:auto;">
+    <table class="region-table">
+      <thead><tr><th>地段</th><th>毛報酬率（約）</th><th>特性</th></tr></thead>
+      <tbody>
+        <tr><td>Rama9 新 CBD 區</td><td>5–6%</td><td>企業聚集、租屋需求強，捷運橘線 2027 通車後看漲</td></tr>
+        <tr><td>Sukhumvit（素坤逸）</td><td>4–5.5%</td><td>外籍人士集中，租金穩定，空租率低</td></tr>
+        <tr><td>On Nut / Phra Khanong</td><td>5–6.5%</td><td>平價入門地段，DTV 數位遊牧族聚集，2026 年租金年增 8–13%</td></tr>
+        <tr><td>Thonglor / Ekkamai</td><td>4–5%</td><td>高端租客，租金穩定但總價高，空租率極低</td></tr>
+        <tr><td>河濱區（Riverside）</td><td>約 4%</td><td>景觀稀缺、高端住宅，總價高但具長期保值性</td></tr>
+        <tr><td>捷運新興沿線（Bangna 等）</td><td>5–7%</td><td>總價較低、租金需求強，適合追求高報酬的投資者</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="prose reveal">
+    <h2>三、影響投報率的成本</h2>
+  </div>
+
+  <div class="cost-list reveal">
+    <div class="cost-item"><span class="cost-item-label">管理費</span><span class="cost-item-value">30–100 泰銖／㎡／月</span></div>
+    <div class="cost-item"><span class="cost-item-label">大樓維修基金（Sinking Fund）</span><span class="cost-item-value">一次性繳交，依面積計算</span></div>
+    <div class="cost-item"><span class="cost-item-label">房產持有稅</span><span class="cost-item-value">每 100 萬泰銖約 200 泰銖／年</span></div>
+    <div class="cost-item"><span class="cost-item-label">外國人租金所得稅</span><span class="cost-item-value">約 15%（泰國人為 12.5%）</span></div>
+    <div class="cost-item"><span class="cost-item-label">代管費用</span><span class="cost-item-value">月租金的 5%–10%</span></div>
+    <div class="cost-item"><span class="cost-item-label">空置期（估算）</span><span class="cost-item-value">建議預估每年 1 個月</span></div>
+  </div>
+
+  <div class="prose reveal">
+    <h2>四、簡易試算方式</h2>
+    <p>以下以原文提供的案例試算，供參考：</p>
+  </div>
+
+  <div class="calc-box reveal">
+    <p class="calc-title">試算案例：總價 1,000 萬泰銖公寓</p>
+    <div class="calc-row"><span class="calc-label">月租金</span><span class="calc-value">4 萬泰銖</span></div>
+    <div class="calc-row"><span class="calc-label">年租金（× 12）</span><span class="calc-value">48 萬泰銖</span></div>
+    <div class="calc-row"><span class="calc-label">扣除管理費 + 雜支</span><span class="calc-value">－約 10 萬泰銖</span></div>
+    <div class="calc-row"><span class="calc-label">淨收益</span><span class="calc-value result">≈ 38 萬泰銖</span></div>
+    <div class="calc-row"><span class="calc-label">年投報率（38萬 ÷ 1,000萬）</span><span class="calc-value result">約 3.8%</span></div>
+    <p class="calc-note">※ 若購屋價格較低或租金較高，報酬率可提升至 5% 以上。此為毛利試算，未含租金所得稅。實際淨報酬請依個人稅務狀況計算。</p>
+  </div>
+
+  <div class="prose reveal">
+    <h2>五、投報率與區域關聯</h2>
+    <p>曼谷的報酬率變化與城市發展息息相關：</p>
+    <p><strong>捷運新線開通區域</strong>（如 Rama9、Bangna）房價仍有成長空間，租金需求強。傳統高價區（Thonglor、Asoke）租金穩定，空租率低。河濱高端區雖總價高，但稀有景觀資產具長期保值性。</p>
+  </div>
+
+  <div class="notice-box reveal">
+    <p>💡 <strong>毛報酬 vs 淨報酬</strong>：媒體常引用的「6% 報酬率」通常是毛報酬，未扣除稅費與空置期。實際入袋的淨報酬約為毛報酬減去 1.5%–2.5%。建議在評估投資時，以<strong>淨報酬 3%–5%</strong> 作為保守基準。</p>
+  </div>
+
+  <div class="prose reveal">
+    <h2>六、結語</h2>
+    <p>泰國房地產的投報率穩定、租賃市場成熟，不論是長期收租或資產配置，皆具吸引力。在選擇投資區域時，應同時考量<strong>租屋族群結構、交通建設與管理成本</strong>，以達到報酬與風險的平衡。</p>
+  </div>
+
+  <div class="cta-box reveal">
+    <h3 class="cta-box-title">想試算你的<em>實際投報率</em>？</h3>
+    <p class="cta-box-desc">每個建案的管理費與出租行情不同，歡迎直接聯繫 Alice，依你的預算幫你精算真實報酬。</p>
+    <a class="btn-gold" href="https://line.me/ti/p/rY37pUpv_k" target="_blank">LINE 免費諮詢</a>
+  </div>
+
+  <div class="related-section reveal">
+    <h3 class="related-title">延伸閱讀</h3>
+    <div class="related-grid">
+      <a class="related-card" href="article-thailand-rental.html">
+        <div class="related-thumb"><img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=200&q=80" alt="" loading="lazy" /></div>
+        <div><p class="related-tag">泰國 · 出租市場</p><p class="related-name">泰國房產出租市場：長租 vs 短租</p><p class="related-date">2026 · 10 分鐘閱讀</p></div>
+      </a>
+      <a class="related-card" href="article-bangkok-districts.html">
+        <div class="related-thumb"><img src="https://images.unsplash.com/photo-1508009603885-50cf7c579365?w=200&q=80" alt="" loading="lazy" /></div>
+        <div><p class="related-tag">泰國 · 地段解析</p><p class="related-name">曼谷熱門地段解析：Rama9、素坤逸、河濱區</p><p class="related-date">2025 · 10 分鐘閱讀</p></div>
+      </a>
+    </div>
+  </div>
+</div>
+<footer>
+  <p class="footer-logo">愛麗絲奇寓記</p>
+  <div class="footer-links"><a href="index.html">首頁</a><a href="thailand.html">泰國房產</a><a href="japan.html">日本房產</a></div>
+  <p class="footer-copy">© 2025 愛麗絲奇寓記 alice in city｜投資國外不動產具有風險性，請詳閱行銷文件並審慎考量後再行交易。</p>
+</footer>
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+  }, { threshold: 0.06 });
+  reveals.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

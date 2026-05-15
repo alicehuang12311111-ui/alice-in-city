@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>福岡房產趨勢：天神再開發帶動升值｜愛麗絲奇寓記</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Sans+TC:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    :root {
+      --cream:#f5f0e8; --cream-mid:#ede6d6; --cream-dark:#e0d5c0;
+      --taupe:#8c7b6b; --taupe-dark:#5c4f42; --brown:#3d3028;
+      --gold:#b89a6a; --gold-light:#d4b88a; --white:#fdfaf5;
+      --text-main:#2e261e; --text-mid:#6b5f54; --text-dim:#9e9188;
+      --line:rgba(140,123,107,0.2); --line-dark:rgba(140,123,107,0.4);
+    }
+    html { scroll-behavior:smooth; }
+    body { background:var(--cream); color:var(--text-main); font-family:'Noto Sans TC',sans-serif; font-weight:300; overflow-x:hidden; -webkit-font-smoothing:antialiased; }
+    nav { position:fixed; top:0; left:0; right:0; z-index:200; background:rgba(245,240,232,0.96); backdrop-filter:blur(12px); border-bottom:1px solid var(--line); display:flex; align-items:center; justify-content:space-between; padding:0 24px; height:60px; }
+    .nav-logo { font-family:'Playfair Display',serif; font-size:1rem; color:var(--brown); text-decoration:none; line-height:1.2; }
+    .nav-logo small { display:block; font-family:'Noto Sans TC',sans-serif; font-size:.46rem; letter-spacing:.26em; text-transform:uppercase; color:var(--taupe); font-weight:300; }
+    .nav-back { font-size:.65rem; letter-spacing:.18em; text-transform:uppercase; color:var(--taupe); text-decoration:none; display:flex; align-items:center; gap:6px; transition:color .3s; }
+    .nav-back:hover { color:var(--brown); }
+    .nav-back svg { transition:transform .3s; }
+    .nav-back:hover svg { transform:translateX(-3px); }
+    .article-hero { padding-top:60px; background:var(--white); }
+    .article-hero-img { width:100%; aspect-ratio:16/7; overflow:hidden; position:relative; }
+    .article-hero-img img { width:100%; height:100%; object-fit:cover; filter:brightness(.72); }
+    .article-hero-img::after { content:''; position:absolute; inset:0; background:linear-gradient(to bottom, transparent 40%, var(--white) 100%); }
+    .article-hero-body { padding:28px 24px 36px; max-width:800px; margin:0 auto; }
+    .article-breadcrumb { font-size:.6rem; letter-spacing:.22em; text-transform:uppercase; color:var(--taupe); margin-bottom:14px; display:flex; align-items:center; gap:7px; flex-wrap:wrap; }
+    .article-breadcrumb a { color:var(--taupe); text-decoration:none; }
+    .article-tag-badge { display:inline-block; font-size:.58rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); border:1px solid var(--gold); padding:3px 10px; margin-bottom:14px; }
+    .article-title { font-family:'Playfair Display',serif; font-size:clamp(1.7rem,5.5vw,2.8rem); font-weight:400; line-height:1.2; color:var(--brown); margin-bottom:18px; }
+    .article-meta { display:flex; gap:18px; flex-wrap:wrap; font-size:.65rem; letter-spacing:.12em; text-transform:uppercase; color:var(--text-dim); padding-top:16px; border-top:1px solid var(--line); }
+    .article-layout { max-width:800px; margin:0 auto; padding:40px 24px 80px; }
+    .prose p { font-size:.9rem; line-height:2; color:var(--text-mid); margin-bottom:16px; }
+    .prose strong { color:var(--brown); font-weight:500; }
+    .prose h2 { font-family:'Noto Serif TC',serif; font-size:1.1rem; color:var(--brown); margin:36px 0 14px; padding-bottom:10px; border-bottom:1px solid var(--line); }
+    .prose h3 { font-family:'Noto Serif TC',serif; font-size:.95rem; color:var(--brown); margin:24px 0 10px; }
+    .prose ul { list-style:none; padding:0; margin:10px 0 18px; }
+    .prose ul li { font-size:.88rem; line-height:1.9; color:var(--text-mid); padding:5px 0 5px 20px; position:relative; border-bottom:1px solid var(--line); }
+    .prose ul li:last-child { border-bottom:none; }
+    .prose ul li::before { content:'—'; position:absolute; left:0; color:var(--gold); }
+    .prose ul li strong { color:var(--brown); font-weight:500; }
+    .why-box { background:var(--cream-mid); border:1px solid var(--line); padding:20px 22px; margin-bottom:32px; }
+    .why-box-title { font-size:.65rem; letter-spacing:.24em; text-transform:uppercase; color:var(--gold); margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+    .why-box-title::before { content:''; display:inline-block; width:14px; height:1px; background:var(--gold); }
+    .why-box p { font-size:.86rem; line-height:1.88; color:var(--text-mid); }
+    .why-box p strong { color:var(--brown); font-weight:500; }
+    .section-divider { margin:40px 0 20px; padding-bottom:12px; border-bottom:1px solid var(--line); }
+    .section-divider-label { font-size:.62rem; letter-spacing:.28em; text-transform:uppercase; color:var(--taupe); }
+    .section-divider-label::before { content:''; display:inline-block; width:14px; height:1px; background:var(--gold); margin-right:10px; }
+    .notice-box { background:var(--cream-mid); border-left:3px solid var(--gold); padding:14px 18px; margin:16px 0; }
+    .notice-box p { font-size:.84rem; line-height:1.88; color:var(--text-mid); margin:0; }
+    .notice-box strong { color:var(--brown); font-weight:500; }
+    .info-cards { display:grid; grid-template-columns:1fr; gap:12px; margin:20px 0 28px; }
+    .info-card { background:var(--white); border:1px solid var(--line); padding:18px 20px; border-left:3px solid var(--gold); }
+    .info-card-title { font-family:'Noto Serif TC',serif; font-size:.92rem; color:var(--brown); margin-bottom:8px; }
+    .info-card p { font-size:.84rem; line-height:1.88; color:var(--text-mid); }
+    .info-card p strong { color:var(--brown); font-weight:500; }
+    .fee-table { width:100%; border-collapse:collapse; margin:16px 0 24px; font-size:.82rem; }
+    .fee-table th { background:var(--brown); color:var(--cream); padding:10px 12px; text-align:left; font-weight:400; font-size:.72rem; letter-spacing:.1em; }
+    .fee-table td { padding:10px 12px; border-bottom:1px solid var(--line); color:var(--text-mid); vertical-align:top; line-height:1.7; }
+    .fee-table td strong { color:var(--brown); font-weight:500; }
+    .fee-table tr:last-child td { border-bottom:none; }
+    .cta-box { background:var(--brown); padding:32px 24px; margin:52px 0 0; text-align:center; }
+    .cta-box-title { font-family:'Playfair Display',serif; font-size:1.25rem; color:var(--cream); margin-bottom:10px; line-height:1.3; }
+    .cta-box-title em { font-style:italic; color:var(--gold-light); }
+    .cta-box-desc { font-size:.8rem; color:rgba(245,240,232,.6); line-height:1.8; margin-bottom:20px; }
+    .btn-gold { display:inline-block; font-size:.68rem; letter-spacing:.2em; text-transform:uppercase; background:var(--gold); color:var(--brown); padding:12px 28px; text-decoration:none; transition:background .3s; }
+    .btn-gold:hover { background:var(--gold-light); }
+    .related-section { margin-top:56px; padding-top:36px; border-top:1px solid var(--line); }
+    .related-title { font-family:'Playfair Display',serif; font-size:1.05rem; color:var(--brown); margin-bottom:20px; }
+    .related-grid { display:grid; grid-template-columns:1fr; gap:12px; }
+    .related-card { display:flex; gap:14px; text-decoration:none; padding:14px; background:var(--white); border:1px solid var(--line); transition:border-color .3s; }
+    .related-card:hover { border-color:var(--gold); }
+    .related-thumb { width:72px; height:72px; flex-shrink:0; overflow:hidden; }
+    .related-thumb img { width:100%; height:100%; object-fit:cover; }
+    .related-tag { font-size:.56rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); }
+    .related-name { font-family:'Noto Serif TC',serif; font-size:.86rem; color:var(--brown); margin:4px 0; line-height:1.4; }
+    .related-date { font-size:.62rem; color:var(--text-dim); }
+    footer { background:var(--brown); padding:36px 24px 24px; border-top:2px solid var(--gold); }
+    .footer-logo { font-family:'Playfair Display',serif; font-size:1rem; color:var(--cream); margin-bottom:6px; }
+    .footer-links { display:flex; gap:18px; flex-wrap:wrap; margin-top:12px; }
+    .footer-links a { font-size:.72rem; color:rgba(245,240,232,.5); text-decoration:none; transition:color .3s; }
+    .footer-links a:hover { color:var(--cream); }
+    .footer-copy { font-size:.6rem; color:rgba(245,240,232,.28); line-height:1.8; margin-top:18px; }
+    .reveal { opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease; }
+    .reveal.in { opacity:1; transform:translateY(0); }
+    @media (min-width:768px) {
+      nav { padding:0 48px; height:68px; }
+      .article-hero-body, .article-layout { padding-left:48px; padding-right:48px; }
+      .related-grid { grid-template-columns:1fr 1fr; }
+      .info-cards { grid-template-columns:1fr 1fr; }
+    }
+    @media (min-width:1100px) {
+      nav { padding:0 80px; }
+      .article-hero-body, .article-layout { padding-left:80px; padding-right:80px; max-width:960px; }
+    }
+  </style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html">愛麗絲奇寓記<small>Overseas Property Curator</small></a>
+  <a class="nav-back" href="japan.html">
+    <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M13 5H1M1 5L5 1M1 5l4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+    日本房產
+  </a>
+</nav>
+<div class="article-hero">
+  <div class="article-hero-img">
+    <<img src="20250227_182654_341a91e0_w1920.webp" alt="福岡房產趨勢：天神再開發帶動升值" />
+  </div>
+  <div class="article-hero-body">
+    <div class="article-breadcrumb">
+      <a href="index.html">首頁</a> / <a href="japan.html">日本房產</a> / 購屋知識
+    </div>
+    <span class="article-tag-badge">日本 · 福岡</span>
+    <h1 class="article-title">福岡房產趨勢：天神再開發帶動升值</h1>
+    <div class="article-meta">
+      <span>閱讀時間約 6 分鐘</span>
+      <span>天神再開發・博多站・人口成長</span>
+      <span>2025–2026 年更新</span>
+    </div>
+  </div>
+</div>
+<div class="article-layout">
+  <div class="prose reveal">
+    <p>近年日本城市之中，福岡是少數能同時出現「<strong>人口增加、企業進駐、房市成長</strong>」三股力量同向推進的地方。當一座城市的就業、居住需求與資本投入一起加速，房地產往往就不是短期題材，而是進入一段結構性重估的週期。</p>
+  </div>
+  <div class="why-box reveal">
+    <p class="why-box-title">福岡正在進入「城市升級→資產重估」的關鍵期</p>
+    <p>福岡的趨勢，不是單點建案，而是一場由<strong>天神 Big Bang</strong> 與<strong>博多站前再開發</strong>帶動的都心再造。當城市等級升級、人口與企業同步進來，房地產往往會進入一段「更容易被看見價值」的階段。</p>
+  </div>
+  <div class="section-divider reveal">
+    <span class="section-divider-label">兩大核心推進引擎</span>
+  </div>
+  <div class="info-cards reveal">
+    <div class="info-card">
+      <p class="info-card-title">天神 Big Bang（天神ビッグバン）</p>
+      <p>天神區計畫在 2030 年前重建大量大樓，以「都心大規模重建」為主軸。城市門面更新、機能密度變高，<strong>地段價值被重新定義</strong>。天神不只是福岡的「傳統核心」，而是在變成「下一個階段的核心」。</p>
+    </div>
+    <div class="info-card">
+      <p class="info-card-title">博多站前再開發</p>
+      <p>九州門戶的交通樞紐與商務動能持續增強。車站型核心帶來兩種效應：<strong>通勤與移居需求更集中</strong>，以及<strong>出租市場更穩定</strong>。</p>
+    </div>
+  </div>
+  <div class="section-divider reveal">
+    <span class="section-divider-label">福岡的城市體質</span>
+  </div>
+  <div class="info-cards reveal">
+    <div class="info-card">
+      <p class="info-card-title">人口持續增加</p>
+      <p>政令指定都市中人口成長率領先，<strong>自住需求有基本盤</strong>，不只靠投資客撐價格。</p>
+    </div>
+    <div class="info-card">
+      <p class="info-card-title">企業持續布局</p>
+      <p>新創產業活躍、企業進駐持續增加，<strong>就業帶來穩定租賃人口</strong>，租客來源更穩定。</p>
+    </div>
+    <div class="info-card">
+      <p class="info-card-title">生活成本相對低</p>
+      <p>生活成本低於東京，卻擁有成熟的都市機能，<strong>對年輕就業人口與外派族群吸引力強</strong>。</p>
+    </div>
+    <div class="info-card">
+      <p class="info-card-title">產品分眾清楚</p>
+      <p>自住、投資、企業布局會各自形成不同的需求帶，讓<strong>不同目的的投資人都能找到合適的切入點</strong>。</p>
+    </div>
+  </div>
+  <div class="notice-box reveal">
+    <p>💡 <strong>真正值得關注的投資機會</strong>：都心更新範圍與周邊生活圈、交通樞紐與站前再開發帶、企業與商辦集中且租客結構穩定的區域。福岡的房市成長更像是「城市升級的結果」，而不是「市場情緒的泡沫」。</p>
+  </div>
+  <div class="cta-box reveal">
+    <h3 class="cta-box-title">有任何關於<em>日本房產的疑問</em>？</h3>
+    <p class="cta-box-desc">歡迎直接聯繫 Alice，我們提供專業的日本房產諮詢服務。</p>
+    <a class="btn-gold" href="https://line.me/ti/p/rY37pUpv_k" target="_blank">LINE 免費諮詢</a>
+  </div>
+  <div class="related-section reveal">
+    <h3 class="related-title">延伸閱讀</h3>
+    <div class="related-grid">
+      <a class="related-card" href="article-japan-investment-guide.html">
+        <div class="related-thumb"><img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=200&q=80" alt="" loading="lazy" /></div>
+        <div>
+          <p class="related-tag">日本 · 投資攻略</p>
+          <p class="related-name">日本房地產投資全攻略</p>
+          <p class="related-date">2025 · 8 分鐘閱讀</p>
+        </div>
+      </a>
+      <a class="related-card" href="article-osaka-potential.html">
+        <div class="related-thumb"><img src="https://images.unsplash.com/photo-1590559899731-a382839e5549?w=200&q=80" alt="" loading="lazy" /></div>
+        <div>
+          <p class="related-tag">日本 · 大阪</p>
+          <p class="related-name">大阪房地產潛力全面解構</p>
+          <p class="related-date">2025 · 8 分鐘閱讀</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+<footer>
+  <p class="footer-logo">愛麗絲奇寓記</p>
+  <div class="footer-links">
+    <a href="index.html">首頁</a><a href="thailand.html">泰國房產</a>
+    <a href="japan.html">日本房產</a>
+  </div>
+  <p class="footer-copy">© 2025 愛麗絲奇寓記｜投資國外不動產具有風險性，請詳閱行銷文件並審慎考量後再行交易。</p>
+</footer>
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+  }, { threshold: 0.06 });
+  reveals.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

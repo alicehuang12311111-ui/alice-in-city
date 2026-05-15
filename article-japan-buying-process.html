@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>日本購屋流程、稅費、貸款全解析｜愛麗絲奇寓記</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Sans+TC:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    :root {
+      --cream:#f5f0e8; --cream-mid:#ede6d6; --cream-dark:#e0d5c0;
+      --taupe:#8c7b6b; --taupe-dark:#5c4f42; --brown:#3d3028;
+      --gold:#b89a6a; --gold-light:#d4b88a; --white:#fdfaf5;
+      --text-main:#2e261e; --text-mid:#6b5f54; --text-dim:#9e9188;
+      --line:rgba(140,123,107,0.2); --line-dark:rgba(140,123,107,0.4);
+    }
+    html { scroll-behavior:smooth; }
+    body { background:var(--cream); color:var(--text-main); font-family:'Noto Sans TC',sans-serif; font-weight:300; overflow-x:hidden; -webkit-font-smoothing:antialiased; }
+    nav { position:fixed; top:0; left:0; right:0; z-index:200; background:rgba(245,240,232,0.96); backdrop-filter:blur(12px); border-bottom:1px solid var(--line); display:flex; align-items:center; justify-content:space-between; padding:0 24px; height:60px; }
+    .nav-logo { font-family:'Playfair Display',serif; font-size:1rem; color:var(--brown); text-decoration:none; line-height:1.2; }
+    .nav-logo small { display:block; font-family:'Noto Sans TC',sans-serif; font-size:.46rem; letter-spacing:.26em; text-transform:uppercase; color:var(--taupe); font-weight:300; }
+    .nav-back { font-size:.65rem; letter-spacing:.18em; text-transform:uppercase; color:var(--taupe); text-decoration:none; display:flex; align-items:center; gap:6px; transition:color .3s; }
+    .nav-back:hover { color:var(--brown); }
+    .nav-back svg { transition:transform .3s; }
+    .nav-back:hover svg { transform:translateX(-3px); }
+    .article-hero { padding-top:60px; background:var(--white); }
+    .article-hero-img { width:100%; aspect-ratio:16/7; overflow:hidden; position:relative; }
+    .article-hero-img img { width:100%; height:100%; object-fit:cover; filter:brightness(.72); }
+    .article-hero-img::after { content:''; position:absolute; inset:0; background:linear-gradient(to bottom, transparent 40%, var(--white) 100%); }
+    .article-hero-body { padding:28px 24px 36px; max-width:800px; margin:0 auto; }
+    .article-breadcrumb { font-size:.6rem; letter-spacing:.22em; text-transform:uppercase; color:var(--taupe); margin-bottom:14px; display:flex; align-items:center; gap:7px; flex-wrap:wrap; }
+    .article-breadcrumb a { color:var(--taupe); text-decoration:none; }
+    .article-tag-badge { display:inline-block; font-size:.58rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); border:1px solid var(--gold); padding:3px 10px; margin-bottom:14px; }
+    .article-title { font-family:'Playfair Display',serif; font-size:clamp(1.7rem,5.5vw,2.8rem); font-weight:400; line-height:1.2; color:var(--brown); margin-bottom:18px; }
+    .article-meta { display:flex; gap:18px; flex-wrap:wrap; font-size:.65rem; letter-spacing:.12em; text-transform:uppercase; color:var(--text-dim); padding-top:16px; border-top:1px solid var(--line); }
+    .article-layout { max-width:800px; margin:0 auto; padding:40px 24px 80px; }
+    .prose p { font-size:.9rem; line-height:2; color:var(--text-mid); margin-bottom:16px; }
+    .prose strong { color:var(--brown); font-weight:500; }
+    .prose h2 { font-family:'Noto Serif TC',serif; font-size:1.1rem; color:var(--brown); margin:36px 0 14px; padding-bottom:10px; border-bottom:1px solid var(--line); }
+    .why-box { background:var(--cream-mid); border:1px solid var(--line); padding:20px 22px; margin-bottom:32px; }
+    .why-box-title { font-size:.65rem; letter-spacing:.24em; text-transform:uppercase; color:var(--gold); margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+    .why-box-title::before { content:''; display:inline-block; width:14px; height:1px; background:var(--gold); }
+    .why-box p { font-size:.86rem; line-height:1.88; color:var(--text-mid); }
+    .why-box p strong { color:var(--brown); font-weight:500; }
+    .step-list { display:flex; flex-direction:column; gap:2px; margin:20px 0; }
+    .step-card { background:var(--white); border:1px solid var(--line); overflow:hidden; transition:border-color .3s; }
+    .step-card.open { border-color:var(--gold); }
+    .step-trigger { display:flex; align-items:center; gap:14px; padding:18px; cursor:pointer; user-select:none; }
+    .step-num { font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--gold); flex-shrink:0; width:28px; text-align:center; }
+    .step-name-wrap { flex:1; }
+    .step-name { font-family:'Noto Serif TC',serif; font-size:.95rem; font-weight:500; color:var(--brown); }
+    .step-sub { font-size:.65rem; color:var(--taupe); margin-top:2px; }
+    .step-arrow { color:var(--taupe); transition:transform .3s; flex-shrink:0; }
+    .step-card.open .step-arrow { transform:rotate(180deg); }
+    .step-body { max-height:0; overflow:hidden; transition:max-height .45s ease, padding .3s; padding:0 18px; }
+    .step-card.open .step-body { max-height:600px; padding:4px 18px 24px; }
+    .step-body p { font-size:.86rem; line-height:1.92; color:var(--text-mid); margin-bottom:10px; }
+    .step-body p:last-child { margin-bottom:0; }
+    .step-body strong { color:var(--brown); font-weight:500; }
+    .step-body ul { list-style:none; padding:0; margin:8px 0; }
+    .step-body ul li { font-size:.84rem; line-height:1.85; color:var(--text-mid); padding:5px 0 5px 18px; position:relative; border-bottom:1px solid var(--line); }
+    .step-body ul li:last-child { border-bottom:none; }
+    .step-body ul li::before { content:'—'; position:absolute; left:0; color:var(--gold); font-size:.8rem; }
+    .step-body ul li strong { color:var(--brown); font-weight:500; }
+    .fee-table { width:100%; border-collapse:collapse; margin:16px 0 24px; font-size:.82rem; }
+    .fee-table th { background:var(--brown); color:var(--cream); padding:10px 12px; text-align:left; font-weight:400; font-size:.72rem; letter-spacing:.1em; }
+    .fee-table td { padding:10px 12px; border-bottom:1px solid var(--line); color:var(--text-mid); vertical-align:top; line-height:1.7; }
+    .fee-table td strong { color:var(--brown); font-weight:500; }
+    .fee-table tr:last-child td { border-bottom:none; }
+    .section-divider { margin:40px 0 20px; padding-bottom:12px; border-bottom:1px solid var(--line); }
+    .section-divider-label { font-size:.62rem; letter-spacing:.28em; text-transform:uppercase; color:var(--taupe); }
+    .section-divider-label::before { content:''; display:inline-block; width:14px; height:1px; background:var(--gold); margin-right:10px; }
+    .notice-box { background:var(--cream-mid); border-left:3px solid var(--gold); padding:14px 18px; margin:16px 0; }
+    .notice-box p { font-size:.84rem; line-height:1.88; color:var(--text-mid); margin:0; }
+    .notice-box strong { color:var(--brown); font-weight:500; }
+    .warn-box { background:#fff8f0; border-left:3px solid var(--gold); padding:14px 18px; margin:16px 0; }
+    .warn-box p { font-size:.84rem; line-height:1.88; color:var(--text-mid); margin:0; }
+    .warn-box strong { color:var(--brown); font-weight:500; }
+    .cta-box { background:var(--brown); padding:32px 24px; margin:52px 0 0; text-align:center; }
+    .cta-box-title { font-family:'Playfair Display',serif; font-size:1.25rem; color:var(--cream); margin-bottom:10px; line-height:1.3; }
+    .cta-box-title em { font-style:italic; color:var(--gold-light); }
+    .cta-box-desc { font-size:.8rem; color:rgba(245,240,232,.6); line-height:1.8; margin-bottom:20px; }
+    .btn-gold { display:inline-block; font-size:.68rem; letter-spacing:.2em; text-transform:uppercase; background:var(--gold); color:var(--brown); padding:12px 28px; text-decoration:none; transition:background .3s; }
+    .btn-gold:hover { background:var(--gold-light); }
+    .related-section { margin-top:56px; padding-top:36px; border-top:1px solid var(--line); }
+    .related-title { font-family:'Playfair Display',serif; font-size:1.05rem; color:var(--brown); margin-bottom:20px; }
+    .related-grid { display:grid; grid-template-columns:1fr; gap:12px; }
+    .related-card { display:flex; gap:14px; text-decoration:none; padding:14px; background:var(--white); border:1px solid var(--line); transition:border-color .3s; }
+    .related-card:hover { border-color:var(--gold); }
+    .related-thumb { width:72px; height:72px; flex-shrink:0; overflow:hidden; }
+    .related-thumb img { width:100%; height:100%; object-fit:cover; }
+    .related-tag { font-size:.56rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); }
+    .related-name { font-family:'Noto Serif TC',serif; font-size:.86rem; color:var(--brown); margin:4px 0; line-height:1.4; }
+    .related-date { font-size:.62rem; color:var(--text-dim); }
+    footer { background:var(--brown); padding:36px 24px 24px; border-top:2px solid var(--gold); }
+    .footer-logo { font-family:'Playfair Display',serif; font-size:1rem; color:var(--cream); margin-bottom:6px; }
+    .footer-links { display:flex; gap:18px; flex-wrap:wrap; margin-top:12px; }
+    .footer-links a { font-size:.72rem; color:rgba(245,240,232,.5); text-decoration:none; transition:color .3s; }
+    .footer-links a:hover { color:var(--cream); }
+    .footer-copy { font-size:.6rem; color:rgba(245,240,232,.28); line-height:1.8; margin-top:18px; }
+    .reveal { opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease; }
+    .reveal.in { opacity:1; transform:translateY(0); }
+    @media (min-width:768px) {
+      nav { padding:0 48px; height:68px; }
+      .article-hero-body, .article-layout { padding-left:48px; padding-right:48px; }
+      .related-grid { grid-template-columns:1fr 1fr; }
+    }
+    @media (min-width:1100px) {
+      nav { padding:0 80px; }
+      .article-hero-body, .article-layout { padding-left:80px; padding-right:80px; max-width:960px; }
+    }
+  </style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html">愛麗絲奇寓記<small>Overseas Property Curator</small></a>
+  <a class="nav-back" href="japan.html">
+    <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M13 5H1M1 5L5 1M1 5l4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+    日本房產
+  </a>
+</nav>
+
+<div class="article-hero">
+  <div class="article-hero-img">
+<img src="177882295821015_P34005884.jpg" alt="日本購屋流程" />
+  </div>
+  <div class="article-hero-body">
+    <div class="article-breadcrumb">
+      <a href="index.html">首頁</a> / <a href="japan.html">日本房產</a> / 購屋知識
+    </div>
+    <span class="article-tag-badge">日本 · 購屋流程</span>
+    <h1 class="article-title">日本購屋流程、稅費、貸款全解析</h1>
+    <div class="article-meta">
+      <span>閱讀時間約 12 分鐘</span>
+      <span>流程・費用・稅務・貸款</span>
+      <span>2025–2026 年更新</span>
+    </div>
+  </div>
+</div>
+
+<div class="article-layout">
+
+  <div class="prose reveal">
+    <p>日本房地產交易制度以透明、安全、程序嚴謹著稱。對外國買家而言，這不只是買下一棟房子，更是進入一套<strong>可預測、受法律保障的誠信體系</strong>。本篇將從資格、流程、支出到稅務，為您進行全方位的深度拆解。</p>
+  </div>
+
+  <div class="why-box reveal">
+    <p class="why-box-title">操作重點提醒</p>
+    <p>除了物件總價外，應額外預留約 <strong>10%</strong> 作為稅金、仲介費與手續費等支出。海外匯款需時間，建議提前至少 3 天入帳。授權書須註明具體用途，建議由專業不動產公司保管。</p>
+  </div>
+
+  <div class="section-divider reveal">
+    <span class="section-divider-label">一、四大購屋階段</span>
+  </div>
+
+  <div class="step-list reveal">
+    <div class="step-card" id="step1">
+      <div class="step-trigger" onclick="toggleStep('step1')">
+        <span class="step-num">1</span>
+        <div class="step-name-wrap">
+          <p class="step-name">看屋與評估</p>
+          <p class="step-sub">視訊看屋 / 委託在日代表 / 親自赴日</p>
+        </div>
+        <svg class="step-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+      </div>
+      <div class="step-body">
+        <p>即使人在海外，買家也能透過授權或代辦完成所有程序。三種方式可選：</p>
+        <ul>
+          <li><strong>視訊看屋</strong>：由仲介或管理公司即時連線導覽</li>
+          <li><strong>委託在日代表看屋</strong>：由信任的友人或代辦機構現場確認</li>
+          <li><strong>親自赴日看屋</strong>：最能直接感受區域氛圍與物件品質</li>
+        </ul>
+        <p>仲介在此階段會提供「地點分析」、「租金行情」、「管理費」與「潛在報酬率」供決策參考。</p>
+      </div>
+    </div>
+
+    <div class="step-card" id="step2">
+      <div class="step-trigger" onclick="toggleStep('step2')">
+        <span class="step-num">2</span>
+        <div class="step-name-wrap">
+          <p class="step-name">提出申請與文件準備</p>
+          <p class="step-sub">護照・委任狀・戶籍謄本（需外館認證）</p>
+        </div>
+        <svg class="step-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+      </div>
+      <div class="step-body">
+        <p>確定物件後需提交「購屋申請書」。若賣方接受，買方需準備：</p>
+        <ul>
+          <li>身分證明、護照</li>
+          <li>委任狀、印鑑證明、戶籍謄本（若在台灣辦理，須加蓋外館認證）</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="step-card" id="step3">
+      <div class="step-trigger" onclick="toggleStep('step3')">
+        <span class="step-num">3</span>
+        <div class="step-name-wrap">
+          <p class="step-name">簽約階段</p>
+          <p class="step-sub">支付總價 10% 訂金・重要事項說明</p>
+        </div>
+        <svg class="step-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+      </div>
+      <div class="step-body">
+        <ul>
+          <li><strong>形式</strong>：親自赴日或委託在日代表 / 仲介代簽</li>
+          <li><strong>訂金</strong>：須支付總價約 10% 的誠意款</li>
+          <li><strong>重要程序</strong>：仲介會解說合約內容，包括產權、現況及稅費分擔，買方可要求補註不清楚之條款</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="step-card" id="step4">
+      <div class="step-trigger" onclick="toggleStep('step4')">
+        <span class="step-num">4</span>
+        <div class="step-name-wrap">
+          <p class="step-name">交屋與過戶</p>
+          <p class="step-sub">簽約後 1～3 個月內完成・支付 90% 尾款</p>
+        </div>
+        <svg class="step-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+      </div>
+      <div class="step-body">
+        <ul>
+          <li><strong>尾款</strong>：支付剩餘 90% 房價</li>
+          <li><strong>監管機制</strong>：由不動產登記士與金融機構共同監督，確保金流與產權安全銜接</li>
+          <li><strong>完成</strong>：取得正式權狀與鑰匙，若有委託代租公司，此時可直接接手管理</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider reveal">
+    <span class="section-divider-label">二、費用結構解析（約房價 6%～8%）</span>
+  </div>
+
+  <div class="prose reveal">
+    <p>日本房產費用制度高度透明，每一筆支出均有法源依據：</p>
+  </div>
+
+  <table class="fee-table reveal">
+    <thead>
+      <tr><th>項目</th><th>說明</th><th>費率／金額</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>仲介服務費</strong></td><td>搓合、文件處理與協助交屋</td><td>房價 3% + 6 萬日圓（外加消費稅）</td></tr>
+      <tr><td><strong>印紙稅</strong></td><td>契約稅（政府課徵）</td><td>1,000 萬～5,000 萬日圓物件約 1～3 萬日圓</td></tr>
+      <tr><td><strong>登錄與許可稅</strong></td><td>產權過戶登記費</td><td>約 2%</td></tr>
+      <tr><td><strong>不動產取得稅</strong></td><td>購屋後 3～6 個月課徵</td><td>固定資產評價額的 3%～4%</td></tr>
+      <tr><td><strong>雜費</strong></td><td>司法書士費、公證費、匯款費</td><td>約 10 萬至 20 萬日圓</td></tr>
+    </tbody>
+  </table>
+
+  <div class="section-divider reveal">
+    <span class="section-divider-label">三、貸款實務：非日籍人士門檻</span>
+  </div>
+
+  <div class="prose reveal">
+    <p>日本對外資購屋幾乎沒有限制，無論是否持有日本簽證或居留身分，均可合法取得完整產權。</p>
+    <p><strong>無日本居留身分者</strong>可透過台系銀行日本分行（台新、兆豐、中信、玉山）或特定日系銀行（Resona、SMBC）申請：</p>
+  </div>
+
+  <div class="step-list reveal">
+    <div class="step-card" id="loan1">
+      <div class="step-trigger" onclick="toggleStep('loan1')">
+        <span class="step-num">貸</span>
+        <div class="step-name-wrap">
+          <p class="step-name">無居留身分貸款條件</p>
+          <p class="step-sub">台系銀行日本分行可承作</p>
+        </div>
+        <svg class="step-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+      </div>
+      <div class="step-body">
+        <ul>
+          <li><strong>成數</strong>：約房價 50%～70%</li>
+          <li><strong>年期</strong>：通常 10～20 年</li>
+          <li><strong>利率</strong>：約 2%～3%（高於日本在地身分）</li>
+          <li><strong>區域限制</strong>：僅限東京、大阪的物件</li>
+          <li><strong>屋齡</strong>：需在 20 年以內</li>
+          <li><strong>成交價</strong>：須在 3,500 萬日圓以上</li>
+          <li><strong>申請人收入</strong>：年收入須達一定門檻（以國稅局資料為準）</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="notice-box reveal">
+    <p>💡 <strong>貸款流程</strong>：選定物件 → 仲介協助送件 → 銀行初審（約 1 週）→ 簽署正式申請書 → 核准 → 簽約放款。整體流程約需 3～6 週。若無日本籍保證人，可透過專業保證公司進行擔保。</p>
+  </div>
+
+  <div class="section-divider reveal">
+    <span class="section-divider-label">四、持有、出租與出售稅務指南</span>
+  </div>
+
+  <div class="prose reveal">
+    <p><strong>持有階段（每年）</strong>：固定資產稅＋都市計畫稅，以地方政府評定價為基礎課徵。管理費與修繕基金每月約 1 萬至 3 萬日圓。</p>
+    <p><strong>出租階段</strong>：需申報「租金所得」，可扣除管理、修繕、保險及代租等必要費用。</p>
+    <p><strong>出售階段</strong>：課徵「讓渡所得稅」，稅率依持有期間長短而異：</p>
+  </div>
+
+  <table class="fee-table reveal">
+    <thead>
+      <tr><th>持有年限</th><th>讓渡所得稅率</th><th>備註</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>5 年以內</td><td>約 39.63%</td><td>所得稅 30% + 住民稅 9% + 復興特別稅 0.63%</td></tr>
+      <tr><td>5 年以上</td><td>約 20.315%</td><td>所得稅 15% + 住民稅 5% + 復興特別稅 0.315%</td></tr>
+      <tr><td>10 年以上（6千萬以下）</td><td>約 10.21%</td><td>自用住宅特別優惠稅率</td></tr>
+    </tbody>
+  </table>
+
+  <div class="warn-box reveal">
+    <p>⚠️ <strong>常見誤區</strong>：稅費常以「評定價」而非「成交價」計算；非居住者有特定的申報規定；評估投報率時必須扣除管理費、修繕基金與持有稅，而非僅看表面租金。</p>
+  </div>
+
+  <div class="cta-box reveal">
+    <h3 class="cta-box-title">想了解<em>完整的購屋費用試算</em>？</h3>
+    <p class="cta-box-desc">我們協助您從看屋到交屋全程陪伴，稅費估算、貸款諮詢一次搞定。</p>
+    <a class="btn-gold" href="https://line.me/ti/p/rY37pUpv_k" target="_blank">LINE 免費諮詢</a>
+  </div>
+
+  <div class="related-section reveal">
+    <h3 class="related-title">延伸閱讀</h3>
+    <div class="related-grid">
+      <a class="related-card" href="article-japan-tax.html">
+        <div class="related-thumb"><img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=200&q=80" alt="" loading="lazy" /></div>
+        <div>
+          <p class="related-tag">日本 · 稅務</p>
+          <p class="related-name">日本買房稅務大全</p>
+          <p class="related-date">2025 · 12 分鐘閱讀</p>
+        </div>
+      </a>
+      <a class="related-card" href="article-japan-rental-management.html">
+        <div class="related-thumb"><img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=200&q=80" alt="" loading="lazy" /></div>
+        <div>
+          <p class="related-tag">日本 · 租賃管理</p>
+          <p class="related-name">日本租賃管理服務全流程</p>
+          <p class="related-date">2025 · 8 分鐘閱讀</p>
+        </div>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p class="footer-logo">愛麗絲奇寓記</p>
+  <div class="footer-links">
+    <a href="index.html">首頁</a><a href="thailand.html">泰國房產</a>
+    <a href="japan.html">日本房產</a>
+  </div>
+  <p class="footer-copy">© 2025 愛麗絲奇寓記｜投資國外不動產具有風險性，請詳閱行銷文件並審慎考量後再行交易。</p>
+</footer>
+
+<script>
+  function toggleStep(id) {
+    const card = document.getElementById(id);
+    const isOpen = card.classList.contains('open');
+    document.querySelectorAll('.step-card.open').forEach(c => c.classList.remove('open'));
+    if (!isOpen) card.classList.add('open');
+  }
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+  }, { threshold: 0.06 });
+  reveals.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

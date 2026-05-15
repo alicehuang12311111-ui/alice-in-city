@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>泰國房產出租市場：長租 vs 短租｜愛麗絲奇寓記</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Sans+TC:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    :root {
+      --cream:#f5f0e8; --cream-mid:#ede6d6; --cream-dark:#e0d5c0;
+      --taupe:#8c7b6b; --taupe-dark:#5c4f42; --brown:#3d3028;
+      --gold:#b89a6a; --gold-light:#d4b88a; --white:#fdfaf5;
+      --text-main:#2e261e; --text-mid:#6b5f54; --text-dim:#9e9188;
+      --line:rgba(140,123,107,0.2); --line-dark:rgba(140,123,107,0.4);
+    }
+    html { scroll-behavior:smooth; }
+    body { background:var(--cream); color:var(--text-main); font-family:'Noto Sans TC',sans-serif; font-weight:300; overflow-x:hidden; -webkit-font-smoothing:antialiased; }
+    nav { position:fixed; top:0; left:0; right:0; z-index:200; background:rgba(245,240,232,0.96); backdrop-filter:blur(12px); border-bottom:1px solid var(--line); display:flex; align-items:center; justify-content:space-between; padding:0 24px; height:60px; }
+    .nav-logo { font-family:'Playfair Display',serif; font-size:1rem; color:var(--brown); text-decoration:none; line-height:1.2; }
+    .nav-logo small { display:block; font-family:'Noto Sans TC',sans-serif; font-size:.46rem; letter-spacing:.26em; text-transform:uppercase; color:var(--taupe); font-weight:300; }
+    .nav-back { font-size:.65rem; letter-spacing:.18em; text-transform:uppercase; color:var(--taupe); text-decoration:none; display:flex; align-items:center; gap:6px; transition:color .3s; }
+    .nav-back:hover { color:var(--brown); }
+    .nav-back svg { transition:transform .3s; }
+    .nav-back:hover svg { transform:translateX(-3px); }
+    .article-hero { padding-top:60px; background:var(--white); }
+    .article-hero-img { width:100%; aspect-ratio:16/7; overflow:hidden; position:relative; }
+    .article-hero-img img { width:100%; height:100%; object-fit:cover; filter:brightness(.75); }
+    .article-hero-img::after { content:''; position:absolute; inset:0; background:linear-gradient(to bottom, transparent 40%, var(--white) 100%); }
+    .article-hero-body { padding:28px 24px 36px; max-width:800px; margin:0 auto; }
+    .article-breadcrumb { font-size:.6rem; letter-spacing:.22em; text-transform:uppercase; color:var(--taupe); margin-bottom:14px; display:flex; align-items:center; gap:7px; flex-wrap:wrap; }
+    .article-breadcrumb a { color:var(--taupe); text-decoration:none; }
+    .article-tag-badge { display:inline-block; font-size:.58rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); border:1px solid var(--gold); padding:3px 10px; margin-bottom:14px; }
+    .article-title { font-family:'Playfair Display',serif; font-size:clamp(1.7rem,5.5vw,2.8rem); font-weight:400; line-height:1.2; color:var(--brown); margin-bottom:18px; }
+    .article-meta { display:flex; gap:18px; flex-wrap:wrap; font-size:.65rem; letter-spacing:.12em; text-transform:uppercase; color:var(--text-dim); padding-top:16px; border-top:1px solid var(--line); }
+    .article-layout { max-width:800px; margin:0 auto; padding:40px 24px 80px; }
+    .prose p { font-size:.9rem; line-height:2; color:var(--text-mid); margin-bottom:16px; }
+    .prose strong { color:var(--brown); font-weight:500; }
+    .prose h2 { font-family:'Playfair Display',serif; font-size:clamp(1.2rem,4vw,1.6rem); font-weight:400; color:var(--brown); margin:44px 0 16px; padding-bottom:12px; border-bottom:1px solid var(--line); display:flex; align-items:center; gap:10px; }
+    .prose h2::before { content:''; display:inline-block; width:3px; height:1.2em; background:var(--gold); flex-shrink:0; }
+    .compare-grid { display:grid; grid-template-columns:1fr 1fr; gap:2px; margin:20px 0; }
+    .compare-card { background:var(--white); border:1px solid var(--line); padding:20px 18px; }
+    .compare-card.dark { background:var(--brown); border-color:var(--brown); }
+    .compare-label { font-size:.6rem; letter-spacing:.22em; text-transform:uppercase; color:var(--taupe); margin-bottom:8px; }
+    .compare-card.dark .compare-label { color:rgba(245,240,232,.5); }
+    .compare-title { font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--brown); margin-bottom:12px; }
+    .compare-card.dark .compare-title { color:var(--gold-light); }
+    .compare-list { list-style:none; padding:0; }
+    .compare-list li { font-size:.82rem; line-height:1.8; color:var(--text-mid); padding:5px 0 5px 16px; position:relative; border-bottom:1px solid var(--line); }
+    .compare-card.dark .compare-list li { color:rgba(245,240,232,.65); border-color:rgba(184,154,106,.2); }
+    .compare-list li:last-child { border-bottom:none; }
+    .compare-list li::before { content:'—'; position:absolute; left:0; color:var(--gold); font-size:.8rem; }
+    .cost-table { width:100%; border-collapse:collapse; margin:16px 0; font-size:.84rem; }
+    .cost-table th { background:var(--brown); color:var(--cream); font-size:.62rem; letter-spacing:.12em; text-transform:uppercase; font-weight:400; padding:9px 12px; text-align:left; }
+    .cost-table td { padding:9px 12px; border-bottom:1px solid var(--line); color:var(--text-mid); line-height:1.6; vertical-align:top; }
+    .cost-table tbody tr:nth-child(even) td { background:var(--cream-mid); }
+    .cost-table td:first-child { color:var(--brown); font-weight:400; white-space:nowrap; }
+    .tenant-list { display:flex; flex-direction:column; gap:2px; margin-top:20px; }
+    .tenant-item { background:var(--white); border:1px solid var(--line); overflow:hidden; }
+    .tenant-trigger { display:flex; align-items:center; gap:14px; padding:16px 18px; cursor:pointer; user-select:none; }
+    .tenant-icon { font-size:1.1rem; flex-shrink:0; }
+    .tenant-name { font-family:'Noto Serif TC',serif; font-size:.9rem; font-weight:400; color:var(--brown); flex:1; }
+    .tenant-sub { font-size:.65rem; color:var(--taupe); margin-top:2px; }
+    .tenant-arrow { color:var(--taupe); transition:transform .3s; flex-shrink:0; }
+    .tenant-item.open .tenant-arrow { transform:rotate(180deg); }
+    .tenant-body { max-height:0; overflow:hidden; transition:max-height .4s ease, padding .3s; padding:0 18px 0 52px; }
+    .tenant-item.open .tenant-body { max-height:600px; padding:4px 18px 20px 52px; }
+    .tenant-body p { font-size:.86rem; line-height:1.92; color:var(--text-mid); margin-bottom:8px; }
+    .tenant-body p:last-child { margin-bottom:0; }
+    .tenant-body strong { color:var(--brown); font-weight:500; }
+    .notice-box { background:var(--cream-mid); border-left:3px solid var(--gold); padding:14px 18px; margin:16px 0; }
+    .notice-box p { font-size:.84rem; line-height:1.88; color:var(--text-mid); margin:0; }
+    .notice-box p+p { margin-top:8px; }
+    .notice-box strong { color:var(--brown); font-weight:500; }
+    .warning-box { background:#fdf5f5; border-left:3px solid #c0392b; padding:14px 18px; margin:16px 0; }
+    .warning-box p { font-size:.84rem; line-height:1.88; color:#6b3030; margin:0; }
+    .warning-box strong { color:#8b2020; font-weight:500; }
+    .new-badge { display:inline-block; font-size:.55rem; letter-spacing:.14em; text-transform:uppercase; background:var(--gold); color:var(--brown); padding:2px 7px; border-radius:2px; margin-left:6px; vertical-align:middle; }
+    .cta-box { background:var(--brown); padding:32px 24px; margin:52px 0 0; text-align:center; }
+    .cta-box-title { font-family:'Playfair Display',serif; font-size:1.25rem; color:var(--cream); margin-bottom:10px; line-height:1.3; }
+    .cta-box-title em { font-style:italic; color:var(--gold-light); }
+    .cta-box-desc { font-size:.8rem; color:rgba(245,240,232,.6); line-height:1.8; margin-bottom:20px; }
+    .btn-gold { display:inline-block; font-size:.68rem; letter-spacing:.2em; text-transform:uppercase; background:var(--gold); color:var(--brown); padding:12px 28px; text-decoration:none; transition:background .3s; }
+    .btn-gold:hover { background:var(--gold-light); }
+    .related-section { margin-top:56px; padding-top:36px; border-top:1px solid var(--line); }
+    .related-title { font-family:'Playfair Display',serif; font-size:1.05rem; color:var(--brown); margin-bottom:20px; }
+    .related-grid { display:grid; grid-template-columns:1fr; gap:12px; }
+    .related-card { display:flex; gap:14px; text-decoration:none; padding:14px; background:var(--white); border:1px solid var(--line); transition:border-color .3s; }
+    .related-card:hover { border-color:var(--gold); }
+    .related-thumb { width:72px; height:72px; flex-shrink:0; overflow:hidden; }
+    .related-thumb img { width:100%; height:100%; object-fit:cover; }
+    .related-tag { font-size:.56rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); }
+    .related-name { font-family:'Noto Serif TC',serif; font-size:.86rem; color:var(--brown); margin:4px 0; line-height:1.4; }
+    .related-date { font-size:.62rem; color:var(--text-dim); }
+    footer { background:var(--brown); padding:36px 24px 24px; border-top:2px solid var(--gold); }
+    .footer-logo { font-family:'Playfair Display',serif; font-size:1rem; color:var(--cream); margin-bottom:6px; }
+    .footer-links { display:flex; gap:18px; flex-wrap:wrap; margin-top:12px; }
+    .footer-links a { font-size:.72rem; color:rgba(245,240,232,.5); text-decoration:none; transition:color .3s; }
+    .footer-links a:hover { color:var(--cream); }
+    .footer-copy { font-size:.6rem; color:rgba(245,240,232,.28); line-height:1.8; margin-top:18px; }
+    .reveal { opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease; }
+    .reveal.in { opacity:1; transform:translateY(0); }
+    @media (min-width:768px) {
+      nav { padding:0 48px; height:68px; }
+      .article-hero-body, .article-layout { padding-left:48px; padding-right:48px; }
+      .related-grid { grid-template-columns:1fr 1fr; }
+    }
+    @media (min-width:1100px) {
+      nav { padding:0 80px; }
+      .article-hero-body, .article-layout { padding-left:80px; padding-right:80px; max-width:960px; }
+    }
+  </style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html">愛麗絲奇寓記<small>Overseas Property Curator</small></a>
+  <a class="nav-back" href="thailand.html">
+    <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M13 5H1M1 5L5 1M1 5l4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+    泰國房產
+  </a>
+</nav>
+<div class="article-hero">
+  <div class="article-hero-img"><img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1400&q=85" alt="泰國出租市場" /></div>
+  <div class="article-hero-body">
+    <div class="article-breadcrumb"><a href="index.html">首頁</a> / <a href="thailand.html">泰國房產</a> / 投資知識</div>
+    <span class="article-tag-badge">泰國 · 出租市場</span>
+    <h1 class="article-title">泰國房產出租市場：長租 vs 短租</h1>
+    <div class="article-meta"><span>閱讀時間約 10 分鐘</span><span>長租・短租・六種租客類型</span><span>2025–2026 年更新</span></div>
+  </div>
+</div>
+<div class="article-layout">
+
+  <div class="prose reveal">
+    <h2>一、外國人能否出租房產？</h2>
+    <p>根據現有規定，<strong>外國人可合法出租自有公寓</strong>，出租型態可分為長期租賃與短期租賃兩種。每個城市都有不同類型的居住者，不論你是在台灣買房子當包租公，還是選擇到泰國買房收租，都需要考量未來租客的目標客群，才能準確判斷購買什麼樣的社區或格局才是合適的選擇。</p>
+  </div>
+
+  <div class="compare-grid reveal">
+    <div class="compare-card">
+      <p class="compare-label">長期出租</p>
+      <h3 class="compare-title">✅ 合法・穩定</h3>
+      <ul class="compare-list">
+        <li><strong>租期規範</strong>：30 天以上屬於長期租賃，合法且可於地政局登記</li>
+        <li><strong>租客來源</strong>：以外籍商務人士、駐外公司員工及長期居留者為主</li>
+        <li><strong>報酬率</strong>：平均年投報率約 4%–6%（毛）</li>
+        <li><strong>優點</strong>：法律保障完整，管理費與稅務制度清楚，可透過代管公司處理</li>
+      </ul>
+    </div>
+    <div class="compare-card dark">
+      <p class="compare-label">短期出租</p>
+      <h3 class="compare-title">⚠️ 限制較多</h3>
+      <ul class="compare-list">
+        <li><strong>規範</strong>：短期出租不得少於 30 天</li>
+        <li><strong>日租限制</strong>：若以日租形式經營，須具備酒店式經營許可證，僅限「酒店登記」的公寓</li>
+        <li><strong>風險</strong>：在一般住宅進行日租，可能面臨罰款與行政處分</li>
+        <li><strong>實務</strong>：部分建案物業管理明確禁止短租行為</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="prose reveal">
+    <h2>二、出租成本一覽</h2>
+  </div>
+
+  <div class="reveal" style="overflow-x:auto;">
+    <table class="cost-table">
+      <thead><tr><th>費用項目</th><th>金額</th><th>說明</th></tr></thead>
+      <tbody>
+        <tr><td>管理費</td><td>30–100 泰銖／㎡／月</td><td>依大樓規模與等級而異</td></tr>
+        <tr><td>電費</td><td>3–4 泰銖／度</td><td>依使用量計算</td></tr>
+        <tr><td>水費</td><td>約 15 泰銖／單位</td><td>依使用量計算</td></tr>
+        <tr><td>有線電視 + 網路</td><td>每月約 400–700 泰銖</td><td>依方案而定</td></tr>
+        <tr><td>代管費用</td><td>月租金的 5%–10%</td><td>若委託代管公司處理</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="prose reveal">
+    <h2>三、租賃市場概況 <span class="new-badge">2025–2026 更新</span></h2>
+    <p>曼谷長租市場以外籍租客與中高收入族群為主，熱門區域集中於 <strong>Sukhumvit、Rama9、Asoke、Phrom Phong、Thonglor</strong> 等地，多為單身上班族、小家庭或外派主管。</p>
+    <p>隨著捷運網絡延伸與 EEC 建設推進，周邊新興區域租賃需求持續增長。2024 年泰國推出<strong>數位遊牧簽證（DTV）</strong>，五年多次入境、每次可停留 180 天，吸引大量遠距工作者長駐曼谷，成為 On Nut、Phra Khanong 等地的重要新租客族群。</p>
+  </div>
+
+  <div class="notice-box reveal">
+    <p>📌 <strong>2025 年新制</strong>：泰國政府通過新的住宅租賃合約保護法，限制房東可預收的款項金額，並禁止部分不公平條款，更清楚保障房東與租客雙方的權益。</p>
+  </div>
+
+  <div class="prose reveal">
+    <h2>四、曼谷六種主要租客類型</h2>
+    <p>了解你的目標租客，才能選對地段、格局與社區。以下是曼谷最常見的六種租客類型：</p>
+  </div>
+
+  <div class="tenant-list reveal">
+    <div class="tenant-item">
+      <div class="tenant-trigger" onclick="toggleTenant(this)">
+        <span class="tenant-icon">🌏</span>
+        <div>
+          <p class="tenant-name">國際商務客</p>
+          <p class="tenant-sub">來自世界各國的商業菁英</p>
+        </div>
+        <svg class="tenant-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+      </div>
+      <div class="tenant-body">
+        <p>做為國際化的東南亞大都市，曼谷市區最主要的租客是來自世界各國的商務族群，常見的國籍包含英國、美國、新加坡、印度、日本等，這些人有的是短期派駐到泰國 1 年，也有的一待就是 3-5 年。</p>
+        <p>1 房的輕居住空間、2 房的舒適空間都是他們經常承租的房型。通常會聚集在 <strong>BTS 或 MRT 沿線</strong>，公司如果有提供補助，多數會選擇較為市中心的位置，許多商務人士會優先考慮具有酒店式管理服務的大樓，而健身房和游泳池等公共設施也是他們所鍾愛的社區服務。</p>
+      </div>
+    </div>
+
+    <div class="tenant-item">
+      <div class="tenant-trigger" onclick="toggleTenant(this)">
+        <span class="tenant-icon">🎓</span>
+        <div>
+          <p class="tenant-name">國際學生與家人</p>
+          <p class="tenant-sub">近捷運建案是首選</p>
+        </div>
+        <svg class="tenant-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+      </div>
+      <div class="tenant-body">
+        <p>光是曼谷的國際學校就超過全台灣的國際學校數量，這些學校許多都有和英美的名牌大學配合互相承認學分，因此有不少世界各國的學生選擇學費便宜的曼谷。</p>
+        <p>如果是獨身一人來到泰國的國際學生，可能會住在學校附近靠近捷運站的住宅。如果是<strong>家長陪伴來泰國讀書</strong>的租房人士，會優先選擇 2 房或者 1+1 房的格局，擁有獨立隱私空間的房間規畫會是吸引這些人的重點。</p>
+      </div>
+    </div>
+
+    <div class="tenant-item">
+      <div class="tenant-trigger" onclick="toggleTenant(this)">
+        <span class="tenant-icon">👨‍👩‍👧</span>
+        <div>
+          <p class="tenant-name">長期派駐的國際家庭</p>
+          <p class="tenant-sub">全家移居的旅泰族群</p>
+        </div>
+        <svg class="tenant-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+      </div>
+      <div class="tenant-body">
+        <p>有許多日本家庭或者政府相關的外交人員，會攜家帶眷來到曼谷居住。由於這些人的收入普遍較高，而且要兼顧家人平時生活安全與小孩的教育品質，通常會居住在生活環境優秀、治安佳的頂級地區，像是 <strong>Thonglor 或者 Chong Nonsi</strong> 都是非常知名的外國政商人士聚集地。</p>
+        <p>3 房或者樓中樓的格局會是他們主要考慮的租房選擇。停車便利也是這群社會高層關注的租房焦點之一。</p>
+      </div>
+    </div>
+
+    <div class="tenant-item">
+      <div class="tenant-trigger" onclick="toggleTenant(this)">
+        <span class="tenant-icon">🏙️</span>
+        <div>
+          <p class="tenant-name">泰國本地上班族</p>
+          <p class="tenant-sub">尋找市中心便宜小套房</p>
+        </div>
+        <svg class="tenant-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+      </div>
+      <div class="tenant-body">
+        <p>由於曼谷非常塞車，因此有許多居住在曼谷郊區的年輕上班族，以及為了更高收入而從外府前來曼谷工作的打工族群，這些人需要在市中心尋找便宜的小套房，節省通勤的時間成本及舟車勞頓。</p>
+        <p>離捷運站有 5-10 分鐘距離或者搭乘摩托車都是符合他們考量的租房選擇，<strong>價格是吸引他們承租的最大要素</strong>。像是 <strong>On Nut、Phahon Yothin、Lat Phrao</strong>，都是不錯的投資購房地點選擇。</p>
+      </div>
+    </div>
+
+    <div class="tenant-item">
+      <div class="tenant-trigger" onclick="toggleTenant(this)">
+        <span class="tenant-icon">✈️</span>
+        <div>
+          <p class="tenant-name">旅遊旺季的短租旅客</p>
+          <p class="tenant-sub">不穩定的特殊租客</p>
+        </div>
+        <svg class="tenant-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+      </div>
+      <div class="tenant-body">
+        <p>在一些知名的旅遊旺季或者特殊節日，曼谷作為世界第一的旅遊城市將迎來強烈日租需求的旅客族群。由於做日租套房較不穩定，並且受到許多法令或社區大樓的規範，因此<strong>不會是租房收入的穩定來源</strong>，是屬於淡旺季分明、短期爆發的收租類型。</p>
+        <p>常見像是考山路或洽圖洽市集等特殊地段，比較會有以日租/短租客群為主要目標的社區，這些旅客主要評估的除了價錢之外，更重要的是房間的佈置以及旅遊的安全性。</p>
+      </div>
+    </div>
+
+    <div class="tenant-item">
+      <div class="tenant-trigger" onclick="toggleTenant(this)">
+        <span class="tenant-icon">🌅</span>
+        <div>
+          <p class="tenant-name">世界各國的退休人士</p>
+          <p class="tenant-sub">別墅與慢節奏生活</p>
+        </div>
+        <svg class="tenant-arrow" width="14" height="8" viewBox="0 0 14 8" fill="none"><path d="M1 1l6 6 6-6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+      </div>
+      <div class="tenant-body">
+        <p>泰國做為全世界最適合退休居住的國家，每年有大量來自世界各國的退休人士到泰國長期居住。雖然歐美人士更偏好臨海的普吉島與華欣；而來自中國的華人可能更喜愛清邁和清萊，但依舊有不少人選擇居住在生活機能較好的曼谷。</p>
+        <p>這些退休人士多半會選擇曼谷郊區的別墅來享受慢節奏的生活，少數富有階級會選擇<strong>曼谷市中心的大坪數豪宅，或者昭披耶河周遭與五星級飯店比鄰的頂級項目</strong>。在曼谷做高級豪宅的房東，你有絕大的機會建立世界級的頂級人脈。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="prose reveal">
+    <h2>五、結語</h2>
+    <p>泰國租賃市場穩定且制度明確，長租報酬穩定、短租受限但具觀光潛力。對外國投資人而言，選擇具管理制度、交通便利的地段，能兼顧收益與風險。</p>
+  </div>
+
+  <div class="cta-box reveal">
+    <h3 class="cta-box-title">想知道哪個地段<em>最容易出租</em>？</h3>
+    <p class="cta-box-desc">我們熟悉各地段的租客族群結構，歡迎直接聯繫 Alice，依你的投資目標精準推薦。</p>
+    <a class="btn-gold" href="https://line.me/ti/p/rY37pUpv_k" target="_blank">LINE 免費諮詢</a>
+  </div>
+
+  <div class="related-section reveal">
+    <h3 class="related-title">延伸閱讀</h3>
+    <div class="related-grid">
+      <a class="related-card" href="article-thailand-roi.html">
+        <div class="related-thumb"><img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=200&q=80" alt="" loading="lazy" /></div>
+        <div><p class="related-tag">泰國 · 投資知識</p><p class="related-name">泰國房產投報率怎麼算？實際案例分享</p><p class="related-date">2026 · 8 分鐘閱讀</p></div>
+      </a>
+      <a class="related-card" href="article-bangkok-districts.html">
+        <div class="related-thumb"><img src="https://images.unsplash.com/photo-1508009603885-50cf7c579365?w=200&q=80" alt="" loading="lazy" /></div>
+        <div><p class="related-tag">泰國 · 地段解析</p><p class="related-name">曼谷熱門地段解析：Rama9、素坤逸、河濱區</p><p class="related-date">2025 · 10 分鐘閱讀</p></div>
+      </a>
+    </div>
+  </div>
+</div>
+<footer>
+  <p class="footer-logo">愛麗絲奇寓記</p>
+  <div class="footer-links"><a href="index.html">首頁</a><a href="thailand.html">泰國房產</a><a href="japan.html">日本房產</a></div>
+  <p class="footer-copy">© 2025 愛麗絲奇寓記 alice in city｜投資國外不動產具有風險性，請詳閱行銷文件並審慎考量後再行交易。</p>
+</footer>
+<script>
+  function toggleTenant(trigger) {
+    const item = trigger.closest('.tenant-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.tenant-item.open').forEach(el => el.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+  }, { threshold: 0.06 });
+  reveals.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
