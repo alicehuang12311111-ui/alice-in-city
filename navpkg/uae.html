@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>日本房產｜愛麗絲奇寓記 Alice in City</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Sans+TC:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --cream: #f5f0e8; --cream-mid: #ede6d6; --cream-dark: #e0d5c0;
+      --taupe: #8c7b6b; --taupe-dark: #5c4f42; --brown: #3d3028;
+      --gold: #b89a6a; --gold-light: #d4b88a; --white: #fdfaf5;
+      --text-main: #2e261e; --text-mid: #6b5f54; --text-dim: #9e9188;
+      --line: rgba(140,123,107,0.2); --line-dark: rgba(140,123,107,0.4);
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--cream); color: var(--text-main); font-family: 'Noto Sans TC', sans-serif; font-weight: 300; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; background: rgba(245,240,232,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; padding: 0 24px; height: 60px; }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--brown); text-decoration: none; line-height: 1.2; }
+    .nav-logo small { display: block; font-family: 'Noto Sans TC', sans-serif; font-size: .46rem; letter-spacing: .26em; text-transform: uppercase; color: var(--taupe); font-weight: 300; }
+    .nav-links { display: none; gap: 28px; list-style: none; }
+    .nav-links a { font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; color: var(--text-mid); text-decoration: none; transition: color .3s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--brown); }
+    .nav-cta { display: none; font-size: .65rem; letter-spacing: .2em; text-transform: uppercase; color: var(--white); background: var(--brown); padding: 9px 20px; text-decoration: none; transition: background .3s; }
+    .nav-cta:hover { background: var(--taupe-dark); }
+    .hamburger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .hamburger span { display: block; width: 22px; height: 1px; background: var(--brown); transition: .3s; }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(4px,4px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(4px,-4px); }
+    .mobile-menu { position: fixed; inset: 0; z-index: 190; background: var(--white); display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 28px; opacity: 0; pointer-events: none; transition: opacity .35s; }
+    .mobile-menu.open { opacity: 1; pointer-events: auto; }
+    .mobile-menu a { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--brown); text-decoration: none; opacity: 0; transform: translateY(14px); transition: color .3s, opacity .4s, transform .4s; }
+    .mobile-menu.open a { opacity: 1; transform: translateY(0); }
+    .mobile-menu.open a:nth-child(1){transition-delay:.07s}.mobile-menu.open a:nth-child(2){transition-delay:.13s}.mobile-menu.open a:nth-child(3){transition-delay:.19s}.mobile-menu.open a:nth-child(4){transition-delay:.25s}.mobile-menu.open a:nth-child(5){transition-delay:.31s}
+    .mobile-menu a:hover { color: var(--gold); }
+
+    /* HERO */
+    .page-hero { padding-top: 60px; background: var(--brown); position: relative; overflow: hidden; }
+    .page-hero-bg { position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=1400&q=80') center/cover no-repeat; filter: brightness(.3); }
+    .page-hero-inner { position: relative; z-index: 2; max-width: 900px; margin: 0 auto; padding: 64px 24px 56px; }
+    .page-eyebrow { font-size: .6rem; letter-spacing: .32em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+    .page-eyebrow::before { content: ''; display: inline-block; width: 18px; height: 1px; background: var(--gold); }
+    .page-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 6vw, 3.2rem); font-weight: 400; line-height: 1.15; color: #fff; margin-bottom: 14px; }
+    .page-title em { font-style: italic; color: var(--gold-light); }
+    .page-desc { font-size: .88rem; line-height: 1.9; color: rgba(255,255,255,.65); max-width: 560px; }
+    .page-stats { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 32px; padding-top: 24px; border-top: 1px solid rgba(184,154,106,.3); }
+    .page-stat { font-size: .65rem; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.4); }
+    .page-stat strong { color: var(--gold-light); font-weight: 400; display: block; font-family: 'Playfair Display', serif; font-size: 1.2rem; letter-spacing: 0; text-transform: none; margin-bottom: 2px; }
+
+    /* FILTER TABS */
+    .filter-wrap { background: var(--cream-mid); border-bottom: 1px solid var(--line); overflow-x: auto; scrollbar-width: none; }
+    .filter-wrap::-webkit-scrollbar { display: none; }
+    .filter-inner { display: flex; max-width: 900px; margin: 0 auto; padding: 0 24px; white-space: nowrap; }
+    .filter-btn { font-size: .65rem; letter-spacing: .16em; text-transform: uppercase; color: var(--text-dim); background: none; border: none; border-bottom: 2px solid transparent; padding: 14px 16px 12px; cursor: pointer; transition: color .3s, border-color .3s; }
+    .filter-btn:hover, .filter-btn.active { color: var(--brown); border-color: var(--gold); }
+
+    /* ARTICLE GRID */
+    .articles-wrap { max-width: 900px; margin: 0 auto; padding: 40px 24px 80px; }
+
+    /* FEATURED */
+    .article-featured { display: block; text-decoration: none; margin-bottom: 2px; }
+    .article-featured-inner { display: grid; grid-template-columns: 1fr; background: var(--white); border: 1px solid var(--line); overflow: hidden; transition: border-color .3s; }
+    .article-featured:hover .article-featured-inner { border-color: var(--gold); }
+    .af-img { aspect-ratio: 16/7; overflow: hidden; position: relative; }
+    .af-img img { width: 100%; height: 100%; object-fit: cover; filter: brightness(.82); transition: transform .6s, filter .5s; }
+    .article-featured:hover .af-img img { transform: scale(1.03); filter: brightness(.92); }
+    .af-img::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 50%, rgba(61,48,40,.6) 100%); }
+    .af-body { padding: 24px 22px 28px; }
+    .af-category { font-size: .58rem; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); margin-bottom: 9px; }
+    .af-title { font-family: 'Playfair Display', serif; font-size: clamp(1.2rem, 4vw, 1.8rem); font-weight: 400; color: var(--brown); line-height: 1.3; margin-bottom: 10px; }
+    .af-excerpt { font-size: .82rem; line-height: 1.85; color: var(--text-mid); margin-bottom: 16px; }
+    .af-meta { font-size: .62rem; letter-spacing: .12em; text-transform: uppercase; color: var(--text-dim); display: flex; gap: 14px; flex-wrap: wrap; }
+    .new-badge { display: inline-block; font-size: .52rem; letter-spacing: .14em; text-transform: uppercase; background: var(--gold); color: var(--brown); padding: 2px 7px; border-radius: 2px; margin-left: 6px; vertical-align: middle; }
+    .updated-badge { display: inline-block; font-size: .52rem; letter-spacing: .14em; text-transform: uppercase; background: var(--cream-dark); color: var(--taupe-dark); border: 1px solid var(--line-dark); padding: 2px 7px; border-radius: 2px; margin-left: 6px; vertical-align: middle; }
+
+    /* ARTICLE LIST */
+    .article-list { display: flex; flex-direction: column; gap: 2px; margin-top: 2px; }
+    .article-card { display: flex; gap: 0; text-decoration: none; background: var(--white); border: 1px solid var(--line); overflow: hidden; transition: border-color .3s; }
+    .article-card:hover { border-color: var(--gold); }
+    .article-card.hidden { display: none; }
+    .ac-thumb { flex: 0 0 110px; width: 110px; height: 110px; overflow: hidden; position: relative; }
+    .ac-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; filter: brightness(.85); transition: transform .5s, filter .4s; }
+    .article-card:hover .ac-thumb img { transform: scale(1.05); filter: brightness(.95); }
+    .ac-body { flex: 1; padding: 16px 16px 18px; display: flex; flex-direction: column; justify-content: space-between; }
+    .ac-category { font-size: .56rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+    .ac-title { font-family: 'Noto Serif TC', serif; font-size: .9rem; font-weight: 400; color: var(--brown); line-height: 1.45; margin-bottom: 6px; flex: 1; }
+    .ac-excerpt { font-size: .75rem; color: var(--text-dim); line-height: 1.7; display: none; }
+    .ac-meta { font-size: .6rem; letter-spacing: .1em; text-transform: uppercase; color: var(--text-dim); margin-top: 8px; display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+
+    /* SECTION DIVIDER */
+    .cat-divider { display: flex; align-items: center; gap: 14px; margin: 40px 0 16px; }
+    .cat-divider-label { font-size: .62rem; letter-spacing: .26em; text-transform: uppercase; color: var(--taupe); white-space: nowrap; }
+    .cat-divider-line { flex: 1; height: 1px; background: var(--line); }
+
+    /* CTA BANNER */
+    .cta-banner { background: var(--brown); padding: 32px 24px; margin-top: 52px; text-align: center; }
+    .cta-banner-title { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--cream); margin-bottom: 10px; line-height: 1.3; }
+    .cta-banner-title em { font-style: italic; color: var(--gold-light); }
+    .cta-banner-desc { font-size: .8rem; color: rgba(245,240,232,.6); line-height: 1.8; margin-bottom: 22px; }
+    .btn-gold { display: inline-block; font-size: .68rem; letter-spacing: .2em; text-transform: uppercase; background: var(--gold); color: var(--brown); padding: 12px 28px; text-decoration: none; transition: background .3s; }
+    .btn-gold:hover { background: var(--gold-light); }
+
+    /* FOOTER */
+    footer { background: var(--brown); padding: 32px 24px 22px; border-top: 2px solid var(--gold); }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--cream); margin-bottom: 3px; }
+    .footer-en { font-size: .58rem; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+    .footer-contact { margin-bottom: 14px; }
+    .footer-contact-item { font-size: .75rem; color: rgba(245,240,232,.55); line-height: 1.9; }
+    .footer-contact-item strong { color: rgba(245,240,232,.8); font-weight: 400; }
+    .footer-links { display: flex; gap: 16px; flex-wrap: wrap; }
+    .footer-links a { font-size: .72rem; color: rgba(245,240,232,.5); text-decoration: none; }
+    .footer-links a:hover { color: var(--cream); }
+    .footer-copy { font-size: .58rem; color: rgba(245,240,232,.25); line-height: 1.8; margin-top: 16px; }
+
+    /* REVEAL */
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+
+    @media (min-width: 768px) {
+      nav { padding: 0 48px; height: 68px; }
+      .hamburger { display: none; }
+      .nav-links { display: flex; }
+      .nav-cta { display: inline-block; }
+      .page-hero-inner, .filter-inner, .articles-wrap { padding-left: 48px; padding-right: 48px; }
+      .article-featured-inner { grid-template-columns: 1fr 1fr; }
+      .af-img { aspect-ratio: unset; height: 100%; }
+      .ac-thumb { flex: 0 0 140px; width: 140px; height: 140px; }
+      .ac-excerpt { display: block; }
+    }
+    @media (min-width: 1100px) {
+      nav { padding: 0 80px; }
+      .page-hero-inner, .filter-inner, .articles-wrap { padding-left: 80px; padding-right: 80px; max-width: 1060px; }
+    }
+
+    .ac-lock { display:inline-block; font-size:.54rem; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); border:1px solid var(--gold); padding:2px 8px; margin-left:8px; vertical-align:middle; }
+    .af-lock { display:inline-block; font-size:.56rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold-light); border:1px solid var(--gold); padding:3px 10px; margin-bottom:10px; }
+
+    /* 精選建案 */
+    .prop-feature-wrap { padding: 40px 24px 8px; max-width: 1060px; margin: 0 auto; }
+    .prop-feature-label { font-size:.62rem; letter-spacing:.26em; text-transform:uppercase; color:var(--gold); margin-bottom:14px; }
+    .prop-feature-grid { display:grid; gap:14px; }
+    .prop-feature-card { position:relative; display:block; overflow:hidden; text-decoration:none; aspect-ratio:16/9; }
+    .prop-feature-card img { width:100%; height:100%; object-fit:cover; filter:brightness(.68); transition:transform .6s, filter .4s; }
+    .prop-feature-card:hover img { transform:scale(1.04); filter:brightness(.8); }
+    .prop-feature-info { position:absolute; left:18px; right:18px; bottom:16px; }
+    .prop-feature-tag { display:inline-block; font-size:.58rem; letter-spacing:.22em; text-transform:uppercase; color:var(--gold-light); border:1px solid var(--gold); padding:3px 10px; margin-bottom:8px; }
+    .prop-feature-name { font-family:'Playfair Display', serif; font-size:1.15rem; color:#fff; line-height:1.3; }
+    .prop-feature-sub { font-size:.72rem; color:rgba(255,255,255,.75); margin-top:4px; }
+    @media(min-width:768px){ .prop-feature-grid{grid-template-columns:1fr 1fr;} }
+  
+    /* NAV DROPDOWN */
+    .nav-links > li { position: relative; }
+    .nav-links > li > a { display: inline-block; padding: 24px 0; }
+    .nav-drop { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(6px); background: #fff; border: 1px solid rgba(61,48,40,.12); box-shadow: 0 14px 34px rgba(61,48,40,.14); min-width: 230px; padding: 8px 0 12px; opacity: 0; visibility: hidden; transition: opacity .25s ease, transform .25s ease, visibility .25s; z-index: 300; }
+    .nav-links > li:hover .nav-drop { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+    .nav-drop-head { font-size: .56rem; letter-spacing: .24em; text-transform: uppercase; color: var(--gold); padding: 12px 20px 5px; }
+    .nav-drop a { display: block; padding: 7px 20px; font-size: .8rem; letter-spacing: .04em; text-transform: none; color: var(--text-mid); text-decoration: none; white-space: nowrap; transition: color .2s, background .2s; }
+    .nav-drop a:hover { color: var(--brown); background: rgba(184,154,106,.08); }
+    .nav-drop-divider { height: 1px; background: rgba(61,48,40,.08); margin: 8px 14px; }
+    /* NAV DROPDOWN END */
+  </style>
+
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="index.html">愛麗絲奇寓記<small>Alice in City · Overseas Property</small></a>
+  <ul class="nav-links">
+    <li><a href="index.html">首頁</a></li>
+    <li>
+      <a href="thailand-articles.html">泰國房產 ▾</a>
+      <div class="nav-drop">
+        <p class="nav-drop-head">文章專欄</p>
+        <a href="thailand-articles.html">泰國文章總覽（12 篇）</a>
+        <div class="nav-drop-divider"></div>
+        <p class="nav-drop-head">精選建案</p>
+        <a href="property-kith-samrong.html">曼谷大都會和府 KITH Samrong</a>
+        <a href="property-xt10-ekkamai.html">XT 10 Ekkamai by Sansiri</a>
+      </div>
+    </li>
+    <li>
+      <a href="japan.html">日本房產 ▾</a>
+      <div class="nav-drop">
+        <p class="nav-drop-head">文章專欄</p>
+        <a href="japan.html">日本文章總覽（12 篇）</a>
+        <div class="nav-drop-divider"></div>
+        <p class="nav-drop-head">精選建案</p>
+        <a href="https://line.me/ti/p/rY37pUpv_k" target="_blank">整理上架中・加 LINE 索取</a>
+      </div>
+    </li>
+    <li>
+      <a href="uae.html" class="active">阿聯酋房產 ▾</a>
+      <div class="nav-drop">
+        <p class="nav-drop-head">文章專欄</p>
+        <a href="uae.html">阿聯酋文章總覽（28 篇）</a>
+        <div class="nav-drop-divider"></div>
+        <p class="nav-drop-head">精選建案</p>
+        <a href="property-tara-park-2.html">塔拉公園二期 Tara Park 2</a>
+        <a href="property-modon-muheira2.html">慕海拉二期 Muheira 2</a>
+      </div>
+    </li>
+    <li><a href="about.html">關於我們</a></li>
+  </ul>
+  <a class="nav-cta" href="https://line.me/ti/p/rY37pUpv_k" target="_blank">立即諮詢</a>
+  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="closeMenu()">首頁</a>
+  <a href="thailand-articles.html" onclick="closeMenu()">泰國房產</a>
+  <a href="japan.html" onclick="closeMenu()">日本房產</a>
+  <a href="uae.html" onclick="closeMenu()">阿聯酋房產</a>
+  <a href="about.html" onclick="closeMenu()">關於我們</a>
+</div>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-inner">
+    <p class="page-eyebrow">阿聯酋房產 · 知識專區</p>
+    <h1 class="page-title">杜拜・阿布達比購屋知識<br><em>完整文章總覽</em></h1>
+    <p class="page-desc">從投資全攻略、黃金簽證、購買流程到區域深度解析，愛麗絲奇寓記為台灣買家整理最完整的阿聯酋房產知識。標示 VIP 的深度內容，加入 LINE 好友索取通關密碼即可解鎖。</p>
+    <div class="page-stats">
+      <div class="page-stat"><strong>28</strong>篇完整文章</div>
+      <div class="page-stat"><strong>16</strong>篇 VIP 深度</div>
+      <div class="page-stat"><strong>2026</strong>年最新數據</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- 精選建案 -->
+<div class="prop-feature-wrap reveal">
+  <p class="prop-feature-label">精選建案推薦</p>
+  <div class="prop-feature-grid">
+    <a class="prop-feature-card" href="property-tara-park-2.html">
+      <img src="tara-1.jpg" alt="塔拉公園二期 Modon Tara Park 2" loading="lazy" />
+      <div class="prop-feature-info">
+        <span class="prop-feature-tag">阿布達比 · Reem Island</span>
+        <p class="prop-feature-name">塔拉公園二期 Modon Tara Park 2</p>
+        <p class="prop-feature-sub">5% 首付・40/60 付款・AED 168 萬起</p>
+      </div>
+    </a>
+    <a class="prop-feature-card" href="property-modon-muheira2.html">
+      <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=700&q=80" alt="慕海拉二期 Modon Muheira 2" loading="lazy" />
+      <div class="prop-feature-info">
+        <span class="prop-feature-tag">阿布達比 · Reem Island</span>
+        <p class="prop-feature-name">慕海拉二期 Modon Muheira 2</p>
+        <p class="prop-feature-sub">50/50 付款・交屋才付一半・AED 140 萬起</p>
+      </div>
+    </a>
+  </div>
+</div>
+
+<!-- FILTER -->
+<div class="filter-wrap">
+  <div class="filter-inner">
+    <button class="filter-btn active" onclick="filterArticles('all', this)">全部</button>
+    <button class="filter-btn" onclick="filterArticles('start', this)">投資入門</button>
+    <button class="filter-btn" onclick="filterArticles('visa', this)">簽證居留</button>
+    <button class="filter-btn" onclick="filterArticles('city', this)">區域解析</button>
+    <button class="filter-btn" onclick="filterArticles('finance', this)">稅務融資</button>
+    <button class="filter-btn" onclick="filterArticles('offplan', this)">預售專題</button>
+    <button class="filter-btn" onclick="filterArticles('vip', this)">VIP 專屬</button>
+  </div>
+</div>
+
+<!-- ARTICLES -->
+<div class="articles-wrap">
+
+  <!-- FEATURED -->
+  <a class="article-featured reveal" href="article-dubai-overview.html" data-cat="start">
+    <div class="article-featured-inner">
+      <div class="af-img">
+        <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=900&q=80" alt="杜拜房地產全景" loading="lazy" />
+      </div>
+      <div class="af-body">
+        <p class="af-category">阿聯酋 · 投資全攻略</p>
+        <h2 class="af-title">杜拜房地產全景：為何全球投資人蜂擁而至</h2>
+        <p class="af-excerpt">免稅制度、7–9% 租金投報率、黃金簽證與美元掛鉤——十大理由與必知風險，入門杜拜房產的第一篇必讀文章。</p>
+        <div class="af-meta">
+          <span>2026 年更新</span>
+          <span>閱讀時間約 10 分鐘</span>
+        </div>
+      </div>
+    </div>
+  </a>
+
+  <!-- 投資入門 -->
+  <div class="cat-divider reveal">
+    <span class="cat-divider-label">投資入門</span>
+    <div class="cat-divider-line"></div>
+  </div>
+
+  <div class="article-list">
+    <a class="article-card reveal" href="article-dubai-buying-process.html" data-cat="start">
+      <div class="ac-thumb"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=300&q=70" alt="" loading="lazy" /></div>
+      <div class="ac-body">
+        <p class="ac-category">阿聯酋 · 購買流程</p>
+        <h3 class="ac-title">一篇文章看懂杜拜房產購買流程</h3>
+        <p class="ac-excerpt">訂金、MOU、SPA 合約、DLD 註冊費到 Title Deed，成屋與預售屋 4 大步驟一次看懂。</p>
+        <div class="ac-meta"><span>2026 更新</span><span>8 分鐘閱讀</span></div>
+      </div>
+    </a>
+    <a class="article-card reveal" href="article-uae-developers.html" data-cat="start">
+      <div class="ac-thumb"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=300&q=70" alt="" loading="lazy" /></div>
+      <div class="ac-body">
+        <p class="ac-category">阿聯酋 · 十大建商</p>
+        <h3 class="ac-title">阿聯酋十大建商：誰在蓋杜拜與阿布達比的天際線</h3>
+        <p class="ac-excerpt">Emaar、DAMAC、Binghatti、Aldar……依 2025 年 DLD 成交數據排名，含選建商 3 大硬指標。</p>
+        <div class="ac-meta"><span>2026 更新</span><span>9 分鐘閱讀</span></div>
+      </div>
+    </a>
+    <a class="article-card reveal" href="article-dubai-luxury-villa.html" data-cat="start">
+      <div class="ac-thumb"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=300&q=70" alt="" loading="lazy" /></div>
+      <div class="ac-body">
+        <p class="ac-category">阿聯酋 · 豪宅市場</p>
+        <h3 class="ac-title">杜拜豪華別墅市場現況：誰在買？回報多少？</h3>
+        <p class="ac-excerpt">五年上漲 194%、每週數筆千萬美元成交——豪華別墅的買家輪廓、價格與 2026 年展望。</p>
+        <div class="ac-meta"><span>2026 更新</span><span>7 分鐘閱讀</span></div>
+      </div>
+    </a>
+    <a class="article-card reveal" href="article-uae-schools.html" data-cat="start">
+      <div class="ac-thumb"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=300&q=70" alt="" loading="lazy" /></div>
+      <div class="ac-body">
+        <p class="ac-category">阿聯酋 · 國際學校</p>
+        <h3 class="ac-title">阿聯酋國際學校全指南：把孩子的書桌搬到杜拜之前</h3>
+        <p class="ac-excerpt">227 所私校、17 種課程體系、KHDA 評鑑與學費級距，以及學區宅與租金回報的關係。</p>
+        <div class="ac-meta"><span>2026 更新</span><span>8 分鐘閱讀</span></div>
+      </div>
+    </a>
+  </div>
+
+  <!-- 簽證居留 -->
+  <div class="cat-divider reveal">
+    <span class="cat-divider-label">簽證與居留</span>
+    <div class="cat-divider-line"></div>
+  </div>
+
+  <div class="article-list">
+    <a class="article-card reveal" href="article-dubai-golden-visa.html" data-cat="visa">
+      <div class="ac-thumb"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=300&q=70" alt="" loading="lazy" /></div>
+      <div class="ac-body">
+        <p class="ac-category">阿聯酋 · 黃金簽證</p>
+        <h3 class="ac-title">如何透過杜拜房產申請長期簽證｜黃金簽證全攻略</h3>
+        <p class="ac-excerpt">200 萬迪拉姆門檻、可擔保家人範圍、六步驟申請流程與費用明細，2026 年最新政策。</p>
+        <div class="ac-meta"><span>2026 更新</span><span>9 分鐘閱讀</span></div>
+      </div>
+    </a>
+  </div>
+
+  <!-- 區域解析 -->
+  <div class="cat-divider reveal">
+    <span class="cat-divider-label">區域與城市解析</span>
+    <div class="cat-divider-line"></div>
+  </div>
+
+  <div class="article-list">
+    <a class="article-card reveal" href="article-dubai-hot-areas.html" data-cat="city">
+      <div class="ac-thumb"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=300&q=70" alt="" loading="lazy" /></div>
+      <div class="ac-body">
+        <p class="ac-category">阿聯酋 · 六大板塊</p>
+        <h3 class="ac-title">杜拜熱門區域解析：從市中心到棕櫚島</h3>
+        <p class="ac-excerpt">濱海黃金區、金融核心、Dubai South 到傑貝阿里——六大房產板塊的投資關鍵一次掌握。</p>
+        <div class="ac-meta"><span>2026 更新</span><span>10 分鐘閱讀</span></div>
+      </div>
+    </a>
+    <a class="article-card reveal" href="article-dubai-freehold-12.html" data-cat="city">
+      <div class="ac-thumb"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=300&q=70" alt="" loading="lazy" /></div>
+      <div class="ac-body">
+        <p class="ac-category">阿聯酋 · 永久產權</p>
+        <h3 class="ac-title">不能錯過的 12 個永久產權熱區</h3>
+        <p class="ac-excerpt">Palm Jumeirah 到 Dubai South，2026 年 4 月最新均價、YoY 漲幅與投報率完整比較表。</p>
+        <div class="ac-meta"><span>2026 更新</span><span>11 分鐘閱讀</span></div>
+      </div>
+    </a>
+    <a class="article-card reveal" href="article-abudhabi-guide.html" data-cat="city">
+      <div class="ac-thumb"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=300&q=70" alt="" loading="lazy" /></div>
+      <div class="ac-body">
+        <p class="ac-category">阿聯酋 · 阿布達比</p>
+        <h3 class="ac-title">阿布達比購屋指南</h3>
+        <p class="ac-excerpt">6 大投資優勢、6–8% 投報、貸款條件與 2026 年凍租新政——首都房市完整導覽。</p>
+        <div class="ac-meta"><span>2026 更新</span><span>10 分鐘閱讀</span></div>
+      </div>
+    </a>
+    <a class="article-card reveal" href="article-abudhabi-freehold-zones.html" data-cat="city">
+      <div class="ac-thumb"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=300&q=70" alt="" loading="lazy" /></div>
+      <div class="ac-body">
+        <p class="ac-category">阿聯酋 · 阿布達比</p>
+        <h3 class="ac-title">一張圖看懂阿布達比最值得關注的 5 大永久產權區</h3>
+        <p class="ac-excerpt">亞斯島、薩迪亞特島、法希德島、阿爾雷姆島、胡達里亞特島——房價與投資亮點盤點。</p>
+        <div class="ac-meta"><span>2026 更新</span><span>8 分鐘閱讀</span></div>
+      </div>
+    </a>
+    <a class="article-card reveal" href="article-uae-transport.html" data-cat="city">
+      <div class="ac-thumb"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=300&q=70" alt="" loading="lazy" /></div>
+      <div class="ac-body">
+        <p class="ac-category">阿聯酋 · 交通建設</p>
+        <h3 class="ac-title">阿聯酋交通建設大盤點：地鐵藍線、金線與 Etihad Rail</h3>
+        <p class="ac-excerpt">三條改變地圖的軌道與沿線受益區——軌道延伸到哪裡，城市的故事就講到哪裡。</p>
+        <div class="ac-meta"><span>2026 更新</span><span>7 分鐘閱讀</span></div>
+      </div>
+    </a>
+    <a class="article-card reveal" href="article-uae-wynn-rak.html" data-cat="city">
+      <div class="ac-thumb"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=300&q=70" alt="" loading="lazy" /></div>
+      <div class="ac-body">
+        <p class="ac-category">阿聯酋 · RAK 專題</p>
+        <h3 class="ac-title">Wynn 賭場與北酋長國機會</h3>
+        <p class="ac-excerpt">2027 年阿聯酋第一座賭場最新工程進度、周邊房價 +21–39% 效應與投資風險。</p>
+        <div class="ac-meta"><span>2026 更新</span><span>9 分鐘閱讀</span></div>
+      </div>
+    </a>
+  </div>
+
+  <!-- VIP 深度內容 -->
+  <div class="cat-divider reveal">
+    <span class="cat-divider-label">VIP 深度內容 · 加 LINE 解鎖</span>
+    <div class="cat-divider-line"></div>
+  </div>
+
+  <div class="article-list">
+    <a class="article-card reveal" href="article-dubai-tax-costs.html" data-cat="finance vip">
+      <div class="ac-thumb"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=300&q=70" alt="" loading="lazy" /></div>
+      <div class="ac-body">
+        <p class="ac-category">阿聯酋 · 稅務成本<span class="ac-lock">VIP</span></p>
+        <h3 class="ac-title">杜拜房地產稅務與持有成本深入解析</h3>
+        <p class="ac-excerpt">DLD 4%、管理費、Housing Fee 完整拆解，含台灣投資人稅務注意事項。</p>
+        <div class="ac-meta"><span>2026 更新</span><span>9 分鐘閱讀</span></div>
+      </div>
+    </a>
+    <a class="article-card reveal" href="article-dubai-financing.html" data-cat="finance vip">
+      <div class="ac-thumb"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=300&q=70" alt="" loading="lazy" /></div>
+      <div class="ac-body">
+        <p class="ac-category">阿聯酋 · 融資貸款<span class="ac-lock">VIP</span></p>
+        <h3 class="ac-title">外國人融資攻略｜杜拜買房也能貸款？</h3>
+        <p class="ac-excerpt">非居民 LTV 50–60%、利率 3.99% 起、申請文件與常見拒貸原因。</p>
+        <div class="ac-meta"><span>2026 更新</span><span>8 分鐘閱讀</span></div>
+      </div>
+    </a>
+    <a class="article-card reveal" href="article-dubai-rent-vs-buy.html" data-cat="finance vip">
+      <div class="ac-thumb"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=300&q=70" alt="" loading="lazy" /></div>
+      <div class="ac-body">
+        <p class="ac-category">阿聯酋 · 租買分析<span class="ac-lock">VIP</span></p>
+        <h3 class="ac-title">租賃市場 vs 買房市場：在杜拜哪個更划算？</h3>
+        <p class="ac-excerpt">租金報酬 6.8% vs 房貸利率 4–5.5%，JVC 實例試算與 3–5 年打平點。</p>
+        <div class="ac-meta"><span>2026 更新</span><span>7 分鐘閱讀</span></div>
+      </div>
+    </a>
+    <a class="article-card reveal" href="article-dubai-short-term-rental.html" data-cat="finance vip">
+      <div class="ac-thumb"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=300&q=70" alt="" loading="lazy" /></div>
+      <div class="ac-body">
+        <p class="ac-category">阿聯酋 · 短租市場<span class="ac-lock">VIP</span></p>
+        <h3 class="ac-title">杜拜短租市場解析：Holiday Home、Airbnb 與實際淨收益</h3>
+        <p class="ac-excerpt">各區日租金、入住率、DET 法規與短租 vs 長租完整淨收益試算。</p>
+        <div class="ac-meta"><span>2026 更新</span><span>10 分鐘閱讀</span></div>
+      </div>
+    </a>
+    <a class="article-card reveal" href="article-dubai-market-forecast.html" data-cat="finance vip">
+      <div class="ac-thumb"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=300&q=70" alt="" loading="lazy" /></div>
+      <div class="ac-body">
+        <p class="ac-category">阿聯酋 · 趨勢預測<span class="ac-lock">VIP</span></p>
+        <h3 class="ac-title">杜拜房地產市場趨勢回顧與未來預測（2025–2030）</h3>
+        <p class="ac-excerpt">供給大年的市場分化、機構修正預估與「挑貨之年」的選區策略。</p>
+        <div class="ac-meta"><span>2026 更新</span><span>8 分鐘閱讀</span></div>
+      </div>
+    </a>
+    <a class="article-card reveal" href="article-dubai-overheat-risk.html" data-cat="finance vip">
+      <div class="ac-thumb"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=300&q=70" alt="" loading="lazy" /></div>
+      <div class="ac-body">
+        <p class="ac-category">阿聯酋 · 風險評估<span class="ac-lock">VIP</span></p>
+        <h3 class="ac-title">杜拜房價會不會過熱？投資人必看的風險指標</h3>
+        <p class="ac-excerpt">供給海嘯、PTR 房價租金比、六大機構展望——資金進場前必看的數字。</p>
+        <div class="ac-meta"><span>2026 更新</span><span>12 分鐘閱讀</span></div>
+      </div>
+    </a>
+    <a class="article-card reveal" href="article-uae-market-pulse.html" data-cat="finance vip">
+      <div class="ac-thumb"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=300&q=70" alt="" loading="lazy" /></div>
+      <div class="ac-body">
+        <p class="ac-category">阿聯酋 · 即時月報<span class="ac-lock">VIP</span></p>
+        <h3 class="ac-title">阿聯酋房市即時動態（2026 年 6 月）</h3>
+        <p class="ac-excerpt">每月更新：交易數據、政策變動、黃金簽證鬆綁與市場分化實況。</p>
+        <div class="ac-meta"><span>每月更新</span><span>6 分鐘閱讀</span></div>
+      </div>
+    </a>
+    <a class="article-card reveal" href="article-dubai-legal-process.html" data-cat="vip">
+      <div class="ac-thumb"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=300&q=70" alt="" loading="lazy" /></div>
+      <div class="ac-body">
+        <p class="ac-category">阿聯酋 · 法律須知<span class="ac-lock">VIP</span></p>
+        <h3 class="ac-title">杜拜房產投資流程與法律須知：從選房到入住</h3>
+        <p class="ac-excerpt">三道買方保護防線、成屋與預售流程、繼承與稅務制度一次看懂。</p>
+        <div class="ac-meta"><span>2026 更新</span><span>8 分鐘閱讀</span></div>
+      </div>
+    </a>
+    <a class="article-card reveal" href="article-uae-inheritance.html" data-cat="vip">
+      <div class="ac-thumb"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=300&q=70" alt="" loading="lazy" /></div>
+      <div class="ac-body">
+        <p class="ac-category">阿聯酋 · 繼承法律<span class="ac-lock">VIP</span></p>
+        <h3 class="ac-title">阿聯酋房產繼承與法律要點：給海外屋主的安心清單</h3>
+        <p class="ac-excerpt">無遺囑時的預設規則、DIFC 遺囑登記管道與台灣家庭的建議順序。</p>
+        <div class="ac-meta"><span>2026 更新</span><span>7 分鐘閱讀</span></div>
+      </div>
+    </a>
+    <a class="article-card reveal" href="article-dubai-green-realestate.html" data-cat="vip">
+      <div class="ac-thumb"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=300&q=70" alt="" loading="lazy" /></div>
+      <div class="ac-body">
+        <p class="ac-category">阿聯酋 · 綠色地產<span class="ac-lock">VIP</span></p>
+        <h3 class="ac-title">杜拜可持續建築與綠色地產｜下一波國際資金焦點</h3>
+        <p class="ac-excerpt">Al Sa'fat 強制法規、淨零社區與 7–11% 租金溢價的投資邏輯。</p>
+        <div class="ac-meta"><span>2026 更新</span><span>7 分鐘閱讀</span></div>
+      </div>
+    </a>
+    <a class="article-card reveal" href="article-dubai-resources.html" data-cat="vip">
+      <div class="ac-thumb"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=300&q=70" alt="" loading="lazy" /></div>
+      <div class="ac-body">
+        <p class="ac-category">阿聯酋 · 研究資源<span class="ac-lock">VIP</span></p>
+        <h3 class="ac-title">杜拜相關資源整理</h3>
+        <p class="ac-excerpt">官方平台、市場數據工具、新聞媒體與法律稅務資源完整清單。</p>
+        <div class="ac-meta"><span>2026 更新</span><span>8 分鐘閱讀</span></div>
+      </div>
+    </a>
+  </div>
+
+  <!-- 預售專題 VIP -->
+  <div class="cat-divider reveal">
+    <span class="cat-divider-label">預售屋專題 · VIP</span>
+    <div class="cat-divider-line"></div>
+  </div>
+
+  <div class="article-list">
+    <a class="article-card reveal" href="article-dubai-payment-plans.html" data-cat="offplan vip">
+      <div class="ac-thumb"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=300&q=70" alt="" loading="lazy" /></div>
+      <div class="ac-body">
+        <p class="ac-category">阿聯酋 · 預售付款<span class="ac-lock">VIP</span></p>
+        <h3 class="ac-title">杜拜預售屋付款計畫解析：40/60、60/40、1% 月付差在哪？</h3>
+        <p class="ac-excerpt">5 大付款計畫比較、常見陷阱與台灣買家的選擇策略。</p>
+        <div class="ac-meta"><span>2026 更新</span><span>10 分鐘閱讀</span></div>
+      </div>
+    </a>
+    <a class="article-card reveal" href="article-dubai-escrow.html" data-cat="offplan vip">
+      <div class="ac-thumb"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=300&q=70" alt="" loading="lazy" /></div>
+      <div class="ac-body">
+        <p class="ac-category">阿聯酋 · 交易安全<span class="ac-lock">VIP</span></p>
+        <h3 class="ac-title">杜拜預售屋安全嗎？Escrow 監管帳戶與建商履約風險</h3>
+        <p class="ac-excerpt">Escrow 保障了什麼、不能保障什麼，以及付款前的查證步驟。</p>
+        <div class="ac-meta"><span>2026 更新</span><span>9 分鐘閱讀</span></div>
+      </div>
+    </a>
+    <a class="article-card reveal" href="article-dubai-offplan-resale.html" data-cat="offplan vip">
+      <div class="ac-thumb"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=300&q=70" alt="" loading="lazy" /></div>
+      <div class="ac-body">
+        <p class="ac-category">阿聯酋 · 預售轉售<span class="ac-lock">VIP</span></p>
+        <h3 class="ac-title">杜拜預售屋還沒交屋可以賣嗎？轉售條件與風險</h3>
+        <p class="ac-excerpt">NOC 條件、費用結構、稅務與四大風險——出場前先看懂合約。</p>
+        <div class="ac-meta"><span>2026 更新</span><span>9 分鐘閱讀</span></div>
+      </div>
+    </a>
+    <a class="article-card reveal" href="article-dubai-rera-verify.html" data-cat="offplan vip">
+      <div class="ac-thumb"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=300&q=70" alt="" loading="lazy" /></div>
+      <div class="ac-body">
+        <p class="ac-category">阿聯酋 · 查證教學<span class="ac-lock">VIP</span></p>
+        <h3 class="ac-title">如何查證杜拜建商、仲介、RERA 與 Escrow 帳戶？</h3>
+        <p class="ac-excerpt">建商、仲介、項目與帳戶的完整查證步驟，附台灣買家防詐清單。</p>
+        <div class="ac-meta"><span>2026 更新</span><span>9 分鐘閱讀</span></div>
+      </div>
+    </a>
+    <a class="article-card reveal" href="article-rak-investment.html" data-cat="offplan vip city">
+      <div class="ac-thumb"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=300&q=70" alt="" loading="lazy" /></div>
+      <div class="ac-body">
+        <p class="ac-category">阿聯酋 · 北酋長國<span class="ac-lock">VIP</span></p>
+        <h3 class="ac-title">Ras Al Khaimah 值得投資嗎？</h3>
+        <p class="ac-excerpt">均價僅杜拜七成、漲幅 +39%——RAK vs 杜拜關鍵指標與進場策略。</p>
+        <div class="ac-meta"><span>2026 更新</span><span>11 分鐘閱讀</span></div>
+      </div>
+    </a>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-banner reveal">
+    <h3 class="cta-banner-title">解鎖全部 <em>VIP 深度內容</em></h3>
+    <p class="cta-banner-desc">加入愛麗絲奇寓記 LINE 好友，索取通關密碼，即可解鎖全站 VIP 文章與完整資料庫，並獲得每月阿聯酋市場更新。</p>
+    <a class="btn-gold" href="https://line.me/ti/p/rY37pUpv_k" target="_blank">加入 LINE 索取密碼</a>
+  </div>
+
+</div>
+
+<footer>
+  <p class="footer-logo">愛麗絲奇寓記</p>
+  <p class="footer-en">Alice in City · Overseas Property Curator</p>
+  <div class="footer-contact">
+    <p class="footer-contact-item"><strong>Alice</strong> 0929-688-608（手機加賴）</p>
+    <p class="footer-contact-item">alice_huang1231@hotmail.com</p>
+    <p class="footer-contact-item">台北市大安區仁愛路三段 28 號 2 樓</p>
+  </div>
+  <div class="footer-links">
+    <a href="index.html">首頁</a>
+    <a href="thailand-articles.html">泰國房產</a>
+    <a href="japan.html">日本房產</a>
+    <a href="uae.html">阿聯酋房產</a>
+    <a href="about.html">關於我們</a>
+  </div>
+  <p class="footer-copy">© 愛麗絲奇寓記 alice in city｜碩盛國際不動產有限公司 (109)新北經紀字第003786號｜投資國外不動產具有風險性，請詳閱行銷文件並審慎考量後再行交易。</p>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    const open = mobileMenu.classList.toggle('open');
+    hamburger.classList.toggle('open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  function closeMenu() {
+    mobileMenu.classList.remove('open');
+    hamburger.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function filterArticles(cat, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const cards = document.querySelectorAll('.article-card, .article-featured');
+    const dividers = document.querySelectorAll('.cat-divider');
+    if (cat === 'all') {
+      cards.forEach(c => c.classList.remove('hidden'));
+      dividers.forEach(d => d.style.display = '');
+    } else {
+      cards.forEach(c => {
+        const cats = (c.dataset.cat || '').split(' ');
+        c.classList.toggle('hidden', !cats.includes(cat));
+      });
+      dividers.forEach(d => d.style.display = 'none');
+    }
+  }
+
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+  }, { threshold: 0.06 });
+  reveals.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
