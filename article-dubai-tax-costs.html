@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>日本房地產投資全攻略｜愛麗絲奇寓記</title>
+  <title>杜拜房地產稅務與持有成本深入解析｜愛麗絲奇寓記</title>
+  <meta name="description" content="杜拜買房到底要付哪些費用？DLD 4% 登記費、管理費、Housing Fee、代管費完整拆解，含台灣投資人稅務注意事項。" />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Sans+TC:wght@300;400&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
@@ -107,133 +108,157 @@
       nav { padding:0 80px; }
       .article-hero-body, .article-layout { padding-left:80px; padding-right:80px; max-width:960px; }
     }
+  
+.fee-table { width:100%; border-collapse:collapse; margin:16px 0 24px; font-size:.82rem; }
+    .fee-table th { background:var(--brown); color:var(--cream); padding:10px 12px; text-align:left; font-weight:400; font-size:.72rem; letter-spacing:.1em; }
+    .fee-table td { padding:10px 12px; border-bottom:1px solid var(--line); color:var(--text-mid); vertical-align:top; line-height:1.7; }
+    .fee-table td strong { color:var(--brown); font-weight:500; }
+    .fee-table tr:last-child td { border-bottom:none; }
+
+    /* === VIP 鎖定 === */
+    .vip-gate { position:relative; margin-top:-140px; padding-top:140px; background:linear-gradient(to bottom, rgba(245,240,232,0) 0%, var(--cream) 130px); }
+    .vip-box { background:var(--brown); padding:36px 26px; text-align:center; border-top:2px solid var(--gold); }
+    .vip-badge { display:inline-block; font-size:.6rem; letter-spacing:.3em; text-transform:uppercase; color:var(--gold-light); border:1px solid var(--gold); padding:4px 14px; margin-bottom:14px; }
+    .vip-box-title { font-family:'Playfair Display',serif; font-size:1.3rem; color:var(--cream); margin-bottom:10px; line-height:1.35; }
+    .vip-box-title em { font-style:italic; color:var(--gold-light); }
+    .vip-box-desc { font-size:.8rem; color:rgba(245,240,232,.65); line-height:1.9; margin-bottom:22px; }
+    .vip-steps { display:flex; justify-content:center; gap:18px; flex-wrap:wrap; margin-bottom:24px; }
+    .vip-step { font-size:.68rem; color:rgba(245,240,232,.75); letter-spacing:.08em; }
+    .vip-step strong { color:var(--gold-light); font-weight:500; margin-right:6px; }
+    .vip-input-row { display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin-top:18px; }
+    .vip-input { background:rgba(245,240,232,.08); border:1px solid rgba(212,184,138,.5); color:var(--cream); padding:11px 16px; font-size:.85rem; letter-spacing:.15em; width:200px; text-align:center; outline:none; }
+    .vip-input::placeholder { color:rgba(245,240,232,.35); letter-spacing:.1em; }
+    .vip-input:focus { border-color:var(--gold-light); }
+    .btn-unlock { font-size:.68rem; letter-spacing:.2em; text-transform:uppercase; background:transparent; color:var(--gold-light); border:1px solid var(--gold); padding:11px 22px; cursor:pointer; transition:all .3s; }
+    .btn-unlock:hover { background:var(--gold); color:var(--brown); }
+    .vip-error { font-size:.7rem; color:#d9a0a0; margin-top:10px; display:none; }
+    .vip-hidden { display:none; }
+    body.vip-unlocked .vip-hidden { display:block; }
+    body.vip-unlocked .vip-gate { display:none; }
+
   </style>
 </head>
 <body>
 
 <nav>
   <a class="nav-logo" href="index.html">愛麗絲奇寓記<small>Overseas Property Curator</small></a>
-  <a class="nav-back" href="japan.html">
+  <a class="nav-back" href="uae.html">
     <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M13 5H1M1 5L5 1M1 5l4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
-    日本房產
+    阿聯酋房產
   </a>
 </nav>
 
 <div class="article-hero">
   <div class="article-hero-img">
-    <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=1400&q=85" alt="日本房地產投資全攻略" />
+    <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1400&q=85" alt="杜拜房地產稅務與持有成本深入解析" />
   </div>
   <div class="article-hero-body">
     <div class="article-breadcrumb">
-      <a href="index.html">首頁</a> / <a href="japan.html">日本房產</a> / 投資入門
+      <a href="index.html">首頁</a> / <a href="uae.html">阿聯酋房產</a> / 稅務成本
     </div>
-    <span class="article-tag-badge">日本 · 投資全攻略</span>
-    <h1 class="article-title">日本房地產投資全攻略</h1>
+    <span class="article-tag-badge">阿聯酋 · VIP 深度</span>
+    <h1 class="article-title">杜拜房地產稅務與持有成本深入解析</h1>
     <div class="article-meta">
-      <span>閱讀時間約 8 分鐘</span>
-      <span>政策・城市分析・風險評估</span>
-      <span>2025–2026 年更新</span>
+      <span>閱讀時間約 9 分鐘</span>
+      <span>交易成本・持有成本・匯出</span>
+      <span>2026 年更新</span>
     </div>
   </div>
 </div>
 
 <div class="article-layout">
 
+<div class="prose reveal">
+    <p>許多人第一次認識杜拜，是從「免稅」這 2 個字開始的。但一座城市對你溫柔的方式，往往藏在細節裡——杜拜不收的稅很多，要收的費用卻很明確。把這張帳算清楚，才算真正認識這座城市。</p>
+    <p>以下整理外國買家在杜拜購屋與持有期間，會遇到的全部費用（資料查證至 2026 年 6 月，依杜拜土地局 DLD 現行公告）。</p>
+
+    <h2>一、購買時的一次性費用</h2>
+    <ul>
+      <li><strong>DLD 過戶登記費：房價的 4%</strong>。法規上買賣雙方各付 2%，但市場慣例多由買方全額負擔；部分預售案開發商會以「DLD 費用減免」作為促銷</li>
+      <li><strong>行政登記費</strong>：房價 50 萬 AED 以上為 4,000 AED + 5% VAT（約 4,200 AED）；50 萬以下為 2,100 AED</li>
+    </ul>
+
+  <div class="vip-gate reveal">
+    <div class="vip-box">
+      <span class="vip-badge">VIP MEMBERS ONLY</span>
+      <h3 class="vip-box-title">完整內容為 <em>VIP 專屬</em></h3>
+      <p class="vip-box-desc">本篇深度內容僅開放給愛麗絲奇寓記 LINE 好友。<br>加入好友後索取通關密碼，即可解鎖全站所有 VIP 文章與完整資料庫。</p>
+      <div class="vip-steps">
+        <span class="vip-step"><strong>01</strong>加入 LINE 好友</span>
+        <span class="vip-step"><strong>02</strong>索取通關密碼</span>
+        <span class="vip-step"><strong>03</strong>解鎖全部內容</span>
+      </div>
+      <a class="btn-gold" href="https://line.me/ti/p/rY37pUpv_k" target="_blank">加入 LINE 索取密碼</a>
+      <div class="vip-input-row">
+        <input class="vip-input" id="vipPass" type="text" placeholder="輸入通關密碼" autocomplete="off" />
+        <button class="btn-unlock" onclick="vipUnlock()">解鎖</button>
+      </div>
+      <p class="vip-error" id="vipError">密碼不正確，請確認 LINE 訊息中的最新密碼。</p>
+    </div>
+  </div>
+
+  <div class="vip-hidden">
+
   <div class="prose reveal">
-    <p>日本房市這幾年又回到世界舞台的焦點，外資從新加坡、香港一路湧入東京、大阪。不只是為了穩定報酬率，更因為在通膨、匯率、政治風險升高的年代，<strong>日本成了亞洲最乾淨的避風港</strong>。</p>
+    <ul>
+      <li><strong>產權證（Title Deed）核發費</strong>：公寓約 580 AED</li>
+      <li><strong>仲介佣金</strong>：中古屋約 2% + 5% VAT；向開發商直購預售屋通常免佣金</li>
+      <li><strong>貸款者另計</strong>：抵押登記費為貸款金額的 0.25% + 約 290 AED；估價費約 2,500–3,500 AED</li>
+      <li><strong>DEWA 水電押金</strong>：公寓 2,000 AED、別墅 4,000 AED（可退）</li>
+    </ul>
   </div>
 
   <div class="why-box reveal">
-    <p class="why-box-title">日本房地產的核心吸引力</p>
-    <p><strong>穩定、透明、安全</strong>——這三個字幾乎是所有長期配置日本不動產的投資人共同的評語。完善的登記制度、低利環境、深厚的租賃文化，加上日圓貶值帶來的外資紅利，讓日本在不確定的年代中維持著獨特的吸引力。</p>
+    <p class="why-box-title">交易成本總計</p>
+    <p>現金購屋的交易成本約為房價的 <strong>6.5–8%</strong>；貸款購屋約 <strong>8–9%</strong>。</p>
   </div>
 
   <div class="prose reveal">
-    <h2>一、日本房地產的核心吸引力</h2>
-    <ul>
-      <li><strong>產權制度完善</strong>：外國人可擁有永久產權，買賣流程明確且由公證制度保障</li>
-      <li><strong>低利環境與租金穩定收益</strong>：日本長期維持低利率，房貸成本極低，外資因此能以更高的槓桿取得穩定現金流</li>
-      <li><strong>租賃文化深厚</strong>：70% 以上人口選擇租屋，長期需求穩定</li>
-      <li><strong>日圓貶值帶來外資紅利</strong>：自 2022 年後日圓持續走弱，等於用更低成本進場，即便不轉售，也能在匯率回升時享有增值空間</li>
-    </ul>
+    <h2>二、持有期間的費用</h2>
+    <p>杜拜<strong>沒有</strong>房屋稅、地價稅、租金所得稅、資本利得稅與遺產稅。持有期間實際會發生的是：</p>
+    <table class="fee-table">
+      <tr><th>項目</th><th>費用</th><th>說明</th></tr>
+      <tr><td><strong>管理費（Service Charges）</strong></td><td>約 12–25 AED/呎/年</td><td>依社區等級以每平方呎計價，高端社區可達 30 AED 以上。持有成本中最大的一項，看屋時務必先問清楚</td></tr>
+      <tr><td><strong>Housing Fee（住房費）</strong></td><td>年租金的 5%</td><td>由「居住者」隨 DEWA 水電帳單按月繳納——若房屋出租，由租客負擔</td></tr>
+      <tr><td><strong>物業代管費</strong></td><td>長租 5–8%／短租 18–25%</td><td>以租金計價</td></tr>
+      <tr><td><strong>保險與維修預備金</strong></td><td>租金收入的 5–10%</td><td>建議每年預留</td></tr>
+    </table>
 
-    <h2>二、日本都市更新的推力</h2>
-    <p>東京、大阪、福岡、九州等核心城市正進行<strong>二十年來最大規模的都市再開發</strong>。東京車站周邊、虎之門、品川、澀谷幾乎全面重建；大阪迎來世博與夢洲再造；福岡在「天神 Big Bang」帶動下成為西日本最具活力的人口流入城市；熊本則因台積電設廠帶動住宅需求明顯上行。</p>
-    <p>這一波城市再造，不只是建築更新，而是<strong>產業布局、人口結構與國際資金流向同步重組的結構性轉變</strong>。</p>
-  </div>
+    <h2>三、出售時</h2>
+    <p>杜拜沒有資本利得稅，賣方主要成本為仲介佣金（約 2%）與開發商 NOC 費（約 500–5,000 AED）。獲利可全額匯出，無外匯管制。</p>
 
-  <div class="section-divider reveal">
-    <span class="section-divider-label">五大城市投資定位</span>
-  </div>
-
-  <div class="city-grid reveal">
-    <div class="city-card">
-      <p class="city-card-name">東京</p>
-      <p class="city-card-type">價值保值型</p>
-      <p>土地高度稀缺、國際企業集中、租金市場成熟穩定。<strong>抗跌性最強</strong>，適合長期配置、家族資產防禦與法人持有。</p>
-    </div>
-    <div class="city-card">
-      <p class="city-card-name">大阪</p>
-      <p class="city-card-type">成長收益型</p>
-      <p>租金投報率普遍高於東京，入手門檻相對親民。2025 世博、夢洲與梅北再開發帶動區域升級，<strong>兼具現金流與城市重建紅利</strong>。</p>
-    </div>
-    <div class="city-card">
-      <p class="city-card-name">福岡</p>
-      <p class="city-card-type">人口流入型</p>
-      <p>政令指定都市中人口成長率領先，新創產業活躍。<strong>租金水準穩定、生活成本低於東京</strong>，屬於結構性成長市場。</p>
-    </div>
-    <div class="city-card">
-      <p class="city-card-name">熊本</p>
-      <p class="city-card-type">產業爆發型</p>
-      <p>半導體產業擴張帶動住宅與土地需求快速上升。<strong>產業集中效應明顯</strong>，租賃市場受工程師與外派人員支撐。</p>
-    </div>
-    <div class="city-card">
-      <p class="city-card-name">京都</p>
-      <p class="city-card-type">特色市場型</p>
-      <p>受觀光與留學人口支撐，需求穩定但供給受限。<strong>以特定產業與文化定位</strong>吸引固定族群，短租政策需特別留意。</p>
-    </div>
-  </div>
-
-  <div class="prose reveal">
-    <h2>三、日本房產的風險與現實</h2>
-    <ul>
-      <li><strong>匯率風險</strong>：進場時機影響成本與收益，須搭配避險策略</li>
-      <li><strong>維修與管理費高</strong>：日本共管住宅的修繕費與管理費制度嚴謹，長期持有者需預留固定開支</li>
-      <li><strong>租賃法保障租客</strong>：一般契約下屋主無法中途解約，需由代租公司妥善管理租期</li>
-    </ul>
-
-    <h2>四、未來趨勢：從住宅到「全球資產配置」</h2>
-    <p>日本房市已不再只是地產投資，而是被納入全球資產配置的一環。家族辦公室、企業主、自由職業者都以「海外現金流＋資產避險」的角度，在東京、大阪、京都持有一到兩戶房產。</p>
-    <p>「<strong>穩定、長期、低風險</strong>」——在不確定的世界裡，仍能看見確定的價值。</p>
+    <h2>四、台灣投資人要留意的 2 件事</h2>
+    <p>第一，杜拜免稅不代表全球免稅——台灣居民的海外所得適用最低稅負制，達一定門檻仍須申報，建議與會計師確認。第二，9% 的企業所得稅（2023 年起實施）針對的是公司營利，個人持有住宅出租一般不受影響；但若以公司架構持有多戶物業，請先做稅務規劃。</p>
   </div>
 
   <div class="notice-box reveal">
-    <p>💡 <strong>東守價值，大阪拼成長，福岡聚人口，熊本靠產業</strong>——日本主要城市已形成明確分工，投資前應先確認自身目標是保值、現金流還是長期增值。</p>
+    <p>💡 帳算得清楚，心就放得下。<br><em>資料來源：Dubai Land Department、DEWA 公告費率（2026 年）。本文僅供參考，實際費用以官方最新公告為準。</em></p>
+  </div>
   </div>
 
   <div class="cta-box reveal">
-    <h3 class="cta-box-title">想了解<em>哪個日本城市最適合你</em>？</h3>
-    <p class="cta-box-desc">依你的預算、目標與風險偏好，我們幫你找到最合適的日本房產配置方案。</p>
+    <h3 class="cta-box-title">想針對特定物件<em>試算完整持有成本</em>？</h3>
+    <p class="cta-box-desc">帳算得清楚，心就放得下。加 LINE 免費試算。</p>
     <a class="btn-gold" href="https://line.me/ti/p/rY37pUpv_k" target="_blank">LINE 免費諮詢</a>
   </div>
 
   <div class="related-section reveal">
     <h3 class="related-title">延伸閱讀</h3>
     <div class="related-grid">
-      <a class="related-card" href="article-japan-property-types.html">
-        <div class="related-thumb"><img src="https://images.unsplash.com/photo-1480796927426-f609979314bd?w=200&q=80" alt="" loading="lazy" /></div>
+      <a class="related-card" href="article-dubai-financing.html">
+        <div class="related-thumb"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=200&q=80" alt="" loading="lazy" /></div>
         <div>
-          <p class="related-tag">日本 · 房產類型</p>
-          <p class="related-name">日本房產類型全解析｜一戶建、公寓、塔樓完整指南</p>
-          <p class="related-date">2025 · 10 分鐘閱讀</p>
+          <p class="related-tag">阿聯酋 · VIP</p>
+          <p class="related-name">外國人融資攻略｜杜拜買房也能貸款？</p>
+          <p class="related-date">2026 · 深度解析</p>
         </div>
       </a>
-      <a class="related-card" href="article-japan-buying-process.html">
-        <div class="related-thumb"><img src="https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=200&q=80" alt="" loading="lazy" /></div>
+      <a class="related-card" href="article-dubai-buying-process.html">
+        <div class="related-thumb"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=200&q=80" alt="" loading="lazy" /></div>
         <div>
-          <p class="related-tag">日本 · 購屋流程</p>
-          <p class="related-name">日本購屋流程、稅費、貸款全解析</p>
-          <p class="related-date">2025 · 12 分鐘閱讀</p>
+          <p class="related-tag">阿聯酋 · 購買流程</p>
+          <p class="related-name">一篇文章看懂杜拜房產購買流程</p>
+          <p class="related-date">2026 · 深度解析</p>
         </div>
       </a>
     </div>
@@ -245,9 +270,9 @@
   <p class="footer-logo">愛麗絲奇寓記</p>
   <div class="footer-links">
     <a href="index.html">首頁</a><a href="thailand-articles.html">泰國房產</a>
-    <a href="japan.html">日本房產</a>
+    <a href="japan.html">日本房產</a><a href="uae.html">阿聯酋房產</a>
   </div>
-  <p class="footer-copy">© 2025 愛麗絲奇寓記｜投資國外不動產具有風險性，請詳閱行銷文件並審慎考量後再行交易。</p>
+  <p class="footer-copy">© 2026 愛麗絲奇寓記｜投資國外不動產具有風險性，請詳閱行銷文件並審慎考量後再行交易。</p>
 </footer>
 
 <script>
@@ -257,6 +282,7 @@
   }, { threshold: 0.06 });
   reveals.forEach(el => obs.observe(el));
 </script>
+<script src="vip.js"></script>
 <script src="protect.js"></script>
 </body>
 </html>

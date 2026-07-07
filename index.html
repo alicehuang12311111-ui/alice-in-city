@@ -61,7 +61,7 @@
     .mobile-menu.open { opacity: 1; pointer-events: auto; }
     .mobile-menu a { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 400; color: var(--brown); text-decoration: none; letter-spacing: .04em; opacity: 0; transform: translateY(14px); transition: color .3s, opacity .4s, transform .4s; }
     .mobile-menu.open a { opacity: 1; transform: translateY(0); }
-    .mobile-menu.open a:nth-child(1){transition-delay:.07s}.mobile-menu.open a:nth-child(2){transition-delay:.13s}.mobile-menu.open a:nth-child(3){transition-delay:.19s}.mobile-menu.open a:nth-child(4){transition-delay:.25s}
+    .mobile-menu.open a:nth-child(1){transition-delay:.07s}.mobile-menu.open a:nth-child(2){transition-delay:.13s}.mobile-menu.open a:nth-child(3){transition-delay:.19s}.mobile-menu.open a:nth-child(4){transition-delay:.25s}.mobile-menu.open a:nth-child(5){transition-delay:.31s}
     .mobile-menu a:hover { color: var(--gold); }
     .mobile-menu-divider { width: 36px; height: 1px; background: var(--line-dark); }
     .mobile-menu-contact { font-size: .72rem; color: var(--text-dim); text-align: center; line-height: 1.8; opacity: 0; transition: opacity .4s .44s; }
@@ -231,6 +231,7 @@
     <li><a href="about.html">關於我們</a></li>
     <li><a href="thailand-articles.html">泰國房產</a></li>
     <li><a href="japan.html">日本房產</a></li>
+    <li><a href="uae.html">阿聯酋房產</a></li>
   </ul>
   <a class="nav-cta-btn" href="https://line.me/ti/p/rY37pUpv_k" target="_blank">立即諮詢</a>
   <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
@@ -242,6 +243,7 @@
   <a href="about.html" onclick="closeMenu()">關於我們</a>
   <a href="thailand-articles.html" onclick="closeMenu()">泰國房產</a>
   <a href="japan.html" onclick="closeMenu()">日本房產</a>
+  <a href="uae.html" onclick="closeMenu()">阿聯酋房產</a>
   <div class="mobile-menu-divider"></div>
   <p class="mobile-menu-contact">Alice 0929-688-608<br>（手機加賴）</p>
 </div>
@@ -301,7 +303,7 @@
 <section class="section destinations reveal">
   <p class="section-label">投資目的地</p>
   <h2 class="section-title">選擇你的<em>下一個城市</em></h2>
-  <p class="section-desc">泰國、日本、馬來西亞——我們在最值得關注的市場為你精選建案。</p>
+  <p class="section-desc">泰國、日本、阿聯酋——我們在最值得關注的市場為你精選建案，馬來西亞、越南即將登場。</p>
   <div class="dest-cards">
     <a class="dest-card rd1 reveal" href="thailand-articles.html">
       <img src="iconsiam-07.jpg" alt="曼谷" loading="lazy" />
@@ -325,15 +327,15 @@
         <span class="dest-tag">20+ 新建案</span>
       </div>
     </a>
-    <a class="dest-card rd3 reveal" href="#">
-      <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=700&q=80" alt="吉隆坡" loading="lazy" />
+    <a class="dest-card rd3 reveal" href="uae.html">
+      <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=700&q=80" alt="杜拜" loading="lazy" />
       <div class="dest-overlay"></div>
       <div class="dest-info">
         <div>
-          <p class="dest-country">Malaysia · 馬來西亞</p>
-          <h3 class="dest-name">吉隆坡 KL</h3>
+          <p class="dest-country">UAE · 阿聯酋</p>
+          <h3 class="dest-name">杜拜 Dubai</h3>
         </div>
-        <span class="dest-tag dest-coming">即將推出</span>
+        <span class="dest-tag">28 篇深度解析</span>
       </div>
     </a>
   </div>
@@ -436,10 +438,20 @@
           <p class="article-date">2025 · 10 分鐘閱讀</p>
         </div>
       </a>
+      <a class="article-item" href="article-dubai-overview.html">
+        <div class="article-thumb"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=200&q=80" alt="" loading="lazy" /></div>
+        <div>
+          <p class="article-tag">阿聯酋 · 投資全攻略</p>
+          <h3 class="article-title">杜拜房地產全景：為何全球投資人蜂擁而至</h3>
+          <p class="article-date">2026 · 10 分鐘閱讀</p>
+        </div>
+      </a>
     </div>
   </div>
-  <div style="margin-top:32px;text-align:center;">
-    <a class="btn-outline" href="thailand-articles.html">查看全部文章</a>
+  <div style="margin-top:32px;text-align:center;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+    <a class="btn-outline" href="thailand-articles.html">泰國文章總覽</a>
+    <a class="btn-outline" href="japan.html">日本文章總覽</a>
+    <a class="btn-outline" href="uae.html">阿聯酋文章總覽</a>
   </div>
 </section>
 
@@ -466,6 +478,7 @@
         <li><a href="about.html">關於我們</a></li>
         <li><a href="thailand-articles.html">泰國房產</a></li>
         <li><a href="japan.html">日本房產</a></li>
+    <li><a href="uae.html">阿聯酋房產</a></li>
       </ul>
     </div>
     <div class="footer-col">

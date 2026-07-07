@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ras Al Khaimah 值得投資嗎？｜愛麗絲奇寓記</title>
+  <meta name="description" content="哈伊馬角 RAK 完整投資分析：均價僅杜拜七成、漲幅 +39%、Wynn 賭場效應與流動性風險，RAK vs 杜拜關鍵指標比較。" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Sans+TC:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    :root {
+      --cream:#f5f0e8; --cream-mid:#ede6d6; --cream-dark:#e0d5c0;
+      --taupe:#8c7b6b; --taupe-dark:#5c4f42; --brown:#3d3028;
+      --gold:#b89a6a; --gold-light:#d4b88a; --white:#fdfaf5;
+      --text-main:#2e261e; --text-mid:#6b5f54; --text-dim:#9e9188;
+      --line:rgba(140,123,107,0.2); --line-dark:rgba(140,123,107,0.4);
+    }
+    html { scroll-behavior:smooth; }
+    body { background:var(--cream); color:var(--text-main); font-family:'Noto Sans TC',sans-serif; font-weight:300; overflow-x:hidden; -webkit-font-smoothing:antialiased; }
+
+    nav { position:fixed; top:0; left:0; right:0; z-index:200; background:rgba(245,240,232,0.96); backdrop-filter:blur(12px); border-bottom:1px solid var(--line); display:flex; align-items:center; justify-content:space-between; padding:0 24px; height:60px; }
+    .nav-logo { font-family:'Playfair Display',serif; font-size:1rem; color:var(--brown); text-decoration:none; line-height:1.2; }
+    .nav-logo small { display:block; font-family:'Noto Sans TC',sans-serif; font-size:.46rem; letter-spacing:.26em; text-transform:uppercase; color:var(--taupe); font-weight:300; }
+    .nav-back { font-size:.65rem; letter-spacing:.18em; text-transform:uppercase; color:var(--taupe); text-decoration:none; display:flex; align-items:center; gap:6px; transition:color .3s; }
+    .nav-back:hover { color:var(--brown); }
+    .nav-back svg { transition:transform .3s; }
+    .nav-back:hover svg { transform:translateX(-3px); }
+
+    .article-hero { padding-top:60px; background:var(--white); }
+    .article-hero-img { width:100%; aspect-ratio:16/7; overflow:hidden; position:relative; }
+    .article-hero-img img { width:100%; height:100%; object-fit:cover; filter:brightness(.72); }
+    .article-hero-img::after { content:''; position:absolute; inset:0; background:linear-gradient(to bottom, transparent 40%, var(--white) 100%); }
+    .article-hero-body { padding:28px 24px 36px; max-width:800px; margin:0 auto; }
+    .article-breadcrumb { font-size:.6rem; letter-spacing:.22em; text-transform:uppercase; color:var(--taupe); margin-bottom:14px; display:flex; align-items:center; gap:7px; flex-wrap:wrap; }
+    .article-breadcrumb a { color:var(--taupe); text-decoration:none; }
+    .article-tag-badge { display:inline-block; font-size:.58rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); border:1px solid var(--gold); padding:3px 10px; margin-bottom:14px; }
+    .article-title { font-family:'Playfair Display',serif; font-size:clamp(1.7rem,5.5vw,2.8rem); font-weight:400; line-height:1.2; color:var(--brown); margin-bottom:18px; }
+    .article-meta { display:flex; gap:18px; flex-wrap:wrap; font-size:.65rem; letter-spacing:.12em; text-transform:uppercase; color:var(--text-dim); padding-top:16px; border-top:1px solid var(--line); }
+
+    .article-layout { max-width:800px; margin:0 auto; padding:40px 24px 80px; }
+
+    .prose p { font-size:.9rem; line-height:2; color:var(--text-mid); margin-bottom:16px; }
+    .prose strong { color:var(--brown); font-weight:500; }
+    .prose h2 { font-family:'Noto Serif TC',serif; font-size:1.1rem; color:var(--brown); margin:36px 0 14px; padding-bottom:10px; border-bottom:1px solid var(--line); }
+    .prose h3 { font-family:'Noto Serif TC',serif; font-size:.95rem; color:var(--brown); margin:24px 0 10px; }
+    .prose ul { list-style:none; padding:0; margin:10px 0 18px; }
+    .prose ul li { font-size:.88rem; line-height:1.9; color:var(--text-mid); padding:5px 0 5px 20px; position:relative; border-bottom:1px solid var(--line); }
+    .prose ul li:last-child { border-bottom:none; }
+    .prose ul li::before { content:'—'; position:absolute; left:0; color:var(--gold); }
+    .prose ul li strong { color:var(--brown); font-weight:500; }
+
+    .why-box { background:var(--cream-mid); border:1px solid var(--line); padding:20px 22px; margin-bottom:32px; }
+    .why-box-title { font-size:.65rem; letter-spacing:.24em; text-transform:uppercase; color:var(--gold); margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+    .why-box-title::before { content:''; display:inline-block; width:14px; height:1px; background:var(--gold); }
+    .why-box p { font-size:.86rem; line-height:1.88; color:var(--text-mid); }
+    .why-box p strong { color:var(--brown); font-weight:500; }
+
+    .city-grid { display:grid; grid-template-columns:1fr; gap:12px; margin:20px 0 32px; }
+    .city-card { background:var(--white); border:1px solid var(--line); padding:18px 20px; border-left:3px solid var(--gold); }
+    .city-card-name { font-family:'Noto Serif TC',serif; font-size:.95rem; color:var(--brown); margin-bottom:4px; }
+    .city-card-type { font-size:.6rem; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); margin-bottom:10px; }
+    .city-card p { font-size:.84rem; line-height:1.88; color:var(--text-mid); }
+    .city-card p strong { color:var(--brown); font-weight:500; }
+
+    .section-divider { margin:40px 0 20px; padding-bottom:12px; border-bottom:1px solid var(--line); }
+    .section-divider-label { font-size:.62rem; letter-spacing:.28em; text-transform:uppercase; color:var(--taupe); }
+    .section-divider-label::before { content:''; display:inline-block; width:14px; height:1px; background:var(--gold); margin-right:10px; }
+
+    .notice-box { background:var(--cream-mid); border-left:3px solid var(--gold); padding:14px 18px; margin:16px 0; }
+    .notice-box p { font-size:.84rem; line-height:1.88; color:var(--text-mid); margin:0; }
+    .notice-box strong { color:var(--brown); font-weight:500; }
+
+    .cta-box { background:var(--brown); padding:32px 24px; margin:52px 0 0; text-align:center; }
+    .cta-box-title { font-family:'Playfair Display',serif; font-size:1.25rem; color:var(--cream); margin-bottom:10px; line-height:1.3; }
+    .cta-box-title em { font-style:italic; color:var(--gold-light); }
+    .cta-box-desc { font-size:.8rem; color:rgba(245,240,232,.6); line-height:1.8; margin-bottom:20px; }
+    .btn-gold { display:inline-block; font-size:.68rem; letter-spacing:.2em; text-transform:uppercase; background:var(--gold); color:var(--brown); padding:12px 28px; text-decoration:none; transition:background .3s; }
+    .btn-gold:hover { background:var(--gold-light); }
+
+    .related-section { margin-top:56px; padding-top:36px; border-top:1px solid var(--line); }
+    .related-title { font-family:'Playfair Display',serif; font-size:1.05rem; color:var(--brown); margin-bottom:20px; }
+    .related-grid { display:grid; grid-template-columns:1fr; gap:12px; }
+    .related-card { display:flex; gap:14px; text-decoration:none; padding:14px; background:var(--white); border:1px solid var(--line); transition:border-color .3s; }
+    .related-card:hover { border-color:var(--gold); }
+    .related-thumb { width:72px; height:72px; flex-shrink:0; overflow:hidden; }
+    .related-thumb img { width:100%; height:100%; object-fit:cover; }
+    .related-tag { font-size:.56rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); }
+    .related-name { font-family:'Noto Serif TC',serif; font-size:.86rem; color:var(--brown); margin:4px 0; line-height:1.4; }
+    .related-date { font-size:.62rem; color:var(--text-dim); }
+
+    footer { background:var(--brown); padding:36px 24px 24px; border-top:2px solid var(--gold); }
+    .footer-logo { font-family:'Playfair Display',serif; font-size:1rem; color:var(--cream); margin-bottom:6px; }
+    .footer-links { display:flex; gap:18px; flex-wrap:wrap; margin-top:12px; }
+    .footer-links a { font-size:.72rem; color:rgba(245,240,232,.5); text-decoration:none; transition:color .3s; }
+    .footer-links a:hover { color:var(--cream); }
+    .footer-copy { font-size:.6rem; color:rgba(245,240,232,.28); line-height:1.8; margin-top:18px; }
+
+    .reveal { opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease; }
+    .reveal.in { opacity:1; transform:translateY(0); }
+
+    @media (min-width:768px) {
+      nav { padding:0 48px; height:68px; }
+      .article-hero-body, .article-layout { padding-left:48px; padding-right:48px; }
+      .related-grid { grid-template-columns:1fr 1fr; }
+      .city-grid { grid-template-columns:1fr 1fr; }
+    }
+    @media (min-width:1100px) {
+      nav { padding:0 80px; }
+      .article-hero-body, .article-layout { padding-left:80px; padding-right:80px; max-width:960px; }
+    }
+  
+.fee-table { width:100%; border-collapse:collapse; margin:16px 0 24px; font-size:.82rem; }
+    .fee-table th { background:var(--brown); color:var(--cream); padding:10px 12px; text-align:left; font-weight:400; font-size:.72rem; letter-spacing:.1em; }
+    .fee-table td { padding:10px 12px; border-bottom:1px solid var(--line); color:var(--text-mid); vertical-align:top; line-height:1.7; }
+    .fee-table td strong { color:var(--brown); font-weight:500; }
+    .fee-table tr:last-child td { border-bottom:none; }
+
+    /* === VIP 鎖定 === */
+    .vip-gate { position:relative; margin-top:-140px; padding-top:140px; background:linear-gradient(to bottom, rgba(245,240,232,0) 0%, var(--cream) 130px); }
+    .vip-box { background:var(--brown); padding:36px 26px; text-align:center; border-top:2px solid var(--gold); }
+    .vip-badge { display:inline-block; font-size:.6rem; letter-spacing:.3em; text-transform:uppercase; color:var(--gold-light); border:1px solid var(--gold); padding:4px 14px; margin-bottom:14px; }
+    .vip-box-title { font-family:'Playfair Display',serif; font-size:1.3rem; color:var(--cream); margin-bottom:10px; line-height:1.35; }
+    .vip-box-title em { font-style:italic; color:var(--gold-light); }
+    .vip-box-desc { font-size:.8rem; color:rgba(245,240,232,.65); line-height:1.9; margin-bottom:22px; }
+    .vip-steps { display:flex; justify-content:center; gap:18px; flex-wrap:wrap; margin-bottom:24px; }
+    .vip-step { font-size:.68rem; color:rgba(245,240,232,.75); letter-spacing:.08em; }
+    .vip-step strong { color:var(--gold-light); font-weight:500; margin-right:6px; }
+    .vip-input-row { display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin-top:18px; }
+    .vip-input { background:rgba(245,240,232,.08); border:1px solid rgba(212,184,138,.5); color:var(--cream); padding:11px 16px; font-size:.85rem; letter-spacing:.15em; width:200px; text-align:center; outline:none; }
+    .vip-input::placeholder { color:rgba(245,240,232,.35); letter-spacing:.1em; }
+    .vip-input:focus { border-color:var(--gold-light); }
+    .btn-unlock { font-size:.68rem; letter-spacing:.2em; text-transform:uppercase; background:transparent; color:var(--gold-light); border:1px solid var(--gold); padding:11px 22px; cursor:pointer; transition:all .3s; }
+    .btn-unlock:hover { background:var(--gold); color:var(--brown); }
+    .vip-error { font-size:.7rem; color:#d9a0a0; margin-top:10px; display:none; }
+    .vip-hidden { display:none; }
+    body.vip-unlocked .vip-hidden { display:block; }
+    body.vip-unlocked .vip-gate { display:none; }
+
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">愛麗絲奇寓記<small>Overseas Property Curator</small></a>
+  <a class="nav-back" href="uae.html">
+    <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M13 5H1M1 5L5 1M1 5l4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+    阿聯酋房產
+  </a>
+</nav>
+
+<div class="article-hero">
+  <div class="article-hero-img">
+    <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1400&q=85" alt="Ras Al Khaimah 值得投資嗎？" />
+  </div>
+  <div class="article-hero-body">
+    <div class="article-breadcrumb">
+      <a href="index.html">首頁</a> / <a href="uae.html">阿聯酋房產</a> / 北酋長國
+    </div>
+    <span class="article-tag-badge">阿聯酋 · VIP 深度</span>
+    <h1 class="article-title">Ras Al Khaimah 值得投資嗎？</h1>
+    <div class="article-meta">
+      <span>閱讀時間約 11 分鐘</span>
+      <span>RAK 數據・杜拜比較・策略</span>
+      <span>2026 年更新</span>
+    </div>
+  </div>
+</div>
+
+<div class="article-layout">
+
+<div class="prose reveal">
+    <p>挾著 Wynn 賭場效應、均價僅杜拜七成——但 RAK 的投資邏輯，與杜拜根本不同。</p>
+    <p>哈伊馬角（Ras Al Khaimah，RAK）是阿聯酋北部主要酋長國之一，正在經歷一場前所未有的轉型變革。本文用數字幫你分析：RAK 到底值不值得入場。</p>
+    <p>所有數據截至 <strong>2026 年 6 月</strong>。來源：CBRE、Bayut、Oliva、RAKTA。</p>
+
+    <h2>一、RAK 整體住宅市場數據</h2>
+    <table class="fee-table">
+      <tr><th>指標</th><th>數據</th></tr>
+      <tr><td><strong>2024 年交易總值</strong></td><td>AED 15.08 億（年增 +118%，創歷史新高）</td></tr>
+      <tr><td><strong>2025 年交易總值</strong></td><td>AED 124 億（約 $3.38B USD），6,600 件</td></tr>
+      <tr><td><strong>2025 Q1 公寓均價</strong></td><td>AED 1,684/sqft（年增 +39%，高端新案拉高均價）</td></tr>
+      <tr><td><strong>2025 Q1 別墅均價</strong></td><td>AED 1,145/sqft（年增 +11%）</td></tr>
+      <tr><td><strong>2025 年新竣工供給</strong></td><td>1,200 戶</td></tr>
+      <tr><td><strong>2026–2028 計畫供給</strong></td><td>2026: 1,300 戶 → 2027: 1,900 戶 → 2028: 5,200 戶</td></tr>
+    </table>
+    <p><em>來源：CBRE RAK Market Review 2025</em></p>
+
+  <div class="vip-gate reveal">
+    <div class="vip-box">
+      <span class="vip-badge">VIP MEMBERS ONLY</span>
+      <h3 class="vip-box-title">完整內容為 <em>VIP 專屬</em></h3>
+      <p class="vip-box-desc">本篇深度內容僅開放給愛麗絲奇寓記 LINE 好友。<br>加入好友後索取通關密碼，即可解鎖全站所有 VIP 文章與完整資料庫。</p>
+      <div class="vip-steps">
+        <span class="vip-step"><strong>01</strong>加入 LINE 好友</span>
+        <span class="vip-step"><strong>02</strong>索取通關密碼</span>
+        <span class="vip-step"><strong>03</strong>解鎖全部內容</span>
+      </div>
+      <a class="btn-gold" href="https://line.me/ti/p/rY37pUpv_k" target="_blank">加入 LINE 索取密碼</a>
+      <div class="vip-input-row">
+        <input class="vip-input" id="vipPass" type="text" placeholder="輸入通關密碼" autocomplete="off" />
+        <button class="btn-unlock" onclick="vipUnlock()">解鎖</button>
+      </div>
+      <p class="vip-error" id="vipError">密碼不正確，請確認 LINE 訊息中的最新密碼。</p>
+    </div>
+  </div>
+
+  <div class="vip-hidden">
+
+  <div class="prose reveal">
+    <h2>二、主要區域詳細數據</h2>
+    <table class="fee-table">
+      <tr><th>區域</th><th>均價（AED/sqft）</th><th>YoY 漲幅</th><th>長租毛報</th><th>1BR 均價</th><th>2BR 均價</th></tr>
+      <tr><td><strong>Al Marjan Island</strong></td><td>1,328</td><td>+21.3%</td><td>5.46%</td><td>AED 1.09M</td><td>AED 1.94M</td></tr>
+      <tr><td><strong>Mina Al Arab</strong></td><td>1,344</td><td>+1.85%</td><td>5.04%</td><td>AED 1.25M</td><td>AED 1.94M</td></tr>
+      <tr><td><strong>Al Hamra Village</strong></td><td>1,027</td><td>+30.4%</td><td>5.81%</td><td>AED 817K</td><td>AED 1.30M</td></tr>
+      <tr><td><strong>Dafan Al Nakheel</strong></td><td>649</td><td>+11.4%</td><td>7.09%</td><td>AED 608K</td><td>AED 919K</td></tr>
+    </table>
+    <p><strong>Al Marjan Island 短租毛報：7–9%</strong>（Oliva 2026 年 4 月），因 Wynn 觀光人潮效應高於長租。<em>來源：Bayut RAK 年度市場報告 2025</em></p>
+
+    <h2>三、外籍 Freehold 購屋區域與法規</h2>
+    <table class="fee-table">
+      <tr><th>項目</th><th>規定</th></tr>
+      <tr><td><strong>法源依據</strong></td><td>RAK 2006 年第 3 號法（第 4 條、第 14 條）</td></tr>
+      <tr><td><strong>Freehold 區域</strong></td><td>需為執行委員會指定的投資開發項目（Al Marjan Island、Mina Al Arab、Al Hamra Village 等均屬此類）</td></tr>
+      <tr><td><strong>非 Freehold 區域</strong></td><td>可申請 Usufruct（使用權）最長 99 年，或 Musataha（開發權）50 年，可續約</td></tr>
+      <tr><td><strong>外籍購置門檻</strong></td><td>無最低金額限制（但黃金簽證需 AED 200 萬）</td></tr>
+      <tr><td><strong>購置資格</strong></td><td>全球所有國籍均可在指定區域購買</td></tr>
+    </table>
+
+    <h2>四、RAK vs 杜拜：關鍵投資指標比較</h2>
+    <table class="fee-table">
+      <tr><th>比較維度</th><th>杜拜</th><th>RAK（Al Marjan Island）</th></tr>
+      <tr><td>均價（公寓）</td><td>AED 1,918/sqft</td><td>AED 1,328/sqft（-31%）</td></tr>
+      <tr><td>長租毛報</td><td>5.0–7.5%</td><td>5.0–7.1%</td></tr>
+      <tr><td>短租毛報</td><td>6–10%</td><td><strong>7–9%（Wynn 效應）</strong></td></tr>
+      <tr><td>年交易量</td><td>20 萬+ 件</td><td>6,600 件</td></tr>
+      <tr><td>流動性</td><td>極高（全球市場）</td><td>低（成長中）</td></tr>
+      <tr><td>市場成熟度</td><td>高</td><td>發展中</td></tr>
+      <tr><td>供給風險</td><td>高（2027 年恐超供）</td><td>低（2028 前供給有限）</td></tr>
+      <tr><td>主要催化劑</td><td>多元（科技／金融／旅遊）</td><td><strong>Wynn 賭場（單一依賴）</strong></td></tr>
+      <tr><td>2025 年價格漲幅</td><td>+13–22%（公寓）</td><td><strong>+32–39%（公寓）</strong></td></tr>
+    </table>
+
+    <h2>五、RAK 基建計畫（2025–2028）</h2>
+    <table class="fee-table">
+      <tr><th>計畫</th><th>現況／預計完工</th></tr>
+      <tr><td><strong>Wynn Bridge</strong>（548 米）</td><td>2026 年底通車</td></tr>
+      <tr><td><strong>VVIP 航空站</strong>（RAK 國際機場）</td><td>2026 Q1 開工，2027 Q1 啟用</td></tr>
+      <tr><td><strong>機場擴容</strong>（300 萬旅客／年目標）</td><td>2027–2028 年分階段完成</td></tr>
+      <tr><td><strong>eVTOL 空中計程車網絡</strong></td><td>2026 年初動工，2027 年投入服務</td></tr>
+      <tr><td><strong>Janu Al Marjan Island</strong>（Aman 姊妹品牌度假村）</td><td>預計 2028 年開幕</td></tr>
+      <tr><td><strong>RAKEZ 經濟區擴展</strong></td><td>持續吸引工業與物流外資</td></tr>
+    </table>
+
+    <h2>六、投資評估：機會與風險</h2>
+    <h3>機會面</h3>
+    <ul>
+      <li>均價仍比杜拜低 31%，但漲幅動能最強（+21–39% YoY）</li>
+      <li>短租毛報 7–9%，賭場效應尚未完全兌現</li>
+      <li>2028 年前供給有限，超供風險相對小</li>
+      <li>全 UAE 黃金簽證適用，包含 RAK Freehold 物件</li>
+    </ul>
+    <h3>風險面</h3>
+    <ul>
+      <li><strong>行情高度依賴 Wynn 賭場</strong>：一旦再延遲或永久取消，價格將大幅修正</li>
+      <li><strong>流動性低</strong>：年交易量僅 6,600 件 vs 杜拜 20 萬+ 件</li>
+      <li><strong>投機買家偏多</strong>，實際租賃需求尚未完全建立</li>
+      <li><strong>2028 年供給風險</strong>：計畫竣工量大幅跳升至 5,200 戶，若旅遊需求不如預期，將出現供需失衡</li>
+    </ul>
+
+    <h2>七、給台灣投資人的策略建議</h2>
+    <table class="fee-table">
+      <tr><th>策略方向</th><th>建議做法</th></tr>
+      <tr><td><strong>追求資本增值</strong></td><td>Al Marjan Island，賭場開幕前入場，以短租經營支撐持有</td></tr>
+      <tr><td><strong>追求現金流</strong></td><td>Al Hamra Village、Dafan Al Nakheel，毛報較高且對 Wynn 依賴小</td></tr>
+      <tr><td><strong>風險控管</strong></td><td>將 RAK 視為投資組合的一部分，而非把全部資金押注單一區域</td></tr>
+      <tr><td><strong>移居／退休配置</strong></td><td>RAK 亦可申請黃金簽證（AED 200 萬門檻），生活成本遠低於杜拜</td></tr>
+    </table>
+  </div>
+  </div>
+
+  <div class="cta-box reveal">
+    <h3 class="cta-box-title">想評估 <em>RAK 的實際在售物件</em>？</h3>
+    <p class="cta-box-desc">投資邏輯與杜拜根本不同——先看懂數字，再決定要不要進場。</p>
+    <a class="btn-gold" href="https://line.me/ti/p/rY37pUpv_k" target="_blank">LINE 免費諮詢</a>
+  </div>
+
+  <div class="related-section reveal">
+    <h3 class="related-title">延伸閱讀</h3>
+    <div class="related-grid">
+      <a class="related-card" href="article-uae-wynn-rak.html">
+        <div class="related-thumb"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=200&q=80" alt="" loading="lazy" /></div>
+        <div>
+          <p class="related-tag">阿聯酋 · RAK 專題</p>
+          <p class="related-name">Wynn 賭場與北酋長國機會</p>
+          <p class="related-date">2026 · 深度解析</p>
+        </div>
+      </a>
+      <a class="related-card" href="article-dubai-overheat-risk.html">
+        <div class="related-thumb"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=200&q=80" alt="" loading="lazy" /></div>
+        <div>
+          <p class="related-tag">阿聯酋 · VIP</p>
+          <p class="related-name">杜拜房價會不會過熱？投資人必看的風險指標</p>
+          <p class="related-date">2026 · 深度解析</p>
+        </div>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p class="footer-logo">愛麗絲奇寓記</p>
+  <div class="footer-links">
+    <a href="index.html">首頁</a><a href="thailand-articles.html">泰國房產</a>
+    <a href="japan.html">日本房產</a><a href="uae.html">阿聯酋房產</a>
+  </div>
+  <p class="footer-copy">© 2026 愛麗絲奇寓記｜投資國外不動產具有風險性，請詳閱行銷文件並審慎考量後再行交易。</p>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+  }, { threshold: 0.06 });
+  reveals.forEach(el => obs.observe(el));
+</script>
+<script src="vip.js"></script>
+<script src="protect.js"></script>
+</body>
+</html>

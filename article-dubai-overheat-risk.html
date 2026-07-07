@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>杜拜房價會不會過熱？投資人必看的風險指標｜愛麗絲奇寓記</title>
+  <meta name="description" content="杜拜房市是成長還是泡沫？房價指數、供給海嘯、PTR 房價租金比、六大機構展望與風險保護因子完整解析。" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Sans+TC:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    :root {
+      --cream:#f5f0e8; --cream-mid:#ede6d6; --cream-dark:#e0d5c0;
+      --taupe:#8c7b6b; --taupe-dark:#5c4f42; --brown:#3d3028;
+      --gold:#b89a6a; --gold-light:#d4b88a; --white:#fdfaf5;
+      --text-main:#2e261e; --text-mid:#6b5f54; --text-dim:#9e9188;
+      --line:rgba(140,123,107,0.2); --line-dark:rgba(140,123,107,0.4);
+    }
+    html { scroll-behavior:smooth; }
+    body { background:var(--cream); color:var(--text-main); font-family:'Noto Sans TC',sans-serif; font-weight:300; overflow-x:hidden; -webkit-font-smoothing:antialiased; }
+
+    nav { position:fixed; top:0; left:0; right:0; z-index:200; background:rgba(245,240,232,0.96); backdrop-filter:blur(12px); border-bottom:1px solid var(--line); display:flex; align-items:center; justify-content:space-between; padding:0 24px; height:60px; }
+    .nav-logo { font-family:'Playfair Display',serif; font-size:1rem; color:var(--brown); text-decoration:none; line-height:1.2; }
+    .nav-logo small { display:block; font-family:'Noto Sans TC',sans-serif; font-size:.46rem; letter-spacing:.26em; text-transform:uppercase; color:var(--taupe); font-weight:300; }
+    .nav-back { font-size:.65rem; letter-spacing:.18em; text-transform:uppercase; color:var(--taupe); text-decoration:none; display:flex; align-items:center; gap:6px; transition:color .3s; }
+    .nav-back:hover { color:var(--brown); }
+    .nav-back svg { transition:transform .3s; }
+    .nav-back:hover svg { transform:translateX(-3px); }
+
+    .article-hero { padding-top:60px; background:var(--white); }
+    .article-hero-img { width:100%; aspect-ratio:16/7; overflow:hidden; position:relative; }
+    .article-hero-img img { width:100%; height:100%; object-fit:cover; filter:brightness(.72); }
+    .article-hero-img::after { content:''; position:absolute; inset:0; background:linear-gradient(to bottom, transparent 40%, var(--white) 100%); }
+    .article-hero-body { padding:28px 24px 36px; max-width:800px; margin:0 auto; }
+    .article-breadcrumb { font-size:.6rem; letter-spacing:.22em; text-transform:uppercase; color:var(--taupe); margin-bottom:14px; display:flex; align-items:center; gap:7px; flex-wrap:wrap; }
+    .article-breadcrumb a { color:var(--taupe); text-decoration:none; }
+    .article-tag-badge { display:inline-block; font-size:.58rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); border:1px solid var(--gold); padding:3px 10px; margin-bottom:14px; }
+    .article-title { font-family:'Playfair Display',serif; font-size:clamp(1.7rem,5.5vw,2.8rem); font-weight:400; line-height:1.2; color:var(--brown); margin-bottom:18px; }
+    .article-meta { display:flex; gap:18px; flex-wrap:wrap; font-size:.65rem; letter-spacing:.12em; text-transform:uppercase; color:var(--text-dim); padding-top:16px; border-top:1px solid var(--line); }
+
+    .article-layout { max-width:800px; margin:0 auto; padding:40px 24px 80px; }
+
+    .prose p { font-size:.9rem; line-height:2; color:var(--text-mid); margin-bottom:16px; }
+    .prose strong { color:var(--brown); font-weight:500; }
+    .prose h2 { font-family:'Noto Serif TC',serif; font-size:1.1rem; color:var(--brown); margin:36px 0 14px; padding-bottom:10px; border-bottom:1px solid var(--line); }
+    .prose h3 { font-family:'Noto Serif TC',serif; font-size:.95rem; color:var(--brown); margin:24px 0 10px; }
+    .prose ul { list-style:none; padding:0; margin:10px 0 18px; }
+    .prose ul li { font-size:.88rem; line-height:1.9; color:var(--text-mid); padding:5px 0 5px 20px; position:relative; border-bottom:1px solid var(--line); }
+    .prose ul li:last-child { border-bottom:none; }
+    .prose ul li::before { content:'—'; position:absolute; left:0; color:var(--gold); }
+    .prose ul li strong { color:var(--brown); font-weight:500; }
+
+    .why-box { background:var(--cream-mid); border:1px solid var(--line); padding:20px 22px; margin-bottom:32px; }
+    .why-box-title { font-size:.65rem; letter-spacing:.24em; text-transform:uppercase; color:var(--gold); margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+    .why-box-title::before { content:''; display:inline-block; width:14px; height:1px; background:var(--gold); }
+    .why-box p { font-size:.86rem; line-height:1.88; color:var(--text-mid); }
+    .why-box p strong { color:var(--brown); font-weight:500; }
+
+    .city-grid { display:grid; grid-template-columns:1fr; gap:12px; margin:20px 0 32px; }
+    .city-card { background:var(--white); border:1px solid var(--line); padding:18px 20px; border-left:3px solid var(--gold); }
+    .city-card-name { font-family:'Noto Serif TC',serif; font-size:.95rem; color:var(--brown); margin-bottom:4px; }
+    .city-card-type { font-size:.6rem; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); margin-bottom:10px; }
+    .city-card p { font-size:.84rem; line-height:1.88; color:var(--text-mid); }
+    .city-card p strong { color:var(--brown); font-weight:500; }
+
+    .section-divider { margin:40px 0 20px; padding-bottom:12px; border-bottom:1px solid var(--line); }
+    .section-divider-label { font-size:.62rem; letter-spacing:.28em; text-transform:uppercase; color:var(--taupe); }
+    .section-divider-label::before { content:''; display:inline-block; width:14px; height:1px; background:var(--gold); margin-right:10px; }
+
+    .notice-box { background:var(--cream-mid); border-left:3px solid var(--gold); padding:14px 18px; margin:16px 0; }
+    .notice-box p { font-size:.84rem; line-height:1.88; color:var(--text-mid); margin:0; }
+    .notice-box strong { color:var(--brown); font-weight:500; }
+
+    .cta-box { background:var(--brown); padding:32px 24px; margin:52px 0 0; text-align:center; }
+    .cta-box-title { font-family:'Playfair Display',serif; font-size:1.25rem; color:var(--cream); margin-bottom:10px; line-height:1.3; }
+    .cta-box-title em { font-style:italic; color:var(--gold-light); }
+    .cta-box-desc { font-size:.8rem; color:rgba(245,240,232,.6); line-height:1.8; margin-bottom:20px; }
+    .btn-gold { display:inline-block; font-size:.68rem; letter-spacing:.2em; text-transform:uppercase; background:var(--gold); color:var(--brown); padding:12px 28px; text-decoration:none; transition:background .3s; }
+    .btn-gold:hover { background:var(--gold-light); }
+
+    .related-section { margin-top:56px; padding-top:36px; border-top:1px solid var(--line); }
+    .related-title { font-family:'Playfair Display',serif; font-size:1.05rem; color:var(--brown); margin-bottom:20px; }
+    .related-grid { display:grid; grid-template-columns:1fr; gap:12px; }
+    .related-card { display:flex; gap:14px; text-decoration:none; padding:14px; background:var(--white); border:1px solid var(--line); transition:border-color .3s; }
+    .related-card:hover { border-color:var(--gold); }
+    .related-thumb { width:72px; height:72px; flex-shrink:0; overflow:hidden; }
+    .related-thumb img { width:100%; height:100%; object-fit:cover; }
+    .related-tag { font-size:.56rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); }
+    .related-name { font-family:'Noto Serif TC',serif; font-size:.86rem; color:var(--brown); margin:4px 0; line-height:1.4; }
+    .related-date { font-size:.62rem; color:var(--text-dim); }
+
+    footer { background:var(--brown); padding:36px 24px 24px; border-top:2px solid var(--gold); }
+    .footer-logo { font-family:'Playfair Display',serif; font-size:1rem; color:var(--cream); margin-bottom:6px; }
+    .footer-links { display:flex; gap:18px; flex-wrap:wrap; margin-top:12px; }
+    .footer-links a { font-size:.72rem; color:rgba(245,240,232,.5); text-decoration:none; transition:color .3s; }
+    .footer-links a:hover { color:var(--cream); }
+    .footer-copy { font-size:.6rem; color:rgba(245,240,232,.28); line-height:1.8; margin-top:18px; }
+
+    .reveal { opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease; }
+    .reveal.in { opacity:1; transform:translateY(0); }
+
+    @media (min-width:768px) {
+      nav { padding:0 48px; height:68px; }
+      .article-hero-body, .article-layout { padding-left:48px; padding-right:48px; }
+      .related-grid { grid-template-columns:1fr 1fr; }
+      .city-grid { grid-template-columns:1fr 1fr; }
+    }
+    @media (min-width:1100px) {
+      nav { padding:0 80px; }
+      .article-hero-body, .article-layout { padding-left:80px; padding-right:80px; max-width:960px; }
+    }
+  
+.fee-table { width:100%; border-collapse:collapse; margin:16px 0 24px; font-size:.82rem; }
+    .fee-table th { background:var(--brown); color:var(--cream); padding:10px 12px; text-align:left; font-weight:400; font-size:.72rem; letter-spacing:.1em; }
+    .fee-table td { padding:10px 12px; border-bottom:1px solid var(--line); color:var(--text-mid); vertical-align:top; line-height:1.7; }
+    .fee-table td strong { color:var(--brown); font-weight:500; }
+    .fee-table tr:last-child td { border-bottom:none; }
+
+    /* === VIP 鎖定 === */
+    .vip-gate { position:relative; margin-top:-140px; padding-top:140px; background:linear-gradient(to bottom, rgba(245,240,232,0) 0%, var(--cream) 130px); }
+    .vip-box { background:var(--brown); padding:36px 26px; text-align:center; border-top:2px solid var(--gold); }
+    .vip-badge { display:inline-block; font-size:.6rem; letter-spacing:.3em; text-transform:uppercase; color:var(--gold-light); border:1px solid var(--gold); padding:4px 14px; margin-bottom:14px; }
+    .vip-box-title { font-family:'Playfair Display',serif; font-size:1.3rem; color:var(--cream); margin-bottom:10px; line-height:1.35; }
+    .vip-box-title em { font-style:italic; color:var(--gold-light); }
+    .vip-box-desc { font-size:.8rem; color:rgba(245,240,232,.65); line-height:1.9; margin-bottom:22px; }
+    .vip-steps { display:flex; justify-content:center; gap:18px; flex-wrap:wrap; margin-bottom:24px; }
+    .vip-step { font-size:.68rem; color:rgba(245,240,232,.75); letter-spacing:.08em; }
+    .vip-step strong { color:var(--gold-light); font-weight:500; margin-right:6px; }
+    .vip-input-row { display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin-top:18px; }
+    .vip-input { background:rgba(245,240,232,.08); border:1px solid rgba(212,184,138,.5); color:var(--cream); padding:11px 16px; font-size:.85rem; letter-spacing:.15em; width:200px; text-align:center; outline:none; }
+    .vip-input::placeholder { color:rgba(245,240,232,.35); letter-spacing:.1em; }
+    .vip-input:focus { border-color:var(--gold-light); }
+    .btn-unlock { font-size:.68rem; letter-spacing:.2em; text-transform:uppercase; background:transparent; color:var(--gold-light); border:1px solid var(--gold); padding:11px 22px; cursor:pointer; transition:all .3s; }
+    .btn-unlock:hover { background:var(--gold); color:var(--brown); }
+    .vip-error { font-size:.7rem; color:#d9a0a0; margin-top:10px; display:none; }
+    .vip-hidden { display:none; }
+    body.vip-unlocked .vip-hidden { display:block; }
+    body.vip-unlocked .vip-gate { display:none; }
+
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">愛麗絲奇寓記<small>Overseas Property Curator</small></a>
+  <a class="nav-back" href="uae.html">
+    <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M13 5H1M1 5L5 1M1 5l4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+    阿聯酋房產
+  </a>
+</nav>
+
+<div class="article-hero">
+  <div class="article-hero-img">
+    <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1400&q=85" alt="杜拜房價會不會過熱？投資人必看的風險指標" />
+  </div>
+  <div class="article-hero-body">
+    <div class="article-breadcrumb">
+      <a href="index.html">首頁</a> / <a href="uae.html">阿聯酋房產</a> / 風險評估
+    </div>
+    <span class="article-tag-badge">阿聯酋 · VIP 深度</span>
+    <h1 class="article-title">杜拜房價會不會過熱？投資人必看的風險指標</h1>
+    <div class="article-meta">
+      <span>閱讀時間約 12 分鐘</span>
+      <span>風險指標・機構展望・供給</span>
+      <span>2026 年更新</span>
+    </div>
+  </div>
+</div>
+
+<div class="article-layout">
+
+<div class="prose reveal">
+    <p>資金進場前，一定要看懂這幾個數字。</p>
+    <p>杜拜房市連續多年強勁上漲，引發全球專家熱議：這是健康的長期成長，還是即將崩跌的泡沫？本文整理最新市場數據與六大機構展望，幫你自己判斷。</p>
+    <p>所有數據截至 <strong>2026 年 6 月</strong>。來源：ValuStrat、DLD、Knight Frank、Fitch、JPMorgan／Moody's。</p>
+
+    <h2>一、房價指數漲幅：到底漲了多少？</h2>
+    <table class="fee-table">
+      <tr><th>時點</th><th>整體住宅 VPI</th><th>公寓 YoY</th><th>別墅 YoY</th></tr>
+      <tr><td>2021 Q1（基準）</td><td>100</td><td>—</td><td>—</td></tr>
+      <tr><td>2022 年高峰</td><td>約 145</td><td>+34.1%</td><td>—</td></tr>
+      <tr><td>2024 年底</td><td>約 195</td><td>+18%</td><td>+28%</td></tr>
+      <tr><td>2025 年 8 月</td><td><strong>227.3</strong></td><td>+22.1%</td><td>+27.1%</td></tr>
+      <tr><td>2025 Q3</td><td><strong>230.6</strong></td><td>+21.3%</td><td>+26.4%</td></tr>
+    </table>
+    <ul>
+      <li>別墅自疫情低點累積漲幅：<strong>190%+</strong>（Jumeirah Islands 頂級社區 +293.9%）</li>
+      <li>公寓自 2021 年低點漲幅：<strong>約 80%</strong>，但仍低於 2014 年歷史峰值 2.5%</li>
+    </ul>
+
+  <div class="vip-gate reveal">
+    <div class="vip-box">
+      <span class="vip-badge">VIP MEMBERS ONLY</span>
+      <h3 class="vip-box-title">完整內容為 <em>VIP 專屬</em></h3>
+      <p class="vip-box-desc">本篇深度內容僅開放給愛麗絲奇寓記 LINE 好友。<br>加入好友後索取通關密碼，即可解鎖全站所有 VIP 文章與完整資料庫。</p>
+      <div class="vip-steps">
+        <span class="vip-step"><strong>01</strong>加入 LINE 好友</span>
+        <span class="vip-step"><strong>02</strong>索取通關密碼</span>
+        <span class="vip-step"><strong>03</strong>解鎖全部內容</span>
+      </div>
+      <a class="btn-gold" href="https://line.me/ti/p/rY37pUpv_k" target="_blank">加入 LINE 索取密碼</a>
+      <div class="vip-input-row">
+        <input class="vip-input" id="vipPass" type="text" placeholder="輸入通關密碼" autocomplete="off" />
+        <button class="btn-unlock" onclick="vipUnlock()">解鎖</button>
+      </div>
+      <p class="vip-error" id="vipError">密碼不正確，請確認 LINE 訊息中的最新密碼。</p>
+    </div>
+  </div>
+
+  <div class="vip-hidden">
+
+  <div class="prose reveal">
+    <h2>二、成交量與市場規模</h2>
+    <table class="fee-table">
+      <tr><th>年份</th><th>成交量</th><th>總值</th><th>年增率</th></tr>
+      <tr><td>2024</td><td>約 170,000 件</td><td>AED 524B</td><td>—</td></tr>
+      <tr><td>2025</td><td><strong>205,100 件</strong></td><td><strong>AED 917B</strong></td><td>+18.3%／+31%</td></tr>
+    </table>
+    <ul>
+      <li>2025 年公寓佔 82.8%（166,326 件），均價 AED 1.96M</li>
+      <li>別墅僅佔 5.6%（11,344 件），均價 AED 12.56M</li>
+    </ul>
+
+    <h2>三、主要風險指標</h2>
+    <h3>指標 1：漲幅逐漸放緩</h3>
+    <p>ValuStrat 指出，公寓 YoY 已從 2022 年的 +34% 放緩至 2025 Q3 的 +21.3%，方向是放緩而非加速。<strong>這是市場正常換檔的信號，不是崩跌前兆。</strong></p>
+    <h3>指標 2：供給海嘯逼近</h3>
+    <table class="fee-table">
+      <tr><th>年份</th><th>計畫竣工量</th><th>預估實際交屋量</th><th>實現率</th></tr>
+      <tr><td>2024</td><td>34,700</td><td>34,700</td><td>約 100%</td></tr>
+      <tr><td>2025</td><td>82,600</td><td><strong>40,400</strong></td><td><strong>48.9%</strong></td></tr>
+      <tr><td>2026F</td><td>110,500</td><td>33,000–50,000</td><td>約 30–45%</td></tr>
+      <tr><td>2027F</td><td>133,300</td><td>70,537（預估）</td><td>約 50–53%</td></tr>
+    </table>
+    <ul>
+      <li>2026–2030 年合計計畫 426,182 戶，Moody's 預估實際約 <strong>180,000 戶</strong></li>
+      <li>主要供給區域：JVC、Dubai South、Business Bay、Sobha Hartland 合計佔 2025 竣工量 42%</li>
+    </ul>
+  </div>
+
+  <div class="why-box reveal">
+    <p class="why-box-title">供給解讀</p>
+    <p>歷史實際竣工率只達計畫的 49%，這一定程度緩解了超供壓力。但 2027 年即使只實現 50%，仍達 <strong>65,000+ 戶</strong>，遠超歷史年均 35,000 戶。</p>
+  </div>
+
+  <div class="prose reveal">
+    <h3>指標 3：房價租金比（PTR）</h3>
+    <table class="fee-table">
+      <tr><th>時點</th><th>杜拜 PTR</th></tr>
+      <tr><td>2020 H1（疫情前）</td><td>23.5</td></tr>
+      <tr><td>2022 H2（峰值）</td><td>33+</td></tr>
+      <tr><td>2024 H2</td><td><strong>29</strong></td></tr>
+    </table>
+    <ul>
+      <li>PTR = 29 代表以全市均價購屋，需 <strong>29 年租金</strong>才能回本（與香港、新加坡相近）</li>
+      <li>平均公寓租金投報率：<strong>7.03%</strong>（REIDIN Dec 2025）；Global Property Guide 6.66%</li>
+    </ul>
+    <h3>指標 4：現金 vs 房貸購屋比例</h3>
+    <table class="fee-table">
+      <tr><th>年份</th><th>房貸比例</th><th>現金比例</th></tr>
+      <tr><td>2023</td><td>44%</td><td>56%</td></tr>
+      <tr><td>2025</td><td><strong>61%</strong></td><td>39%</td></tr>
+    </table>
+    <p>房貸滲透率顯著上升，顯示終端用戶比例增加，市場基礎更穩健。外國人貸款利率約 <strong>4.5–5.5%</strong>，LTV 最高 60%（非居民）。</p>
+
+    <h2>四、外籍買家來源國（2025 年）</h2>
+    <table class="fee-table">
+      <tr><th>排名</th><th>國籍</th><th>市佔率</th><th>特色</th></tr>
+      <tr><td>1</td><td><strong>印度</strong></td><td>22%</td><td>最大外國買家群，預估投資逾 AED 30B</td></tr>
+      <tr><td>2</td><td><strong>英國</strong></td><td>17%</td><td>現金購買比例升 60% YoY</td></tr>
+      <tr><td>3</td><td><strong>中國</strong></td><td>14%</td><td>強勢回歸，聚焦 Business Bay、Creek Harbour</td></tr>
+      <tr><td>4</td><td><strong>沙烏地阿拉伯</strong></td><td>11%</td><td>豪奢段主力，平均交易額最高</td></tr>
+      <tr><td>5</td><td><strong>俄羅斯</strong></td><td>9%</td><td>超豪市場（&gt;$25M）翻倍</td></tr>
+    </table>
+    <p><strong>非 UAE 國籍買家佔全市交易約 70%+</strong>，市場高度依賴外資流入。</p>
+
+    <h2>五、六大機構展望評估</h2>
+    <table class="fee-table">
+      <tr><th>機構</th><th>展望</th><th>關鍵預測</th></tr>
+      <tr><td><strong>Knight Frank</strong></td><td>謹慎樂觀</td><td>2026 年頂級物業 +3%；主流市場 +1%；2030 年前需 350,000 單位方可維持供需平衡</td></tr>
+      <tr><td><strong>ValuStrat</strong></td><td>溫和降溫</td><td>年增率從 Q3 2025 的 21.3% 逐步放緩；別墅仍跑贏公寓</td></tr>
+      <tr><td><strong>Fitch Ratings</strong></td><td>警示</td><td>2025–2026 年有中等幅度修正風險（最高可達 <strong>-15%</strong>），尤其是中低端公寓</td></tr>
+      <tr><td><strong>JPMorgan／Moody's</strong></td><td>謹慎</td><td>2026–2028 年約 180,000 竣工單位（每年約 6 萬），若人口增速不足恐出現超供</td></tr>
+      <tr><td><strong>Cushman &amp; Wakefield</strong></td><td>溫和看好</td><td>優質濱水別墅 +5–8%；商品化公寓有壓力</td></tr>
+      <tr><td><strong>UBS（泡沫指數）</strong></td><td>高風險</td><td>2025 年杜拜列全球「過熱市場」</td></tr>
+    </table>
+
+    <h2>六、風險 vs 保護因子總結</h2>
+    <h3>主要風險因子</h3>
+    <ul>
+      <li><strong>供給海嘯逼近</strong>：2027 年計畫竣工 133,300 戶，即使 50% 實現仍達 65,000 戶，遠超歷史年均 35,000 戶</li>
+      <li><strong>預售屋主導</strong>：2025 年 70% 交易為 off-plan，大量投機資金尚未進入交屋階段</li>
+      <li><strong>PTR = 29，接近歷史高點</strong>，意味著收益率基礎已薄弱</li>
+      <li><strong>市場高度依賴外籍買家</strong>，若地緣政治或全球資本流動轉向，脆弱性高</li>
+    </ul>
+    <h3>相對保護因子</h3>
+    <ul>
+      <li>實際竣工率只達計畫的 49%（歷史慣例），緩解超供壓力</li>
+      <li>終端用戶比例提升（房貸比率 44% 提升至 61%）</li>
+      <li>人口持續增長（杜拜目標 2033 年 400 萬人，2025 年底約 360 萬）</li>
+      <li>D33 計畫支撐長期信心</li>
+    </ul>
+    <p><strong>機構共識</strong>：大型豪奢物業短期抗跌（Knight Frank +3%），主流中端公寓（尤其 JVC、Dubai South 等高供給區）2027 年前面臨最大修正壓力（Fitch 最壞情景 -15%）。</p>
+
+    <h2>七、給台灣投資人的評估</h2>
+    <ul>
+      <li><strong>頂級度假別墅、濱水物件</strong>：供給受限，抵抗修正最強，適合長期持有</li>
+      <li><strong>新興區中價公寓</strong>（JVC、Dubai South）：增值潛力大但供給風險高，應做好 2027 年供給潮的心理準備</li>
+      <li><strong>不建議把高漲幅當成進場的主要理由</strong>：市場已從 2021 年低點漲了 2.3 倍</li>
+      <li><strong>中長期居住或退休型買家</strong>：杜拜仍是全球少數無個人所得稅的宜居選擇，這個基本面不變</li>
+    </ul>
+  </div>
+  </div>
+
+  <div class="cta-box reveal">
+    <h3 class="cta-box-title">想針對你的標的做<em>風險體檢</em>？</h3>
+    <p class="cta-box-desc">資金進場前，一定要看懂這幾個數字。加 LINE 索取完整分析。</p>
+    <a class="btn-gold" href="https://line.me/ti/p/rY37pUpv_k" target="_blank">LINE 免費諮詢</a>
+  </div>
+
+  <div class="related-section reveal">
+    <h3 class="related-title">延伸閱讀</h3>
+    <div class="related-grid">
+      <a class="related-card" href="article-dubai-market-forecast.html">
+        <div class="related-thumb"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=200&q=80" alt="" loading="lazy" /></div>
+        <div>
+          <p class="related-tag">阿聯酋 · VIP</p>
+          <p class="related-name">杜拜房地產市場趨勢回顧與未來預測（2025-2030）</p>
+          <p class="related-date">2026 · 深度解析</p>
+        </div>
+      </a>
+      <a class="related-card" href="article-dubai-freehold-12.html">
+        <div class="related-thumb"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=200&q=80" alt="" loading="lazy" /></div>
+        <div>
+          <p class="related-tag">阿聯酋 · 永久產權</p>
+          <p class="related-name">不能錯過的 12 個永久產權熱區</p>
+          <p class="related-date">2026 · 深度解析</p>
+        </div>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p class="footer-logo">愛麗絲奇寓記</p>
+  <div class="footer-links">
+    <a href="index.html">首頁</a><a href="thailand-articles.html">泰國房產</a>
+    <a href="japan.html">日本房產</a><a href="uae.html">阿聯酋房產</a>
+  </div>
+  <p class="footer-copy">© 2026 愛麗絲奇寓記｜投資國外不動產具有風險性，請詳閱行銷文件並審慎考量後再行交易。</p>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+  }, { threshold: 0.06 });
+  reveals.forEach(el => obs.observe(el));
+</script>
+<script src="vip.js"></script>
+<script src="protect.js"></script>
+</body>
+</html>

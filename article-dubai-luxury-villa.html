@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>京都的觀光住宅與文化不動產｜愛麗絲奇寓記</title>
+  <title>杜拜豪華別墅市場現況：誰在買？回報多少？｜愛麗絲奇寓記</title>
+  <meta name="description" content="杜拜豪宅五年上漲 194%、每週數筆千萬美元成交：誰在買豪華別墅、價格與租金回報多少、2026 年市場怎麼看，一次解析。" />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Sans+TC:wght@300;400&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
@@ -16,6 +17,7 @@
     }
     html { scroll-behavior:smooth; }
     body { background:var(--cream); color:var(--text-main); font-family:'Noto Sans TC',sans-serif; font-weight:300; overflow-x:hidden; -webkit-font-smoothing:antialiased; }
+
     nav { position:fixed; top:0; left:0; right:0; z-index:200; background:rgba(245,240,232,0.96); backdrop-filter:blur(12px); border-bottom:1px solid var(--line); display:flex; align-items:center; justify-content:space-between; padding:0 24px; height:60px; }
     .nav-logo { font-family:'Playfair Display',serif; font-size:1rem; color:var(--brown); text-decoration:none; line-height:1.2; }
     .nav-logo small { display:block; font-family:'Noto Sans TC',sans-serif; font-size:.46rem; letter-spacing:.26em; text-transform:uppercase; color:var(--taupe); font-weight:300; }
@@ -23,6 +25,7 @@
     .nav-back:hover { color:var(--brown); }
     .nav-back svg { transition:transform .3s; }
     .nav-back:hover svg { transform:translateX(-3px); }
+
     .article-hero { padding-top:60px; background:var(--white); }
     .article-hero-img { width:100%; aspect-ratio:16/7; overflow:hidden; position:relative; }
     .article-hero-img img { width:100%; height:100%; object-fit:cover; filter:brightness(.72); }
@@ -33,7 +36,9 @@
     .article-tag-badge { display:inline-block; font-size:.58rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); border:1px solid var(--gold); padding:3px 10px; margin-bottom:14px; }
     .article-title { font-family:'Playfair Display',serif; font-size:clamp(1.7rem,5.5vw,2.8rem); font-weight:400; line-height:1.2; color:var(--brown); margin-bottom:18px; }
     .article-meta { display:flex; gap:18px; flex-wrap:wrap; font-size:.65rem; letter-spacing:.12em; text-transform:uppercase; color:var(--text-dim); padding-top:16px; border-top:1px solid var(--line); }
+
     .article-layout { max-width:800px; margin:0 auto; padding:40px 24px 80px; }
+
     .prose p { font-size:.9rem; line-height:2; color:var(--text-mid); margin-bottom:16px; }
     .prose strong { color:var(--brown); font-weight:500; }
     .prose h2 { font-family:'Noto Serif TC',serif; font-size:1.1rem; color:var(--brown); margin:36px 0 14px; padding-bottom:10px; border-bottom:1px solid var(--line); }
@@ -43,33 +48,35 @@
     .prose ul li:last-child { border-bottom:none; }
     .prose ul li::before { content:'—'; position:absolute; left:0; color:var(--gold); }
     .prose ul li strong { color:var(--brown); font-weight:500; }
+
     .why-box { background:var(--cream-mid); border:1px solid var(--line); padding:20px 22px; margin-bottom:32px; }
     .why-box-title { font-size:.65rem; letter-spacing:.24em; text-transform:uppercase; color:var(--gold); margin-bottom:12px; display:flex; align-items:center; gap:8px; }
     .why-box-title::before { content:''; display:inline-block; width:14px; height:1px; background:var(--gold); }
     .why-box p { font-size:.86rem; line-height:1.88; color:var(--text-mid); }
     .why-box p strong { color:var(--brown); font-weight:500; }
+
+    .city-grid { display:grid; grid-template-columns:1fr; gap:12px; margin:20px 0 32px; }
+    .city-card { background:var(--white); border:1px solid var(--line); padding:18px 20px; border-left:3px solid var(--gold); }
+    .city-card-name { font-family:'Noto Serif TC',serif; font-size:.95rem; color:var(--brown); margin-bottom:4px; }
+    .city-card-type { font-size:.6rem; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); margin-bottom:10px; }
+    .city-card p { font-size:.84rem; line-height:1.88; color:var(--text-mid); }
+    .city-card p strong { color:var(--brown); font-weight:500; }
+
     .section-divider { margin:40px 0 20px; padding-bottom:12px; border-bottom:1px solid var(--line); }
     .section-divider-label { font-size:.62rem; letter-spacing:.28em; text-transform:uppercase; color:var(--taupe); }
     .section-divider-label::before { content:''; display:inline-block; width:14px; height:1px; background:var(--gold); margin-right:10px; }
+
     .notice-box { background:var(--cream-mid); border-left:3px solid var(--gold); padding:14px 18px; margin:16px 0; }
     .notice-box p { font-size:.84rem; line-height:1.88; color:var(--text-mid); margin:0; }
     .notice-box strong { color:var(--brown); font-weight:500; }
-    .info-cards { display:grid; grid-template-columns:1fr; gap:12px; margin:20px 0 28px; }
-    .info-card { background:var(--white); border:1px solid var(--line); padding:18px 20px; border-left:3px solid var(--gold); }
-    .info-card-title { font-family:'Noto Serif TC',serif; font-size:.92rem; color:var(--brown); margin-bottom:8px; }
-    .info-card p { font-size:.84rem; line-height:1.88; color:var(--text-mid); }
-    .info-card p strong { color:var(--brown); font-weight:500; }
-    .fee-table { width:100%; border-collapse:collapse; margin:16px 0 24px; font-size:.82rem; }
-    .fee-table th { background:var(--brown); color:var(--cream); padding:10px 12px; text-align:left; font-weight:400; font-size:.72rem; letter-spacing:.1em; }
-    .fee-table td { padding:10px 12px; border-bottom:1px solid var(--line); color:var(--text-mid); vertical-align:top; line-height:1.7; }
-    .fee-table td strong { color:var(--brown); font-weight:500; }
-    .fee-table tr:last-child td { border-bottom:none; }
+
     .cta-box { background:var(--brown); padding:32px 24px; margin:52px 0 0; text-align:center; }
     .cta-box-title { font-family:'Playfair Display',serif; font-size:1.25rem; color:var(--cream); margin-bottom:10px; line-height:1.3; }
     .cta-box-title em { font-style:italic; color:var(--gold-light); }
     .cta-box-desc { font-size:.8rem; color:rgba(245,240,232,.6); line-height:1.8; margin-bottom:20px; }
     .btn-gold { display:inline-block; font-size:.68rem; letter-spacing:.2em; text-transform:uppercase; background:var(--gold); color:var(--brown); padding:12px 28px; text-decoration:none; transition:background .3s; }
     .btn-gold:hover { background:var(--gold-light); }
+
     .related-section { margin-top:56px; padding-top:36px; border-top:1px solid var(--line); }
     .related-title { font-family:'Playfair Display',serif; font-size:1.05rem; color:var(--brown); margin-bottom:20px; }
     .related-grid { display:grid; grid-template-columns:1fr; gap:12px; }
@@ -80,180 +87,134 @@
     .related-tag { font-size:.56rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); }
     .related-name { font-family:'Noto Serif TC',serif; font-size:.86rem; color:var(--brown); margin:4px 0; line-height:1.4; }
     .related-date { font-size:.62rem; color:var(--text-dim); }
+
     footer { background:var(--brown); padding:36px 24px 24px; border-top:2px solid var(--gold); }
     .footer-logo { font-family:'Playfair Display',serif; font-size:1rem; color:var(--cream); margin-bottom:6px; }
     .footer-links { display:flex; gap:18px; flex-wrap:wrap; margin-top:12px; }
     .footer-links a { font-size:.72rem; color:rgba(245,240,232,.5); text-decoration:none; transition:color .3s; }
     .footer-links a:hover { color:var(--cream); }
     .footer-copy { font-size:.6rem; color:rgba(245,240,232,.28); line-height:1.8; margin-top:18px; }
+
     .reveal { opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease; }
     .reveal.in { opacity:1; transform:translateY(0); }
+
     @media (min-width:768px) {
       nav { padding:0 48px; height:68px; }
       .article-hero-body, .article-layout { padding-left:48px; padding-right:48px; }
       .related-grid { grid-template-columns:1fr 1fr; }
-      .info-cards { grid-template-columns:1fr 1fr; }
+      .city-grid { grid-template-columns:1fr 1fr; }
     }
     @media (min-width:1100px) {
       nav { padding:0 80px; }
       .article-hero-body, .article-layout { padding-left:80px; padding-right:80px; max-width:960px; }
     }
+  
+.fee-table { width:100%; border-collapse:collapse; margin:16px 0 24px; font-size:.82rem; }
+    .fee-table th { background:var(--brown); color:var(--cream); padding:10px 12px; text-align:left; font-weight:400; font-size:.72rem; letter-spacing:.1em; }
+    .fee-table td { padding:10px 12px; border-bottom:1px solid var(--line); color:var(--text-mid); vertical-align:top; line-height:1.7; }
+    .fee-table td strong { color:var(--brown); font-weight:500; }
+    .fee-table tr:last-child td { border-bottom:none; }
+
   </style>
 </head>
 <body>
+
 <nav>
   <a class="nav-logo" href="index.html">愛麗絲奇寓記<small>Overseas Property Curator</small></a>
-  <a class="nav-back" href="japan.html">
+  <a class="nav-back" href="uae.html">
     <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M13 5H1M1 5L5 1M1 5l4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
-    日本房產
+    阿聯酋房產
   </a>
 </nav>
+
 <div class="article-hero">
   <div class="article-hero-img">
-    <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=1400&q=85" alt="京都的觀光住宅與文化不動產" />
+    <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1400&q=85" alt="杜拜豪華別墅市場現況：誰在買？回報多少？" />
   </div>
   <div class="article-hero-body">
     <div class="article-breadcrumb">
-      <a href="index.html">首頁</a> / <a href="japan.html">日本房產</a> / 購屋知識
+      <a href="index.html">首頁</a> / <a href="uae.html">阿聯酋房產</a> / 豪宅市場
     </div>
-    <span class="article-tag-badge">日本 · 京都</span>
-    <h1 class="article-title">京都的觀光住宅與文化不動產</h1>
+    <span class="article-tag-badge">阿聯酋 · 豪華別墅</span>
+    <h1 class="article-title">杜拜豪華別墅市場現況：誰在買？回報多少？</h1>
     <div class="article-meta">
-      <span>閱讀時間約 10 分鐘</span>
-      <span>行政區分析・短租政策・古屋投資</span>
-      <span>2025–2026 年更新</span>
+      <span>閱讀時間約 7 分鐘</span>
+      <span>棕櫚島・買家輪廓・回報</span>
+      <span>2026 年更新</span>
     </div>
   </div>
 </div>
+
 <div class="article-layout">
-  <div class="prose reveal">
-    <p>京都的房地產，從來不只是「地段」與「坪數」的競爭，而是文化資產、景觀管制、觀光動能與居住需求交織出的特殊市場。在這座城市，租賃市場的核心問題往往不是「租不租得掉」，而是<strong>什麼樣的物件、在哪個行政區、以什麼樣的使用型態，才符合政策與社區期待</strong>。</p>
+
+<div class="prose reveal">
+    <p>傍晚的棕櫚島，海水把天色染成淡金。私人碼頭邊，一艘遊艇剛靠岸——這樣的畫面，在 2025 年的杜拜，平均每週都對應著數筆超過 1,000 萬美元的成交。</p>
+
+    <h2>一、市場有多熱？</h2>
+    <ul>
+      <li>2020 年以來杜拜豪宅價格累計上漲約 <strong>194%</strong>（Knight Frank，2026 年）</li>
+      <li>2025 年第 3 季，光是棕櫚島（Palm Jumeirah）就占全市頂級住宅成交的 <strong>34%</strong></li>
+      <li>2025 年第 4 季，興建中的傑貝阿里棕櫚島（Palm Jebel Ali）錄得 <strong>22 筆</strong>超過 1,000 萬美元的成交——新的豪宅走廊正在成形</li>
+      <li>2025 年底，一戶約 47,200 平方呎的頂層豪宅以 <strong>1.5 億美元</strong>成交，寫下杜拜住宅單筆紀錄之一</li>
+    </ul>
+
+    <h2>二、誰在買？</h2>
+    <p>萊坊統計，2025 年約有 <strong>9,800 名百萬美元級富豪移居杜拜</strong>，居全球城市之冠。買家以歐洲高淨值家庭、印度與俄語區企業主、東亞科技新貴為主，動機從純投資轉向「第二個家＋資產避風港」：零所得稅、AED 與美元掛鉤、治安與國際學校，是他們口中最常出現的 3 個理由。</p>
+
+    <h2>三、價格與回報</h2>
+    <ul>
+      <li>別墅均價約 <strong>2,250 AED/平方呎</strong>（Knight Frank，2025 年第 3 季），年漲約 10%</li>
+      <li>棕櫚島 5–6 房別墅行情約 <strong>1,600 萬–2,500 萬 AED</strong>；Emirates Hills、Jumeirah Bay 為金字塔頂端</li>
+      <li>豪華別墅租金報酬約 <strong>4–7%</strong>——低於小型公寓，但勝在資本增值與抗跌性：別墅供給受限於土地，2025 年全市交屋的 4.2 萬戶中，別墅僅約 1.5 萬戶的規劃量，且持續被家庭型移居需求吸收</li>
+    </ul>
+
+    <h2>四、2026 年怎麼看？</h2>
+    <p>Knight Frank 預估 2026 年頂級住宅價格漲幅回到約 <strong>+3%</strong> 的「可持續速度」。瘋漲結束了，但稀缺沒有結束——Palm Jumeirah、Dubai Hills Estate、Jumeirah Golf Estates 這類土地有限、生活圈成熟的社區，在供給大年裡反而是最穩的一層。真正要避開的，是供給集中的中端公寓帶。</p>
   </div>
-  <div class="why-box reveal">
-    <p class="why-box-title">京都投資的底層邏輯</p>
-    <p>京都的文化資產特性會帶來兩面效應：<strong>稀缺性</strong>（傳統街區具備不可複製的溢價）與<strong>規則密度</strong>（景觀、用途、消防與旅館業法規讓物件的可改造性高度取決於合規能力）。</p>
-  </div>
-  <div class="section-divider reveal">
-    <span class="section-divider-label">京都 11 行政區特色一覽</span>
-  </div>
-  <div class="info-cards reveal">
-    <div class="info-card">
-      <p class="info-card-title">北區</p>
-      <p>偏長租與自住型；適合穩定租客、家庭與在地生活圈。觀光屬性相對低。</p>
-    </div>
-    <div class="info-card">
-      <p class="info-card-title">上京區</p>
-      <p>傳統街區密度高、文化底蘊深。長租與文化型物件並存；適合「改善型」古屋投資。</p>
-    </div>
-    <div class="info-card">
-      <p class="info-card-title">左京區</p>
-      <p>學術／文青／山麓生活圈。學生與研究機構需求，長租市場相對活躍。</p>
-    </div>
-    <div class="info-card">
-      <p class="info-card-title">中京區</p>
-      <p>市中心核心、商業機能強。商務與都心租賃需求強；短租需求旺，但政策與社區態度敏感。</p>
-    </div>
-    <div class="info-card">
-      <p class="info-card-title">東山區</p>
-      <p>京都意象最集中、觀光價值<strong>極高</strong>。合規門檻高，是最需要留意噪音、人流與社區反彈的區域。</p>
-    </div>
-    <div class="info-card">
-      <p class="info-card-title">下京區</p>
-      <p>京都站周邊、交通樞紐。商務、通勤與短住需求兼具；靠近京都站動線的地帶觀光屬性高。</p>
-    </div>
-    <div class="info-card">
-      <p class="info-card-title">南區</p>
-      <p>交通與產業帶，通勤族租客為主，價格帶相對有彈性，觀光屬性相對低。</p>
-    </div>
-    <div class="info-card">
-      <p class="info-card-title">右京區</p>
-      <p>面積大、區內差異大。長租為主；靠近嵐山周邊則短期需求上升。</p>
-    </div>
-    <div class="info-card">
-      <p class="info-card-title">伏見區</p>
-      <p>住居＋歷史（酒藏、社寺）。長租與家庭型需求明確；適合以「穩定現金流」思考。</p>
-    </div>
-    <div class="info-card">
-      <p class="info-card-title">山科區</p>
-      <p>通勤衛星區、生活成本友善。長租為主，租客以通勤族為核心，觀光屬性相對低。</p>
-    </div>
-    <div class="info-card">
-      <p class="info-card-title">西京區</p>
-      <p>住宅為主、部分自然景觀。長租與自住型；適合家庭、長期居住需求。</p>
-    </div>
-  </div>
-  <div class="section-divider reveal">
-    <span class="section-divider-label">短租 vs 長租：合規是關鍵</span>
-  </div>
-  <div class="info-cards reveal">
-    <div class="info-card">
-      <p class="info-card-title">長租（一般住宅出租）</p>
-      <p>市場較穩定，管理相對單純。以一般住宅租賃為主，<strong>投資模型重視租客結構與空置</strong>。</p>
-    </div>
-    <div class="info-card">
-      <p class="info-card-title">短租（民泊／觀光住宿）</p>
-      <p>更接近「住宿業態」，牽涉旅館業法、民泊制度、消防與鄰里管理要求。<strong>不是單純把房子租出去，而是經營一個住宿產品</strong>。</p>
-    </div>
-  </div>
-  <div class="section-divider reveal">
-    <span class="section-divider-label">外資對京都古屋改造：吸引力與風險</span>
-  </div>
-  <div class="info-cards reveal">
-    <div class="info-card">
-      <p class="info-card-title">吸引力：文化體驗的溢價</p>
-      <p>古屋（京町家／古民家）改造成具文化敘事的空間，容易形成差異化，可能取得更高的「願付價格」。</p>
-    </div>
-    <div class="info-card">
-      <p class="info-card-title">吸引力：城市品牌稀缺性</p>
-      <p>京都的文化地景具有全球辨識度，對海外資金而言是可被理解、可被行銷的資產故事。</p>
-    </div>
-    <div class="info-card">
-      <p class="info-card-title">風險：法規與審查</p>
-      <p>外觀、材料、高度、用途均可能受限；走住宿營運時消防與用途合規更是關鍵。</p>
-    </div>
-    <div class="info-card">
-      <p class="info-card-title">風險：工程不確定性</p>
-      <p>古屋的真正成本常出現在「看不見的地方」，結構、管線、抗震、白蟻等，若沒有充足預算緩衝，回報模型容易失真。</p>
-    </div>
-  </div>
+
   <div class="notice-box reveal">
-    <p>💡 <strong>京都的投資原則</strong>：真正的好投資往往不是「最熱門」，而是<strong>最能在規則之內，長期站得住的那一種</strong>。選對區＋型態＋合規路徑，才是京都房產投資的正確姿勢。</p>
+    <p>💡 豪宅市場買的從來不只是房子，是<strong>一座城市願意給你的生活餘裕</strong>。<br><em>資料來源：Knight Frank Wealth Report／Prime Residential（2025–2026）、DXBinteract（2026 年）。</em></p>
   </div>
+
   <div class="cta-box reveal">
-    <h3 class="cta-box-title">有任何關於<em>日本房產的疑問</em>？</h3>
-    <p class="cta-box-desc">歡迎直接聯繫 Alice，我們提供專業的日本房產諮詢服務。</p>
+    <h3 class="cta-box-title">想看目前在售的<em>別墅清單與實際租金</em>？</h3>
+    <p class="cta-box-desc">豪宅市場買的從來不只是房子，是一座城市願意給你的生活餘裕。</p>
     <a class="btn-gold" href="https://line.me/ti/p/rY37pUpv_k" target="_blank">LINE 免費諮詢</a>
   </div>
+
   <div class="related-section reveal">
     <h3 class="related-title">延伸閱讀</h3>
     <div class="related-grid">
-      <a class="related-card" href="article-japan-investment-guide.html">
-        <div class="related-thumb"><img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=200&q=80" alt="" loading="lazy" /></div>
+      <a class="related-card" href="article-dubai-hot-areas.html">
+        <div class="related-thumb"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=200&q=80" alt="" loading="lazy" /></div>
         <div>
-          <p class="related-tag">日本 · 投資攻略</p>
-          <p class="related-name">日本房地產投資全攻略</p>
-          <p class="related-date">2025 · 8 分鐘閱讀</p>
+          <p class="related-tag">阿聯酋 · 區域解析</p>
+          <p class="related-name">杜拜熱門區域解析：從市中心到棕櫚島</p>
+          <p class="related-date">2026 · 深度解析</p>
         </div>
       </a>
-      <a class="related-card" href="article-osaka-potential.html">
-        <div class="related-thumb"><img src="https://images.unsplash.com/photo-1590559899731-a382839e5549?w=200&q=80" alt="" loading="lazy" /></div>
+      <a class="related-card" href="article-dubai-freehold-12.html">
+        <div class="related-thumb"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=200&q=80" alt="" loading="lazy" /></div>
         <div>
-          <p class="related-tag">日本 · 大阪</p>
-          <p class="related-name">大阪房地產潛力全面解構</p>
-          <p class="related-date">2025 · 8 分鐘閱讀</p>
+          <p class="related-tag">阿聯酋 · 永久產權</p>
+          <p class="related-name">不能錯過的 12 個永久產權熱區</p>
+          <p class="related-date">2026 · 深度解析</p>
         </div>
       </a>
     </div>
   </div>
+
 </div>
+
 <footer>
   <p class="footer-logo">愛麗絲奇寓記</p>
   <div class="footer-links">
     <a href="index.html">首頁</a><a href="thailand-articles.html">泰國房產</a>
-    <a href="japan.html">日本房產</a>
+    <a href="japan.html">日本房產</a><a href="uae.html">阿聯酋房產</a>
   </div>
-  <p class="footer-copy">© 2025 愛麗絲奇寓記｜投資國外不動產具有風險性，請詳閱行銷文件並審慎考量後再行交易。</p>
+  <p class="footer-copy">© 2026 愛麗絲奇寓記｜投資國外不動產具有風險性，請詳閱行銷文件並審慎考量後再行交易。</p>
 </footer>
+
 <script>
   const reveals = document.querySelectorAll('.reveal');
   const obs = new IntersectionObserver((entries) => {
@@ -261,6 +222,7 @@
   }, { threshold: 0.06 });
   reveals.forEach(el => obs.observe(el));
 </script>
+
 <script src="protect.js"></script>
 </body>
 </html>

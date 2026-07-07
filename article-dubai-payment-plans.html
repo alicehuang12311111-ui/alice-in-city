@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>杜拜預售屋付款計畫解析：40/60、60/40、1% 月付差在哪？｜愛麗絲奇寓記</title>
+  <meta name="description" content="杜拜預售屋 5 大付款計畫完整比較：40/60、60/40、1% 月付、Post Handover 優缺點、常見陷阱與台灣買家建議。" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Sans+TC:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    :root {
+      --cream:#f5f0e8; --cream-mid:#ede6d6; --cream-dark:#e0d5c0;
+      --taupe:#8c7b6b; --taupe-dark:#5c4f42; --brown:#3d3028;
+      --gold:#b89a6a; --gold-light:#d4b88a; --white:#fdfaf5;
+      --text-main:#2e261e; --text-mid:#6b5f54; --text-dim:#9e9188;
+      --line:rgba(140,123,107,0.2); --line-dark:rgba(140,123,107,0.4);
+    }
+    html { scroll-behavior:smooth; }
+    body { background:var(--cream); color:var(--text-main); font-family:'Noto Sans TC',sans-serif; font-weight:300; overflow-x:hidden; -webkit-font-smoothing:antialiased; }
+
+    nav { position:fixed; top:0; left:0; right:0; z-index:200; background:rgba(245,240,232,0.96); backdrop-filter:blur(12px); border-bottom:1px solid var(--line); display:flex; align-items:center; justify-content:space-between; padding:0 24px; height:60px; }
+    .nav-logo { font-family:'Playfair Display',serif; font-size:1rem; color:var(--brown); text-decoration:none; line-height:1.2; }
+    .nav-logo small { display:block; font-family:'Noto Sans TC',sans-serif; font-size:.46rem; letter-spacing:.26em; text-transform:uppercase; color:var(--taupe); font-weight:300; }
+    .nav-back { font-size:.65rem; letter-spacing:.18em; text-transform:uppercase; color:var(--taupe); text-decoration:none; display:flex; align-items:center; gap:6px; transition:color .3s; }
+    .nav-back:hover { color:var(--brown); }
+    .nav-back svg { transition:transform .3s; }
+    .nav-back:hover svg { transform:translateX(-3px); }
+
+    .article-hero { padding-top:60px; background:var(--white); }
+    .article-hero-img { width:100%; aspect-ratio:16/7; overflow:hidden; position:relative; }
+    .article-hero-img img { width:100%; height:100%; object-fit:cover; filter:brightness(.72); }
+    .article-hero-img::after { content:''; position:absolute; inset:0; background:linear-gradient(to bottom, transparent 40%, var(--white) 100%); }
+    .article-hero-body { padding:28px 24px 36px; max-width:800px; margin:0 auto; }
+    .article-breadcrumb { font-size:.6rem; letter-spacing:.22em; text-transform:uppercase; color:var(--taupe); margin-bottom:14px; display:flex; align-items:center; gap:7px; flex-wrap:wrap; }
+    .article-breadcrumb a { color:var(--taupe); text-decoration:none; }
+    .article-tag-badge { display:inline-block; font-size:.58rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); border:1px solid var(--gold); padding:3px 10px; margin-bottom:14px; }
+    .article-title { font-family:'Playfair Display',serif; font-size:clamp(1.7rem,5.5vw,2.8rem); font-weight:400; line-height:1.2; color:var(--brown); margin-bottom:18px; }
+    .article-meta { display:flex; gap:18px; flex-wrap:wrap; font-size:.65rem; letter-spacing:.12em; text-transform:uppercase; color:var(--text-dim); padding-top:16px; border-top:1px solid var(--line); }
+
+    .article-layout { max-width:800px; margin:0 auto; padding:40px 24px 80px; }
+
+    .prose p { font-size:.9rem; line-height:2; color:var(--text-mid); margin-bottom:16px; }
+    .prose strong { color:var(--brown); font-weight:500; }
+    .prose h2 { font-family:'Noto Serif TC',serif; font-size:1.1rem; color:var(--brown); margin:36px 0 14px; padding-bottom:10px; border-bottom:1px solid var(--line); }
+    .prose h3 { font-family:'Noto Serif TC',serif; font-size:.95rem; color:var(--brown); margin:24px 0 10px; }
+    .prose ul { list-style:none; padding:0; margin:10px 0 18px; }
+    .prose ul li { font-size:.88rem; line-height:1.9; color:var(--text-mid); padding:5px 0 5px 20px; position:relative; border-bottom:1px solid var(--line); }
+    .prose ul li:last-child { border-bottom:none; }
+    .prose ul li::before { content:'—'; position:absolute; left:0; color:var(--gold); }
+    .prose ul li strong { color:var(--brown); font-weight:500; }
+
+    .why-box { background:var(--cream-mid); border:1px solid var(--line); padding:20px 22px; margin-bottom:32px; }
+    .why-box-title { font-size:.65rem; letter-spacing:.24em; text-transform:uppercase; color:var(--gold); margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+    .why-box-title::before { content:''; display:inline-block; width:14px; height:1px; background:var(--gold); }
+    .why-box p { font-size:.86rem; line-height:1.88; color:var(--text-mid); }
+    .why-box p strong { color:var(--brown); font-weight:500; }
+
+    .city-grid { display:grid; grid-template-columns:1fr; gap:12px; margin:20px 0 32px; }
+    .city-card { background:var(--white); border:1px solid var(--line); padding:18px 20px; border-left:3px solid var(--gold); }
+    .city-card-name { font-family:'Noto Serif TC',serif; font-size:.95rem; color:var(--brown); margin-bottom:4px; }
+    .city-card-type { font-size:.6rem; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); margin-bottom:10px; }
+    .city-card p { font-size:.84rem; line-height:1.88; color:var(--text-mid); }
+    .city-card p strong { color:var(--brown); font-weight:500; }
+
+    .section-divider { margin:40px 0 20px; padding-bottom:12px; border-bottom:1px solid var(--line); }
+    .section-divider-label { font-size:.62rem; letter-spacing:.28em; text-transform:uppercase; color:var(--taupe); }
+    .section-divider-label::before { content:''; display:inline-block; width:14px; height:1px; background:var(--gold); margin-right:10px; }
+
+    .notice-box { background:var(--cream-mid); border-left:3px solid var(--gold); padding:14px 18px; margin:16px 0; }
+    .notice-box p { font-size:.84rem; line-height:1.88; color:var(--text-mid); margin:0; }
+    .notice-box strong { color:var(--brown); font-weight:500; }
+
+    .cta-box { background:var(--brown); padding:32px 24px; margin:52px 0 0; text-align:center; }
+    .cta-box-title { font-family:'Playfair Display',serif; font-size:1.25rem; color:var(--cream); margin-bottom:10px; line-height:1.3; }
+    .cta-box-title em { font-style:italic; color:var(--gold-light); }
+    .cta-box-desc { font-size:.8rem; color:rgba(245,240,232,.6); line-height:1.8; margin-bottom:20px; }
+    .btn-gold { display:inline-block; font-size:.68rem; letter-spacing:.2em; text-transform:uppercase; background:var(--gold); color:var(--brown); padding:12px 28px; text-decoration:none; transition:background .3s; }
+    .btn-gold:hover { background:var(--gold-light); }
+
+    .related-section { margin-top:56px; padding-top:36px; border-top:1px solid var(--line); }
+    .related-title { font-family:'Playfair Display',serif; font-size:1.05rem; color:var(--brown); margin-bottom:20px; }
+    .related-grid { display:grid; grid-template-columns:1fr; gap:12px; }
+    .related-card { display:flex; gap:14px; text-decoration:none; padding:14px; background:var(--white); border:1px solid var(--line); transition:border-color .3s; }
+    .related-card:hover { border-color:var(--gold); }
+    .related-thumb { width:72px; height:72px; flex-shrink:0; overflow:hidden; }
+    .related-thumb img { width:100%; height:100%; object-fit:cover; }
+    .related-tag { font-size:.56rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); }
+    .related-name { font-family:'Noto Serif TC',serif; font-size:.86rem; color:var(--brown); margin:4px 0; line-height:1.4; }
+    .related-date { font-size:.62rem; color:var(--text-dim); }
+
+    footer { background:var(--brown); padding:36px 24px 24px; border-top:2px solid var(--gold); }
+    .footer-logo { font-family:'Playfair Display',serif; font-size:1rem; color:var(--cream); margin-bottom:6px; }
+    .footer-links { display:flex; gap:18px; flex-wrap:wrap; margin-top:12px; }
+    .footer-links a { font-size:.72rem; color:rgba(245,240,232,.5); text-decoration:none; transition:color .3s; }
+    .footer-links a:hover { color:var(--cream); }
+    .footer-copy { font-size:.6rem; color:rgba(245,240,232,.28); line-height:1.8; margin-top:18px; }
+
+    .reveal { opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease; }
+    .reveal.in { opacity:1; transform:translateY(0); }
+
+    @media (min-width:768px) {
+      nav { padding:0 48px; height:68px; }
+      .article-hero-body, .article-layout { padding-left:48px; padding-right:48px; }
+      .related-grid { grid-template-columns:1fr 1fr; }
+      .city-grid { grid-template-columns:1fr 1fr; }
+    }
+    @media (min-width:1100px) {
+      nav { padding:0 80px; }
+      .article-hero-body, .article-layout { padding-left:80px; padding-right:80px; max-width:960px; }
+    }
+  
+.fee-table { width:100%; border-collapse:collapse; margin:16px 0 24px; font-size:.82rem; }
+    .fee-table th { background:var(--brown); color:var(--cream); padding:10px 12px; text-align:left; font-weight:400; font-size:.72rem; letter-spacing:.1em; }
+    .fee-table td { padding:10px 12px; border-bottom:1px solid var(--line); color:var(--text-mid); vertical-align:top; line-height:1.7; }
+    .fee-table td strong { color:var(--brown); font-weight:500; }
+    .fee-table tr:last-child td { border-bottom:none; }
+
+    /* === VIP 鎖定 === */
+    .vip-gate { position:relative; margin-top:-140px; padding-top:140px; background:linear-gradient(to bottom, rgba(245,240,232,0) 0%, var(--cream) 130px); }
+    .vip-box { background:var(--brown); padding:36px 26px; text-align:center; border-top:2px solid var(--gold); }
+    .vip-badge { display:inline-block; font-size:.6rem; letter-spacing:.3em; text-transform:uppercase; color:var(--gold-light); border:1px solid var(--gold); padding:4px 14px; margin-bottom:14px; }
+    .vip-box-title { font-family:'Playfair Display',serif; font-size:1.3rem; color:var(--cream); margin-bottom:10px; line-height:1.35; }
+    .vip-box-title em { font-style:italic; color:var(--gold-light); }
+    .vip-box-desc { font-size:.8rem; color:rgba(245,240,232,.65); line-height:1.9; margin-bottom:22px; }
+    .vip-steps { display:flex; justify-content:center; gap:18px; flex-wrap:wrap; margin-bottom:24px; }
+    .vip-step { font-size:.68rem; color:rgba(245,240,232,.75); letter-spacing:.08em; }
+    .vip-step strong { color:var(--gold-light); font-weight:500; margin-right:6px; }
+    .vip-input-row { display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin-top:18px; }
+    .vip-input { background:rgba(245,240,232,.08); border:1px solid rgba(212,184,138,.5); color:var(--cream); padding:11px 16px; font-size:.85rem; letter-spacing:.15em; width:200px; text-align:center; outline:none; }
+    .vip-input::placeholder { color:rgba(245,240,232,.35); letter-spacing:.1em; }
+    .vip-input:focus { border-color:var(--gold-light); }
+    .btn-unlock { font-size:.68rem; letter-spacing:.2em; text-transform:uppercase; background:transparent; color:var(--gold-light); border:1px solid var(--gold); padding:11px 22px; cursor:pointer; transition:all .3s; }
+    .btn-unlock:hover { background:var(--gold); color:var(--brown); }
+    .vip-error { font-size:.7rem; color:#d9a0a0; margin-top:10px; display:none; }
+    .vip-hidden { display:none; }
+    body.vip-unlocked .vip-hidden { display:block; }
+    body.vip-unlocked .vip-gate { display:none; }
+
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">愛麗絲奇寓記<small>Overseas Property Curator</small></a>
+  <a class="nav-back" href="uae.html">
+    <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M13 5H1M1 5L5 1M1 5l4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+    阿聯酋房產
+  </a>
+</nav>
+
+<div class="article-hero">
+  <div class="article-hero-img">
+    <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1400&q=85" alt="杜拜預售屋付款計畫解析：40/60、60/40、1% 月付差在哪？" />
+  </div>
+  <div class="article-hero-body">
+    <div class="article-breadcrumb">
+      <a href="index.html">首頁</a> / <a href="uae.html">阿聯酋房產</a> / 預售付款
+    </div>
+    <span class="article-tag-badge">阿聯酋 · VIP 深度</span>
+    <h1 class="article-title">杜拜預售屋付款計畫解析：40/60、60/40、1% 月付差在哪？</h1>
+    <div class="article-meta">
+      <span>閱讀時間約 10 分鐘</span>
+      <span>付款計畫・陷阱・策略</span>
+      <span>2026 年更新</span>
+    </div>
+  </div>
+</div>
+
+<div class="article-layout">
+
+<div class="prose reveal">
+    <p>——杜拜最誘人的購屋誘因，其實是建商幫你設計的付款時間表。</p>
+    <p>如果你曾經在杜拜看過預售屋，一定對各種付款計畫感到好奇：「40/60」、「60/40」、「1% 月付」、「Post Handover」……這些數字代表什麼？哪種對買家最有利？本文帶你一次看懂。</p>
+
+    <h2>一、為什麼杜拜盛行多樣付款計畫？</h2>
+    <p>杜拜預售屋市場高度競爭，建商為吸引全球買家，將「付款時間表」作為主要銷售工具。和台灣的「工程期房貸」不同，杜拜建商通常提供<strong>無需銀行介入的分期付款安排</strong>，買家直接按進度付給建商。</p>
+    <p>核心邏輯是：<strong>買家付出的資金愈少、愈晚付，建商讓利愈多</strong>，但風險也可能愈高。</p>
+
+  <div class="vip-gate reveal">
+    <div class="vip-box">
+      <span class="vip-badge">VIP MEMBERS ONLY</span>
+      <h3 class="vip-box-title">完整內容為 <em>VIP 專屬</em></h3>
+      <p class="vip-box-desc">本篇深度內容僅開放給愛麗絲奇寓記 LINE 好友。<br>加入好友後索取通關密碼，即可解鎖全站所有 VIP 文章與完整資料庫。</p>
+      <div class="vip-steps">
+        <span class="vip-step"><strong>01</strong>加入 LINE 好友</span>
+        <span class="vip-step"><strong>02</strong>索取通關密碼</span>
+        <span class="vip-step"><strong>03</strong>解鎖全部內容</span>
+      </div>
+      <a class="btn-gold" href="https://line.me/ti/p/rY37pUpv_k" target="_blank">加入 LINE 索取密碼</a>
+      <div class="vip-input-row">
+        <input class="vip-input" id="vipPass" type="text" placeholder="輸入通關密碼" autocomplete="off" />
+        <button class="btn-unlock" onclick="vipUnlock()">解鎖</button>
+      </div>
+      <p class="vip-error" id="vipError">密碼不正確，請確認 LINE 訊息中的最新密碼。</p>
+    </div>
+  </div>
+
+  <div class="vip-hidden">
+
+  <div class="prose reveal">
+    <h2>二、主流付款計畫類型解析</h2>
+    <h3>1. 標準建設期分期（Construction-Linked Payment）</h3>
+    <p>依工程進度分批付款，最傳統的方式。</p>
+    <ul>
+      <li>簽約時付 10–20%</li>
+      <li>施工過程按進度（地基、樓層封頂等）分批支付</li>
+      <li>交屋時付清剩餘款項（通常 20–40%）</li>
+    </ul>
+    <p><strong>適合對象</strong>：希望資金配合工程進度釋出、不想一次鎖住太多現金的買家。</p>
+
+    <h3>2. 40/60 計畫</h3>
+    <p>施工期間付 40%，交屋時一次付清剩餘 60%。</p>
+    <ul>
+      <li><strong>優點</strong>：施工期資金壓力小</li>
+      <li><strong>缺點</strong>：交屋時需一次準備大額資金，通常需搭配銀行房貸或再融資</li>
+      <li><strong>實際場景</strong>：買家通常在接近交屋時申請貸款，以貸款款項支付那 60%</li>
+    </ul>
+
+    <h3>3. 60/40 計畫</h3>
+    <p>施工期間付 60%，交屋時付剩餘 40%。</p>
+    <ul>
+      <li><strong>優點</strong>：交屋壓力相對較小</li>
+      <li><strong>缺點</strong>：建設期需付出較多現金，適合現金流充裕的買家</li>
+      <li><strong>常見於</strong>：熱門項目、強力建商——供不應求，建商不需要讓利太多</li>
+    </ul>
+
+    <h3>4. 1% 月付計畫（1% Monthly Payment Plan）</h3>
+    <table class="fee-table">
+      <tr><th>階段</th><th>說明</th></tr>
+      <tr><td>簽約</td><td>付 10%</td></tr>
+      <tr><td>施工期間</td><td>每月付 1%（20–30 個月）</td></tr>
+      <tr><td>交屋</td><td>付剩餘款項</td></tr>
+    </table>
+    <ul>
+      <li><strong>優點</strong>：月付金額固定且低，現金流最友善</li>
+      <li><strong>缺點</strong>：總付款期拉長，無法享受「低首付快速槓桿」</li>
+      <li><strong>常見於</strong>：RAK、Dubai South 等新興區域，吸引首購買家</li>
+    </ul>
+
+    <h3>5. Post Handover Payment Plan（交屋後繼續付款）</h3>
+    <p>交屋後買家繼續按月或按年分期，是最具吸引力也最需謹慎的計畫。例如：簽約付 20%，施工期付 30%，交屋後 50% 分 3–5 年付清。</p>
+    <ul>
+      <li><strong>優點</strong>：入住後用租金收入支付剩餘款項，「以租養房」邏輯清晰</li>
+      <li><strong>缺點</strong>：買家尚未完全擁有房產，通常無法再融資或轉賣（取決於合約）；若出租收入不如預期，現金流壓力仍在；部分銀行不接受未付清物件作為抵押</li>
+    </ul>
+  </div>
+
+  <div class="notice-box reveal">
+    <p>⚠️ Post Handover 期間，建商通常保有部分產權擔保，<strong>務必仔細閱讀合約中的轉售、再融資限制條款</strong>。</p>
+  </div>
+
+  <div class="prose reveal">
+    <h2>三、各付款計畫比較</h2>
+    <table class="fee-table">
+      <tr><th>計畫類型</th><th>施工期付款</th><th>交屋時</th><th>交屋後</th><th>現金流壓力</th><th>適合對象</th></tr>
+      <tr><td><strong>標準建設期分期</strong></td><td>按進度（共約 60–80%）</td><td>20–40%</td><td>無</td><td>中</td><td>穩健型買家</td></tr>
+      <tr><td><strong>40/60</strong></td><td>40%</td><td>60%</td><td>無</td><td>低→高（交屋時）</td><td>計畫貸款者</td></tr>
+      <tr><td><strong>60/40</strong></td><td>60%</td><td>40%</td><td>無</td><td>高（施工期）</td><td>現金充裕者</td></tr>
+      <tr><td><strong>1% 月付</strong></td><td>每月 1%</td><td>餘款</td><td>無</td><td>最低</td><td>首購／低預算</td></tr>
+      <tr><td><strong>Post Handover</strong></td><td>20–50%</td><td>交屋</td><td>繼續付 30–50%</td><td>最低（初期）</td><td>以租養房者</td></tr>
+    </table>
+
+    <h2>四、常見陷阱與注意事項</h2>
+    <h3>陷阱 1：付款計畫不等於免息</h3>
+    <p>部分計畫看似「0 利率」，但建商已將利息成本反映在售價中。比較不同計畫時，應以<strong>等值現金價（Cash Equivalent Price）</strong>為基準。</p>
+    <h3>陷阱 2：施工延誤時付款義務仍在</h3>
+    <p>DLD 規定建商延誤需通知買家，但付款時間表通常以「完工里程碑」而非日期為觸發條件，延誤期間買家仍需按進度付款。</p>
+    <h3>陷阱 3：轉售時的「轉讓費」</h3>
+    <p>預售屋在完工前轉售（NOC 轉讓），建商通常收取 <strong>1–2% 的轉讓手續費（NOC Fee）</strong>，需納入退出成本計算。</p>
+    <h3>陷阱 4：Post Handover 合約中的違約條款</h3>
+    <p>若買家在 Post Handover 期間無法繼續付款，建商可能啟動合約終止程序，已付款項按規定退還（但可能扣除違約金）。</p>
+
+    <h2>五、給台灣買家的建議</h2>
+    <ul>
+      <li><strong>有銀行融資需求</strong>：選 40/60 或 60/40，施工期自備，交屋時申請 UAE 銀行貸款</li>
+      <li><strong>以租養房</strong>：Post Handover 邏輯最清晰，但須確認合約允許出租且租金收入能支撐月付</li>
+      <li><strong>資金分散配置</strong>：1% 月付適合不想一次鎖住大量資金的投資人</li>
+      <li><strong>最保守的做法</strong>：標準建設期分期＋全額現金，避免任何融資風險</li>
+    </ul>
+  </div>
+  </div>
+
+  <div class="cta-box reveal">
+    <h3 class="cta-box-title">想比較<em>特定建案的付款計畫划不划算</em>？</h3>
+    <p class="cta-box-desc">用等值現金價當基準，我們幫你把每個方案攤開來算。</p>
+    <a class="btn-gold" href="https://line.me/ti/p/rY37pUpv_k" target="_blank">LINE 免費諮詢</a>
+  </div>
+
+  <div class="related-section reveal">
+    <h3 class="related-title">延伸閱讀</h3>
+    <div class="related-grid">
+      <a class="related-card" href="article-dubai-escrow.html">
+        <div class="related-thumb"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=200&q=80" alt="" loading="lazy" /></div>
+        <div>
+          <p class="related-tag">阿聯酋 · VIP</p>
+          <p class="related-name">杜拜預售屋安全嗎？Escrow 監管帳戶與建商履約風險</p>
+          <p class="related-date">2026 · 深度解析</p>
+        </div>
+      </a>
+      <a class="related-card" href="article-dubai-offplan-resale.html">
+        <div class="related-thumb"><img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=200&q=80" alt="" loading="lazy" /></div>
+        <div>
+          <p class="related-tag">阿聯酋 · VIP</p>
+          <p class="related-name">杜拜預售屋還沒交屋可以賣嗎？轉售條件與風險</p>
+          <p class="related-date">2026 · 深度解析</p>
+        </div>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p class="footer-logo">愛麗絲奇寓記</p>
+  <div class="footer-links">
+    <a href="index.html">首頁</a><a href="thailand-articles.html">泰國房產</a>
+    <a href="japan.html">日本房產</a><a href="uae.html">阿聯酋房產</a>
+  </div>
+  <p class="footer-copy">© 2026 愛麗絲奇寓記｜投資國外不動產具有風險性，請詳閱行銷文件並審慎考量後再行交易。</p>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+  }, { threshold: 0.06 });
+  reveals.forEach(el => obs.observe(el));
+</script>
+<script src="vip.js"></script>
+<script src="protect.js"></script>
+</body>
+</html>
