@@ -1,21 +1,22 @@
-【建案總覽頁＋導覽調整】8 個檔案全部覆蓋上傳
+【三個建案頁復原】4 個檔案覆蓋上傳
 
-新增：
-- properties.html ← 全部建案總覽頁（新頁面）
+- property-noble-emmerse-phrom-phong.html（復原＋導覽更新）
+- property-culture-thonglor.html（復原＋導覽更新）
+- property-ap-aspire-onnut-station.html（復原＋導覽更新）
+- properties.html（總覽頁現在有全部 5 個泰國建案）
 
-修改（覆蓋）：
-- index.html / about.html / thailand-articles.html / japan.html / uae.html
-- property-kith-samrong.html / property-xt10-ekkamai.html
+⚠️ 重要：圖片也要一起復原！
+這三頁的圖片放在 repo 的 images/ 資料夾（目前 GitHub 上已不存在，全部 404）。
+請把妳電腦裡（VS Code 專案資料夾）的 images/ 整個資料夾重新上傳到 repo。
+GitHub 網頁上傳資料夾方式：Add file → Upload files → 直接把整個 images 資料夾拖進去。
 
-本次調整內容：
-1. 主選單新增頂層「精選建案」→ 一鍵直達 properties.html（手機選單也有）
-2. 泰國房產下拉：文章專欄＋兩個建案＋「查看全部建案」
-3. 日本／阿聯酋下拉：只保留文章專欄（精選物件先關）
-4. uae.html / japan.html 頁面上的精選建案區已移除
-5. 首頁「查看全部建案」按鈕改連到 properties.html
-6. properties.html 目前上架：泰國 2 案；日本/阿聯酋顯示「整理上架中」+ LINE 按鈕
+⚠️ 其中兩個檔案要改名（原本兩個建案共用同名檔，會互相蓋圖）：
+AP Aspire 專用的泳池照請改名：
+  am-pool.jpg      → aspire-am-pool.jpg
+  hero-3-pool.jpg  → aspire-hero-3-pool.jpg
+（Culture Thonglor 的 am-pool.jpg、hero-3-pool.jpg 維持原名）
+如果原本 images/ 裡本來就只有一組，代表其中一案用錯圖，
+請分別準備兩案各自的泳池照再依上面命名。
 
-注意：
-- 不需要上傳 property-tara-park-2.html / property-modon-muheira2.html（先關）。
-  若之前已傳到 GitHub，可留著（沒有任何入口連結，訪客看不到）或直接刪除。
-- 要重新開啟阿聯酋建案時跟我說，一次幫妳恢復下拉選單＋總覽頁＋國家頁卡片。
+如果電腦裡也找不到 images/ 資料夾了，把三個案子的照片傳給我
+（Google Drive 或直接上傳），我重新命名規劃一次。
