@@ -143,6 +143,19 @@
       .footer-grid { max-width: 1060px; }
       .footer-bottom { max-width: 1060px; }
     }
+
+    /* 精選建案 */
+    .prop-feature-wrap { padding: 40px 24px 8px; max-width: 1060px; margin: 0 auto; }
+    .prop-feature-label { font-size:.62rem; letter-spacing:.26em; text-transform:uppercase; color:var(--gold); margin-bottom:14px; }
+    .prop-feature-grid { display:grid; gap:14px; }
+    .prop-feature-card { position:relative; display:block; overflow:hidden; text-decoration:none; aspect-ratio:16/9; }
+    .prop-feature-card img { width:100%; height:100%; object-fit:cover; filter:brightness(.68); transition:transform .6s, filter .4s; }
+    .prop-feature-card:hover img { transform:scale(1.04); filter:brightness(.8); }
+    .prop-feature-info { position:absolute; left:18px; right:18px; bottom:16px; }
+    .prop-feature-tag { display:inline-block; font-size:.58rem; letter-spacing:.22em; text-transform:uppercase; color:var(--gold-light); border:1px solid var(--gold); padding:3px 10px; margin-bottom:8px; }
+    .prop-feature-name { font-family:'Playfair Display', serif; font-size:1.15rem; color:#fff; line-height:1.3; }
+    .prop-feature-sub { font-size:.72rem; color:rgba(255,255,255,.75); margin-top:4px; }
+    @media(min-width:768px){ .prop-feature-grid{grid-template-columns:1fr 1fr;} }
   </style>
 </head>
 <body>
@@ -182,6 +195,30 @@
       <div class="page-stat"><strong>2026</strong>年持續更新</div>
       <div class="page-stat"><strong>繁體中文</strong>撰寫</div>
     </div>
+  </div>
+</div>
+
+
+<!-- 精選建案 -->
+<div class="prop-feature-wrap reveal">
+  <p class="prop-feature-label">精選建案推薦</p>
+  <div class="prop-feature-grid">
+    <a class="prop-feature-card" href="property-kith-samrong.html">
+      <img src="kith-entrance.jpg" alt="曼谷大都會和府 KITH Samrong" loading="lazy" />
+      <div class="prop-feature-info">
+        <span class="prop-feature-tag">曼谷 · 三軌交匯</span>
+        <p class="prop-feature-name">曼谷大都會和府 KITH Samrong</p>
+        <p class="prop-feature-sub">SENA 建商・168 萬泰銖起・永久產權</p>
+      </div>
+    </a>
+    <a class="prop-feature-card" href="property-xt10-ekkamai.html">
+      <img src="xt10-exterior1.jpg" alt="XT 10 Ekkamai by Sansiri" loading="lazy" />
+      <div class="prop-feature-info">
+        <span class="prop-feature-tag">曼谷 · 艾卡邁</span>
+        <p class="prop-feature-name">XT 10 Ekkamai by Sansiri</p>
+        <p class="prop-feature-sub">Sansiri 建商・通羅生活圈・精裝交屋</p>
+      </div>
+    </a>
   </div>
 </div>
 

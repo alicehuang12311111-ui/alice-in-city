@@ -135,6 +135,19 @@
       nav { padding: 0 80px; }
       .page-hero-inner, .filter-inner, .articles-wrap { padding-left: 80px; padding-right: 80px; max-width: 1060px; }
     }
+
+    /* 精選建案 */
+    .prop-feature-wrap { padding: 40px 24px 8px; max-width: 1060px; margin: 0 auto; }
+    .prop-feature-label { font-size:.62rem; letter-spacing:.26em; text-transform:uppercase; color:var(--gold); margin-bottom:14px; }
+    .prop-feature-grid { display:grid; gap:14px; }
+    .prop-feature-card { position:relative; display:block; overflow:hidden; text-decoration:none; aspect-ratio:16/9; }
+    .prop-feature-card img { width:100%; height:100%; object-fit:cover; filter:brightness(.68); transition:transform .6s, filter .4s; }
+    .prop-feature-card:hover img { transform:scale(1.04); filter:brightness(.8); }
+    .prop-feature-info { position:absolute; left:18px; right:18px; bottom:16px; }
+    .prop-feature-tag { display:inline-block; font-size:.58rem; letter-spacing:.22em; text-transform:uppercase; color:var(--gold-light); border:1px solid var(--gold); padding:3px 10px; margin-bottom:8px; }
+    .prop-feature-name { font-family:'Playfair Display', serif; font-size:1.15rem; color:#fff; line-height:1.3; }
+    .prop-feature-sub { font-size:.72rem; color:rgba(255,255,255,.75); margin-top:4px; }
+    @media(min-width:768px){ .prop-feature-grid{grid-template-columns:1fr 1fr;} }
   </style>
 </head>
 <body>
@@ -173,6 +186,22 @@
       <div class="page-stat"><strong>4</strong>大城市解析</div>
       <div class="page-stat"><strong>繁體中文</strong>撰寫</div>
     </div>
+  </div>
+</div>
+
+
+<!-- 精選建案 -->
+<div class="prop-feature-wrap reveal">
+  <p class="prop-feature-label">精選建案推薦</p>
+  <div class="prop-feature-grid">
+    <a class="prop-feature-card" href="https://line.me/ti/p/rY37pUpv_k">
+      <img src="280f01d90cc0420932addceff4d25b2369f4149d-1600x1066.jpg" alt="日本精選建案・整理上架中" loading="lazy" />
+      <div class="prop-feature-info">
+        <span class="prop-feature-tag">日本 · 精選案源</span>
+        <p class="prop-feature-name">日本精選建案・整理上架中</p>
+        <p class="prop-feature-sub">東京・大阪・福岡案源，加 LINE 搶先索取</p>
+      </div>
+    </a>
   </div>
 </div>
 
