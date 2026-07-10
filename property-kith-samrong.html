@@ -183,6 +183,17 @@
       nav{padding:0 80px}
       .prop-layout{padding-left:80px;padding-right:80px;max-width:1060px}
     }
+  
+    /* NAV DROPDOWN */
+    .nav-links > li { position: relative; }
+    .nav-links > li > a { display: inline-block; padding: 24px 0; }
+    .nav-drop { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(6px); background: #fff; border: 1px solid rgba(61,48,40,.12); box-shadow: 0 14px 34px rgba(61,48,40,.14); min-width: 230px; padding: 8px 0 12px; opacity: 0; visibility: hidden; transition: opacity .25s ease, transform .25s ease, visibility .25s; z-index: 300; }
+    .nav-links > li:hover .nav-drop { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+    .nav-drop-head { font-size: .56rem; letter-spacing: .24em; text-transform: uppercase; color: var(--gold); padding: 12px 20px 5px; }
+    .nav-drop a { display: block; padding: 7px 20px; font-size: .8rem; letter-spacing: .04em; text-transform: none; color: var(--text-mid); text-decoration: none; white-space: nowrap; transition: color .2s, background .2s; }
+    .nav-drop a:hover { color: var(--brown); background: rgba(184,154,106,.08); }
+    .nav-drop-divider { height: 1px; background: rgba(61,48,40,.08); margin: 8px 14px; }
+    /* NAV DROPDOWN END */
   </style>
 </head>
 <body>
@@ -191,12 +202,34 @@
   <a class="nav-logo" href="index.html">愛麗絲奇寓記<small>Alice in City · Overseas Property</small></a>
   <ul class="nav-links">
     <li><a href="index.html">首頁</a></li>
+    <li>
+      <a href="thailand-articles.html" class="active">泰國房產 ▾</a>
+      <div class="nav-drop">
+        <p class="nav-drop-head">文章專欄</p>
+        <a href="thailand-articles.html">泰國文章總覽（12 篇）</a>
+        <div class="nav-drop-divider"></div>
+        <p class="nav-drop-head">精選建案</p>
+        <a href="property-kith-samrong.html">曼谷大都會和府 KITH Samrong</a>
+        <a href="property-xt10-ekkamai.html">XT 10 Ekkamai by Sansiri</a>
+        <a href="properties.html">查看全部建案 →</a>
+      </div>
+    </li>
+    <li>
+      <a href="japan.html">日本房產 ▾</a>
+      <div class="nav-drop">
+        <p class="nav-drop-head">文章專欄</p>
+        <a href="japan.html">日本文章總覽（12 篇）</a>
+      </div>
+    </li>
+    <li>
+      <a href="uae.html">阿聯酋房產 ▾</a>
+      <div class="nav-drop">
+        <p class="nav-drop-head">文章專欄</p>
+        <a href="uae.html">阿聯酋文章總覽（28 篇）</a>
+      </div>
+    </li>
+    <li><a href="properties.html">精選建案</a></li>
     <li><a href="about.html">關於我們</a></li>
-    <li><a href="thailand-articles.html" class="active">泰國房產</a></li>
-    <li><a href="japan.html">日本房產</a></li>
-    
-    
-    
   </ul>
   <a class="nav-cta" href="https://line.me/ti/p/rY37pUpv_k" target="_blank">立即諮詢</a>
   <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
@@ -206,7 +239,7 @@
   <a href="index.html" onclick="closeMenu()">首頁</a>
   <a href="thailand-articles.html" onclick="closeMenu()">泰國房產</a>
   <a href="japan.html" onclick="closeMenu()">日本房產</a>
-  <a href="seminar.html" onclick="closeMenu()">說明會</a>
+  <a href="about.html" onclick="closeMenu()">關於我們</a>
   <a href="https://line.me/ti/p/rY37pUpv_k" target="_blank" onclick="closeMenu()">聯絡我們</a>
 </div>
 

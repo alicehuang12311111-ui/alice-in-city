@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>泰國購屋知識｜愛麗絲奇寓記</title>
+  <title>精選建案總覽｜愛麗絲奇寓記 Alice in City</title>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Sans+TC:wght@300;400&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -171,13 +171,12 @@
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a class="nav-logo" href="index.html">愛麗絲奇寓記<small>Overseas Property Curator</small></a>
   <ul class="nav-links">
     <li><a href="index.html">首頁</a></li>
     <li>
-      <a href="thailand-articles.html" class="active">泰國房產 ▾</a>
+      <a href="thailand-articles.html">泰國房產 ▾</a>
       <div class="nav-drop">
         <p class="nav-drop-head">文章專欄</p>
         <a href="thailand-articles.html">泰國文章總覽（12 篇）</a>
@@ -202,7 +201,7 @@
         <a href="uae.html">阿聯酋文章總覽（28 篇）</a>
       </div>
     </li>
-    <li><a href="properties.html">精選建案</a></li>
+    <li><a href="properties.html" class="active">精選建案</a></li>
     <li><a href="about.html">關於我們</a></li>
   </ul>
   <a class="nav-cta" href="https://line.me/ti/p/rY37pUpv_k" target="_blank">立即諮詢</a>
@@ -218,25 +217,19 @@
   <a href="properties.html" onclick="closeMenu()">精選建案</a>
   <a href="https://line.me/ti/p/rY37pUpv_k" target="_blank" onclick="closeMenu()">聯絡我們</a>
 </div>
-
-<!-- PAGE HERO -->
+<!-- HERO -->
 <div class="page-hero">
+  <div class="page-hero-bg"></div>
   <div class="page-hero-inner">
-    <p class="page-eyebrow">泰國房產 · 知識專區</p>
-    <h1 class="page-title">泰國購屋知識<br><em>完整文章總覽</em></h1>
-    <p class="page-desc">從購屋流程、稅務規劃到地段解析，愛麗絲奇寓記為台灣買家整理最完整的泰國房產知識，讓你置產前做好萬全準備。</p>
-    <div class="page-stats">
-      <div class="page-stat"><strong>12</strong>篇完整文章</div>
-      <div class="page-stat"><strong>2026</strong>年持續更新</div>
-      <div class="page-stat"><strong>繁體中文</strong>撰寫</div>
-    </div>
+    <p class="page-eyebrow">Selected Properties · 精選建案</p>
+    <h1 class="page-title">嚴選海外建案<br><em>全部物件總覽</em></h1>
+    <p class="page-desc">每一個上架的案子，都經過建商信譽、地段潛力與付款結構的三重篩選。日本與阿聯酋案源陸續整理上架中，加入 LINE 好友可搶先索取完整案源清單。</p>
   </div>
 </div>
 
-
-<!-- 精選建案 -->
-<div class="prop-feature-wrap reveal">
-  <p class="prop-feature-label">精選建案推薦</p>
+<!-- 泰國 -->
+<div class="prop-feature-wrap reveal" style="padding-top:48px;">
+  <p class="prop-feature-label">泰國 · 曼谷</p>
   <div class="prop-feature-grid">
     <a class="prop-feature-card" href="property-kith-samrong.html">
       <img src="kith-entrance.jpg" alt="曼谷大都會和府 KITH Samrong" loading="lazy" />
@@ -247,7 +240,7 @@
       </div>
     </a>
     <a class="prop-feature-card" href="property-xt10-ekkamai.html">
-      <img src="xt10-exterior1.jpg" alt="XT 10 Ekkamai by Sansiri" loading="lazy" />
+      <img src="xt10-exterior1.jpg" alt="XT 10 Ekkamai" loading="lazy" />
       <div class="prop-feature-info">
         <span class="prop-feature-tag">曼谷 · 艾卡邁</span>
         <p class="prop-feature-name">XT 10 Ekkamai by Sansiri</p>
@@ -255,210 +248,18 @@
       </div>
     </a>
   </div>
-  <p style="margin-top:12px;text-align:right;"><a href="properties.html" style="font-size:.72rem;letter-spacing:.14em;color:var(--gold);text-decoration:none;">查看全部建案 →</a></p>
 </div>
 
-<!-- FILTER -->
-<div class="filter-wrap">
-  <div class="filter-inner">
-    <button class="filter-btn active" onclick="filterArticles('all', this)">全部</button>
-    <button class="filter-btn" onclick="filterArticles('process', this)">購屋流程</button>
-    <button class="filter-btn" onclick="filterArticles('investment', this)">投資分析</button>
-    <button class="filter-btn" onclick="filterArticles('legal', this)">法律稅務</button>
-    <button class="filter-btn" onclick="filterArticles('market', this)">市場地段</button>
-    <button class="filter-btn" onclick="filterArticles('knowledge', this)">購屋須知</button>
+<!-- 即將上架 -->
+<div class="prop-feature-wrap reveal" style="padding-bottom:64px;">
+  <p class="prop-feature-label">日本 · 阿聯酋</p>
+  <div style="border:1px solid rgba(61,48,40,.12); padding:44px 28px; text-align:center;">
+    <p style="font-family:'Playfair Display',serif; font-size:1.25rem; color:var(--brown); margin-bottom:10px;">案源整理上架中</p>
+    <p style="font-size:.82rem; color:var(--text-mid); line-height:1.9; margin-bottom:22px;">東京・大阪・福岡與杜拜・阿布達比的精選案源正在整理中。<br>加入 LINE 好友，第一時間收到新案上架通知與完整案源清單。</p>
+    <a class="btn-gold" href="https://line.me/ti/p/rY37pUpv_k" target="_blank" style="display:inline-block;">LINE 搶先索取案源</a>
   </div>
 </div>
 
-<!-- ARTICLES -->
-<div class="articles-wrap">
-
-  <!-- FEATURED -->
-  <a class="article-featured reveal" href="article-thailand-investment-guide.html" data-cat="investment">
-    <div class="article-featured-inner">
-      <div class="af-img">
-        <img src="https://images.unsplash.com/photo-1508009603885-50cf7c579365?w=900&q=80" alt="泰國房產投資全攻略" loading="lazy" />
-      </div>
-      <div class="af-body">
-        <p class="af-category">泰國 · 投資全攻略</p>
-        <h2 class="af-title">《泰國房產投資全攻略》外國人購屋規範、地段解析、流程與投報率</h2>
-        <p class="af-excerpt">泰國近年成為海外置產熱門市場，本文整合購屋規範、熱門地段、流程與成本，是你入門泰國房產的第一篇必讀文章。</p>
-        <div class="af-meta">
-          <span>2025–2026 更新</span>
-          <span>閱讀時間約 8 分鐘</span>
-          <span class="updated-badge">2026 更新</span>
-        </div>
-      </div>
-    </div>
-  </a>
-
-  <!-- 購屋流程 -->
-  <div class="cat-divider reveal">
-    <span class="cat-divider-label">購屋流程</span>
-    <div class="cat-divider-line"></div>
-  </div>
-
-  <div class="article-list">
-    <a class="article-card reveal" href="article-thailand-buying-process.html" data-cat="process">
-      <div class="ac-thumb">
-        <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=300&q=80" alt="" loading="lazy" />
-      </div>
-      <div class="ac-body">
-        <p class="ac-category">泰國 · 購屋流程</p>
-        <h3 class="ac-title">泰國買房購屋與過戶流程——預售屋、新成屋、二手房三大類完整說明</h3>
-        <p class="ac-excerpt">從訂金、頭期款、FET 匯款到土地廳過戶，含 AP 建商付款實例，三種購屋類型一篇看懂。</p>
-        <div class="ac-meta"><span>2025 更新</span><span>10 分鐘閱讀</span></div>
-      </div>
-    </a>
-    <a class="article-card reveal" href="article-thailand-qa.html" data-cat="process knowledge">
-      <div class="ac-thumb">
-        <img src="https://images.unsplash.com/photo-1555217851-6141535bd771?w=300&q=80" alt="" loading="lazy" />
-      </div>
-      <div class="ac-body">
-        <p class="ac-category">泰國 · 購屋須知</p>
-        <h3 class="ac-title">泰國購房重要須知 Q&A——19 個常見問題完整解答</h3>
-        <p class="ac-excerpt">外國人可以買房嗎？過戶要親自去嗎？FET 是什麼？管理費怎麼算？19 個購屋前必讀問答。</p>
-        <div class="ac-meta"><span>2025 更新</span><span>12 分鐘閱讀</span></div>
-      </div>
-    </a>
-  </div>
-
-  <!-- 法律稅務 -->
-  <div class="cat-divider reveal">
-    <span class="cat-divider-label">法律稅務</span>
-    <div class="cat-divider-line"></div>
-  </div>
-
-  <div class="article-list">
-    <a class="article-card reveal" href="article-thailand-tax.html" data-cat="legal">
-      <div class="ac-thumb">
-        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=300&q=80" alt="" loading="lazy" />
-      </div>
-      <div class="ac-body">
-        <p class="ac-category">泰國 · 稅務知識</p>
-        <h3 class="ac-title">泰國買房稅務——簡析房產稅、遺產稅、贈與稅</h3>
-        <p class="ac-excerpt">購買、持有、出售、遺產、贈與五大階段稅費完整整理，含住宅與商業用途累進稅率表。</p>
-        <div class="ac-meta"><span>2025 更新</span><span>8 分鐘閱讀</span></div>
-      </div>
-    </a>
-    <a class="article-card reveal" href="article-thailand-inheritance.html" data-cat="legal">
-      <div class="ac-thumb">
-        <img src="images-12.jpeg" alt="" loading="lazy" />
-      </div>
-      <div class="ac-body">
-        <p class="ac-category">泰國 · 法律知識</p>
-        <h3 class="ac-title">泰國房產繼承與法律要點——預售屋、成屋繼承與房產贈與完整說明</h3>
-        <p class="ac-excerpt">買家死亡後如何繼承？在台灣立遺囑可以用嗎？外國人能以贈與方式取得房產嗎？</p>
-        <div class="ac-meta"><span>2025 更新</span><span>12 分鐘閱讀</span></div>
-      </div>
-    </a>
-    <a class="article-card reveal" href="article-thailand-deed.html" data-cat="legal knowledge">
-      <div class="ac-thumb">
-        <img src="deed-chanote-sample.png" alt="" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=300&q=80'" />
-      </div>
-      <div class="ac-body">
-        <p class="ac-category">泰國 · 購屋知識</p>
-        <h3 class="ac-title">泰國地契完整解析——Chanote、Nor Sor 3 Gor、Nor Sor 3 比較</h3>
-        <p class="ac-excerpt">三種地契差異、安全性比較、地契正反面說明，含原始地契圖片解析，買房前必讀。</p>
-        <div class="ac-meta"><span>2025 更新</span><span>8 分鐘閱讀</span></div>
-      </div>
-    </a>
-  </div>
-
-  <!-- 投資分析 -->
-  <div class="cat-divider reveal">
-    <span class="cat-divider-label">投資分析</span>
-    <div class="cat-divider-line"></div>
-  </div>
-
-  <div class="article-list">
-    <a class="article-card reveal" href="article-thailand-roi.html" data-cat="investment">
-      <div class="ac-thumb">
-        <img src="image-13.jpg" alt="" loading="lazy" />
-      </div>
-      <div class="ac-body">
-        <p class="ac-category">泰國 · 投資知識</p>
-        <h3 class="ac-title">泰國房產投報率怎麼算？實際案例分享<span class="updated-badge">2026 更新</span></h3>
-        <p class="ac-excerpt">毛報酬 6.28% vs 淨報酬 3–5%，各地段投報率比較，含 1,000 萬泰銖公寓試算案例。</p>
-        <div class="ac-meta"><span>2025–2026 更新</span><span>8 分鐘閱讀</span></div>
-      </div>
-    </a>
-    <a class="article-card reveal" href="article-thailand-rental.html" data-cat="investment">
-      <div class="ac-thumb">
-        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=300&q=80" alt="" loading="lazy" />
-      </div>
-      <div class="ac-body">
-        <p class="ac-category">泰國 · 出租市場</p>
-        <h3 class="ac-title">泰國房產出租市場：長租 vs 短租——六種租客類型完整解析<span class="updated-badge">2026 更新</span></h3>
-        <p class="ac-excerpt">外國人能合法出租嗎？長短租有何限制？曼谷六大租客族群，幫你找對目標市場。</p>
-        <div class="ac-meta"><span>2025–2026 更新</span><span>10 分鐘閱讀</span></div>
-      </div>
-    </a>
-    <a class="article-card reveal" href="article-thailand-developers.html" data-cat="investment knowledge">
-      <div class="ac-thumb">
-        <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=300&q=80" alt="" loading="lazy" />
-      </div>
-      <div class="ac-body">
-        <p class="ac-category">泰國 · 建商介紹</p>
-        <h3 class="ac-title">知名的泰國房地產十大建商——品牌特色與代表建案系列<span class="updated-badge">2026 更新</span></h3>
-        <p class="ac-excerpt">AP Thailand、Sansiri、Origin 等十大建商完整介紹，含 Sena Development 特別收錄，幫你選對開發商。</p>
-        <div class="ac-meta"><span>2025–2026 更新</span><span>10 分鐘閱讀</span></div>
-      </div>
-    </a>
-  </div>
-
-  <!-- 市場地段 -->
-  <div class="cat-divider reveal">
-    <span class="cat-divider-label">市場地段</span>
-    <div class="cat-divider-line"></div>
-  </div>
-
-  <div class="article-list">
-    <a class="article-card reveal" href="article-bangkok-districts.html" data-cat="market">
-      <div class="ac-thumb">
-        <img src="Bangkok-1244x700.jpg" alt="" loading="lazy" />
-      </div>
-      <div class="ac-body">
-        <p class="ac-category">泰國 · 地段解析</p>
-        <h3 class="ac-title">曼谷熱門地段解析：Rama9、素坤逸、河濱區——11 個地段完整介紹</h3>
-        <p class="ac-excerpt">中央倫披尼、素坤逸各站特性、拉瑪九新 CBD、河岸奢華區，附自住 vs 投資建議。</p>
-        <div class="ac-meta"><span>2025 更新</span><span>10 分鐘閱讀</span></div>
-      </div>
-    </a>
-    <a class="article-card reveal" href="article-bangkok-mrt-2026.html" data-cat="market">
-      <div class="ac-thumb">
-        <img src="fef5fcfed80b2265f77eae7fd1267ab74c165f07-1600x1066.jpg" alt="" loading="lazy" />
-      </div>
-      <div class="ac-body">
-        <p class="ac-category">泰國 · 交通建設</p>
-        <h3 class="ac-title">曼谷捷運完整指南 2026 年最新版——10 條路線狀態全解析<span class="new-badge">2026 更新</span></h3>
-        <p class="ac-excerpt">已通車路線、橘線 2027 通車預測、紫線南段施工進度，附各線對應投資建議。</p>
-        <div class="ac-meta"><span>2026 年 4 月更新</span><span>8 分鐘閱讀</span></div>
-      </div>
-    </a>
-    <a class="article-card reveal" href="article-bangkok-price-history.html" data-cat="market investment">
-      <div class="ac-thumb">
-        <img src="images.jpeg" alt="" loading="lazy" />
-      </div>
-      <div class="ac-body">
-        <p class="ac-category">泰國 · 市場分析</p>
-        <h3 class="ac-title">曼谷房價十年變化與天際線的崛起——2010 至 2026 年完整分析<span class="updated-badge">2026 補充</span></h3>
-        <p class="ac-excerpt">五大地標建案、房價成長結構性成因、疫後復甦軌跡，以及 2026 年的市場展望。</p>
-        <div class="ac-meta"><span>2025–2026 更新</span><span>10 分鐘閱讀</span></div>
-      </div>
-    </a>
-  </div>
-
-  <!-- CTA -->
-  <div class="cta-banner reveal">
-    <h3 class="cta-banner-title">文章看完了，<em>下一步是什麼？</em></h3>
-    <p class="cta-banner-desc">更多成交數據、單價帶、區域比價與實際建案，歡迎直接聯繫 Alice 或參加我們的說明會。</p>
-    <a class="btn-gold" href="https://line.me/ti/p/rY37pUpv_k" target="_blank">LINE 立即諮詢</a>
-  </div>
-
-</div>
-
-<!-- FOOTER -->
 <footer>
   <div class="footer-grid">
     <div>
@@ -501,7 +302,6 @@
 </footer>
 
 <script>
-  // Hamburger
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobileMenu');
   hamburger.addEventListener('click', () => {
@@ -514,26 +314,6 @@
     hamburger.classList.remove('open');
     document.body.style.overflow = '';
   }
-
-  // Filter
-  function filterArticles(cat, btn) {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    const cards = document.querySelectorAll('.article-card, .article-featured');
-    const dividers = document.querySelectorAll('.cat-divider');
-    if (cat === 'all') {
-      cards.forEach(c => c.classList.remove('hidden'));
-      dividers.forEach(d => d.style.display = '');
-    } else {
-      cards.forEach(c => {
-        const cats = (c.dataset.cat || '').split(' ');
-        c.classList.toggle('hidden', !cats.includes(cat));
-      });
-      dividers.forEach(d => d.style.display = 'none');
-    }
-  }
-
-  // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
   const obs = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
