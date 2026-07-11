@@ -1,0 +1,32 @@
+【只要上傳這 4 個 HTML，圖片一張都不用動！】
+- property-noble-emmerse-phrom-phong.html
+- property-culture-thonglor.html
+- property-ap-aspire-onnut-station.html
+- properties.html
+覆蓋上傳到 repo「根目錄」（跟 index.html 同一層）。
+
+圖片維持妳現在的結構（每個建案一個資料夾）：
+  noble-emmerse-phrom-phong/images/…（19 張 ✓ 已在線上）
+  culture-thonglor/images/…（13 張 ✓ 已在線上）
+  ap-aspire-onnut-station/images/…（17 張 ✓ 已在線上）
+頁面已全部改為讀取這些資料夾，經逐一核對 0 缺圖。
+
+─────────────────────────────
+【建議順手清理（可選，不清也不影響網站）】
+在 GitHub 上刪除這些「多餘/重複」檔案：
+
+1. 三個建案資料夾裡的舊 HTML（只刪 HTML，images 資料夾千萬別刪！）
+   noble-emmerse-phrom-phong/property-noble-emmerse-phrom-phong.html
+   culture-thonglor/property-culture-thonglor.html
+   ap-aspire-onnut-station/property-ap-aspire-onnut-station.html
+   （這三份是舊版導覽的重複頁）
+
+2. 之前整包拖上去的資料夾（是我 zip 裡的包裝資料夾，非網站檔案）
+   navpkg/ 整個資料夾
+   pkg2/ 整個資料夾
+
+3. 根目錄的說明檔（給妳看的，不是網站內容）
+   上傳說明.md、上傳說明.txt、本次更新說明.md
+
+GitHub 刪檔方式：點進檔案 → 右上「…」→ Delete file → Commit。
+刪資料夾：點進資料夾內任一檔案刪除，全刪完資料夾會自動消失。
